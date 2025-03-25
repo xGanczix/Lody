@@ -173,3 +173,120 @@ sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id,
 [2025-03-25 14:17:48] [INFO] Zalogowano: mati (Sklep: Prusa)
 [2025-03-25 14:17:58] [INFO] Zalogowano: mati (Sklep: Prusa)
 [2025-03-25 14:22:32] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 14:26:55] [INFO] Zalogowano Serwis
+[2025-03-25 14:38:55] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:38:55] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:38:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:38:56] [ERROR] Nieobsłużony błąd: axios is not defined
+[2025-03-25 14:38:56] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:39:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:39:02] [ERROR] Nieobsłużony błąd: axios is not defined
+[2025-03-25 14:39:02] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:39:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:39:28] [INFO] Połączono z MariaDB
+[2025-03-25 14:39:29] [ERROR] Nieobsłużony błąd: csv is not defined
+[2025-03-25 14:39:29] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:41:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:41:44] [INFO] Połączono z MariaDB
+[2025-03-25 14:41:44] [ERROR] Nieobsłużony błąd: data.pipe is not a function
+[2025-03-25 14:41:44] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:42:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:42:39] [INFO] Połączono z MariaDB
+[2025-03-25 14:45:43] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:45:43] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:45:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:45:44] [INFO] Połączono z MariaDB
+[2025-03-25 14:45:54] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:45:54] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:45:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:45:56] [INFO] Połączono z MariaDB
+[2025-03-25 14:46:08] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:46:08] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:46:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:46:09] [INFO] Połączono z MariaDB
+[2025-03-25 14:57:41] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:57:41] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:57:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:57:42] [INFO] Połączono z MariaDB
+[2025-03-25 14:57:46] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:57:46] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:57:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:57:51] [INFO] Połączono z MariaDB
+[2025-03-25 14:58:07] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:58:07] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:58:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:58:09] [INFO] Połączono z MariaDB
+[2025-03-25 14:58:13] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:58:13] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:58:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:58:24] [INFO] Połączono z MariaDB
+[2025-03-25 14:58:26] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:58:26] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:58:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:58:35] [INFO] Połączono z MariaDB
+[2025-03-25 14:58:36] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:58:37] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:58:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:58:38] [INFO] Połączono z MariaDB
+[2025-03-25 14:58:40] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:58:40] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:58:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:58:52] [INFO] Połączono z MariaDB
+[2025-03-25 14:58:58] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 14:59:11] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 15:03:17] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:03:17] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:03:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:03:18] [INFO] Połączono z MariaDB
+[2025-03-25 15:04:29] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 15:19:07] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:19:07] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:19:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:19:08] [INFO] Połączono z MariaDB
+[2025-03-25 15:19:32] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:19:32] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:19:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:19:33] [INFO] Połączono z MariaDB
+[2025-03-25 15:19:34] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1370, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:19:49] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1371, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:19:50] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1372, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:19:52] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1373, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:20:42] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1374, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:20:42] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1375, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:20:42] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1376, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:20:43] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1377, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:20:45] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:1378, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select * from rcp where RCPUzId = undefined order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-03-25 15:21:56] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:21:56] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:21:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:21:57] [INFO] Połączono z MariaDB
+[2025-03-25 15:50:16] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:50:16] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:50:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:50:18] [INFO] Połączono z MariaDB
+[2025-03-25 15:50:27] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 15:51:45] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:51:45] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:51:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:51:46] [INFO] Połączono z MariaDB
+[2025-03-25 15:51:55] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 15:53:21] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:53:21] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:53:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:53:22] [INFO] Połączono z MariaDB
+[2025-03-25 15:53:27] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 15:54:45] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 15:54:45] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 15:54:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 15:54:46] [INFO] Połączono z MariaDB
+[2025-03-25 15:54:53] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 15:55:37] [INFO] Zalogowano: mati (Sklep: Prusa)

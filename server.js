@@ -6,6 +6,9 @@ const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const { exec } = require("child_process");
+const axios = require("axios");
+const csv = require("csv-parser");
+const { Readable } = require("stream");
 
 const appPort = 3000;
 const app = express();
@@ -935,8 +938,8 @@ app.get("/api/ulozenie-kuwet", async (req, res) => {
   }
 });
 
-app.get("api/rcp-user-info", async (req, res) => {
-  const { uzytkownikId } = req.query;
+app.get("/api/rcp-user-info/:uzytkownikId", async (req, res) => {
+  const { uzytkownikId } = req.params;
   let connection;
 
   try {
@@ -950,6 +953,43 @@ app.get("api/rcp-user-info", async (req, res) => {
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   }
 });
+
+// GOOGLE LICENSE
+
+const url =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vT6G5y8cdYpKIvIjkHVsImqjvhHGhxWdoZz7-bo8rrHyAW3dzgaPZIxMAWhQnvIm_e3ambQjpTQipMc/pub?gid=0&single=true&output=csv"; // Wstaw tutaj link do pliku CSV
+
+async function checkLicense(licenseKey) {
+  const licenses = [];
+
+  try {
+    const response = await axios.get(url);
+
+    const results = [];
+
+    const readableStream = new Readable();
+    readableStream._read = () => {};
+    readableStream.push(response.data);
+    readableStream.push(null);
+
+    readableStream
+      .pipe(csv())
+      .on("data", (row) => {
+        results.push(row);
+      })
+      .on("end", () => {
+        const found = results.find((lic) => lic.Licencja === licenseKey);
+        if (found) {
+          console.log("Licencja znaleziona:", found);
+        } else {
+          console.log("Licencja nieznana.");
+        }
+      });
+  } catch (error) {
+    console.error("Błąd podczas pobierania lub przetwarzania CSV:", error);
+  }
+}
+checkLicense("5VJ2-E2SY-YP2J-MWCK");
 
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);

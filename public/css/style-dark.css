@@ -121,6 +121,15 @@ body.dark-mode .centrala-main-container {
   color: var(--text-white-color);
 }
 
+body.dark-mode form#przypisywanie-uzytkownika {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode #przypisywanie-uzytkownika-sklepy {
+  background: var(--background-input-dark-color);
+  border: 1px solid var(--border-dark-color);
+}
+
 body.dark-mode table#centrala-smaki thead th,
 body.dark-mode table#centrala-uzytkownicy thead th,
 body.dark-mode table#centrala-rozmiary thead th,
