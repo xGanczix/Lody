@@ -142,3 +142,18 @@ sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id,
 [2025-03-25 10:51:15] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: null | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
 [2025-03-25 10:51:35] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
 [2025-03-25 10:51:35] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 10:55:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 10:55:03] [INFO] Połączono z MariaDB
+[2025-03-25 10:55:59] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 10:56:12] [INFO] Zalogowano Serwis
+[2025-03-25 11:00:03] [INFO] Smak dodany pomyślnie: Test
+[2025-03-25 11:00:52] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-25 11:00:58] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-25 11:01:04] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-25 11:01:51] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 11:02:34] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 11:05:21] [INFO] Zalogowano Serwis
+[2025-03-25 11:06:42] [INFO] Sklep dodany pomyślnie: Test123
+[2025-03-25 11:06:51] [INFO] Użytkownik dodany pomyślnie: 123
+[2025-03-25 11:07:04] [INFO] Użytkownik 2 przypisany do sklepów: 1, 2
+[2025-03-25 11:07:19] [INFO] Zalogowano: 123

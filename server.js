@@ -725,7 +725,7 @@ app.post("/api/kuwety-dodanie", async (req, res) => {
     );
 
     logToFile(
-      `[INFO] Kuweta dodana pomyślnie: ${kuwetaSmak}, ${kuwetaRozmiar}, porcje: ${kuwetaPorcje}`
+      `[INFO] Kuweta dodana pomyślnie: Id smak: ${kuwetaSmak} | Id rozmiar: ${kuwetaRozmiar} | Porcje: ${kuwetaPorcje}`
     );
     res.status(201).json({ message: "Kuweta dodana pomyślnie." });
   } catch (err) {
@@ -897,7 +897,7 @@ app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
       ]
     );
     logToFile(
-      `[INFO] Ułożenie dodano pomyślnie: SKLEP: ${sklepId} = KUWETA1: ${kuweta1} | KUWETA2: ${kuweta2} | KUWETA3: ${kuweta3} | KUWETA: ${kuweta4} | KUWETA: ${kuweta5} | KUWETA6: ${kuweta6} | KUWETA7: ${kuweta7} | KUWETA8: ${kuweta8} | KUWETA9: ${kuweta9} | KUWETA10: ${kuweta10}`
+      `[INFO] Ułożenie dodano pomyślnie: SKLEP: ${sklepId} = KUWETA1: ${kuweta1} | KUWETA2: ${kuweta2} | KUWETA3: ${kuweta3} | KUWETA4: ${kuweta4} | KUWETA5: ${kuweta5} | KUWETA6: ${kuweta6} | KUWETA7: ${kuweta7} | KUWETA8: ${kuweta8} | KUWETA9: ${kuweta9} | KUWETA10: ${kuweta10}`
     );
     res.status(201).json({ message: "Ułożenie dodano pomyślnie." });
   } catch (err) {
