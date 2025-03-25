@@ -149,6 +149,11 @@ nav {
   margin-right: 20px;
 }
 
+.sklep-menu-btn:disabled {
+  background: #ccc;
+  cursor: default;
+}
+
 .sklep-pozycje-wydania {
   width: 20%;
   height: 100%;

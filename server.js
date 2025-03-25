@@ -935,6 +935,22 @@ app.get("/api/ulozenie-kuwet", async (req, res) => {
   }
 });
 
+app.get("api/rcp-user-info", async (req, res) => {
+  const { uzytkownikId } = req.query;
+  let connection;
+
+  try {
+    connection = await dbConfig.getConnection();
+    const data = await connection.query(
+      `select * from rcp where RCPUzId = ${uzytkownikId} order by RCPStartZmiany desc limit 1`
+    );
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
+    res.status(500).json({ error: "Wystąpił błąd serwera." });
+  }
+});
+
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);
   logToFile(`[INFO] Uruchomiono serwer na porcie ${appPort}`);

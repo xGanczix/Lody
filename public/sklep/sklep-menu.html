@@ -22,21 +22,33 @@
         </button>
       </div>
       <nav>
-        <button type="button" class="sklep-menu-btn">
+        <button type="button" class="sklep-menu-btn" id="poczatekZmiany">
           <img src="../img/white/hourglass-white.png" alt="" />Początek zmiany
         </button>
-        <button type="button" class="sklep-menu-btn">
+        <button type="button" class="sklep-menu-btn" id="koniecZmiany" disabled>
           <img src="../img/white/hourglass-1-white.png" alt="" />Koniec zmiany
         </button>
-        <button type="button" class="sklep-menu-btn" onclick="sprzedaz()">
+        <button
+          type="button"
+          class="sklep-menu-btn"
+          onclick="sprzedaz()"
+          id="sprzedaz"
+          disabled
+        >
           <img src="../img/white/goods-white.png" alt="" />
           Sprzedaż
         </button>
-        <button type="button" class="sklep-menu-btn" onclick="ulozenieKuwet()">
+        <button
+          type="button"
+          class="sklep-menu-btn"
+          onclick="ulozenieKuwet()"
+          id="ulozenieKuwet"
+          disabled
+        >
           <img src="../img/white/strawberry-white.png" alt="" />
           Ułożenie kuwet
         </button>
-        <button type="button" class="sklep-menu-btn">
+        <button type="button" class="sklep-menu-btn" id="zamowienie" disabled>
           <img src="../img/white/delivery-white.png" alt="" />
           Zamówienie
         </button>
@@ -46,5 +58,6 @@
     <script src="../js/token.js"></script>
     <script src="../js/app-sklep.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/rcp-sprawdzenie.js"></script>
   </body>
 </html>

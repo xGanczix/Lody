@@ -166,3 +166,36 @@ body.dark-mode .progress-container {
 body.dark-mode .progress-text {
   color: var(--text-white-color);
 }
+
+body.dark-mode .sklep-menu-btn:disabled {
+  background: var(--background-input-dark-color);
+}
+
+body.dark-mode .ulozenie-kuwet-container {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode .ulozenie-kuwet-container h2 {
+  color: var(--text-white-color);
+}
+
+body.dark-mode .ulozenie-kuwet-kuweta {
+  background: var(--background-input-dark-color);
+  border: 1px solid var(--border-dark-color);
+}
+
+body.dark-mode .dostepne-kuwety-container {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode .sklep-wybor-towarow {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode .sklep-pozycje-wydania {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode span#wartosc-wydania {
+  background: var(--background-input-dark-color);
+}

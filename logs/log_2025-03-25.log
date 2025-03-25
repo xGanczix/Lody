@@ -157,3 +157,19 @@ sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id,
 [2025-03-25 11:06:51] [INFO] Użytkownik dodany pomyślnie: 123
 [2025-03-25 11:07:04] [INFO] Użytkownik 2 przypisany do sklepów: 1, 2
 [2025-03-25 11:07:19] [INFO] Zalogowano: 123
+[2025-03-25 11:25:56] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-25 12:11:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 12:11:13] [INFO] Połączono z MariaDB
+[2025-03-25 13:58:53] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 13:58:53] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 13:58:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 13:58:55] [INFO] Połączono z MariaDB
+[2025-03-25 14:00:50] [INFO] Zalogowano Serwis
+[2025-03-25 14:00:56] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 14:11:37] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 14:11:37] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 14:11:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 14:11:38] [INFO] Połączono z MariaDB
+[2025-03-25 14:17:48] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 14:17:58] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 14:22:32] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
