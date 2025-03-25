@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Dodawanie kuwet</title>
+  </head>
+  <body>
+    <div class="dodawanie-container">
+      <div class="message"><span id="message"></span></div>
+      <form id="dodawanie-kuwet">
+        <h2>Dodawanie kuwet</h2>
+        <label for="dodawanie-kuwet">Smak</label>
+        <p id="dodawanie-wymagane">(wymagane)</p>
+        <select id="dodawanie-kuwet-smak" required>
+          <option value="" disabled selected>-- Wybierz smak --</option>
+        </select>
+        <label for="dodawanie-kuwet-rozmiar">Rozmiar</label>
+        <p id="dodawanie-wymagane">(wymagane)</p>
+        <select id="dodawanie-kuwet-rozmiar" required>
+          <option value="" disabled selected>-- Wybierz rozmiar --</option>
+        </select>
+        <label for="dodawanie-kuwet-sklep">Sklep</label>
+        <select id="dodawanie-kuwet-sklep">
+          <option value="" disabled selected>-- Wybierz sklep --</option>
+        </select>
+        <button type="submit" class="dodawanie-btn-dodaj">Dodaj</button>
+        <button
+          type="button"
+          class="dodawanie-btn-anuluj"
+          onclick="centralaKuwetyAnuluj()"
+        >
+          Anuluj
+        </button>
+      </form>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/kuwety-dodanie.js"></script>
+  </body>
+</html>

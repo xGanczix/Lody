@@ -1,0 +1,144 @@
+[2025-03-25 08:21:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 08:21:54] [INFO] Zalogowano Serwis
+[2025-03-25 08:21:56] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:10] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:17] [ERROR] Błąd podczas dodawania sklepu: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:19] [ERROR] Błąd podczas dodawania sklepu: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:26] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:36] [INFO] Poprawny test połączenia z bazą danych
+[2025-03-25 08:22:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-03-25 08:22:44] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 08:22:45] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 08:22:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 08:22:45] [INFO] Połączono z MariaDB
+[2025-03-25 08:22:50] [INFO] Restart serwera
+[2025-03-25 08:22:57] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:109, no: 1054, SQLState: 42S22) Unknown column 'k.KuwSklId' in 'ON'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) ... - parameters:[]
+[2025-03-25 08:23:07] [INFO] Zalogowano: mt (Sklep: Bonarka)
+[2025-03-25 08:23:09] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:115, no: 1054, SQLState: 42S22) Unknown column 's.SmkKolor' in 'SELECT'
+sql: 
+    select
+	    k.KuwId as Id,
+	    s.SmkNazwa as Nazwa,
+	    s.SmkKolor as Kolor,
+      s.SmkTekstKolor as TekstKolor,
+	    r.RozPojemnosc as Pojemnosc,
+	    k.KuwPorcje as Porcje
+    from
+	    kuwety as k
+    left join rozmiary as r on
+	    r.RozId = k....
+[2025-03-25 08:23:18] [INFO] Zalogowano: mt (Sklep: 123)
+[2025-03-25 08:32:02] [INFO] Zalogowano Serwis
+[2025-03-25 08:32:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:119, no: 1054, SQLState: 42S22) Unknown column 'k.KuwSklId' in 'ON'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) ... - parameters:[]
+[2025-03-25 08:32:13] [ERROR] Błąd podczas dodawania kuwety: SqlError: (conn:123, no: 1054, SQLState: 42S22) Unknown column 'KuwSklId' in 'INSERT INTO'
+sql: INSERT INTO Kuwety (KuwSmkId, KuwRozId, KuwPorcje, KuwSklId) VALUES (?,?,?,?) - parameters:['7','1',95,'6']
+[2025-03-25 08:33:53] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 95
+[2025-03-25 08:34:03] [INFO] Zalogowano: mt (Sklep: 123)
+[2025-03-25 08:34:04] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:133, no: 1054, SQLState: 42S22) Unknown column 's.SmkKolor' in 'SELECT'
+sql: 
+    select
+	    k.KuwId as Id,
+	    s.SmkNazwa as Nazwa,
+	    s.SmkKolor as Kolor,
+      s.SmkTekstKolor as TekstKolor,
+	    r.RozPojemnosc as Pojemnosc,
+	    k.KuwPorcje as Porcje
+    from
+	    kuwety as k
+    left join rozmiary as r on
+	    r.RozId = k....
+[2025-03-25 08:37:21] [ERROR] Błąd podczas dodawania ułożenia: SqlError: (conn:135, no: 1146, SQLState: 42S02) Table 'lody_lacko.ulozenie' doesn't exist
+sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id, UKuw7Id, UKuw8Id, UKuw9Id, UKuw10Id, USklId) VALUES (?,?,?,?,?,?,?,?,?,?,?) - parameters:[null,null,null,null,'4',null,null,null,null,null,'6']
+[2025-03-25 08:37:53] [INFO] Ułożenie dodano pomyślnie: SKLEP: 6 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: 4 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 08:49:14] [INFO] Zalogowano Serwis
+[2025-03-25 08:49:34] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-03-25 08:50:22] [INFO] Zalogowano Serwis
+[2025-03-25 08:50:31] [INFO] Sklep dodany pomyślnie: Prusa
+[2025-03-25 08:50:46] [INFO] Rozmiar dodany pomyślnie: Kuweta Duża
+[2025-03-25 08:54:52] [INFO] Smak dodany pomyślnie: Truskawka
+[2025-03-25 08:55:10] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-03-25 08:55:27] [INFO] Smak dodany pomyślnie: Cytryna
+[2025-03-25 08:55:40] [INFO] Smak dodany pomyślnie: Toffi
+[2025-03-25 08:58:04] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-25 08:58:10] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-25 08:58:17] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-25 08:59:03] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 08:59:03] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 08:59:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 08:59:04] [INFO] Połączono z MariaDB
+[2025-03-25 08:59:19] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 08:59:38] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 08:59:51] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA: 2 | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 09:01:47] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 09:01:47] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 09:01:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 09:01:49] [INFO] Połączono z MariaDB
+[2025-03-25 09:02:01] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 09:02:27] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 09:03:52] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 09:04:21] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 09:04:33] [ERROR] Błąd podczas dodawania ułożenia: SqlError: (conn:228, no: 1366, SQLState: 22007) Incorrect integer value: 'smak-3' for column `lody_lacko`.`ulozenie`.`UKuw3Id` at row 1
+sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id, UKuw7Id, UKuw8Id, UKuw9Id, UKuw10Id, USklId) VALUES (?,?,?,?,?,?,?,?,?,?,?) - parameters:[null,null,'smak-3','smak-2','smak-1',null,null,null,null,null,'1']
+[2025-03-25 09:05:57] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 09:05:57] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 09:05:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 09:05:58] [INFO] Połączono z MariaDB
+[2025-03-25 09:06:01] [ERROR] Błąd podczas dodawania ułożenia: SqlError: (conn:262, no: 1366, SQLState: 22007) Incorrect integer value: 'smak-2' for column `lody_lacko`.`ulozenie`.`UKuw5Id` at row 1
+sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id, UKuw7Id, UKuw8Id, UKuw9Id, UKuw10Id, USklId) VALUES (?,?,?,?,?,?,?,?,?,?,?) - parameters:[null,null,null,null,'smak-2',null,null,null,null,null,'1']
+[2025-03-25 09:06:04] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: 2 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 09:06:20] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 09:06:28] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA: 2 | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 09:08:01] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 09:08:01] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 10:43:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 10:43:14] [INFO] Połączono z MariaDB
+[2025-03-25 10:43:27] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 10:43:38] [INFO] Zalogowano Serwis
+[2025-03-25 10:43:46] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-25 10:43:51] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-25 10:43:55] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-25 10:44:00] [INFO] Kuweta dodana pomyślnie: 4, 1, porcje: 90
+[2025-03-25 10:44:04] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: null | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 10:44:57] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA: 2 | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 10:49:59] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-25 10:49:59] [INFO] Aplikacja zakończyła działanie.
+[2025-03-25 10:50:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-25 10:50:14] [INFO] Połączono z MariaDB
+[2025-03-25 10:51:10] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-25 10:51:15] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: null | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-25 10:51:35] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-25 10:51:35] [INFO] Aplikacja zakończyła działanie.

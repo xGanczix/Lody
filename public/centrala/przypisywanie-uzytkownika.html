@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Przypisywanie użytkownika</title>
+  </head>
+  <body>
+    <div class="dodawanie-container">
+      <div class="message"><span id="message"></span></div>
+      <form id="przypisywanie-uzytkownika">
+        <h2>Przypisywanie użytkownika</h2>
+        <label for="przypisywanie-uzytkownika-uzytkownik">Użytkownik</label>
+        <p id="dodawanie-wymagane">(wymagane)</p>
+        <select id="przypisywanie-uzytkownika-uzytkownik">
+          <option value="" disabled selected>
+            -- Błąd pobierania danych --
+          </option>
+        </select>
+        <label for="przypisywanie-uzytkownika-sklepy">Sklepy</label>
+        <p id="dodawanie-wymagane">(wymagane)</p>
+        <div id="przypisywanie-uzytkownika-sklepy"></div>
+
+        <button type="submit" class="dodawanie-btn-dodaj">Dodaj</button>
+        <button
+          type="button"
+          class="dodawanie-btn-anuluj"
+          onclick="przypisanieAnuluj()"
+        >
+          Anuluj
+        </button>
+      </form>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/przypisywanie-uzytkownika.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="stylesheet" href="../css/style-sklep.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Home</title>
+  </head>
+  <body>
+    <div class="sklep-menu-container">
+      <div class="sklep-pozycje-wydania">
+        <h2>Wydanie zewnętrzne</h2>
+        <table id="pozycje-wydania">
+          <thead>
+            <tr>
+              <th>Lp.</th>
+              <th>Nazwa</th>
+              <th>Cena</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="pozycja1" style="display: none">
+              <td>1</td>
+              <td>Cytryna</td>
+              <td>6,00</td>
+              <td>
+                <button class="pozycje-wydania-delete">
+                  <img src="../img/white/delete-white.png" alt="" />
+                </button>
+              </td>
+            </tr>
+            <tr id="pozycja2" style="display: none">
+              <td>2</td>
+              <td>Czekolada</td>
+              <td>6,00</td>
+              <td>
+                <button class="pozycje-wydania-delete">
+                  <img src="../img/white/delete-white.png" alt="" />
+                </button>
+              </td>
+            </tr>
+            <tr id="pozycja3" style="display: none">
+              <td>3</td>
+              <td>Truskawka</td>
+              <td>6,00</td>
+              <td>
+                <button class="pozycje-wydania-delete">
+                  <img src="../img/white/delete-white.png" alt="" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="podsumowanie-wydania">
+          <span id="razem-wydania">RAZEM</span
+          ><span id="wartosc-wydania">0,00 zł</span>
+        </div>
+        <div class="pozycje-wydania-btn-container">
+          <button id="gotowka" onclick="gotowka()">
+            <img src="../img/white/money-white.png" alt="" />Gotówka
+          </button>
+          <button id="karta" onclick="karta()">
+            <img src="../img/white/credit-card-white.png" alt="" />Karta
+          </button>
+          <button id="bon" onclick="bon()">
+            <img src="../img/white/gift-card-white.png" alt="" />Bon
+          </button>
+        </div>
+        <button id="pozycje-wydania-anuluj" onclick="anuluj()">
+          <img src="" alt="" />Anuluj wydanie
+        </button>
+      </div>
+      <div class="sklep-wybor-towarow">
+        <div class="lody-rzemieslnicze">
+          <div class="lody-rzemieslnicze-rzad">
+            <button class="lody-rzemieslnicze-smak">Smak 1</button
+            ><button class="lody-rzemieslnicze-smak">Smak 2</button
+            ><button
+              class="lody-rzemieslnicze-smak"
+              style="background: #fcff5c; color: #000000"
+              onclick="pozycjaFirst()"
+            >
+              Cytryna</button
+            ><button
+              class="lody-rzemieslnicze-smak"
+              style="background: #570000; color: #ffffff"
+              onclick="pozycjaSecond()"
+            >
+              Czekolada</button
+            ><button
+              class="lody-rzemieslnicze-smak"
+              style="background: #ff0000; color: #ffffff"
+              onclick="pozycjaThird() "
+            >
+              Truskawka
+            </button>
+          </div>
+          <div class="lody-rzemieslnicze-rzad">
+            <button class="lody-rzemieslnicze-smak">Smak 6</button
+            ><button class="lody-rzemieslnicze-smak">Smak 7</button
+            ><button class="lody-rzemieslnicze-smak">Smak 8</button
+            ><button class="lody-rzemieslnicze-smak">Smak 9</button
+            ><button class="lody-rzemieslnicze-smak">Smak 10</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app-sklep.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/sprzedaz.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Dodawanie użytkownika</title>
+  </head>
+  <body>
+    <div class="dodawanie-container">
+      <div class="message"><span id="message"></span></div>
+      <form id="dodawanie-uzytkownika">
+        <h2>Dodawanie użytkownika</h2>
+        <label for="dodawanie-uzytkownika-imie">Imie</label>
+        <p id="dodawanie-wymagane">(wymagane)</p>
+        <input
+          type="text"
+          id="dodawanie-uzytkownika-imie"
+          placeholder="Podaj imię"
+          required
+        />
+        <label for="dodawanie-uzytkownika-nazwisko">Nazwisko</label>
+        <p id="dodawanie-wymagane">(wymagane)</p>
+        <input
+          type="text"
+          id="dodawanie-uzytkownika-nazwisko"
+          placeholder="Podaj nazwisko"
+          required
+        />
+        <label for="dodawanie-uzytkownika-login">Login</label>
+        <input
+          type="text"
+          id="dodawanie-uzytkownika-login"
+          placeholder="Podaj login"
+        />
+        <label for="dodawanie-uzytkownika-haslo">Hasło</label>
+        <input
+          type="password"
+          id="dodawanie-uzytkownika-haslo"
+          placeholder="Podaj hasło"
+        />
+        <label for="dodawanie-uzytkownika-pin">PIN</label>
+        <input
+          type="password"
+          id="dodawanie-uzytkownika-pin"
+          placeholder="Podaj PIN"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          maxlength="6"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+        />
+        <button type="submit" class="dodawanie-btn-dodaj">Dodaj</button>
+        <button
+          type="button"
+          class="dodawanie-btn-anuluj"
+          onclick="centralaUzytkownicyAnuluj()"
+        >
+          Anuluj
+        </button>
+      </form>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/uzytkownicy-dodanie.js"></script>
+  </body>
+</html>

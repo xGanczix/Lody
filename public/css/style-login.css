@@ -1,0 +1,118 @@
+:root {
+  /* LIGHT */
+  --background-light-color: rgb(236, 237, 255);
+  --background-container-light-color: rgb(255, 255, 255);
+  --button-light-color: rgb(81, 85, 195);
+  --button-hover-light-color: rgb(54, 58, 182);
+  --background-input-light-color: rgb(245, 245, 245);
+  --border-light-color: #aaa;
+
+  /* DARK */
+  --background-dark-color: rgb(16, 23, 39);
+  --background-container-dark-color: rgb(23, 33, 68);
+  --button-dark-color: rgb(152, 79, 231);
+  --button-hover-dark-color: rgb(128, 37, 226);
+  --background-input-dark-color: rgb(29, 42, 88);
+  --border-dark-color: rgb(39, 59, 131);
+
+  --box-shadow-color: rgba(0, 0, 0, 0.3);
+  --text-white-color: rgb(255, 255, 255);
+  --text-black-color: rgb(0, 0, 0);
+}
+
+.container-login {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-login .theme-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+button#theme-toggle {
+  background: var(--button-light-color);
+}
+
+.container-login .theme-container button#theme-toggle {
+  border-radius: 50%;
+  border: none;
+  width: 70px;
+  height: 70px;
+  padding: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.container-login .theme-container button#theme-toggle img {
+  width: 100%;
+}
+
+form#form-login-password,
+form#form-login-pin {
+  width: 30%;
+  height: 90%;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  background: var(--background-container-light-color);
+  box-shadow: 0 0 10px var(--box-shadow-color);
+}
+
+form#form-login-password h2,
+form#form-login-pin h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+form#form-login-password .form-container,
+form#form-login-pin .form-container {
+  width: 100%;
+  height: calc(100% - 30px - 30px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 60px;
+}
+
+table#pin-keyboard {
+  width: 80%;
+}
+
+table#pin-keyboard .pin-key {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  font-size: 28px;
+  background: var(--background-input-light-color);
+  color: var(--text-black-color);
+  transition: all 0.1s ease-in-out;
+  border: 1px solid var(--border-light-color);
+}
+
+table#pin-keyboard .pin-key:active {
+  background: var(--button-light-color);
+  color: var(--text-white-color);
+}
+
+table#pin-keyboard .pin-key-action {
+  background: var(--button-light-color);
+}
+
+table#pin-keyboard .pin-key-action:hover {
+  background: var(--button-hover-light-color);
+}
+
+table#pin-keyboard .pin-key img {
+  width: 50%;
+}
+
+form#form-login-password button#password-zaloguj {
+  margin-top: 50px;
+}

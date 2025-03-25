@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="stylesheet" href="../css/style-sklep.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Home</title>
+  </head>
+  <body>
+    <div class="sklep-menu-container">
+      <div class="sklep-uzytkownik-container">
+        <span id="username"></span>
+
+        <button id="theme-toggle">
+          <img src="../img/white/moon-white.png" id="theme-icon" />
+        </button>
+        <button id="logout">
+          <img src="../img/white/power-off-white.png" alt="" />
+        </button>
+      </div>
+      <nav>
+        <button type="button" class="sklep-menu-btn">
+          <img src="../img/white/hourglass-white.png" alt="" />Początek zmiany
+        </button>
+        <button type="button" class="sklep-menu-btn">
+          <img src="../img/white/hourglass-1-white.png" alt="" />Koniec zmiany
+        </button>
+        <button type="button" class="sklep-menu-btn" onclick="sprzedaz()">
+          <img src="../img/white/goods-white.png" alt="" />
+          Sprzedaż
+        </button>
+        <button type="button" class="sklep-menu-btn" onclick="ulozenieKuwet()">
+          <img src="../img/white/strawberry-white.png" alt="" />
+          Ułożenie kuwet
+        </button>
+        <button type="button" class="sklep-menu-btn">
+          <img src="../img/white/delivery-white.png" alt="" />
+          Zamówienie
+        </button>
+      </nav>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app-sklep.js"></script>
+    <script src="../js/logout.js"></script>
+  </body>
+</html>

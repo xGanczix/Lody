@@ -1,0 +1,100 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-input-light-color);
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--button-light-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--button-hover-light-color);
+}
+
+:root {
+  /* LIGHT */
+  --background-light-color: rgb(236, 237, 255);
+  --background-container-light-color: rgb(255, 255, 255);
+  --button-light-color: rgb(81, 85, 195);
+  --button-hover-light-color: rgb(54, 58, 182);
+  --background-input-light-color: rgb(245, 245, 245);
+  --border-light-color: #aaa;
+
+  /* DARK */
+  --background-dark-color: rgb(16, 23, 39);
+  --background-container-dark-color: rgb(23, 33, 68);
+  --button-dark-color: rgb(152, 79, 231);
+  --button-hover-dark-color: rgb(128, 37, 226);
+  --background-input-dark-color: rgb(29, 42, 88);
+  --border-dark-color: rgb(39, 59, 131);
+
+  --box-shadow-color: rgba(0, 0, 0, 0.3);
+  --text-white-color: rgb(255, 255, 255);
+  --text-black-color: rgb(0, 0, 0);
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Regular", sans-serif;
+  transition: background 0.3s ease-in-out;
+}
+
+body {
+  background: var(--background-light-color);
+  color: var(--text-light-color);
+}
+
+/* GLOBAL */
+label {
+  font-size: 20px;
+}
+
+input,
+select {
+  width: 100%;
+  height: 50px;
+  background: var(--background-input-light-color);
+  border: 1px solid var(--border-light-color);
+  border-radius: 5px;
+  margin: 6px 0 20px 0;
+  padding: 0 10px;
+  font-size: 16px;
+  outline: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+input:focus,
+select:focus {
+  border: 2px solid var(--button-light-color);
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  background: var(--button-light-color);
+  color: var(--text-white-color);
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--button-hover-light-color);
+}
+/* GLOBAL */

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style-login.css" />
+    <link rel="stylesheet" href="css/style-dark.css" />
+    <link rel="icon" href="img/ice-cream.ico" type="image/x-icon" />
+    <title>Logowanie</title>
+  </head>
+  <body>
+    <div class="container-login">
+      <div class="theme-container">
+        <button id="theme-toggle">
+          <img src="img/white/moon-white.png" id="theme-icon" />
+        </button>
+      </div>
+      <form id="form-login-password">
+        <h2>Logowanie Centrala</h2>
+        <div class="form-container">
+          <label for="password-login">Login</label>
+          <input
+            type="text"
+            id="password-login"
+            placeholder="Podaj login"
+            required
+          />
+          <label for="password-password">Hasło</label>
+          <input
+            type="password"
+            id="password-password"
+            placeholder="Podaj hasło"
+            required
+          />
+          <button type="submit" id="password-zaloguj">Zaloguj</button>
+        </div>
+      </form>
+      <form id="form-login-pin">
+        <h2>Logowanie Sklep</h2>
+        <div class="form-container">
+          <label for="pin-sklep">Sklep</label>
+          <select id="pin-sklep" required>
+            <option value="" disabled selected>-- Wybierz sklep --</option>
+          </select>
+          <label for="pin-pin">PIN</label>
+          <input
+            type="password"
+            id="pin-pin"
+            placeholder="Podaj PIN"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            required
+            maxlength="6"
+          />
+          <table id="pin-keyboard">
+            <tr>
+              <td><button type="button" class="pin-key">1</button></td>
+              <td><button type="button" class="pin-key">2</button></td>
+              <td><button type="button" class="pin-key">3</button></td>
+            </tr>
+            <tr>
+              <td><button type="button" class="pin-key">4</button></td>
+              <td><button type="button" class="pin-key">5</button></td>
+              <td><button type="button" class="pin-key">6</button></td>
+            </tr>
+            <tr>
+              <td><button type="button" class="pin-key">7</button></td>
+              <td><button type="button" class="pin-key">8</button></td>
+              <td><button type="button" class="pin-key">9</button></td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  type="button"
+                  class="pin-key pin-key-action"
+                  id="pin-delete"
+                >
+                  <img src="img/white/delete-white.png" />
+                </button>
+              </td>
+              <td><button type="button" class="pin-key">0</button></td>
+              <td>
+                <button
+                  type="submit"
+                  class="pin-key pin-key-action"
+                  id="pin-enter"
+                >
+                  <img src="img/white/enter-white.png" />
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

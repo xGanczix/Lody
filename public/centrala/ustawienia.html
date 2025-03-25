@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Ustawienia</title>
+  </head>
+  <body>
+    <div class="centrala-container">
+      <div class="centrala-uzytkownik-container">
+        <span id="username"></span>
+
+        <button id="theme-toggle">
+          <img src="../img/white/moon-white.png" id="theme-icon" />
+        </button>
+        <button id="logout">
+          <img src="../img/white/power-off-white.png" alt="" />
+        </button>
+      </div>
+
+      <nav></nav>
+      <main>
+        <div class="centrala-main-container centrala-main-container-ustawienia">
+          <form id="ustawienia-mariadb">
+            <h2>Parametry MariaDB</h2>
+            <label for="ustawienia-mariadb-host">Serwer</label>
+            <input
+              type="text"
+              id="ustawienia-mariadb-host"
+              placeholder="Podaj serwer"
+              required
+            />
+            <label for="ustawienia-mariadb-port">Port</label>
+            <input
+              type="text"
+              id="ustawienia-mariadb-port"
+              placeholder="Podaj port"
+              required
+            />
+            <label for="ustawienia-mariadb-user">Użytkownik</label>
+            <input
+              type="text"
+              id="ustawienia-mariadb-user"
+              placeholder="Podaj użytkownika"
+              required
+            />
+            <label for="ustawienia-mariadb-pass">Hasło</label>
+            <input
+              type="password"
+              id="ustawienia-mariadb-pass"
+              placeholder="Podaj hasło"
+              required
+            />
+            <label for="ustawienia-mariadb-db">Baza Danych</label>
+            <input
+              type="text"
+              id="ustawienia-mariadb-db"
+              placeholder="Podaj nazwę bazy danych"
+              required
+            />
+            <button type="button" id="test-db-connection">Testuj</button>
+            <button type="submit">Zapisz</button>
+          </form>
+          <form id="przypisanie">
+            <button onclick="przypisanie()" style="width: 200px" type="button">
+              Przypisanie
+            </button>
+          </form>
+        </div>
+      </main>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/ustawienia.js"></script>
+  </body>
+</html>

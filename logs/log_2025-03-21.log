@@ -1,0 +1,158 @@
+[2025-03-21 08:44:44] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 09:36:36] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-03-21 10:35:36] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:35:36] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:35:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:35:39] [INFO] Połączono z MariaDB
+[2025-03-21 10:35:50] [ERROR] Błąd podczas dodawania ułożenia: ReferenceError: errorMessages is not defined
+[2025-03-21 10:37:20] [ERROR] Błąd podczas dodawania ułożenia: ReferenceError: errorMessages is not defined
+[2025-03-21 10:44:24] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:44:24] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:44:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:44:25] [INFO] Połączono z MariaDB
+[2025-03-21 10:44:29] [ERROR] Błąd podczas dodawania ułożenia: SqlError: (conn:8261, no: 45016, SQLState: HY000) Parameter at position 12 is not set
+sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id, UKuw7Id, UKuw8Id, UKuw9Id, UKuw10Id, USklId) VALUES (?,?,?,?,?,?,?,?,?,?,?) - parameters:[null,null,null,null,'1',null,null,null,null,null,'5']
+[2025-03-21 10:45:46] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:45:46] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:45:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:45:47] [INFO] Połączono z MariaDB
+[2025-03-21 10:45:51] [ERROR] Błąd podczas dodawania ułożenia: SqlError: (conn:8311, no: 45016, SQLState: HY000) Parameter at position 12 is not set
+sql: INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id, UKuw7Id, UKuw8Id, UKuw9Id, UKuw10Id, USklId) VALUES (?,?,?,?,?,?,?,?,?,?,?,?) - parameters:[null,null,null,null,'4',null,null,null,null,null,'5']
+[2025-03-21 10:46:05] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:46:05] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:46:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:46:07] [INFO] Połączono z MariaDB
+[2025-03-21 10:46:10] [INFO] Ułożenie dodano pomyślnie: SKLEP: 5 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: 3 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 10:52:42] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:52:43] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:52:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:52:45] [INFO] Połączono z MariaDB
+[2025-03-21 10:53:09] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-03-21 10:54:07] [ERROR] Błąd podczas pobierania ułożenia: TypeError: Cannot read properties of undefined (reading 'length')
+[2025-03-21 10:56:48] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:56:49] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:56:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:56:49] [INFO] Połączono z MariaDB
+[2025-03-21 10:56:55] [ERROR] Błąd podczas pobierania ułożenia: TypeError: Cannot read properties of undefined (reading 'length')
+[2025-03-21 10:56:58] [ERROR] Błąd podczas pobierania ułożenia: TypeError: Cannot read properties of undefined (reading 'length')
+[2025-03-21 10:58:07] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:58:08] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:58:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:58:08] [INFO] Połączono z MariaDB
+[2025-03-21 10:59:05] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 10:59:06] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 10:59:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 10:59:06] [INFO] Połączono z MariaDB
+[2025-03-21 11:00:08] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 11:00:08] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 11:00:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 11:00:09] [INFO] Połączono z MariaDB
+[2025-03-21 11:11:59] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 11:12:00] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 11:12:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 11:12:00] [INFO] Połączono z MariaDB
+[2025-03-21 11:50:03] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 11:50:03] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 11:50:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 11:50:04] [INFO] Połączono z MariaDB
+[2025-03-21 12:00:47] [INFO] Zalogowano Serwis
+[2025-03-21 12:01:07] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 12:01:24] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 12:01:25] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 12:01:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 12:01:25] [INFO] Połączono z MariaDB
+[2025-03-21 12:01:45] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-03-21 12:08:03] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 12:08:03] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 12:08:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 12:08:03] [INFO] Połączono z MariaDB
+[2025-03-21 12:09:03] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 12:12:40] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-03-21 12:13:23] [INFO] Ułożenie dodano pomyślnie: SKLEP: 5 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: null | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 12:13:36] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-03-21 12:16:59] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 12:18:22] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: 2
+[2025-03-21 12:18:27] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: null | KUWETA: null | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 12:26:41] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 12:26:42] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 12:26:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 12:26:42] [INFO] Połączono z MariaDB
+[2025-03-21 12:26:50] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 12:29:43] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 12:29:43] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 12:29:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 12:29:44] [INFO] Połączono z MariaDB
+[2025-03-21 12:30:05] [INFO] Zalogowano: mati (Sklep: 123)
+[2025-03-21 12:30:12] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 12:32:23] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 12:32:23] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 12:32:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 12:32:24] [INFO] Połączono z MariaDB
+[2025-03-21 12:32:34] [INFO] Zalogowano Serwis
+[2025-03-21 12:32:46] [INFO] Kuweta dodana pomyślnie: 4, 1, porcje: 90
+[2025-03-21 12:32:54] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:12:05] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 13:12:05] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 13:12:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 13:12:07] [INFO] Połączono z MariaDB
+[2025-03-21 13:18:30] [INFO] Zalogowano Serwis
+[2025-03-21 13:20:51] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-03-21 13:21:08] [INFO] Użytkownik dodany pomyślnie: slawek
+[2025-03-21 13:21:21] [INFO] Sklep dodany pomyślnie: Prusa
+[2025-03-21 13:21:41] [INFO] Sklep dodany pomyślnie: Aleje
+[2025-03-21 13:21:46] [INFO] Użytkownik 1 przypisany do sklepów: 1
+[2025-03-21 13:21:52] [INFO] Użytkownik 2 przypisany do sklepów: 2
+[2025-03-21 13:22:18] [INFO] Smak dodany pomyślnie: Truskawka
+[2025-03-21 13:22:31] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-03-21 13:23:07] [INFO] Smak dodany pomyślnie: Cytryna
+[2025-03-21 13:23:18] [INFO] Rozmiar dodany pomyślnie: Kuweta Duża
+[2025-03-21 13:23:29] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-21 13:23:39] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-21 13:23:45] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:24:06] [INFO] Zalogowano Serwis
+[2025-03-21 13:24:16] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:27:19] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-21 13:27:19] [INFO] Aplikacja zakończyła działanie.
+[2025-03-21 13:27:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-21 13:27:20] [INFO] Połączono z MariaDB
+[2025-03-21 13:28:44] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: null | KUWETA: 2 | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 13:30:07] [INFO] Zalogowano Serwis
+[2025-03-21 13:30:56] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:31:54] [INFO] Zalogowano Serwis
+[2025-03-21 13:32:07] [INFO] Smak dodany pomyślnie: Truskawka
+[2025-03-21 13:32:18] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-03-21 13:32:29] [INFO] Smak dodany pomyślnie: Cytryna
+[2025-03-21 13:32:39] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-21 13:32:45] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-21 13:32:53] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:32:59] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:33:06] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:33:17] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 2 | KUWETA: 1 | KUWETA: 3 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 13:34:21] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 2 | KUWETA: 1 | KUWETA: 3 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 13:38:17] [INFO] Zalogowano Serwis
+[2025-03-21 13:38:26] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:38:32] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-21 13:38:37] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-21 13:38:42] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:38:49] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:39:01] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA: 2 | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 13:39:59] [INFO] Zalogowano Serwis
+[2025-03-21 13:40:08] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:40:13] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-21 13:40:18] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-21 13:40:23] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:40:27] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:40:36] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:40:48] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA: 2 | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 13:42:06] [INFO] Zalogowano Serwis
+[2025-03-21 13:42:27] [INFO] Zalogowano Serwis
+[2025-03-21 13:42:45] [INFO] Smak dodany pomyślnie: Toffi
+[2025-03-21 13:42:55] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:43:00] [INFO] Kuweta dodana pomyślnie: 2, 1, porcje: 90
+[2025-03-21 13:43:06] [INFO] Kuweta dodana pomyślnie: 3, 1, porcje: 90
+[2025-03-21 13:43:10] [INFO] Kuweta dodana pomyślnie: 4, 1, porcje: 90
+[2025-03-21 13:43:17] [INFO] Kuweta dodana pomyślnie: 1, 1, porcje: 90
+[2025-03-21 13:43:25] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-21 13:43:36] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: null | KUWETA2: null | KUWETA3: 3 | KUWETA: 2 | KUWETA: 1 | KUWETA6: null | KUWETA7: null | KUWETA8: null | KUWETA9: null | KUWETA10: null
+[2025-03-21 19:00:32] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-21 19:00:33] [INFO] Aplikacja zakończyła działanie.

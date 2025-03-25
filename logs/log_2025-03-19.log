@@ -1,0 +1,89 @@
+[2025-03-19 15:55:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 15:55:29] [INFO] Połączono z MariaDB
+[2025-03-19 15:55:36] [INFO] Zalogowano Serwis
+[2025-03-19 15:55:40] [INFO] Zalogowano: mati
+[2025-03-19 15:56:11] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:6041, no: 1146, SQLState: 42S02) Table 'lody_lacko.kuwety' doesn't exist
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) AS KuwProcent
+    from
+	    Kuwety... - parameters:[]
+[2025-03-19 15:56:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:6042, no: 1146, SQLState: 42S02) Table 'lody_lacko.rozmiary' doesn't exist
+sql: SELECT * FROM Rozmiary WHERE RozStatus = 1 ORDER BY RozStatus DESC, RozId - parameters:[]
+[2025-03-19 15:56:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:6043, no: 1146, SQLState: 42S02) Table 'lody_lacko.smaki' doesn't exist
+sql: SELECT * FROM Smaki WHERE SmkStatus = 1 ORDER BY SmkStatus DESC, SmkId - parameters:[]
+[2025-03-19 15:56:27] [INFO] Usunięcie sklepu o ID: 4
+[2025-03-19 15:56:38] [INFO] Przywrócenie sklepu o ID: 8
+[2025-03-19 15:56:50] [INFO] Zalogowano Serwis
+[2025-03-19 15:57:02] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 15:57:02] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 15:57:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 15:57:19] [INFO] Połączono z MariaDB
+[2025-03-19 16:10:18] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:10:18] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:10:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:10:21] [INFO] Połączono z MariaDB
+[2025-03-19 16:15:13] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:15:13] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:15:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:15:14] [INFO] Połączono z MariaDB
+[2025-03-19 16:16:29] [INFO] Zalogowano Serwis
+[2025-03-19 16:16:43] [INFO] Użytkownik dodany pomyślnie: 123
+[2025-03-19 16:17:42] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:17:42] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:17:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:17:43] [INFO] Połączono z MariaDB
+[2025-03-19 16:19:13] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:19:13] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:19:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:19:14] [INFO] Połączono z MariaDB
+[2025-03-19 16:19:21] [ERROR] ReferenceError: Cannot access 'user' before initialization
+[2025-03-19 16:22:55] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:22:56] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:22:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:22:57] [INFO] Połączono z MariaDB
+[2025-03-19 16:23:02] [ERROR] TypeError: Cannot read properties of undefined (reading 'UzPIN')
+[2025-03-19 16:24:55] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:24:55] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:24:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:24:56] [INFO] Połączono z MariaDB
+[2025-03-19 16:25:01] [INFO] Zalogowano: mati
+[2025-03-19 16:25:17] [INFO] Zalogowano: mati
+[2025-03-19 16:29:00] [INFO] Zalogowano: mati
+[2025-03-19 16:30:42] [INFO] Zalogowano: mati
+[2025-03-19 16:30:46] [INFO] Zalogowano Serwis
+[2025-03-19 16:32:22] [INFO] Zalogowano: mati
+[2025-03-19 16:33:03] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:33:03] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:33:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:33:04] [INFO] Połączono z MariaDB
+[2025-03-19 16:35:33] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:35:33] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:35:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:35:34] [INFO] Połączono z MariaDB
+[2025-03-19 16:35:42] [ERROR] TypeError: rows is not iterable
+[2025-03-19 16:36:08] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:36:08] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 16:36:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 16:36:08] [INFO] Połączono z MariaDB
+[2025-03-19 16:36:14] [INFO] Zalogowano: slavko
+[2025-03-19 16:36:19] [INFO] Zalogowano: 123
+[2025-03-19 16:36:28] [INFO] Zalogowano: mati
+[2025-03-19 16:36:49] [INFO] Zalogowano: mati
+[2025-03-19 16:37:01] [INFO] Zalogowano: mati
+[2025-03-19 16:42:49] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-19 16:42:49] [INFO] Aplikacja zakończyła działanie.
+[2025-03-19 18:45:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-19 18:45:53] [INFO] Połączono z MariaDB
+[2025-03-19 18:46:00] [INFO] Zalogowano: mati
+[2025-03-19 19:05:32] [INFO] Zalogowano Serwis
+[2025-03-19 19:05:48] [INFO] Zalogowano: mati
+[2025-03-19 20:32:45] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-19 20:32:46] [INFO] Aplikacja zakończyła działanie.

@@ -1,0 +1,168 @@
+body.dark-mode ::-webkit-scrollbar-track {
+  background: var(--background-input-dark-color);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: var(--button-dark-color);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: var(--button-hover-dark-color);
+}
+
+:root {
+  /* LIGHT */
+  --background-light-color: rgb(236, 237, 255);
+  --background-container-light-color: rgb(255, 255, 255);
+  --button-light-color: rgb(81, 85, 195);
+  --button-hover-light-color: rgb(54, 58, 182);
+  --background-input-light-color: rgb(245, 245, 245);
+  --border-light-color: #aaa;
+
+  /* DARK */
+  --background-dark-color: rgb(16, 23, 39);
+  --background-container-dark-color: rgb(23, 33, 68);
+  --button-dark-color: rgb(152, 79, 231);
+  --button-hover-dark-color: rgb(128, 37, 226);
+  --background-input-dark-color: rgb(29, 42, 88);
+  --border-dark-color: rgb(39, 59, 131);
+
+  --box-shadow-color: rgba(0, 0, 0, 0.3);
+  --text-white-color: rgb(255, 255, 255);
+  --text-black-color: rgb(0, 0, 0);
+}
+
+/* DARK */
+body.dark-mode {
+  background: var(--background-dark-color);
+  color: var(--text-white-color);
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background: var(--background-input-dark-color);
+  border: 1px solid var(--border-dark-color);
+  color: var(--text-white-color);
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus {
+  border: 2px solid var(--button-dark-color);
+}
+
+body.dark-mode button {
+  background: var(--button-dark-color);
+}
+
+body.dark-mode button:hover {
+  background: var(--button-hover-dark-color);
+}
+
+body.dark-mode form#form-login-password,
+body.dark-mode form#form-login-pin {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode button#theme-toggle {
+  background: var(--button-dark-color);
+}
+
+body.dark-mode table#pin-keyboard .pin-key {
+  background: var(--background-input-dark-color);
+  color: var(--text-white-color);
+  border: 1px solid var(--border-dark-color);
+}
+
+body.dark-mode table#pin-keyboard .pin-key:active {
+  background: var(--button-dark-color);
+  color: var(--text-white-color);
+}
+
+body.dark-mode table#pin-keyboard .pin-key-action {
+  background: var(--button-dark-color);
+}
+
+body.dark-mode table#pin-keyboard .pin-key-action:hover {
+  background: var(--button-hover-dark-color);
+}
+
+body.dark-mode .centrala-uzytkownik-container,
+body.dark-mode .sklep-uzytkownik-container {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode .centrala-uzytkownik-container button:hover,
+body.dark-mode .sklep-uzytkownik-container button:hover {
+  background: var(--button-hover-dark-color) !important;
+}
+
+body.dark-mode nav {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode nav a.logo {
+  background: var(--button-dark-color);
+}
+
+body.dark-mode nav a.nav-link {
+  color: var(--text-white-color);
+}
+
+body.dark-mode nav a.nav-link:hover {
+  background: var(--button-dark-color);
+}
+
+body.dark-mode nav a.active {
+  background: var(--button-dark-color);
+}
+
+body.dark-mode .centrala-main-container {
+  background: var(--background-container-dark-color);
+  color: var(--text-white-color);
+}
+
+body.dark-mode table#centrala-smaki thead th,
+body.dark-mode table#centrala-uzytkownicy thead th,
+body.dark-mode table#centrala-rozmiary thead th,
+body.dark-mode table#centrala-sklepy thead th,
+body.dark-mode table#centrala-kuwety thead th {
+  color: var(--text-white-color);
+  background: var(--button-dark-color);
+}
+
+body.dark-mode form#dodawanie-smaku,
+body.dark-mode form#dodawanie-uzytkownika,
+body.dark-mode form#dodawanie-rozmiaru,
+body.dark-mode form#dodawanie-sklepu {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode p#dodawanie-komentarz {
+  font-size: 16px;
+  color: var(--button-dark-color);
+}
+
+body.dark-mode .confirm-delete,
+body.dark-mode .confirm-restore {
+  background: var(--background-dark-color);
+}
+
+body.dark-mode .centrala-filtrowanie {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode nav .dropdown-menu {
+  background: var(--background-input-dark-color);
+}
+
+body.dark-mode form#ustawienia-mariadb {
+  background: var(--background-container-dark-color);
+}
+
+body.dark-mode .progress-container {
+  background: var(--background-input-dark-color);
+}
+
+body.dark-mode .progress-text {
+  color: var(--text-white-color);
+}

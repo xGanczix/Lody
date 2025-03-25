@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Kuwety</title>
+  </head>
+  <body>
+    <div class="centrala-container">
+      <div class="centrala-uzytkownik-container">
+        <span id="username"></span>
+
+        <button id="theme-toggle">
+          <img src="../img/white/moon-white.png" id="theme-icon" />
+        </button>
+        <button id="logout">
+          <img src="../img/white/power-off-white.png" alt="" />
+        </button>
+      </div>
+
+      <nav></nav>
+      <main>
+        <div class="centrala-filtrowanie">
+          <select id="centrala-kuwety-filtrowanie" required>
+            <option value="aktywne" selected>Aktywne</option>
+            <option value="usuniete">Usunięte</option>
+            <option value="wszystkie">Wszystkie</option>
+          </select>
+          <button type="button" id="add" onclick="centralaKuwety()">
+            <img src="../img/white/add-white.png" alt="" />
+          </button>
+        </div>
+        <div class="centrala-main-container">
+          <div class="confirm-delete">
+            <h2>Czy chcesz usunąć kuwetę?</h2>
+            <div class="confirm-button-container">
+              <button id="confirm-ok">Usuń</button>
+              <button id="confirm-cancel">Anuluj</button>
+            </div>
+          </div>
+          <div class="confirm-restore">
+            <h2>Czy chcesz przywrócić kuwetę?</h2>
+            <div class="confirm-button-container">
+              <button id="confirm-ok">Przywróć</button>
+              <button id="confirm-cancel">Anuluj</button>
+            </div>
+          </div>
+          <table id="centrala-kuwety">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nazwa</th>
+                <th>Pojemność<br />kuwety</th>
+                <th>Pozostałe<br />porcje</th>
+                <th>Pozostałe<br />porcje w %</th>
+                <th>Przydzielony sklep</th>
+                <th>Status</th>
+                <th>Akcja</th>
+              </tr>
+            </thead>
+            <tbody id="centrala-kuwety-tbody"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/kuwety.js"></script>
+  </body>
+</html>

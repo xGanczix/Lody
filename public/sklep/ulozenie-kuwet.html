@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="stylesheet" href="../css/style-sklep.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Home</title>
+  </head>
+  <body>
+    <div class="sklep-menu-container">
+      <div class="sklep-uzytkownik-container">
+        <span id="username"></span>
+
+        <button id="theme-toggle">
+          <img src="../img/white/moon-white.png" id="theme-icon" />
+        </button>
+        <button id="logout">
+          <img src="../img/white/power-off-white.png" alt="" />
+        </button>
+      </div>
+      <main>
+        <div class="message"><span id="message"></span></div>
+        <div class="ulozenie-kuwet-container">
+          <h2>Ułożenie kuwet</h2>
+          <div class="ulozenie-kuwet-row">
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta1"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta2"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta3"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta4"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta5"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+          </div>
+          <div class="ulozenie-kuwet-row">
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta6"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta7"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta8"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta9"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+            <div
+              class="ulozenie-kuwet-kuweta"
+              id="kuweta10"
+              ondrop="drop(event)"
+              ondragover="allowDrop(event)"
+            ></div>
+          </div>
+        </div>
+        <div class="dostepne-kuwety-container">
+          <h2>Przypisz smak do kuwety</h2>
+          <table id="dostepne-kuwety">
+            <thead>
+              <th>Smak</th>
+              <th>Pojemność</th>
+            </thead>
+            <tbody id="smaki-tbody"></tbody>
+          </table>
+          <button
+            type="button"
+            class="dostepne-kuwety-btn dostepne-kuwety-btn-odstep"
+            id="ulozenie-zapisz-menu"
+          >
+            Zapisz i Menu
+          </button>
+          <button
+            type="button"
+            class="dostepne-kuwety-btn"
+            id="ulozenie-zapisz-sprzedaz"
+          >
+            Zapisz i Sprzedaż
+          </button>
+        </div>
+      </main>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app-sklep.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/ulozenie-kuwet.js"></script>
+  </body>
+</html>
