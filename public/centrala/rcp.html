@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/style-centrala.css" />
     <link rel="stylesheet" href="../css/style-dark.css" />
     <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
-    <title>Centrala - Pomoc</title>
+    <title>Centrala - RCP</title>
   </head>
   <body>
     <div class="centrala-container">
@@ -24,8 +24,21 @@
 
       <nav></nav>
       <main>
-        <div class="centrala-main-container centrala-help-container">
-          <h2>Instrukcja</h2>
+        <div class="centrala-main-container">
+          <div class="confirm-delete">
+            <h2>Czy chcesz usunąć rozmiar?</h2>
+            <div class="confirm-button-container">
+              <button id="confirm-ok">Usuń</button>
+              <button id="confirm-cancel">Anuluj</button>
+            </div>
+          </div>
+          <div class="confirm-restore">
+            <h2>Czy chcesz przywrócić rozmiar?</h2>
+            <div class="confirm-button-container">
+              <button id="confirm-ok">Przywróć</button>
+              <button id="confirm-cancel">Anuluj</button>
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -33,5 +46,6 @@
     <script src="../js/token.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/rozmiary.js"></script>
   </body>
 </html>

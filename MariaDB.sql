@@ -123,3 +123,27 @@ create table ulozenie (UId int not null primary key auto_increment,
 	UKuw10Id int,
 	USklId int not null,
 	UzDataZmiany datetime not null default now())
+
+## Procedura otwierania i zamykania zmiany (! NIE DZIAŁA NA DBEAVER !) ##
+DELIMITER //
+CREATE PROCEDURE rejestruj_zmiane(IN user_id INT)
+BEGIN
+    DECLARE v_last_id INT;
+    DECLARE v_end_time DATETIME;
+    
+    SELECT RCPId, RCPKoniecZmiany INTO v_last_id, v_end_time
+    FROM rcp 
+    WHERE RCPUzId = user_id
+    ORDER BY RCPStartZmiany DESC 
+    LIMIT 1;
+    
+    IF v_last_id IS NULL OR v_end_time IS NOT NULL THEN
+        INSERT INTO rcp (RCPUzId, RCPStartZmiany, RCPKoniecZmiany)
+        VALUES (user_id, NOW(), NULL);
+    ELSE
+        UPDATE rcp 
+        SET RCPKoniecZmiany = NOW()
+        WHERE RCPId = v_last_id;
+    END IF;
+END//
+DELIMITER ;

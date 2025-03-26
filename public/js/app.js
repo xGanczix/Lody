@@ -32,6 +32,7 @@ function updateIcons() {
     { id: "support-icon", name: "support" },
     { id: "kuwety-icon", name: "add-product" },
     { id: "help-icon", name: "question" },
+    { id: "rcp-icon", name: "clock" },
     { id: "przypisanie-icon", name: "people" },
   ];
 

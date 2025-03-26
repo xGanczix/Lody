@@ -954,6 +954,91 @@ app.get("/api/rcp-user-info/:uzytkownikId", async (req, res) => {
   }
 });
 
+app.post("/api/zarejestruj-zmiane", async (req, res) => {
+  const { uzytkownikId } = req.body;
+
+  if (!uzytkownikId || isNaN(uzytkownikId)) {
+    return res.status(400).json({ error: "Nieprawidłowe ID użytkownika" });
+  }
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.query("CALL rejestruj_zmiane(?)", [uzytkownikId]);
+    res.json({ success: true, message: "Procedura wykonana pomyślnie" });
+    logToFile(`Zmiana zarejestrowana dla użytkownika: ${uzytkownikId}`);
+  } catch (err) {
+    logToFile(`Błąd rejestracji zmiany: ${err}`);
+    res.status(500).json({
+      error: "Błąd wykonania procedury",
+      details: err.message,
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/rcp", async (req, res) => {
+  let connection;
+
+  try {
+    connection = await dbConfig.getConnection();
+    const data = await connection.query(`
+      select
+	      TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany) as PrzepracowanyCzas,
+	      SUM(ROUND(
+          (hour(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) +
+          minute(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2)
+          ) as PrzepracowaneGodzinyFormat,
+	      RCPUzId
+      from
+	      rcp
+      group by
+	      RCPUzId
+      `);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
+    res.status(500).json({ error: "Wystąpił błąd serwera." });
+  }
+});
+
+app.get("/api/rcp-dni/:uzytkownikId", async (req, res) => {
+  const { uzytkownikId } = req.params;
+  let connection;
+
+  try {
+    connection = await dbConfig.getConnection();
+    const data = await connection.query(`
+      select
+	      DATE(RCPStartZmiany) as czasPracy,
+	      TIMEDIFF(RCPKoniecZmiany,RCPStartZmiany) as PrzepracowanyCzas,
+	      SUM(ROUND(
+          (hour(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) +
+          minute(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2)
+          ) as PrzepracowaneGodzinyFormat,
+	      FORMAT(SUM(
+          ROUND(
+            (hour(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) +
+            minute(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2) * 30.50
+            ), 2) as Wynagrodzenie,
+	        RCPUzId as uzytkownikId
+        from
+	        rcp
+        where rcp.RCPUzId = 1
+        group by
+	        RCPUzId,
+	        czasPracy
+        order by
+	        czasPracy
+      `);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
+    res.status(500).json({ error: "Wystąpił błąd serwera." });
+  }
+});
+
 // GOOGLE LICENSE
 
 const url =

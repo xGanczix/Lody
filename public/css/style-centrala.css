@@ -144,6 +144,10 @@ nav a.logo {
   margin-bottom: 50px;
 }
 
+nav a.logo img {
+  width: 200px;
+}
+
 nav a.nav-link {
   display: flex;
   align-items: center;

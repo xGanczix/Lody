@@ -1,0 +1,84 @@
+[2025-03-26 08:42:21] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 08:42:21] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 08:42:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 08:42:22] [INFO] Połączono z MariaDB
+[2025-03-26 09:27:29] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 09:36:01] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:36:01] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:36:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:36:02] [INFO] Połączono z MariaDB
+[2025-03-26 09:37:24] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:37:24] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:37:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:37:25] [INFO] Połączono z MariaDB
+[2025-03-26 09:37:40] Błąd rejestracji zmiany: ReferenceError: pool is not defined
+[2025-03-26 09:37:56] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:37:56] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:37:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:37:57] [INFO] Połączono z MariaDB
+[2025-03-26 09:38:00] Błąd rejestracji zmiany: ReferenceError: conn is not defined
+[2025-03-26 09:38:16] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:38:16] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:38:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:38:17] [INFO] Połączono z MariaDB
+[2025-03-26 09:38:19] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:40:06] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:40:07] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:40:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:40:07] [INFO] Połączono z MariaDB
+[2025-03-26 09:41:06] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:41:06] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:41:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:41:07] [INFO] Połączono z MariaDB
+[2025-03-26 09:41:11] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:41:24] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:41:29] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:44:49] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:44:49] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:44:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:44:51] [INFO] Połączono z MariaDB
+[2025-03-26 09:44:58] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:45:09] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:45:48] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:45:51] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:46:26] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:46:28] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:46:30] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:46:31] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:48:26] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 09:48:26] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 09:48:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 09:48:27] [INFO] Połączono z MariaDB
+[2025-03-26 09:48:40] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:48:51] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:49:03] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 09:49:22] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 09:49:33] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 10:06:41] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 10:06:45] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 10:06:52] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 10:07:17] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 10:07:20] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 10:16:08] [INFO] Zalogowano Serwis
+[2025-03-26 10:22:39] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 10:22:39] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 10:22:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 10:22:40] [INFO] Połączono z MariaDB
+[2025-03-26 10:22:49] [INFO] Zalogowano Serwis
+[2025-03-26 10:27:19] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 10:27:19] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 10:27:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 10:27:22] [INFO] Połączono z MariaDB
+[2025-03-26 10:34:50] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 10:34:50] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 10:37:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 10:37:33] [INFO] Połączono z MariaDB
+[2025-03-26 10:38:30] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 10:38:30] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 10:38:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 10:38:31] [INFO] Połączono z MariaDB
+[2025-03-26 10:41:28] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 10:41:28] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 10:41:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 10:41:29] [INFO] Połączono z MariaDB
+[2025-03-26 10:43:42] [INFO] Zalogowano Serwis
