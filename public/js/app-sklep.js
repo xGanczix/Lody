@@ -25,3 +25,7 @@ function sprzedaz() {
 function ulozenieKuwet() {
   window.location.href = "ulozenie-kuwet.html";
 }
+
+function menu() {
+  window.location.href = "sklep-menu.html";
+}

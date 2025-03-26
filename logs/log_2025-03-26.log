@@ -82,3 +82,213 @@
 [2025-03-26 10:41:29] [INFO] Uruchomiono serwer na porcie 3000
 [2025-03-26 10:41:29] [INFO] Połączono z MariaDB
 [2025-03-26 10:43:42] [INFO] Zalogowano Serwis
+[2025-03-26 11:50:12] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 11:50:26] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 11:50:37] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:52:59] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:53:01] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:53:04] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:53:06] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:53:08] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:53:10] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:58:03] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 11:58:42] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:59:27] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 11:59:43] [INFO] Zalogowano: 123 (Sklep: Prusa)
+[2025-03-26 11:59:45] Zmiana zarejestrowana dla użytkownika: 2
+[2025-03-26 11:59:55] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 11:59:56] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 12:07:37] [INFO] Zalogowano: 123 (Sklep: Prusa)
+[2025-03-26 12:09:21] Zmiana zarejestrowana dla użytkownika: 2
+[2025-03-26 12:09:23] Zmiana zarejestrowana dla użytkownika: 2
+[2025-03-26 12:09:36] Zmiana zarejestrowana dla użytkownika: 2
+[2025-03-26 12:09:42] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 12:09:44] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 12:10:02] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 12:15:23] [INFO] Zalogowano Serwis
+[2025-03-26 12:15:27] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:2468, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'AND UzLogin != 'admin' ORDER BY UzStatus DESC,UzId' at line 1
+sql: SELECT * FROM Uzytkownicy AND UzLogin != 'admin' ORDER BY UzStatus DESC,UzId - parameters:[]
+[2025-03-26 12:15:42] [INFO] Użytkownik dodany pomyślnie: slavko
+[2025-03-26 12:19:14] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 12:19:14] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 12:19:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:19:15] [INFO] Połączono z MariaDB
+[2025-03-26 12:20:56] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 12:20:57] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 12:21:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:21:00] [INFO] Połączono z MariaDB
+[2025-03-26 12:21:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:21:53] [INFO] Połączono z MariaDB
+[2025-03-26 12:22:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:22:03] [INFO] Połączono z MariaDB
+[2025-03-26 12:22:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:22:16] [INFO] Połączono z MariaDB
+[2025-03-26 12:23:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:23:57] [INFO] Połączono z MariaDB
+[2025-03-26 12:25:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:25:10] [INFO] Połączono z MariaDB
+[2025-03-26 12:26:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:26:24] [INFO] Połączono z MariaDB
+[2025-03-26 12:26:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:26:48] [INFO] Połączono z MariaDB
+[2025-03-26 12:27:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:27:03] [INFO] Połączono z MariaDB
+[2025-03-26 12:27:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:27:27] [INFO] Połączono z MariaDB
+[2025-03-26 12:27:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:27:46] [INFO] Połączono z MariaDB
+[2025-03-26 12:28:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:28:27] [INFO] Połączono z MariaDB
+[2025-03-26 12:29:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:29:12] [INFO] Połączono z MariaDB
+[2025-03-26 12:29:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:29:14] [INFO] Połączono z MariaDB
+[2025-03-26 12:29:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:29:29] [INFO] Połączono z MariaDB
+[2025-03-26 12:29:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:29:33] [INFO] Połączono z MariaDB
+[2025-03-26 12:29:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:29:35] [INFO] Połączono z MariaDB
+[2025-03-26 12:33:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:33:26] [INFO] Połączono z MariaDB
+[2025-03-26 12:33:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:33:51] [INFO] Połączono z MariaDB
+[2025-03-26 12:34:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:34:21] [INFO] Połączono z MariaDB
+[2025-03-26 12:35:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:35:45] [INFO] Połączono z MariaDB
+[2025-03-26 12:36:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:36:29] [INFO] Połączono z MariaDB
+[2025-03-26 12:36:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:36:41] [INFO] Połączono z MariaDB
+[2025-03-26 12:36:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:36:44] [INFO] Połączono z MariaDB
+[2025-03-26 12:38:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:38:00] [INFO] Połączono z MariaDB
+[2025-03-26 12:39:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:39:10] [INFO] Połączono z MariaDB
+[2025-03-26 12:39:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:39:48] [INFO] Połączono z MariaDB
+[2025-03-26 12:39:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:39:51] [INFO] Połączono z MariaDB
+[2025-03-26 12:41:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:41:26] [INFO] Połączono z MariaDB
+[2025-03-26 12:42:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:42:15] [INFO] Połączono z MariaDB
+[2025-03-26 12:42:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:42:33] [INFO] Połączono z MariaDB
+[2025-03-26 12:43:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:43:12] [INFO] Połączono z MariaDB
+[2025-03-26 12:44:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:44:06] [INFO] Połączono z MariaDB
+[2025-03-26 12:44:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:44:36] [INFO] Połączono z MariaDB
+[2025-03-26 12:45:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:45:57] [INFO] Połączono z MariaDB
+[2025-03-26 12:46:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:46:05] [INFO] Połączono z MariaDB
+[2025-03-26 12:46:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:46:10] [INFO] Połączono z MariaDB
+[2025-03-26 12:47:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:47:10] [INFO] Połączono z MariaDB
+[2025-03-26 12:47:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:47:39] [INFO] Połączono z MariaDB
+[2025-03-26 12:47:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:47:53] [INFO] Połączono z MariaDB
+[2025-03-26 12:49:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:49:15] [INFO] Połączono z MariaDB
+[2025-03-26 12:49:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:49:30] [INFO] Połączono z MariaDB
+[2025-03-26 12:50:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 12:50:14] [INFO] Połączono z MariaDB
+[2025-03-26 13:17:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:17:49] [INFO] Połączono z MariaDB
+[2025-03-26 13:18:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:18:06] [INFO] Połączono z MariaDB
+[2025-03-26 13:18:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:18:51] [INFO] Połączono z MariaDB
+[2025-03-26 13:19:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:19:52] [INFO] Połączono z MariaDB
+[2025-03-26 13:24:21] [INFO] Zalogowano Serwis
+[2025-03-26 13:24:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:24:55] [INFO] Połączono z MariaDB
+[2025-03-26 13:25:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:25:23] [INFO] Połączono z MariaDB
+[2025-03-26 13:25:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:25:39] [INFO] Połączono z MariaDB
+[2025-03-26 13:25:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:25:54] [INFO] Połączono z MariaDB
+[2025-03-26 13:26:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:26:18] [INFO] Połączono z MariaDB
+[2025-03-26 13:26:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:26:31] [INFO] Połączono z MariaDB
+[2025-03-26 13:27:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:27:07] [INFO] Połączono z MariaDB
+[2025-03-26 13:33:04] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-03-26 13:34:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:34:42] [INFO] Połączono z MariaDB
+[2025-03-26 13:34:43] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 13:34:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:34:46] [INFO] Połączono z MariaDB
+[2025-03-26 13:35:01] [INFO] Użytkownik dodany pomyślnie: 123
+[2025-03-26 13:35:57] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 13:35:57] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 13:35:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:35:58] [INFO] Połączono z MariaDB
+[2025-03-26 13:36:10] [INFO] Użytkownik dodany pomyślnie: 1234
+[2025-03-26 13:36:27] [INFO] Użytkownik dodany pomyślnie: 1251235
+[2025-03-26 13:36:34] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 13:36:34] [INFO] Aplikacja zakończyła działanie.
+[2025-03-26 13:36:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:36:39] [INFO] Połączono z MariaDB
+[2025-03-26 13:37:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:37:04] [INFO] Połączono z MariaDB
+[2025-03-26 13:38:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:38:38] [INFO] Połączono z MariaDB
+[2025-03-26 13:38:44] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 13:38:46] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 13:39:16] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 13:39:32] [INFO] Zalogowano Serwis
+[2025-03-26 13:39:50] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-03-26 13:39:56] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 13:39:58] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 13:40:21] [INFO] Zalogowano Serwis
+[2025-03-26 13:41:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:41:35] [INFO] Połączono z MariaDB
+[2025-03-26 13:42:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:42:15] [INFO] Połączono z MariaDB
+[2025-03-26 13:44:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:44:45] [INFO] Połączono z MariaDB
+[2025-03-26 13:44:58] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 13:45:00] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 13:45:03] [INFO] Zalogowano Serwis
+[2025-03-26 13:47:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:47:34] [INFO] Połączono z MariaDB
+[2025-03-26 13:48:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:48:32] [INFO] Połączono z MariaDB
+[2025-03-26 13:48:48] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 13:48:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 13:48:51] [INFO] Połączono z MariaDB
+[2025-03-26 14:00:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:00:33] [INFO] Połączono z MariaDB
+[2025-03-26 14:08:10] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-26 14:08:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:08:26] [INFO] Połączono z MariaDB
+[2025-03-26 14:10:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:10:34] [INFO] Połączono z MariaDB
+[2025-03-26 14:12:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:12:02] [INFO] Połączono z MariaDB
+[2025-03-26 14:12:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:12:08] [INFO] Połączono z MariaDB
+[2025-03-26 14:12:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:12:22] [INFO] Połączono z MariaDB
+[2025-03-26 14:12:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:12:31] [INFO] Połączono z MariaDB
+[2025-03-26 14:12:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:12:52] [INFO] Połączono z MariaDB
+[2025-03-26 14:13:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:13:39] [INFO] Połączono z MariaDB
+[2025-03-26 14:13:48] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-26 14:13:50] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 14:14:16] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 14:14:23] [INFO] Zalogowano Serwis

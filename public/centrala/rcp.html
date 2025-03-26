@@ -24,6 +24,15 @@
 
       <nav></nav>
       <main>
+        <div class="centrala-filtrowanie">
+          <label for="startDate">Początek:</label>
+          <input type="date" name="" id="startDate" />
+          <label for="endDate">Koniec:</label>
+          <input type="date" name="" id="endDate" />
+          <button id="obliczRcp">
+            <img src="../img/white/search-interface-symbol-white.png" alt="" />
+          </button>
+        </div>
         <div class="centrala-main-container">
           <div class="confirm-delete">
             <h2>Czy chcesz usunąć rozmiar?</h2>
@@ -39,6 +48,17 @@
               <button id="confirm-cancel">Anuluj</button>
             </div>
           </div>
+          <table id="centrala-rcp">
+            <thead>
+              <tr>
+                <th>Pracownik</th>
+                <th>Przepracowany czas<br />(hh:mm:ss)</th>
+                <th>Stawka godzinowa</th>
+                <th>Wynagrodzenie</th>
+              </tr>
+            </thead>
+            <tbody id="centrala-rcp-tbody"></tbody>
+          </table>
         </div>
       </main>
     </div>
@@ -46,6 +66,6 @@
     <script src="../js/token.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/logout.js"></script>
-    <script src="../js/rozmiary.js"></script>
+    <script src="../js/rcp.js"></script>
   </body>
 </html>

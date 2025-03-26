@@ -15,6 +15,8 @@ document
       document.getElementById("dodawanie-uzytkownika-haslo")?.value || "";
     const uzytkownikPIN =
       document.getElementById("dodawanie-uzytkownika-pin")?.value || "";
+    const uzytkownikStawkaGodzinowa =
+      document.getElementById("dodawanie-uzytkownika-stawka")?.value || null;
 
     const messageElement = document.getElementById("message");
     const messageContainer = document.querySelector(".message");
@@ -31,6 +33,7 @@ document
           uzytkownikLogin,
           uzytkownikHaslo,
           uzytkownikPIN,
+          uzytkownikStawkaGodzinowa,
         }),
       });
 

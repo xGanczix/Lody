@@ -134,7 +134,8 @@ body.dark-mode table#centrala-smaki thead th,
 body.dark-mode table#centrala-uzytkownicy thead th,
 body.dark-mode table#centrala-rozmiary thead th,
 body.dark-mode table#centrala-sklepy thead th,
-body.dark-mode table#centrala-kuwety thead th {
+body.dark-mode table#centrala-kuwety thead th,
+body.dark-mode table#centrala-rcp thead th {
   color: var(--text-white-color);
   background: var(--button-dark-color);
 }

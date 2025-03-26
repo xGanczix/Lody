@@ -12,6 +12,7 @@ create table Uzytkownicy(
 	UzHaslo varchar(255),
 	UzPIN varchar(255),
 	UzStatus boolean not null default 1,
+	UzStawkaGodzinowa float default 0.00,
 	UzDataZmiany datetime not null default now())
 
 ## Sklepy ##

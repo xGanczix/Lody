@@ -449,3 +449,10 @@ tr.smak-item td:last-child {
 .dostepne-kuwety-btn-odstep {
   margin-top: auto;
 }
+
+#sprzedaz-menu-btn {
+  width: 100px;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}

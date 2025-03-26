@@ -99,7 +99,8 @@
   height: 80px;
 }
 
-.centrala-filtrowanie select {
+.centrala-filtrowanie select,
+input[type="date"] {
   width: 150px;
   margin-top: 20px;
   outline: none;
@@ -107,6 +108,17 @@
 
 .centrala-filtrowanie select:focus {
   border: 2px solid var(--button-light-color);
+}
+
+.centrala-filtrowanie button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.centrala-filtrowanie button img {
+  width: 100%;
 }
 
 .centrala-container {
@@ -252,7 +264,8 @@ table#centrala-smaki,
 table#centrala-uzytkownicy,
 table#centrala-rozmiary,
 table#centrala-sklepy,
-table#centrala-kuwety {
+table#centrala-kuwety,
+table#centrala-rcp {
   width: 100%;
   border-collapse: collapse;
 }
@@ -261,7 +274,8 @@ table#centrala-smaki thead,
 table#centrala-uzytkownicy thead,
 table#centrala-rozmiary thead,
 table#centrala-sklepy thead,
-table#centrala-kuwety thead {
+table#centrala-kuwety thead,
+table#centrala-rcp thead {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -271,7 +285,9 @@ table#centrala-smaki thead th,
 table#centrala-uzytkownicy thead th,
 table#centrala-rozmiary thead th,
 table#centrala-sklepy thead th,
-table#centrala-kuwety thead th {
+table#centrala-kuwety thead th,
+table#centrala-kuwety thead th,
+table#centrala-rcp thead th {
   background: var(--button-light-color);
   font-size: 22px;
   padding: 14px;
@@ -280,7 +296,8 @@ table#centrala-kuwety thead th {
 }
 
 table#centrala-sklepy tbody,
-table#centrala-kuwety tbody {
+table#centrala-kuwety tbody,
+table#centrala-rcp tbody {
   display: block;
   max-height: calc(100vh - 240px);
   overflow-y: auto;
@@ -298,7 +315,8 @@ table#centrala-smaki tbody tr,
 table#centrala-uzytkownicy tbody tr,
 table#centrala-rozmiary tbody tr,
 table#centrala-sklepy tbody tr,
-table#centrala-kuwety tbody tr {
+table#centrala-kuwety tbody tr,
+table#centrala-rcp tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -308,7 +326,8 @@ table#centrala-smaki tbody td,
 table#centrala-uzytkownicy tbody td,
 table#centrala-rozmiary tbody td,
 table#centrala-sklepy tbody td,
-table#centrala-kuwety tbody td {
+table#centrala-kuwety tbody td,
+table#centrala-rcp tbody td {
   padding: 10px !important;
   font-size: 20px;
   text-align: center;
@@ -318,7 +337,8 @@ table#centrala-smaki thead th:first-child,
 table#centrala-uzytkownicy thead th:first-child,
 table#centrala-rozmiary thead th:first-child,
 table#centrala-sklepy thead th:first-child,
-table#centrala-kuwety thead th:first-child {
+table#centrala-kuwety thead th:first-child,
+table#centrala-rcp thead th:first-child {
   border-radius: 10px 0 0 0;
 }
 
@@ -326,7 +346,8 @@ table#centrala-smaki thead th:last-child,
 table#centrala-uzytkownicy thead th:last-child,
 table#centrala-rozmiary thead th:last-child,
 table#centrala-sklepy thead th:last-child,
-table#centrala-kuwety thead th:last-child {
+table#centrala-kuwety thead th:last-child,
+table#centrala-rcp thead th:last-child {
   border-radius: 0 10px 0 0;
 }
 
@@ -339,7 +360,12 @@ table#centrala-smaki tbody td:first-child,
 table#centrala-uzytkownicy tbody td:first-child,
 table#centrala-rozmiary tbody td:first-child,
 table#centrala-sklepy tbody td:first-child,
-table#centrala-kuwety tbody td:first-child {
+table#centrala-kuwety
+  tbody
+  td:first-child
+  table#centrala-rcp
+  tbody
+  td:first-child {
   width: 8%;
 }
 

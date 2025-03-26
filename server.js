@@ -251,6 +251,7 @@ app.post("/api/uzytkownik-dodanie", async (req, res) => {
     uzytkownikLogin,
     uzytkownikHaslo,
     uzytkownikPIN,
+    uzytkownikStawkaGodzinowa,
   } = req.body;
 
   let connection;
@@ -293,16 +294,16 @@ app.post("/api/uzytkownik-dodanie", async (req, res) => {
       : null;
 
     await connection.query(
-      "INSERT INTO Uzytkownicy(UzImie, UzNazwisko, UzLogin, UzHaslo, UzPIN) VALUES (?,?,?,?,?)",
+      "INSERT INTO Uzytkownicy(UzImie, UzNazwisko, UzLogin, UzHaslo, UzPIN, UzStawkaGodzinowa) VALUES (?,?,?,?,?,?)",
       [
         uzytkownikImie,
         uzytkownikNazwisko,
         uzytkownikLogin || "",
         hashedPassword,
         hashedPIN,
+        uzytkownikStawkaGodzinowa || null,
       ]
     );
-
     logToFile(`[INFO] Użytkownik dodany pomyślnie: ${uzytkownikLogin}`);
     res.status(201).json({ message: "Użytkownik dodany pomyślnie." });
   } catch (err) {
@@ -966,9 +967,9 @@ app.post("/api/zarejestruj-zmiane", async (req, res) => {
     connection = await dbConfig.getConnection();
     await connection.query("CALL rejestruj_zmiane(?)", [uzytkownikId]);
     res.json({ success: true, message: "Procedura wykonana pomyślnie" });
-    logToFile(`Zmiana zarejestrowana dla użytkownika: ${uzytkownikId}`);
+    logToFile(`[INFO] Zmiana zarejestrowana dla użytkownika: ${uzytkownikId}`);
   } catch (err) {
-    logToFile(`Błąd rejestracji zmiany: ${err}`);
+    logToFile(`[ERROR] Błąd rejestracji zmiany: ${err}`);
     res.status(500).json({
       error: "Błąd wykonania procedury",
       details: err.message,
@@ -985,14 +986,20 @@ app.get("/api/rcp", async (req, res) => {
     connection = await dbConfig.getConnection();
     const data = await connection.query(`
       select
-	      TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany) as PrzepracowanyCzas,
+        RCPId,
+	      TIME_FORMAT(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)))), '%H:%i:%s') as PrzepracowanyCzas,
 	      SUM(ROUND(
-          (hour(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) +
-          minute(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2)
-          ) as PrzepracowaneGodzinyFormat,
-	      RCPUzId
+        (hour(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) +
+        minute(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2)
+        ) as PrzepracowaneGodzinyFormat,
+	      RCPUzId,
+	      u.UzImie,
+	      u.UzNazwisko,
+	      u.UzStawkaGodzinowa
       from
 	      rcp
+      left join uzytkownicy as u on
+	      u.UzId = rcp.RCPUzId
       group by
 	      RCPUzId
       `);
@@ -1025,7 +1032,7 @@ app.get("/api/rcp-dni/:uzytkownikId", async (req, res) => {
 	        RCPUzId as uzytkownikId
         from
 	        rcp
-        where rcp.RCPUzId = 1
+        where rcp.RCPUzId = ${uzytkownikId}
         group by
 	        RCPUzId,
 	        czasPracy

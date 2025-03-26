@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${uzytkownik.UzImie}</td>
             <td>${uzytkownik.UzNazwisko}</td>
             <td>${uzytkownik.UzLogin}</td>
+            <td>${uzytkownik.UzStawkaGodzinowa}</td>
             <td>${statusText}</td>
             <td>
               <button id="edit" data-uzytkownik="${uzytkownik.UzId}">
