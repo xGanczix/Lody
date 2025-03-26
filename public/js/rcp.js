@@ -1,5 +1,3 @@
-const dzisiaj = new Date();
-
 let rcpData = [];
 
 async function fetchRCP() {
@@ -70,11 +68,22 @@ function handleStawkaChange() {
 }
 
 function wartoscDat() {
+  const dzisiaj = new Date();
+  const dzisiajFormatowane = dzisiaj.toISOString().split("T")[0];
+  const tydzienWczesniej = new Date(dzisiaj);
+  tydzienWczesniej.setDate(dzisiaj.getDate() - 7);
+
+  const tydzienWczesniejFormatowane = tydzienWczesniej
+    .toISOString()
+    .split("T")[0];
+
   const poczatkowa = document.getElementById("startDate");
+  const koncowa = document.getElementById("endDate");
+  poczatkowa.value = tydzienWczesniejFormatowane;
+  koncowa.value = dzisiajFormatowane;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchRCP().then(initCalculation);
   wartoscDat();
-  alert(dzisiaj);
 });

@@ -292,3 +292,42 @@ sql: SELECT * FROM Uzytkownicy AND UzLogin != 'admin' ORDER BY UzStatus DESC,UzI
 [2025-03-26 14:13:50] [INFO] Zmiana zarejestrowana dla użytkownika: 1
 [2025-03-26 14:14:16] [INFO] Zmiana zarejestrowana dla użytkownika: 1
 [2025-03-26 14:14:23] [INFO] Zalogowano Serwis
+[2025-03-26 14:19:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:19:16] [INFO] Połączono z MariaDB
+[2025-03-26 14:19:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:19:25] [INFO] Połączono z MariaDB
+[2025-03-26 14:19:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:19:32] [INFO] Połączono z MariaDB
+[2025-03-26 14:19:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:19:45] [INFO] Połączono z MariaDB
+[2025-03-26 14:19:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:19:47] [INFO] Połączono z MariaDB
+[2025-03-26 14:21:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:21:02] [INFO] Połączono z MariaDB
+[2025-03-26 14:23:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:23:07] [INFO] Połączono z MariaDB
+[2025-03-26 14:23:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:23:29] [INFO] Połączono z MariaDB
+[2025-03-26 14:23:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:23:42] [INFO] Połączono z MariaDB
+[2025-03-26 14:23:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:23:47] [INFO] Połączono z MariaDB
+[2025-03-26 14:23:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:23:54] [INFO] Połączono z MariaDB
+[2025-03-26 14:24:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:24:56] [INFO] Połączono z MariaDB
+[2025-03-26 14:25:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:25:57] [INFO] Połączono z MariaDB
+[2025-03-26 14:26:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:26:33] [INFO] Połączono z MariaDB
+[2025-03-26 14:26:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:26:37] [INFO] Połączono z MariaDB
+[2025-03-26 14:26:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:26:52] [INFO] Połączono z MariaDB
+[2025-03-26 14:27:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-26 14:27:39] [INFO] Połączono z MariaDB
+[2025-03-26 14:28:21] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 14:28:26] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-26 14:28:39] [INFO] Zalogowano: mati
+[2025-03-26 14:29:19] [INFO] Poprawny test połączenia z bazą danych
+[2025-03-26 14:29:22] [INFO] Poprawny test połączenia z bazą danych
