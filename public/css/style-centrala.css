@@ -554,8 +554,8 @@ p#dodawanie-komentarz {
   /* display: flex; */
 }
 
-form#ustawienia-mariadb,
-form#serwis-tworzenie-tabel {
+form.ustawienia,
+form.serwis {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -567,11 +567,11 @@ form#serwis-tworzenie-tabel {
   padding: 20px;
 }
 
-form#ustawienia-mariadb {
+form.ustawienia {
   height: 100%;
 }
 
-form#ustawienia-mariadb h2 {
+form.ustawienia h2 {
   margin: 40px 0 30px 0;
 }
 

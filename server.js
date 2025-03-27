@@ -1046,6 +1046,121 @@ app.get("/api/rcp-dni/:uzytkownikId", async (req, res) => {
   }
 });
 
+function readSQLFile(filePath) {
+  try {
+    const fullPath = path.join(__dirname, filePath);
+    const sqlContent = fs.readFileSync(fullPath, "utf8");
+
+    return sqlContent
+      .split(";")
+      .map((query) => query.trim())
+      .filter((query) => query.length > 0);
+  } catch (error) {
+    console.error("Błąd odczytu pliku SQL:", error);
+    throw error;
+  }
+}
+
+async function createTables() {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.beginTransaction();
+
+    const queries = readSQLFile("./SQL/CreateTable.sql");
+
+    for (const query of queries) {
+      if (query) {
+        await connection.query(query);
+      }
+    }
+
+    await connection.commit();
+    console.log("Wszystkie tabele zostały utworzone");
+    return true;
+  } catch (error) {
+    if (connection) await connection.rollback();
+    console.error("Błąd podczas tworzenia tabel:", error);
+    throw error;
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
+app.post("/api/tworzenie-tabel", async (req, res) => {
+  try {
+    await createTables();
+    res.status(201).json({
+      success: true,
+      message: "Tabele zostały utworzone na podstawie pliku SQL",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: "Wystąpił błąd podczas tworzenia tabel",
+      details: error.message,
+    });
+  }
+});
+
+app.post('/api/tworzenie-procedur', async (req, res) => {
+  try {
+    await createProcedure();
+    logToFile("[INFO] Procedura RCP została utworzona przez API");
+    res.status(200).json({ 
+      success: true, 
+      message: 'Procedura RCP została pomyślnie utworzona',
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    logToFile(`[ERROR] Błąd tworzenia procedury: ${error.message}`, 'error');
+    
+    res.status(500).json({ 
+      success: false,
+      message: 'Nie udało się utworzyć procedury',
+      error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error',
+      code: 'PROCEDURE_CREATION_FAILED'
+    });
+  }
+});
+
+async function createProcedure() {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    
+    await connection.query('DROP PROCEDURE IF EXISTS rejestruj_zmiane');
+    
+    await connection.query(`
+    CREATE PROCEDURE rejestruj_zmiane(IN user_id INT)
+    BEGIN
+        DECLARE v_last_id INT;
+        DECLARE v_end_time DATETIME;
+        
+        SELECT RCPId, RCPKoniecZmiany INTO v_last_id, v_end_time
+        FROM rcp 
+        WHERE RCPUzId = user_id
+        ORDER BY RCPStartZmiany DESC 
+        LIMIT 1;
+        
+        IF v_last_id IS NULL OR v_end_time IS NOT NULL THEN
+            INSERT INTO rcp (RCPUzId, RCPStartZmiany, RCPKoniecZmiany)
+            VALUES (user_id, NOW(), NULL);
+        ELSE
+            UPDATE rcp 
+            SET RCPKoniecZmiany = NOW()
+            WHERE RCPId = v_last_id;
+        END IF;
+    END
+    `);
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
+
+
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);
   logToFile(`[INFO] Uruchomiono serwer na porcie ${appPort}`);

@@ -165,7 +165,8 @@ body.dark-mode nav .dropdown-menu {
   background: var(--background-input-dark-color);
 }
 
-body.dark-mode form#ustawienia-mariadb {
+body.dark-mode form.ustawienia,
+body.dark-mode form.serwis {
   background: var(--background-container-dark-color);
 }
 
