@@ -143,3 +143,22 @@
 [2025-03-27 12:24:59] [INFO] Połączono z MariaDB
 [2025-03-27 12:26:23] [INFO] Uruchomiono serwer na porcie 3000
 [2025-03-27 12:26:23] [INFO] Połączono z MariaDB
+[2025-03-27 13:41:14] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-27 13:41:15] [INFO] Aplikacja zakończyła działanie.
+[2025-03-27 13:41:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 13:41:15] [INFO] Połączono z MariaDB
+[2025-03-27 13:42:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 13:42:15] [INFO] Połączono z MariaDB
+[2025-03-27 13:42:24] [INFO] Zalogowano Serwis
+[2025-03-27 13:44:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 13:44:56] [INFO] Połączono z MariaDB
+[2025-03-27 13:44:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 13:44:59] [INFO] Połączono z MariaDB
+[2025-03-27 14:06:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 14:06:33] [INFO] Połączono z MariaDB
+[2025-03-27 14:11:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 14:11:25] [INFO] Połączono z MariaDB
+[2025-03-27 15:13:47] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-27 15:13:47] [INFO] Aplikacja zakończyła działanie.
+[2025-03-27 15:13:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 15:13:48] [INFO] Połączono z MariaDB

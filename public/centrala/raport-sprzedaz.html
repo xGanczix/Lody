@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div id="chart"></div>
+    </div>
+  </body>
+  <script src="../js/chart.js"></script>
+  <script>
+    var colors = [
+      "#008FFB",
+      "#00E396",
+      "#FEB019",
+      "#FF4560",
+      "#775DD0",
+      "#3F51B5",
+      "#546E7A",
+      "#D4526E",
+    ];
+    var options = {
+      series: [
+        {
+          data: [21, 22, 10, 28, 21, 13, 30],
+        },
+      ],
+      chart: {
+        height: 350,
+        type: "bar",
+        events: {
+          click: function (chart, w, e) {
+            // console.log(chart, w, e)
+          },
+        },
+      },
+      colors: colors,
+      plotOptions: {
+        bar: {
+          columnWidth: "45%",
+          distributed: true,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        show: false,
+      },
+      xaxis: {
+        categories: [
+          ["John", "Doe"],
+          ["Joe", "Smith"],
+          ["Jake", "Williams"],
+          ["Peter", "Brown"],
+          ["Mary", "Evans"],
+          ["David", "Wilson"],
+          ["Lily", "Roberts"],
+        ],
+        labels: {
+          style: {
+            colors: colors,
+            fontSize: "12px",
+          },
+        },
+      },
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+  </script>
+</html>
