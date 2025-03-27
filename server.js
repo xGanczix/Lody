@@ -1046,43 +1046,6 @@ app.get("/api/rcp-dni/:uzytkownikId", async (req, res) => {
   }
 });
 
-// GOOGLE LICENSE
-
-const url =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vT6G5y8cdYpKIvIjkHVsImqjvhHGhxWdoZz7-bo8rrHyAW3dzgaPZIxMAWhQnvIm_e3ambQjpTQipMc/pub?gid=0&single=true&output=csv"; // Wstaw tutaj link do pliku CSV
-
-async function checkLicense(licenseKey) {
-  const licenses = [];
-
-  try {
-    const response = await axios.get(url);
-
-    const results = [];
-
-    const readableStream = new Readable();
-    readableStream._read = () => {};
-    readableStream.push(response.data);
-    readableStream.push(null);
-
-    readableStream
-      .pipe(csv())
-      .on("data", (row) => {
-        results.push(row);
-      })
-      .on("end", () => {
-        const found = results.find((lic) => lic.Licencja === licenseKey);
-        if (found) {
-          console.log("Licencja znaleziona:", found);
-        } else {
-          console.log("Licencja nieznana.");
-        }
-      });
-  } catch (error) {
-    console.error("Błąd podczas pobierania lub przetwarzania CSV:", error);
-  }
-}
-checkLicense("5VJ2-E2SY-YP2J-MWCK");
-
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);
   logToFile(`[INFO] Uruchomiono serwer na porcie ${appPort}`);

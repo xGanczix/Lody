@@ -25,20 +25,17 @@
       <nav></nav>
       <main>
         <div class="centrala-main-container centrala-main-container-serwis">
-          <div class="confirm-delete">
-            <h2>Czy chcesz usunąć rozmiar?</h2>
-            <div class="confirm-button-container">
-              <button id="confirm-ok">Usuń</button>
-              <button id="confirm-cancel">Anuluj</button>
-            </div>
-          </div>
-          <div class="confirm-restore">
-            <h2>Czy chcesz przywrócić rozmiar?</h2>
-            <div class="confirm-button-container">
-              <button id="confirm-ok">Przywróć</button>
-              <button id="confirm-cancel">Anuluj</button>
-            </div>
-          </div>
+          <form action="" id="serwis-tworzenie-tabel">
+            <button class="serwis-btn" id="tworzenieTabel">
+              Tworzenie tabel dla aplikacji
+            </button>
+            <button class="serwis-btn" id="tworzenieRegul">
+              Tworzenie reguł dla RCP
+            </button>
+            <button class="serwis-btn" id="czyszczenieTabel">
+              Czyszczenie tabel aplikacji
+            </button>
+          </form>
         </div>
       </main>
     </div>
@@ -46,5 +43,6 @@
     <script src="../js/token.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/serwis.js"></script>
   </body>
 </html>

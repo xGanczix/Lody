@@ -34,6 +34,10 @@ function updateIcons() {
     { id: "help-icon", name: "question" },
     { id: "rcp-icon", name: "clock" },
     { id: "przypisanie-icon", name: "people" },
+    { id: "raporty-icon", name: "chart" },
+    { id: "arrow-right-raporty", name: "arrow-right" },
+    { id: "ceny-icon", name: "money" },
+    { id: "raport-sprzedaz-icon", name: "goods" },
   ];
 
   icons.forEach(({ id, name }) => {
@@ -163,27 +167,33 @@ observer.observe(document.documentElement, {
 });
 
 function initDropdown() {
-  const dropdownToggle = document.querySelector(".dropdown-toggle");
-  const dropdownMenu = document.querySelector(".dropdown-menu");
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+  const dropdownMenus = document.querySelectorAll(".dropdown-menu");
 
-  if (!dropdownToggle || !dropdownMenu) {
-    return;
-  }
+  dropdownToggles.forEach((dropdownToggle, index) => {
+    const dropdownMenu = dropdownMenus[index];
 
-  dropdownToggle.addEventListener("click", function (event) {
-    event.preventDefault();
+    dropdownToggle.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
 
-    dropdownMenu.style.display =
-      dropdownMenu.style.display === "block" ? "none" : "block";
+      dropdownMenus.forEach((menu, i) => {
+        if (i !== index) {
+          menu.style.display = "none";
+        }
+      });
+
+      dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
+    });
   });
 
   document.addEventListener("click", function (event) {
-    if (
-      !dropdownToggle.contains(event.target) &&
-      !dropdownMenu.contains(event.target)
-    ) {
-      dropdownMenu.style.display = "none";
-    }
+    dropdownMenus.forEach((dropdownMenu) => {
+      if (!dropdownMenu.contains(event.target)) {
+        dropdownMenu.style.display = "none";
+      }
+    });
   });
 }
 

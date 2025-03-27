@@ -192,7 +192,8 @@ nav a.nav-odstep {
   margin-top: auto;
 }
 
-nav img#arrow-right {
+nav img#arrow-right,
+nav img#arrow-right-raporty {
   margin-left: auto;
 }
 
@@ -550,11 +551,11 @@ p#dodawanie-komentarz {
 .centrala-main-container-ustawienia {
   background: none !important;
   box-shadow: none !important;
-  display: flex;
+  /* display: flex; */
 }
 
 form#ustawienia-mariadb,
-form#przypisanie {
+form#serwis-tworzenie-tabel {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -564,13 +565,10 @@ form#przypisanie {
   box-shadow: 0 0 10px var(--box-shadow-color);
   border-radius: 10px;
   padding: 20px;
-  height: 100%;
 }
 
-form#przypisanie {
-  height: 100px;
-  width: 240px;
-  margin-left: 20px;
+form#ustawienia-mariadb {
+  height: 100%;
 }
 
 form#ustawienia-mariadb h2 {
@@ -644,4 +642,14 @@ button#test-db-connection {
 
 #dodawanie-wymagane {
   font-size: 12px;
+}
+
+button.serwis-btn {
+  padding: 15px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+button.serwis-btn:last-child {
+  margin-bottom: 0;
 }

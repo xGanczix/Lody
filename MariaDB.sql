@@ -107,7 +107,7 @@ create table Kuwety(
 create table Towary(
 	TowId int not null primary key auto_increment,
 	TowNazwa varchar(255) not null,
-	TowRozId int not null,
+	TowCenaId int not null,
 	TowDataZmiany datetime not null default now())
 	
 ## Układ kuwet na sklep ##
