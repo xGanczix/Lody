@@ -38,6 +38,7 @@ function updateIcons() {
     { id: "arrow-right-raporty", name: "arrow-right" },
     { id: "ceny-icon", name: "money" },
     { id: "raport-sprzedaz-icon", name: "goods" },
+    { id: "raport-status-icon", name: "clipboard"}
   ];
 
   icons.forEach(({ id, name }) => {

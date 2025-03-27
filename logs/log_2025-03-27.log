@@ -125,3 +125,21 @@
 [2025-03-27 11:50:42] [INFO] Połączono z MariaDB
 [2025-03-27 11:50:45] Procedura RCP została utworzona przez API
 [2025-03-27 11:51:55] Procedura RCP została utworzona przez API
+[2025-03-27 12:18:24] Procedura RCP została utworzona przez API
+[2025-03-27 12:18:40] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-27 12:18:40] [INFO] Aplikacja zakończyła działanie.
+[2025-03-27 12:18:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 12:18:41] [INFO] Połączono z MariaDB
+[2025-03-27 12:19:05] [INFO] Procedura RCP została utworzona przez API
+[2025-03-27 12:19:40] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-27 12:19:40] [INFO] Aplikacja zakończyła działanie.
+[2025-03-27 12:19:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 12:19:45] [INFO] Połączono z MariaDB
+[2025-03-27 12:24:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 12:24:36] [INFO] Połączono z MariaDB
+[2025-03-27 12:24:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 12:24:39] [INFO] Połączono z MariaDB
+[2025-03-27 12:24:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 12:24:59] [INFO] Połączono z MariaDB
+[2025-03-27 12:26:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-27 12:26:23] [INFO] Połączono z MariaDB
