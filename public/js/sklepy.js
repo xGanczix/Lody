@@ -7,8 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const selectedStatus =
         document.getElementById("centrala-sklepy-filtrowanie").value ||
         "aktywne";
+
+      const token = localStorage.getItem("token");
+      const decoded = parseJwt(token);
+      const uzytkownikId = decoded.id;
+
       const response = await fetch(
-        `${CONFIG.URL}/api/sklepy?status=${selectedStatus}`
+        `${CONFIG.URL}/api/sklepy?status=${selectedStatus}&uzytkownik=${uzytkownikId}`
       );
       const sklepy = await response.json();
 

@@ -361,13 +361,13 @@ table#centrala-smaki tbody td:first-child,
 table#centrala-uzytkownicy tbody td:first-child,
 table#centrala-rozmiary tbody td:first-child,
 table#centrala-sklepy tbody td:first-child,
-table#centrala-kuwety
-  tbody
-  td:first-child
-  table#centrala-rcp
-  tbody
-  td:first-child {
+table#centrala-kuwety tbody td:first-child {
   width: 8%;
+}
+
+table#centrala-rcp tbody td:first-child,
+table#centrala-rcp thead th:first-child {
+  width: 14%;
 }
 
 table#centrala-smaki thead th:last-child,
@@ -379,13 +379,16 @@ table#centrala-smaki tbody td:last-child,
 table#centrala-uzytkownicy tbody td:last-child,
 table#centrala-rozmiary tbody td:last-child,
 table#centrala-sklepy tbody td:last-child,
-table#centrala-kuwety tbody td:last-child {
+table#centrala-kuwety tbody td:last-child,
+table#centrala-rcp tbody td:last-child,
+table#centrala-rcp thead th:last-child {
   width: 10%;
 }
 
 button#edit,
 button#delete,
-button#restore {
+button#restore,
+button#rcp-month {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -410,17 +413,20 @@ button#delete:hover {
   background: var(--red-hover-color);
 }
 
-button#restore {
+button#restore,
+button#rcp-month {
   background: var(--green-color);
 }
 
-button#restore:hover {
+button#restore:hover,
+button#rcp-month:hover {
   background: var(--green-hover-color);
 }
 
 button#edit img,
 button#delete img,
-button#restore img {
+button#restore img,
+button#rcp-month img {
   width: 100%;
 }
 

@@ -11,21 +11,26 @@ async function fetchRCP() {
     rcpData.forEach((czas) => {
       const row = document.createElement("tr");
       row.innerHTML = `
+            <td>${czas.UzId}</td>
             <td>${czas.UzImie} ${czas.UzNazwisko}</td>
             <td>${czas.PrzepracowanyCzas}</td>
             <td style="display:none">
-              <input type="number" id="rcp-format-${czas.RCPId}" 
-                     value="${czas.PrzepracowaneGodzinyFormat || 0}">
+              <input type="number" id="rcp-format-${czas.RCPId}" value="${
+        czas.PrzepracowaneGodzinyFormat || 0
+      }">
             </td>
             <td>
-              <input type="number" step="0.01" id="rcp-stawka-${czas.RCPId}" 
-                     value="${czas.UzStawkaGodzinowa || 0}">
+              <input type="number" step="0.01" id="rcp-stawka-${
+                czas.RCPId
+              }" value="${czas.UzStawkaGodzinowa || 0}">
             </td>
             <td>
               <input type="number" step="0.01" id="rcp-wynagrodzenie-${
                 czas.RCPId
-              }" 
-                     value="0.00" disabled>
+              }" value="0.00" disabled>
+            </td>
+            <td>
+              <button id="rcp-month"><img src="../img/white/calendar-white.png"></button>
             </td>
             `;
       tableBody.appendChild(row);

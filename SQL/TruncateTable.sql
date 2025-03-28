@@ -1,0 +1,9 @@
+truncate table kuwety;
+truncate table rcp;
+truncate table rozmiary;
+truncate table sklepy;
+truncate table smaki;
+truncate table towary;
+truncate table ulozenie;
+truncate table uzytkownicy;
+truncate table uzytkownicysklep;

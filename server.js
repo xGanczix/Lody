@@ -112,7 +112,12 @@ app.post("/api/login", async (req, res) => {
       const passwordMatch = await bcrypt.compare(password, APP_HASLO);
       if (passwordMatch) {
         const token = jwt.sign(
-          { id: 999, login: "pinnex", imie: "Pinnex", nazwisko: "Info" },
+          {
+            id: "123456789",
+            login: "pinnex",
+            imie: "Pinnex",
+            nazwisko: "Info",
+          },
           SECRET_KEY,
           { expiresIn: "8h" }
         );
@@ -556,15 +561,46 @@ app.get("/api/sklepy", async (req, res) => {
     connection = await dbConfig.getConnection();
 
     const status = req.query.status || "aktywne";
+    const uzytkownikId = req.query.uzytkownik;
 
-    let sql = "SELECT * FROM Sklepy";
-    if (status === "aktywne") {
-      sql += " WHERE SklStatus = 1 ORDER BY SklStatus DESC, SklId";
+    let sql =
+      "select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId";
+    if (status === "aktywne" && uzytkownikId === "123456789") {
+      sql += ` WHERE s.SklStatus = 1 group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
+    } else if (status === "usuniete" && uzytkownikId === "123456789") {
+      sql += ` WHERE s.SklStatus = 0 group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
+    } else if (uzytkownikId === "123456789") {
+      sql += ` group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
+    } else if (status === "aktywne") {
+      sql += ` WHERE s.SklStatus = 1 and us.UzSklUzId = ${connection.escape(
+        uzytkownikId
+      )} group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
     } else if (status === "usuniete") {
-      sql += " WHERE SklStatus = 0 ORDER BY SklStatus DESC, SklId";
+      sql += ` WHERE s.SklStatus = 0 and us.UzSklUzId = ${connection.escape(
+        uzytkownikId
+      )} group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
     } else {
-      sql += " ORDER BY SklStatus DESC, SklId";
+      sql += ` WHERE us.UzSklUzId = ${connection.escape(
+        uzytkownikId
+      )} group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
     }
+
+    const data = await connection.query(sql);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/sklepy-logowanie", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = "select * from Sklepy";
 
     const data = await connection.query(sql);
     res.json(data);
@@ -993,6 +1029,7 @@ app.get("/api/rcp", async (req, res) => {
         minute(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2)
         ) as PrzepracowaneGodzinyFormat,
 	      RCPUzId,
+        u.UzId,
 	      u.UzImie,
 	      u.UzNazwisko,
 	      u.UzStawkaGodzinowa
@@ -1087,6 +1124,49 @@ async function createTables() {
   }
 }
 
+app.post("/api/tworzenie-tabel", async (req, res) => {
+  try {
+    await createTables();
+    res.status(201).json({
+      success: true,
+      message: "Tabele zostały utworzone na podstawie pliku SQL",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: "Wystąpił błąd podczas tworzenia tabel",
+      details: error.message,
+    });
+  }
+});
+
+async function createTables() {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.beginTransaction();
+
+    const queries = readSQLFile("./SQL/TruncateTable.sql");
+
+    for (const query of queries) {
+      if (query) {
+        await connection.query(query);
+      }
+    }
+
+    await connection.commit();
+    console.log("Dane z tabel zostały usunięte");
+    logToFile("[INFO] Dane z tabel zostały usunięte");
+    return true;
+  } catch (error) {
+    if (connection) await connection.rollback();
+    console.error("Błąd podczas usuwania danych z tabel:", error);
+    logToFile(`[ERROR] Błąd podczas usuwania danych z tabel: ${error}`);
+    throw error;
+  } finally {
+    if (connection) connection.release();
+  }
+}
 
 app.post("/api/tworzenie-tabel", async (req, res) => {
   try {
@@ -1104,23 +1184,26 @@ app.post("/api/tworzenie-tabel", async (req, res) => {
   }
 });
 
-app.post('/api/tworzenie-procedur', async (req, res) => {
+app.post("/api/tworzenie-procedur", async (req, res) => {
   try {
     await createProcedure();
     logToFile("[INFO] Procedura RCP została utworzona przez API");
-    res.status(200).json({ 
-      success: true, 
-      message: 'Procedura RCP została pomyślnie utworzona',
-      timestamp: new Date().toISOString()
+    res.status(200).json({
+      success: true,
+      message: "Procedura RCP została pomyślnie utworzona",
+      timestamp: new Date().toISOString(),
     });
   } catch (error) {
-    logToFile(`[ERROR] Błąd tworzenia procedury: ${error.message}`, 'error');
-    
-    res.status(500).json({ 
+    logToFile(`[ERROR] Błąd tworzenia procedury: ${error.message}`, "error");
+
+    res.status(500).json({
       success: false,
-      message: 'Nie udało się utworzyć procedury',
-      error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error',
-      code: 'PROCEDURE_CREATION_FAILED'
+      message: "Nie udało się utworzyć procedury",
+      error:
+        process.env.NODE_ENV === "development"
+          ? error.message
+          : "Internal server error",
+      code: "PROCEDURE_CREATION_FAILED",
     });
   }
 });
@@ -1129,9 +1212,9 @@ async function createProcedure() {
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    
-    await connection.query('DROP PROCEDURE IF EXISTS rejestruj_zmiane');
-    
+
+    await connection.query("DROP PROCEDURE IF EXISTS rejestruj_zmiane");
+
     await connection.query(`
     CREATE PROCEDURE rejestruj_zmiane(IN user_id INT)
     BEGIN
@@ -1158,8 +1241,6 @@ async function createProcedure() {
     if (connection) connection.release();
   }
 }
-
-
 
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);

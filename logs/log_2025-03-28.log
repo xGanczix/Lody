@@ -1,0 +1,238 @@
+[2025-03-28 13:09:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:09:55] [INFO] Połączono z MariaDB
+[2025-03-28 13:10:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:10:04] [INFO] Połączono z MariaDB
+[2025-03-28 13:10:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:10:16] [INFO] Połączono z MariaDB
+[2025-03-28 13:10:31] [INFO] Zalogowano Serwis
+[2025-03-28 13:13:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:13:39] [INFO] Połączono z MariaDB
+[2025-03-28 13:13:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:13:49] [INFO] Połączono z MariaDB
+[2025-03-28 13:14:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:14:03] [INFO] Połączono z MariaDB
+[2025-03-28 13:14:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:14:10] [INFO] Połączono z MariaDB
+[2025-03-28 13:14:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:14:21] [INFO] Połączono z MariaDB
+[2025-03-28 13:18:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:18:38] [INFO] Połączono z MariaDB
+[2025-03-28 13:32:59] [INFO] Sklep dodany pomyślnie: 1
+[2025-03-28 13:33:04] [INFO] Sklep dodany pomyślnie: 2
+[2025-03-28 13:33:08] [INFO] Sklep dodany pomyślnie: 3
+[2025-03-28 13:33:10] [INFO] Sklep dodany pomyślnie: 4
+[2025-03-28 13:33:24] [INFO] Użytkownik dodany pomyślnie: mg
+[2025-03-28 13:33:33] [INFO] Użytkownik dodany pomyślnie: sk
+[2025-03-28 13:33:43] [INFO] Użytkownik dodany pomyślnie: mt
+[2025-03-28 13:33:52] [INFO] Użytkownik dodany pomyślnie: jk
+[2025-03-28 13:34:02] [INFO] Użytkownik 1 przypisany do sklepów: 1
+[2025-03-28 13:34:07] [INFO] Użytkownik 2 przypisany do sklepów: 2
+[2025-03-28 13:34:12] [INFO] Użytkownik 3 przypisany do sklepów: 3
+[2025-03-28 13:34:17] [INFO] Użytkownik 4 przypisany do sklepów: 1, 2, 3, 4
+[2025-03-28 13:38:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:38:07] [INFO] Połączono z MariaDB
+[2025-03-28 13:38:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:38:32] [INFO] Połączono z MariaDB
+[2025-03-28 13:38:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:38:57] [INFO] Połączono z MariaDB
+[2025-03-28 13:38:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:38:58] [INFO] Połączono z MariaDB
+[2025-03-28 13:39:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:39:50] [INFO] Połączono z MariaDB
+[2025-03-28 13:39:51] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:659, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:40:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:40:59] [INFO] Połączono z MariaDB
+[2025-03-28 13:41:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:41:11] [INFO] Połączono z MariaDB
+[2025-03-28 13:41:12] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:759, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'group by s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 13:41:13] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:760, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'group by s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 13:42:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:42:00] [INFO] Połączono z MariaDB
+[2025-03-28 13:42:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:42:09] [INFO] Połączono z MariaDB
+[2025-03-28 13:42:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:42:10] [INFO] Połączono z MariaDB
+[2025-03-28 13:42:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:42:13] [INFO] Połączono z MariaDB
+[2025-03-28 13:42:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:42:17] [INFO] Połączono z MariaDB
+[2025-03-28 13:42:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1009, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:42:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1010, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:42:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1011, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:42:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1012, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:42:19] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1013, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:42:19] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1014, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:42:19] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1015, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:42:19] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1016, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE s.SklStatus = 1 ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId group b... - parameters:[]
+[2025-03-28 13:43:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:43:15] [INFO] Połączono z MariaDB
+[2025-03-28 13:43:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:43:18] [INFO] Połączono z MariaDB
+[2025-03-28 13:43:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 13:43:31] [INFO] Połączono z MariaDB
+[2025-03-28 14:00:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:00:30] [INFO] Połączono z MariaDB
+[2025-03-28 14:02:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:02:40] [INFO] Połączono z MariaDB
+[2025-03-28 14:02:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:02:59] [INFO] Połączono z MariaDB
+[2025-03-28 14:03:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:03:20] [INFO] Połączono z MariaDB
+[2025-03-28 14:04:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:04:24] [INFO] Połączono z MariaDB
+[2025-03-28 14:04:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:04:37] [INFO] Połączono z MariaDB
+[2025-03-28 14:05:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:05:13] [INFO] Połączono z MariaDB
+[2025-03-28 14:05:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:05:40] [INFO] Połączono z MariaDB
+[2025-03-28 14:06:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:06:06] [INFO] Połączono z MariaDB
+[2025-03-28 14:06:10] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1609, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and us.UzSklUzId = undefined group by s.SklId ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:06:14] [INFO] Zalogowano: mg
+[2025-03-28 14:06:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1611, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId where u... - parameters:[]
+[2025-03-28 14:07:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:07:18] [INFO] Połączono z MariaDB
+[2025-03-28 14:07:22] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1659, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId where u... - parameters:[]
+[2025-03-28 14:08:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:08:09] [INFO] Połączono z MariaDB
+[2025-03-28 14:08:12] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1709, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId where u... - parameters:[]
+[2025-03-28 14:08:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:08:33] [INFO] Połączono z MariaDB
+[2025-03-28 14:08:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1759, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and us.UzSklUzId = 1 group by s.SklId ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:08:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:08:44] [INFO] Połączono z MariaDB
+[2025-03-28 14:08:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:08:48] [INFO] Połączono z MariaDB
+[2025-03-28 14:08:51] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:1859, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'and us.UzSklUzId = 1 group by s.SklId ORDER BY s.SklStatus DESC, s.SklId' at line 1
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:09:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:09:29] [INFO] Połączono z MariaDB
+[2025-03-28 14:09:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:09:38] [INFO] Połączono z MariaDB
+[2025-03-28 14:09:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:09:45] [INFO] Połączono z MariaDB
+[2025-03-28 14:09:49] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:2010, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:09:53] [INFO] Zalogowano: sk
+[2025-03-28 14:09:58] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:2013, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:10:01] [INFO] Zalogowano: jk
+[2025-03-28 14:10:31] [INFO] Sklep dodany pomyślnie: Budka przy Prusa
+[2025-03-28 14:10:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:2019, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:10:45] [INFO] Zalogowano Serwis
+[2025-03-28 14:11:12] [INFO] Użytkownik 1 przypisany do sklepów: 5
+[2025-03-28 14:13:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:13:53] [INFO] Połączono z MariaDB
+[2025-03-28 14:13:56] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:2061, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:13:57] [INFO] Zalogowano Serwis
+[2025-03-28 14:14:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:14:23] [INFO] Połączono z MariaDB
+[2025-03-28 14:14:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:14:51] [INFO] Połączono z MariaDB
+[2025-03-28 14:14:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:14:57] [INFO] Połączono z MariaDB
+[2025-03-28 14:15:11] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-28 14:15:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:15:13] [INFO] Połączono z MariaDB
+[2025-03-28 14:15:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:15:48] [INFO] Połączono z MariaDB
+[2025-03-28 14:15:51] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:2311, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:15:52] [INFO] Zalogowano Serwis
+[2025-03-28 14:15:57] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-28 14:15:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:15:58] [INFO] Połączono z MariaDB
+[2025-03-28 14:16:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:16:15] [INFO] Połączono z MariaDB
+[2025-03-28 14:16:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:16:27] [INFO] Połączono z MariaDB
+[2025-03-28 14:17:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:17:40] [INFO] Połączono z MariaDB
+[2025-03-28 14:18:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:18:05] [INFO] Połączono z MariaDB
+[2025-03-28 14:18:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:2561, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:18:25] [INFO] Zalogowano Serwis
+[2025-03-28 14:18:34] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:2563, no: 1054, SQLState: 42S22) Unknown column 'undefined' in 'WHERE'
+sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId WHERE s... - parameters:[]
+[2025-03-28 14:18:35] [INFO] Zalogowano Serwis
+[2025-03-28 14:19:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:19:04] [INFO] Połączono z MariaDB
+[2025-03-28 14:20:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:20:08] [INFO] Połączono z MariaDB
+[2025-03-28 14:20:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:20:38] [INFO] Połączono z MariaDB
+[2025-03-28 14:21:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:21:09] [INFO] Połączono z MariaDB
+[2025-03-28 14:21:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:21:47] [INFO] Połączono z MariaDB
+[2025-03-28 14:22:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:22:29] [INFO] Połączono z MariaDB
+[2025-03-28 14:22:32] [ERROR] Błąd połączenia z Bazą Danych: TypeError: Assignment to constant variable.
+[2025-03-28 14:23:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:23:01] [INFO] Połączono z MariaDB
+[2025-03-28 14:23:07] [INFO] Usunięcie sklepu o ID: 1
+[2025-03-28 14:23:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:23:18] [INFO] Połączono z MariaDB
+[2025-03-28 14:23:26] [INFO] Zalogowano: mg
+[2025-03-28 14:24:10] [INFO] Zalogowano: sk
+[2025-03-28 14:24:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:24:48] [INFO] Połączono z MariaDB
+[2025-03-28 14:24:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:24:52] [INFO] Połączono z MariaDB
+[2025-03-28 14:24:55] [INFO] Zalogowano Serwis
+[2025-03-28 14:25:03] [INFO] Przywrócenie sklepu o ID: 1
+[2025-03-28 14:26:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:26:04] [INFO] Połączono z MariaDB
+[2025-03-28 14:26:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:26:06] [INFO] Połączono z MariaDB
+[2025-03-28 14:26:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:26:29] [INFO] Połączono z MariaDB
+[2025-03-28 14:26:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:26:58] [INFO] Połączono z MariaDB
+[2025-03-28 14:27:04] [INFO] Zalogowano: jk (Sklep: Budka przy Prusa)
+[2025-03-28 14:27:07] [INFO] Zmiana zarejestrowana dla użytkownika: 4
+[2025-03-28 14:30:19] [INFO] Zmiana zarejestrowana dla użytkownika: 4
+[2025-03-28 14:30:25] [INFO] Zalogowano Serwis
+[2025-03-28 14:31:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:31:43] [INFO] Połączono z MariaDB
+[2025-03-28 14:32:27] [INFO] Zalogowano Serwis
+[2025-03-28 14:32:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:32:53] [INFO] Połączono z MariaDB
+[2025-03-28 14:33:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:33:44] [INFO] Połączono z MariaDB
+[2025-03-28 14:35:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:35:56] [INFO] Połączono z MariaDB
+[2025-03-28 14:36:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 14:36:20] [INFO] Połączono z MariaDB
+[2025-03-28 14:41:21] [INFO] Zalogowano: jk (Sklep: Budka przy Prusa)
+[2025-03-28 14:41:23] [INFO] Zmiana zarejestrowana dla użytkownika: 4
+[2025-03-28 14:45:01] [INFO] Zmiana zarejestrowana dla użytkownika: 4
+[2025-03-28 14:46:38] [INFO] Zalogowano Serwis
+[2025-03-28 14:47:06] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-28 14:47:07] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-28 14:53:46] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-28 14:53:49] [INFO] Zalogowano Serwis
+[2025-03-28 14:54:03] [INFO] Zalogowano: sk (Sklep: 4)
+[2025-03-28 14:54:05] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-03-28 15:15:11] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-03-28 15:15:14] [INFO] Zalogowano Serwis
