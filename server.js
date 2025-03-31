@@ -383,7 +383,7 @@ app.get("/api/smaki", async (req, res) => {
   }
 });
 
-app.get("/api/smaki-sklep/:sklepId", async (req, res) => {
+app.get("/api/kuwety-sklep/:sklepId", async (req, res) => {
   const { sklepId } = req.params;
   let connection;
   try {
@@ -895,6 +895,7 @@ app.post("/api/test-db-connection", (req, res) => {
 
 app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
   const {
+    sklepId,
     kuweta1,
     kuweta2,
     kuweta3,
@@ -905,14 +906,16 @@ app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
     kuweta8,
     kuweta9,
     kuweta10,
-    sklepId,
   } = req.body;
 
   let connection;
   let errorMessages = [];
+
+  // Walidacja wymaganych danych
   if (!sklepId) {
     errorMessages.push("Brak wymaganego pola: sklepId.");
   }
+
   try {
     connection = await dbConfig.getConnection();
 
@@ -920,6 +923,7 @@ app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
       return res.status(400).json({ error: errorMessages.join(" ") });
     }
 
+    // Zapisywanie danych w tabeli 'Ulozenie'
     await connection.query(
       "INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id, UKuw7Id, UKuw8Id, UKuw9Id, UKuw10Id, USklId) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
       [
@@ -936,9 +940,13 @@ app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
         sklepId,
       ]
     );
+
+    // Logowanie do pliku
     logToFile(
       `[INFO] Ułożenie dodano pomyślnie: SKLEP: ${sklepId} = KUWETA1: ${kuweta1} | KUWETA2: ${kuweta2} | KUWETA3: ${kuweta3} | KUWETA4: ${kuweta4} | KUWETA5: ${kuweta5} | KUWETA6: ${kuweta6} | KUWETA7: ${kuweta7} | KUWETA8: ${kuweta8} | KUWETA9: ${kuweta9} | KUWETA10: ${kuweta10}`
     );
+
+    // Odpowiedź do klienta
     res.status(201).json({ message: "Ułożenie dodano pomyślnie." });
   } catch (err) {
     logToFile(`[ERROR] Błąd podczas dodawania ułożenia: ${err}`);
@@ -948,30 +956,21 @@ app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
   }
 });
 
-app.get("/api/ulozenie-kuwet", async (req, res) => {
+app.get("/api/ulozenie-kuwet-menu/:sklepId", async (req, res) => {
+  const sklepId = req.params.sklepId;
   try {
-    const { sklepId } = req.query;
-    if (!sklepId) {
-      return res.status(400).json({ error: "Brak wymaganych parametrów." });
+    const results = await dbConfig.query(
+      "SELECT * FROM ulozenie WHERE USklId = ?",
+      [sklepId]
+    );
+    if (results.length === 0) {
+      // Zamiast 404 zwróć 200 z pustą odpowiedzią, gdy rekord nie istnieje
+      return res.status(200).json([]); // Rekord nie istnieje, więc zwrócimy pustą tablicę
     }
-
-    const sql = `SELECT * FROM UlozenieKuwet WHERE SklepId = @sklepId`;
-    const pool = await poolPromise;
-    const result = await pool
-      .request()
-      .input("sklepId", sql.Int, sklepId)
-      .query(sql);
-
-    if (result.recordset.length === 0) {
-      return res
-        .status(404)
-        .json({ error: "Brak danych dla podanego sklepu." });
-    }
-
-    res.json(result.recordset[0]);
-  } catch (error) {
-    console.error("Błąd w API /api/ulozenie-kuwet:", error);
-    res.status(500).json({ error: "Błąd serwera." });
+    res.status(200).json(results); // Zwracamy dane o ułożeniu, gdy rekord istnieje
+  } catch (err) {
+    console.log("Błąd przy pobieraniu ułożenia:", err);
+    res.status(500).json({ error: "Błąd serwera" });
   }
 });
 

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const select = document.getElementById("dodawanie-kuwet-sklep");
 
   try {
-    const response = await fetch(`${CONFIG.URL}/api/sklepy`);
+    const response = await fetch(`${CONFIG.URL}/api/sklepy-logowanie`);
     const sklepy = await response.json();
 
     if (!Array.isArray(sklepy)) {

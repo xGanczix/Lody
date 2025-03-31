@@ -423,17 +423,17 @@ table#dostepne-kuwety tbody tr {
   cursor: grab;
 }
 
-tr.smak-item td {
+tr.kuweta-item td {
   width: 50%;
   padding: 10px;
   text-align: center;
 }
 
-tr.smak-item td:first-child {
+tr.kuweta-item td:first-child {
   border-radius: 5px 0 0 5px;
 }
 
-tr.smak-item td:last-child {
+tr.kuweta-item td:last-child {
   border-radius: 0 5px 5px 0;
 }
 

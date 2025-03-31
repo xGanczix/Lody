@@ -236,3 +236,7 @@ sql: select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s
 [2025-03-28 14:54:05] [INFO] Zmiana zarejestrowana dla użytkownika: 2
 [2025-03-28 15:15:11] [INFO] Zmiana zarejestrowana dla użytkownika: 2
 [2025-03-28 15:15:14] [INFO] Zalogowano Serwis
+[2025-03-28 15:57:35] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-28 15:57:35] [INFO] Aplikacja zakończyła działanie.
+[2025-03-28 15:57:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-28 15:57:35] [INFO] Połączono z MariaDB
