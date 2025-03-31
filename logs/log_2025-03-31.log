@@ -637,3 +637,32 @@ sql: SELECT * FROM ulozenie WHERE USklId = undefined - parameters:[]
 [2025-03-31 16:40:46] [INFO] Kuweta dodana pomyślnie: Id smak: 15 | Id rozmiar: 1 | Porcje: 90
 [2025-03-31 16:40:54] [INFO] Zalogowano: mati (Sklep: Prusa)
 [2025-03-31 16:40:55] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 16:46:53] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-31 16:46:53] [INFO] Aplikacja zakończyła działanie.
+[2025-03-31 16:46:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:46:55] [INFO] Połączono z MariaDB
+[2025-03-31 16:47:27] [INFO] Zalogowano Serwis
+[2025-03-31 16:47:35] [INFO] Kuweta dodana pomyślnie: Id smak: 8 | Id rozmiar: 1 | Porcje: 90
+[2025-03-31 16:48:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:48:07] [INFO] Połączono z MariaDB
+[2025-03-31 16:48:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:48:13] [INFO] Połączono z MariaDB
+[2025-03-31 16:48:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:48:20] [INFO] Połączono z MariaDB
+[2025-03-31 16:49:56] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-31 16:51:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:51:06] [INFO] Połączono z MariaDB
+[2025-03-31 16:51:09] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 16:51:58] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 16:52:01] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 16:52:06] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 16:53:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:53:00] [INFO] Połączono z MariaDB
+[2025-03-31 16:53:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:53:43] [INFO] Połączono z MariaDB
+[2025-03-31 16:54:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:54:17] [INFO] Połączono z MariaDB
+[2025-03-31 16:58:57] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-31 16:58:57] [INFO] Aplikacja zakończyła działanie.
+[2025-03-31 16:58:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:58:58] [INFO] Połączono z MariaDB

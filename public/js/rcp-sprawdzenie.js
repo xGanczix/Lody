@@ -1,8 +1,8 @@
 const menuPoczatekZmiany = document.getElementById("poczatekZmiany");
 const menuKoniecZmiany = document.getElementById("koniecZmiany");
-const menuSprzedaz = document.getElementById("sprzedaz");
-const menuUlozenieKuwet = document.getElementById("ulozenieKuwet");
-const menuZamowienie = document.getElementById("zamowienie");
+const menuSprzedaz = document.getElementById("menuSprzedaz");
+const menuUlozenieKuwet = document.getElementById("menuUlozenieKuwet");
+const menuZamowienie = document.getElementById("menuZamowienie");
 
 window.addEventListener("DOMContentLoaded", async () => {
   const token = localStorage.getItem("token");

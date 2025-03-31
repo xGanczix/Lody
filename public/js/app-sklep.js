@@ -18,13 +18,17 @@ themeToggleButton.addEventListener("click", () => {
   }
 });
 
-function sprzedaz() {
+document.getElementById("menuSprzedaz").addEventListener("click", () => {
   window.location.href = "sprzedaz.html";
-}
+});
 
-function ulozenieKuwet() {
+document.getElementById("menuUlozenieKuwet").addEventListener("click", () => {
   window.location.href = "ulozenie-kuwet.html";
-}
+});
+
+document.getElementById("menuZamowienie").addEventListener("click", () => {
+  window.location.href = "zamowienie.html";
+});
 
 function menu() {
   window.location.href = "sklep-menu.html";

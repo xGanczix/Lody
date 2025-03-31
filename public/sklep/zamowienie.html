@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="stylesheet" href="../css/style-sklep.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Home</title>
+  </head>
+  <body>
+    <div class="sklep-menu-container">
+      <div class="sklep-uzytkownik-container">
+        <span id="username"></span>
+
+        <button id="theme-toggle">
+          <img src="../img/white/moon-white.png" id="theme-icon" />
+        </button>
+        <button id="logout">
+          <img src="../img/white/power-off-white.png" alt="" />
+        </button>
+      </div>
+      <main>
+        <div class="zamowienie-kuwet-container">
+          <div class="zamowienie-dostepne-kuwety"></div>
+          <div class="zamowienie-zamowione-kuwety"></div>
+        </div>
+        <button id="sprzedaz-menu-btn" onclick="menu()">MENU</button>
+      </main>
+    </div>
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app-sklep.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/ulozenie-kuwet.js"></script>
+  </body>
+</html>

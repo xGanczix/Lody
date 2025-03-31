@@ -1259,7 +1259,7 @@ app.post("/api/tworzenie-administratora", async (req, res) => {
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    await connection.query("CALL rejestruj_zmiane(?)", [uzytkownikId]);
+    await connection.query("INSERT INTO Uzytkownicy()");
     res.json({ success: true, message: "Procedura wykonana pomyślnie" });
     logToFile(`[INFO] Zmiana zarejestrowana dla użytkownika: ${uzytkownikId}`);
   } catch (err) {
@@ -1268,6 +1268,39 @@ app.post("/api/tworzenie-administratora", async (req, res) => {
       error: "Błąd wykonania procedury",
       details: err.message,
     });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/kuwety-dostepne-centrala", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) AS KuwProcent
+    from
+	    Kuwety as k
+	  left join Rozmiary as r on r.RozId = k.KuwRozId
+	  left join Smaki as s on s.SmkId = k.KuwSmkId
+	  left join Sklepy as sk on sk.SklId = k.KuwSklId
+    where sk.SklNazwa is null`;
+
+    const data = await connection.query(sql);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
   }
