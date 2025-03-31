@@ -93,6 +93,53 @@ document.addEventListener("DOMContentLoaded", async () => {
           smakRow.remove();
         }
       });
+
+      // Dwuklik na kuwetę, aby usunąć przypisanie smaku
+      kuweta.addEventListener("dblclick", () => {
+        const kuwetaId = kuweta.id.replace("kuweta", "");
+        const przypisanySmakId = ulozenieData[`UKuw${kuwetaId}Id`];
+
+        if (przypisanySmakId) {
+          // Przywrócenie kuwetki na listę
+          const przypisanySmak = kuwetData.find(
+            (item) => item.Id === przypisanySmakId
+          );
+          if (przypisanySmak) {
+            // Zmieniamy wygląd kuwety na domyślny
+            kuweta.style.backgroundColor = "";
+            kuweta.style.color = "";
+            kuweta.textContent = "";
+
+            // Usuwamy przypisanie smaku z obiektu przypisanych smaków
+            delete przypisaneSmaki[`kuweta${kuwetaId}`];
+            przypisaneSmakiSet.delete(przypisanySmakId);
+
+            // Przywrócenie smaku do listy
+            const row = document.createElement("tr");
+            row.classList.add("kuweta-item");
+            row.setAttribute("id", `list-${przypisanySmak.Id}`);
+            row.setAttribute("draggable", "true");
+
+            let nameCell = document.createElement("td");
+            nameCell.textContent = przypisanySmak.Nazwa;
+            nameCell.style.background = przypisanySmak.Kolor;
+            nameCell.style.color = przypisanySmak.TekstKolor;
+
+            let colorCell = document.createElement("td");
+            colorCell.textContent = przypisanySmak.Pojemnosc;
+            colorCell.style.background = przypisanySmak.Kolor;
+            colorCell.style.color = przypisanySmak.TekstKolor;
+
+            row.appendChild(nameCell);
+            row.appendChild(colorCell);
+            tableBody.appendChild(row);
+
+            row.addEventListener("dragstart", (e) => {
+              e.dataTransfer.setData("text", JSON.stringify(przypisanySmak));
+            });
+          }
+        }
+      });
     });
 
     const tableBody = document.getElementById("kuwety-tbody");
@@ -124,11 +171,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
       }
     });
-    const zapiszButton = document.getElementById("ulozenie-zapisz-menu");
-    zapiszButton.addEventListener("click", async () => {
+
+    // Zapisz zmiany w bazie
+    const zapiszMenuButton = document.getElementById("ulozenie-zapisz-menu");
+    zapiszMenuButton.addEventListener("click", async () => {
       try {
         const response = await fetch(`${CONFIG.URL}/api/ulozenie-kuwet-menu`, {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -141,7 +190,35 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const result = await response.json();
         if (response.ok) {
-          console.log(result.message);
+          window.location.href = "sklep-menu.html";
+        } else {
+          console.log(result.error);
+        }
+      } catch (err) {
+        console.log("Błąd podczas zapisywania:", err);
+      }
+    });
+
+    const zapiszSprzedazButton = document.getElementById(
+      "ulozenie-zapisz-sprzedaz"
+    );
+    zapiszSprzedazButton.addEventListener("click", async () => {
+      try {
+        const response = await fetch(`${CONFIG.URL}/api/ulozenie-kuwet-menu`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            sklepId,
+            ...przypisaneSmaki,
+          }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          window.location.href = "sprzedaz.html";
         } else {
           console.log(result.error);
         }

@@ -331,3 +331,267 @@ sql: SELECT * FROM ulozenie WHERE USklId = undefined - parameters:[]
 [2025-03-31 13:38:23] [INFO] Zalogowano: mg (Sklep: 1)
 [2025-03-31 13:38:29] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 3
 [2025-03-31 13:38:43] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 13:40:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:40:26] [INFO] Połączono z MariaDB
+[2025-03-31 13:40:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:40:31] [INFO] Połączono z MariaDB
+[2025-03-31 13:40:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:40:37] [INFO] Połączono z MariaDB
+[2025-03-31 13:41:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:41:56] [INFO] Połączono z MariaDB
+[2025-03-31 13:43:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:43:38] [INFO] Połączono z MariaDB
+[2025-03-31 13:43:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:43:43] [INFO] Połączono z MariaDB
+[2025-03-31 13:43:57] [INFO] Zalogowano Serwis
+[2025-03-31 13:44:17] [INFO] Smak dodany pomyślnie: Wiśnia
+[2025-03-31 13:44:27] [INFO] Kuweta dodana pomyślnie: Id smak: 4 | Id rozmiar: 1 | Porcje: 90
+[2025-03-31 13:44:32] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 13:46:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:46:04] [INFO] Połączono z MariaDB
+[2025-03-31 13:46:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:46:15] [INFO] Połączono z MariaDB
+[2025-03-31 13:48:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:48:52] [INFO] Połączono z MariaDB
+[2025-03-31 13:49:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:49:55] [INFO] Połączono z MariaDB
+[2025-03-31 13:50:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:50:15] [INFO] Połączono z MariaDB
+[2025-03-31 13:50:26] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 13:50:56] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 13:50:57] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 13:51:02] [INFO] Zalogowano: jk (Sklep: 1)
+[2025-03-31 13:51:05] [INFO] Zalogowano Serwis
+[2025-03-31 13:53:41] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 13:53:43] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 13:56:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:56:18] [INFO] Połączono z MariaDB
+[2025-03-31 13:56:24] [INFO] Zalogowano Serwis
+[2025-03-31 13:56:34] [INFO] Smak dodany pomyślnie: Śmietankowy
+[2025-03-31 13:56:46] [INFO] Kuweta dodana pomyślnie: Id smak: 5 | Id rozmiar: 1 | Porcje: 90
+[2025-03-31 13:56:51] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 13:56:58] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 13:57:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:57:58] [INFO] Połączono z MariaDB
+[2025-03-31 13:57:59] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 13:58:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:58:26] [INFO] Połączono z MariaDB
+[2025-03-31 13:58:28] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 13:58:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:58:47] [INFO] Połączono z MariaDB
+[2025-03-31 13:58:49] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 13:59:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:59:38] [INFO] Połączono z MariaDB
+[2025-03-31 13:59:41] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 13:59:44] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 13:59:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 13:59:58] [INFO] Połączono z MariaDB
+[2025-03-31 14:01:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:01:13] [INFO] Połączono z MariaDB
+[2025-03-31 14:01:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:01:21] [INFO] Połączono z MariaDB
+[2025-03-31 14:01:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:01:28] [INFO] Połączono z MariaDB
+[2025-03-31 14:01:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:01:41] [INFO] Połączono z MariaDB
+[2025-03-31 14:01:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:01:50] [INFO] Połączono z MariaDB
+[2025-03-31 14:02:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:02:29] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:04] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:09] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:12] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:16] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:18] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:25] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:34] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:42] [INFO] Połączono z MariaDB
+[2025-03-31 14:03:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:03:52] [INFO] Połączono z MariaDB
+[2025-03-31 14:04:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:04:06] [INFO] Połączono z MariaDB
+[2025-03-31 14:04:22] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 14:06:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:06:40] [INFO] Połączono z MariaDB
+[2025-03-31 14:06:45] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 14:06:53] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 14:06:57] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 5 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 4 | KUWETA10: 3
+[2025-03-31 14:08:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:08:04] [INFO] Połączono z MariaDB
+[2025-03-31 14:08:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:08:19] [INFO] Połączono z MariaDB
+[2025-03-31 14:10:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:10:16] [INFO] Połączono z MariaDB
+[2025-03-31 14:10:31] [INFO] Zalogowano Serwis
+[2025-03-31 14:10:50] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: SklepTestowy123
+[2025-03-31 14:11:22] [INFO] Kuweta dodana pomyślnie: Id smak: 2 | Id rozmiar: 1 | Porcje: 90
+[2025-03-31 14:11:26] [INFO] Zalogowano: mg (Sklep: SklepTestowy123)
+[2025-03-31 14:11:30] [INFO] Ułożenie dodano pomyślnie: SKLEP: 6 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 6
+[2025-03-31 14:15:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:15:07] [INFO] Połączono z MariaDB
+[2025-03-31 14:15:27] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 14:15:53] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 14:16:11] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:18:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:18:24] [INFO] Połączono z MariaDB
+[2025-03-31 14:20:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:20:51] [INFO] Połączono z MariaDB
+[2025-03-31 14:22:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:22:52] [INFO] Połączono z MariaDB
+[2025-03-31 14:23:47] [INFO] Zalogowano Serwis
+[2025-03-31 14:23:56] [INFO] Kuweta dodana pomyślnie: Id smak: 3 | Id rozmiar: 1 | Porcje: 90
+[2025-03-31 14:24:00] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 14:24:20] [INFO] Zalogowano: mg (Sklep: SklepTestowy123)
+[2025-03-31 14:24:28] [INFO] Ułożenie dodano pomyślnie: SKLEP: 6 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:28:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:28:34] [INFO] Połączono z MariaDB
+[2025-03-31 14:28:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:28:52] [INFO] Połączono z MariaDB
+[2025-03-31 14:29:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:29:13] [INFO] Połączono z MariaDB
+[2025-03-31 14:29:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:29:17] [INFO] Połączono z MariaDB
+[2025-03-31 14:29:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:29:20] [INFO] Połączono z MariaDB
+[2025-03-31 14:29:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:29:23] [INFO] Połączono z MariaDB
+[2025-03-31 14:29:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:29:27] [INFO] Połączono z MariaDB
+[2025-03-31 14:29:36] [INFO] Ułożenie dodano pomyślnie: SKLEP: 6 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 6 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:30:03] [INFO] Ułożenie dodano pomyślnie: SKLEP: 6 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 6 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:30:07] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 14:33:02] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:33:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:33:28] [INFO] Połączono z MariaDB
+[2025-03-31 14:33:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:33:53] [INFO] Połączono z MariaDB
+[2025-03-31 14:33:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:33:57] [INFO] Połączono z MariaDB
+[2025-03-31 14:34:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:34:31] [INFO] Połączono z MariaDB
+[2025-03-31 14:34:56] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:35:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 14:35:07] [INFO] Połączono z MariaDB
+[2025-03-31 14:35:13] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 1 | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:35:16] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:35:24] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:35:52] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 1 | KUWETA5: 5 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 3 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:35:56] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 5 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 3 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:36:19] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 3 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:39:41] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 3 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:39:47] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:39:52] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 14:40:08] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 5 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 3 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:40:13] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: 1 | KUWETA4: undefined | KUWETA5: 5 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 3 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:40:19] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: 1 | KUWETA4: undefined | KUWETA5: 5 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 14:40:59] [INFO] Zalogowano Serwis
+[2025-03-31 14:41:16] [INFO] Smak dodany pomyślnie: Cytrynka
+[2025-03-31 14:41:25] [INFO] Kuweta dodana pomyślnie: Id smak: 6 | Id rozmiar: 1 | Porcje: 90
+[2025-03-31 14:41:40] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 14:41:46] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: 1 | KUWETA4: undefined | KUWETA5: 5 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 8 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 15:03:54] [INFO] Zalogowano: mg (Sklep: 1)
+[2025-03-31 15:04:05] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 4 | KUWETA2: undefined | KUWETA3: 1 | KUWETA4: undefined | KUWETA5: 5 | KUWETA6: undefined | KUWETA7: 2 | KUWETA8: 8 | KUWETA9: undefined | KUWETA10: 7
+[2025-03-31 15:06:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:06:55] [INFO] Połączono z MariaDB
+[2025-03-31 15:07:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:07:12] [INFO] Połączono z MariaDB
+[2025-03-31 15:07:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:07:16] [INFO] Połączono z MariaDB
+[2025-03-31 15:07:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:07:34] [INFO] Połączono z MariaDB
+[2025-03-31 15:08:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:08:02] [INFO] Połączono z MariaDB
+[2025-03-31 15:08:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:08:56] [INFO] Połączono z MariaDB
+[2025-03-31 15:09:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:09:02] [INFO] Połączono z MariaDB
+[2025-03-31 15:09:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:09:11] [INFO] Połączono z MariaDB
+[2025-03-31 15:09:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:09:32] [INFO] Połączono z MariaDB
+[2025-03-31 15:09:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:09:37] [INFO] Połączono z MariaDB
+[2025-03-31 15:09:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:09:45] [INFO] Połączono z MariaDB
+[2025-03-31 15:09:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:09:56] [INFO] Połączono z MariaDB
+[2025-03-31 15:10:01] [INFO] Zalogowano Serwis
+[2025-03-31 15:10:06] [INFO] Dane z tabel zostały usunięte
+[2025-03-31 15:10:31] [INFO] Dane z tabel zostały usunięte
+[2025-03-31 15:10:38] [INFO] Procedura RCP została utworzona przez API
+[2025-03-31 15:10:45] [INFO] Zalogowano Serwis
+[2025-03-31 15:11:01] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: Prusa
+[2025-03-31 15:12:18] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-03-31 15:12:27] [INFO] Użytkownik 1 przypisany do sklepów: 1
+[2025-03-31 15:12:54] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-03-31 15:12:56] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 15:13:04] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 15:13:10] [INFO] Zalogowano Serwis
+[2025-03-31 15:13:35] [INFO] Dane z tabel zostały usunięte
+[2025-03-31 15:15:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:15:51] [INFO] Połączono z MariaDB
+[2025-03-31 15:16:02] [INFO] Dane z tabel zostały usunięte
+[2025-03-31 15:16:31] [INFO] Zalogowano Serwis
+[2025-03-31 15:18:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:18:15] [INFO] Połączono z MariaDB
+[2025-03-31 15:18:50] [INFO] Zalogowano Serwis
+[2025-03-31 15:19:01] [INFO] Dane z tabel zostały usunięte
+[2025-03-31 15:24:46] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-03-31 15:27:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:27:16] [INFO] Połączono z MariaDB
+[2025-03-31 15:28:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:28:42] [INFO] Połączono z MariaDB
+[2025-03-31 15:32:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:32:10] [INFO] Połączono z MariaDB
+[2025-03-31 15:33:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:33:11] [INFO] Połączono z MariaDB
+[2025-03-31 15:35:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:35:11] [INFO] Połączono z MariaDB
+[2025-03-31 15:39:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:39:24] [INFO] Połączono z MariaDB
+[2025-03-31 15:40:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:40:10] [INFO] Połączono z MariaDB
+[2025-03-31 15:40:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:40:32] [INFO] Połączono z MariaDB
+[2025-03-31 15:43:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:43:29] [INFO] Połączono z MariaDB
+[2025-03-31 15:43:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:43:34] [INFO] Połączono z MariaDB
+[2025-03-31 15:44:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:44:00] [INFO] Połączono z MariaDB
+[2025-03-31 15:44:09] [INFO] Dane z tabel zostały usunięte
+[2025-03-31 15:44:38] [INFO] Zalogowano Serwis
+[2025-03-31 15:45:13] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-03-31 15:46:01] [INFO] Zalogowano Serwis
+[2025-03-31 15:47:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:47:13] [INFO] Połączono z MariaDB
+[2025-03-31 15:47:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:47:23] [INFO] Połączono z MariaDB
+[2025-03-31 15:47:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:47:40] [INFO] Połączono z MariaDB
+[2025-03-31 15:48:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:48:48] [INFO] Połączono z MariaDB
+[2025-03-31 15:48:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:48:50] [INFO] Połączono z MariaDB
+[2025-03-31 15:48:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 15:48:55] [INFO] Połączono z MariaDB
+[2025-03-31 16:10:56] [INFO] Zalogowano Serwis
+[2025-03-31 16:11:04] [INFO] Smak dodany pomyślnie: rtyu
+[2025-03-31 16:11:14] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 1
+[2025-03-31 16:11:20] [INFO] Rozmiar dodany pomyślnie: 1
+[2025-03-31 16:11:27] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 1 | Porcje: 12
+[2025-03-31 16:11:34] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-03-31 16:11:35] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-03-31 16:11:39] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-03-31 16:21:43] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-03-31 16:21:43] [INFO] Aplikacja zakończyła działanie.
+[2025-03-31 16:21:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-03-31 16:21:44] [INFO] Połączono z MariaDB

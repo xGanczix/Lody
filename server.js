@@ -6,9 +6,6 @@ const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const { exec } = require("child_process");
-const axios = require("axios");
-const csv = require("csv-parser");
-const { Readable } = require("stream");
 
 const appPort = 3000;
 const app = express();
@@ -641,7 +638,8 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
       return res.status(400).json({ error: errorMessages.join(" ") });
     }
 
-    await connection.query(
+    // Wstawienie rekordu do tabeli Sklepy
+    const result = await connection.query(
       "INSERT INTO Sklepy (SklNazwa,SklUlica,SklNumer,SklKod,SklMiejscowosc,SklPojemnosc) VALUES (?,?,?,?,?,?)",
       [
         sklepNazwa,
@@ -652,8 +650,20 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
         sklepPojemnosc,
       ]
     );
-    logToFile(`[INFO] Sklep dodany pomyślnie: ${sklepNazwa}`);
-    res.status(201).json({ message: "Sklep dodany pomyślnie." });
+
+    const sklepId = result.insertId; // Id nowo dodanego sklepu
+
+    // Wstawienie rekordu do tabeli Ulozenie
+    await connection.query("INSERT INTO Ulozenie (USklId) VALUES (?)", [
+      sklepId,
+    ]);
+
+    logToFile(
+      `[INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: ${sklepNazwa}`
+    );
+    res
+      .status(201)
+      .json({ message: "Sklep i przypisanie do Ulozenia dodane pomyślnie." });
   } catch (err) {
     logToFile(`[ERROR] Błąd podczas dodawania sklepu: ${err}`);
     res.status(500).json({ error: "Wystąpił błąd serwera." });
@@ -893,7 +903,7 @@ app.post("/api/test-db-connection", (req, res) => {
     });
 });
 
-app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
+app.put("/api/ulozenie-kuwet-menu", async (req, res) => {
   const {
     sklepId,
     kuweta1,
@@ -911,21 +921,27 @@ app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
   let connection;
   let errorMessages = [];
 
-  // Walidacja wymaganych danych
-  if (!sklepId) {
-    errorMessages.push("Brak wymaganego pola: sklepId.");
+  if (errorMessages.length > 0) {
+    return res.status(400).json({ error: errorMessages.join(" ") });
   }
 
   try {
     connection = await dbConfig.getConnection();
 
-    if (errorMessages.length > 0) {
-      return res.status(400).json({ error: errorMessages.join(" ") });
-    }
-
-    // Zapisywanie danych w tabeli 'Ulozenie'
     await connection.query(
-      "INSERT INTO Ulozenie (UKuw1Id, UKuw2Id, UKuw3Id, UKuw4Id, UKuw5Id, UKuw6Id, UKuw7Id, UKuw8Id, UKuw9Id, UKuw10Id, USklId) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+      `UPDATE Ulozenie SET 
+        UKuw1Id = ?, 
+        UKuw2Id = ?, 
+        UKuw3Id = ?, 
+        UKuw4Id = ?, 
+        UKuw5Id = ?, 
+        UKuw6Id = ?, 
+        UKuw7Id = ?, 
+        UKuw8Id = ?, 
+        UKuw9Id = ?, 
+        UKuw10Id = ?,
+        UDataZmiany = now()
+      WHERE USklId = ?`,
       [
         kuweta1 || null,
         kuweta2 || null,
@@ -941,15 +957,14 @@ app.post("/api/ulozenie-kuwet-menu", async (req, res) => {
       ]
     );
 
-    // Logowanie do pliku
     logToFile(
       `[INFO] Ułożenie dodano pomyślnie: SKLEP: ${sklepId} = KUWETA1: ${kuweta1} | KUWETA2: ${kuweta2} | KUWETA3: ${kuweta3} | KUWETA4: ${kuweta4} | KUWETA5: ${kuweta5} | KUWETA6: ${kuweta6} | KUWETA7: ${kuweta7} | KUWETA8: ${kuweta8} | KUWETA9: ${kuweta9} | KUWETA10: ${kuweta10}`
     );
 
-    // Odpowiedź do klienta
     res.status(201).json({ message: "Ułożenie dodano pomyślnie." });
   } catch (err) {
     logToFile(`[ERROR] Błąd podczas dodawania ułożenia: ${err}`);
+
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
     if (connection) connection.release();
@@ -964,10 +979,9 @@ app.get("/api/ulozenie-kuwet-menu/:sklepId", async (req, res) => {
       [sklepId]
     );
     if (results.length === 0) {
-      // Zamiast 404 zwróć 200 z pustą odpowiedzią, gdy rekord nie istnieje
-      return res.status(200).json([]); // Rekord nie istnieje, więc zwrócimy pustą tablicę
+      return res.status(200).json([]);
     }
-    res.status(200).json(results); // Zwracamy dane o ułożeniu, gdy rekord istnieje
+    res.status(200).json(results);
   } catch (err) {
     console.log("Błąd przy pobieraniu ułożenia:", err);
     res.status(500).json({ error: "Błąd serwera" });
@@ -1139,7 +1153,7 @@ app.post("/api/tworzenie-tabel", async (req, res) => {
   }
 });
 
-async function createTables() {
+async function deleteData() {
   let connection;
   try {
     connection = await dbConfig.getConnection();
@@ -1167,17 +1181,17 @@ async function createTables() {
   }
 }
 
-app.post("/api/tworzenie-tabel", async (req, res) => {
+app.post("/api/czyszczenie-tabel", async (req, res) => {
   try {
-    await createTables();
+    await deleteData();
     res.status(201).json({
       success: true,
-      message: "Tabele zostały utworzone na podstawie pliku SQL",
+      message: "Tabele zostały wyczyszczone",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      error: "Wystąpił błąd podczas tworzenia tabel",
+      error: "Wystąpił błąd podczas czyszczenia tabel",
       details: error.message,
     });
   }
@@ -1240,6 +1254,24 @@ async function createProcedure() {
     if (connection) connection.release();
   }
 }
+
+app.post("/api/tworzenie-administratora", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.query("CALL rejestruj_zmiane(?)", [uzytkownikId]);
+    res.json({ success: true, message: "Procedura wykonana pomyślnie" });
+    logToFile(`[INFO] Zmiana zarejestrowana dla użytkownika: ${uzytkownikId}`);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd rejestracji zmiany: ${err}`);
+    res.status(500).json({
+      error: "Błąd wykonania procedury",
+      details: err.message,
+    });
+  } finally {
+    if (connection) connection.release();
+  }
+});
 
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);

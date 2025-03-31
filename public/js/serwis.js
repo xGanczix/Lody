@@ -38,31 +38,33 @@ document
     }
   });
 
-  document.getElementById('tworzenieRegul').addEventListener('click', async () => {
-    const btn = document.getElementById('tworzenieRegul');
+document
+  .getElementById("tworzenieRegul")
+  .addEventListener("click", async () => {
+    const btn = document.getElementById("tworzenieRegul");
     const originalText = btn.textContent;
-    
+
     try {
       btn.disabled = true;
-      btn.textContent = 'Tworzenie...';
-      
-      const response = await fetch('/api/tworzenie-procedur', {
-        method: 'POST',
+      btn.textContent = "Tworzenie...";
+
+      const response = await fetch("/api/tworzenie-procedur", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-        }
+          "Content-Type": "application/json",
+        },
       });
-  
+
       const data = await response.json();
-  
+
       if (!response.ok) {
-        throw new Error(data.message || 'Nie udało się utworzyć procedury');
+        throw new Error(data.message || "Nie udało się utworzyć procedury");
       }
-  
+
       alert(data.message);
-      console.log('Sukces:', data);
+      console.log("Sukces:", data);
     } catch (error) {
-      console.error('Błąd:', error);
+      console.error("Błąd:", error);
       alert(`Błąd: ${error.message}`);
     } finally {
       btn.textContent = originalText;
@@ -70,6 +72,85 @@ document
     }
   });
 
-document.getElementById("czyszczenieTabel").addEventListener("click", () => {
-  alert("Kliknięcie czyszczenia tabel");
-});
+document
+  .getElementById("czyszczenieTabel")
+  .addEventListener("click", async () => {
+    const button = document.getElementById("czyszczenieTabel");
+    let originalText = button.textContent;
+
+    try {
+      const userConfirmed = confirm(
+        "Czy na pewno chcesz wyczyścić tabele w bazie danych?"
+      );
+      if (!userConfirmed) return;
+
+      const userInput = prompt('Aby potwierdzić, wpisz: "czyszczenie"');
+
+      if (userInput !== "czyszczenie") {
+        alert("Nieprawidłowy tekst. Czyszczenie anulowane.");
+        return;
+      }
+
+      button.textContent = "Czyszczenie...";
+      button.disabled = true;
+
+      const response = await fetch(`${CONFIG.URL}/api/czyszczenie-tabel`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert(`Sukces: ${result.message}`);
+      } else {
+        throw new Error(result.error || "Nieznany błąd");
+      }
+    } catch (error) {
+      console.error("Błąd:", error);
+      alert(`Błąd podczas czyszczenia tabel: ${error.message}`);
+    } finally {
+      if (button) {
+        button.textContent = originalText;
+        button.disabled = false;
+      }
+    }
+  });
+
+document
+  .getElementById("tworzenieAdministratora")
+  .addEventListener("click", async () => {
+    const btn = document.getElementById("tworzenieRegul");
+    const originalText = btn.textContent;
+
+    try {
+      btn.disabled = true;
+      btn.textContent = "Tworzenie...";
+
+      const response = await fetch("/api/tworzenie-administratora", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || "Nie udało się utworzyć administratora"
+        );
+      }
+
+      alert(data.message);
+      console.log("Sukces:", data);
+    } catch (error) {
+      console.error("Błąd:", error);
+      alert(`Błąd: ${error.message}`);
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });

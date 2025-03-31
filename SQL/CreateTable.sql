@@ -72,7 +72,7 @@ create table if not exists ulozenie (
 	UKuw9Id int,
 	UKuw10Id int,
 	USklId int not null,
-	UzDataZmiany datetime not null default now());
+	UDataZmiany datetime not null default now());
 
 create table if not exists Towary(
 	TowId int not null primary key auto_increment,
