@@ -8,6 +8,45 @@
     <link rel="stylesheet" href="../css/style-sklep.css" />
     <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
     <title>Centrala - Home</title>
+    <style>
+      .pozycja {
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+        cursor: grab;
+      }
+
+      .pozycja .usun {
+        position: absolute;
+        right: -100px;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        background: red;
+        color: white;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none; /* Zapobiega blokowaniu dotyku */
+      }
+
+      .usun {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+
+      .wiersz-przesuwany {
+        background-color: red !important;
+      }
+
+      .pokaz-usun .usun {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
     <div class="sklep-menu-container">
@@ -22,38 +61,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr id="pozycja1" style="display: none">
-              <td>1</td>
-              <td>Cytryna</td>
-              <td>6,00</td>
-              <td>
-                <button class="pozycje-wydania-delete">
-                  <img src="../img/white/delete-white.png" alt="" />
-                </button>
-              </td>
-            </tr>
-            <tr id="pozycja2" style="display: none">
-              <td>2</td>
-              <td>Czekolada</td>
-              <td>6,00</td>
-              <td>
-                <button class="pozycje-wydania-delete">
-                  <img src="../img/white/delete-white.png" alt="" />
-                </button>
-              </td>
-            </tr>
-            <tr id="pozycja3" style="display: none">
-              <td>3</td>
-              <td>Truskawka</td>
-              <td>6,00</td>
-              <td>
-                <button class="pozycje-wydania-delete">
-                  <img src="../img/white/delete-white.png" alt="" />
-                </button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody id="pozycje-wydania-tbody"></tbody>
         </table>
         <div class="podsumowanie-wydania">
           <span id="razem-wydania">RAZEM</span
@@ -70,41 +78,25 @@
             <img src="../img/white/gift-card-white.png" alt="" />Bon
           </button>
         </div>
-        <button id="pozycje-wydania-anuluj" onclick="anuluj()">
+        <button id="pozycje-wydania-anuluj">
           <img src="" alt="" />Anuluj wydanie
         </button>
       </div>
       <div class="sklep-wybor-towarow">
         <div class="lody-rzemieslnicze">
           <div class="lody-rzemieslnicze-rzad">
-            <button class="lody-rzemieslnicze-smak">Smak 1</button
-            ><button class="lody-rzemieslnicze-smak">Smak 2</button
-            ><button
-              class="lody-rzemieslnicze-smak"
-              style="background: #fcff5c; color: #000000"
-              onclick="pozycjaFirst()"
-            >
-              Cytryna</button
-            ><button
-              class="lody-rzemieslnicze-smak"
-              style="background: #570000; color: #ffffff"
-              onclick="pozycjaSecond()"
-            >
-              Czekolada</button
-            ><button
-              class="lody-rzemieslnicze-smak"
-              style="background: #ff0000; color: #ffffff"
-              onclick="pozycjaThird() "
-            >
-              Truskawka
-            </button>
+            <button class="lody-rzemieslnicze-smak">Smak 1</button>
+            <button class="lody-rzemieslnicze-smak">Smak 2</button>
+            <button class="lody-rzemieslnicze-smak">Smak 3</button>
+            <button class="lody-rzemieslnicze-smak">Smak 4</button>
+            <button class="lody-rzemieslnicze-smak">Smak 5</button>
           </div>
           <div class="lody-rzemieslnicze-rzad">
-            <button class="lody-rzemieslnicze-smak">Smak 6</button
-            ><button class="lody-rzemieslnicze-smak">Smak 7</button
-            ><button class="lody-rzemieslnicze-smak">Smak 8</button
-            ><button class="lody-rzemieslnicze-smak">Smak 9</button
-            ><button class="lody-rzemieslnicze-smak">Smak 10</button>
+            <button class="lody-rzemieslnicze-smak">Smak 6</button>
+            <button class="lody-rzemieslnicze-smak">Smak 7</button>
+            <button class="lody-rzemieslnicze-smak">Smak 8</button>
+            <button class="lody-rzemieslnicze-smak">Smak 9</button>
+            <button class="lody-rzemieslnicze-smak">Smak 10</button>
           </div>
         </div>
         <button id="sprzedaz-menu-btn" onclick="menu()">MENU</button>

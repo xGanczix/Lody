@@ -185,3 +185,22 @@ sql:
 [2025-04-01 15:59:12] [INFO] Połączono z MariaDB
 [2025-04-01 15:59:29] [INFO] Uruchomiono serwer na porcie 3000
 [2025-04-01 15:59:29] [INFO] Połączono z MariaDB
+[2025-04-01 22:26:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 22:26:11] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-01 22:26:11] [INFO] Aplikacja zakończyła działanie.
+[2025-04-01 22:26:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 22:26:25] [INFO] Połączono z MariaDB
+[2025-04-01 22:27:06] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-01 22:27:06] [INFO] Aplikacja zakończyła działanie.
+[2025-04-01 22:32:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 22:32:26] [INFO] Połączono z MariaDB
+[2025-04-01 22:32:46] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-01 22:32:46] [INFO] Aplikacja zakończyła działanie.
+[2025-04-01 22:32:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 22:32:47] [INFO] Połączono z MariaDB
+[2025-04-01 22:32:51] [INFO] Zalogowano Serwis
+[2025-04-01 22:33:06] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-01 23:10:09] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-01 23:10:26] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-01 23:27:44] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 5 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-01 23:29:43] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
