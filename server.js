@@ -1283,6 +1283,8 @@ app.get("/api/kuwety-dostepne-centrala", async (req, res) => {
 	    k.KuwId,
 	    k.KuwSmkId,
 	    s.SmkNazwa as KuwSmakNazwa,
+      s.SmkKolor as SmkKolor,
+      s.SmkTekstKolor as SmkTekstKolor,
 	    k.KuwRozId,
 	    r.RozPojemnosc as KuwRozmiarIlosc,
 	    k.KuwPorcje,
@@ -1294,13 +1296,50 @@ app.get("/api/kuwety-dostepne-centrala", async (req, res) => {
 	  left join Rozmiary as r on r.RozId = k.KuwRozId
 	  left join Smaki as s on s.SmkId = k.KuwSmkId
 	  left join Sklepy as sk on sk.SklId = k.KuwSklId
-    where sk.SklNazwa is null`;
+    where sk.SklNazwa is null and k.KuwStatusZamowienia = 1`;
 
     const data = await connection.query(sql);
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
     res.status(500).send("Błąd podczas pobierania danych");
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/smaki-dostepne-centrala", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `
+    select * from smaki where SmkStatus = 1`;
+
+    const data = await connection.query(sql);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.put("/api/zamowienie-bufor/:kuwetaId", async (req, res) => {
+  const kuwetaId = req.params.id;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.query(
+      "UPDATE Kuwety SET KuwStatusZamowienia = 3, KuwDataZmiany = now() WHERE KuwId = ?",
+      [kuwetaId]
+    );
+    res.status(200).json({ message: "Status zmieniony" });
+    logToFile(`[INFO] Status kuwety: ${kuwetaId} zmieniony na 0`);
+  } catch (err) {
+    res.status(500).json({ error: "Błąd serwera" });
+    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
   } finally {
     if (connection) connection.release();
   }

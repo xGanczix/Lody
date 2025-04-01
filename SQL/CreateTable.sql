@@ -56,8 +56,10 @@ create table if not exists Kuwety(
 	KuwRozId int not null,
 	KuwPorcje int not null,
 	KuwSklId int,
-	KuwDataZmiany datetime default now(),
-	KuwStatus boolean not null default 1);
+	KuwStatus boolean not null default 1,
+	KuwStatusZamowienia boolean not null default 1,
+	KuwDataZmiany datetime default now())
+	;
 
 create table if not exists ulozenie (
     UId int not null primary key auto_increment,
@@ -79,3 +81,8 @@ create table if not exists Towary(
 	TowNazwa varchar(255) not null,
 	TowCenaId int not null,
 	TowDataZmiany datetime not null default now());
+
+create table if not exists KuwetyStatusZamowienia(
+	KuwStatZamId int not null primary key auto_increment,
+	KuwStatZamNazwa varchar(255) not null,
+	KuwStatZamDataZmiany datetime not null default now())

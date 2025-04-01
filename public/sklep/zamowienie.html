@@ -23,8 +23,44 @@
       </div>
       <main>
         <div class="zamowienie-kuwet-container">
-          <div class="zamowienie-dostepne-kuwety"></div>
-          <div class="zamowienie-zamowione-kuwety"></div>
+          <div class="zamowienie-dostepne-kuwety">
+            <h2>Dostępne kuwety w centrali</h2>
+            <table id="zamowienie-dostepne-kuwety-table">
+              <thead>
+                <tr>
+                  <th>Smak</th>
+                  <th>Pojemność</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="dostepne-kuwety-tbody"></tbody>
+            </table>
+          </div>
+          <div class="zamowienie-dostepne-smaki">
+            <h2>Zapotrzebowanie na smaki</h2>
+            <table id="zamowienie-dostepne-smaki-table">
+              <thead>
+                <tr>
+                  <th>Smak</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="dostepne-smaki-tbody"></tbody>
+            </table>
+          </div>
+          <div class="zamowienie-zamowione-kuwety">
+            <h2>Zamówienie</h2>
+            <table id="zamowienie-zamowione-kuwety-table">
+              <thead>
+                <tr>
+                  <th>Smak</th>
+                  <th>Pojemność</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="zamowienie-tbody"></tbody>
+            </table>
+          </div>
         </div>
         <button id="sprzedaz-menu-btn" onclick="menu()">MENU</button>
       </main>
@@ -33,6 +69,6 @@
     <script src="../js/token.js"></script>
     <script src="../js/app-sklep.js"></script>
     <script src="../js/logout.js"></script>
-    <script src="../js/ulozenie-kuwet.js"></script>
+    <script src="../js/zamowienie.js"></script>
   </body>
 </html>

@@ -1,0 +1,187 @@
+[2025-04-01 11:23:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:23:43] [INFO] Połączono z MariaDB
+[2025-04-01 11:28:23] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-01 11:40:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:40:40] [INFO] Połączono z MariaDB
+[2025-04-01 11:44:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:44:57] [INFO] Połączono z MariaDB
+[2025-04-01 11:44:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:44:58] [INFO] Połączono z MariaDB
+[2025-04-01 11:46:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:46:12] [INFO] Połączono z MariaDB
+[2025-04-01 11:47:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:47:58] [INFO] Połączono z MariaDB
+[2025-04-01 11:48:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:48:33] [INFO] Połączono z MariaDB
+[2025-04-01 11:48:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:48:48] [INFO] Połączono z MariaDB
+[2025-04-01 11:49:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:49:06] [INFO] Połączono z MariaDB
+[2025-04-01 11:49:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:49:13] [INFO] Połączono z MariaDB
+[2025-04-01 11:51:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:51:31] [INFO] Połączono z MariaDB
+[2025-04-01 11:51:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:51:45] [INFO] Połączono z MariaDB
+[2025-04-01 11:51:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 11:51:49] [INFO] Połączono z MariaDB
+[2025-04-01 11:52:24] [INFO] Zalogowano Serwis
+[2025-04-01 11:52:45] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-01 12:07:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:07:41] [INFO] Połączono z MariaDB
+[2025-04-01 12:09:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:09:48] [INFO] Połączono z MariaDB
+[2025-04-01 12:10:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:10:52] [INFO] Połączono z MariaDB
+[2025-04-01 12:11:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:11:04] [INFO] Połączono z MariaDB
+[2025-04-01 12:11:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:11:09] [INFO] Połączono z MariaDB
+[2025-04-01 12:12:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:12:19] [INFO] Połączono z MariaDB
+[2025-04-01 12:13:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:13:16] [INFO] Połączono z MariaDB
+[2025-04-01 12:15:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 12:15:25] [INFO] Połączono z MariaDB
+[2025-04-01 13:04:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:04:19] [INFO] Połączono z MariaDB
+[2025-04-01 13:04:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:04:33] [INFO] Połączono z MariaDB
+[2025-04-01 13:18:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:18:36] [INFO] Połączono z MariaDB
+[2025-04-01 13:18:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:18:48] [INFO] Połączono z MariaDB
+[2025-04-01 13:24:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:24:12] [INFO] Połączono z MariaDB
+[2025-04-01 13:24:13] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:12447, no: 1054, SQLState: 42S22) Unknown column 'k.KuwStatZam' in 'WHERE'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) ... - parameters:[]
+[2025-04-01 13:25:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:25:22] [INFO] Połączono z MariaDB
+[2025-04-01 13:35:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:35:00] [INFO] Połączono z MariaDB
+[2025-04-01 13:35:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:35:18] [INFO] Połączono z MariaDB
+[2025-04-01 13:36:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:36:17] [INFO] Połączono z MariaDB
+[2025-04-01 13:36:27] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:12657, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'select * from smaki where SmkStatus = 1' at line 1
+sql: 
+    select select * from smaki where SmkStatus = 1 - parameters:[]
+[2025-04-01 13:36:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:36:46] [INFO] Połączono z MariaDB
+[2025-04-01 13:37:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:37:43] [INFO] Połączono z MariaDB
+[2025-04-01 13:39:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:39:12] [INFO] Połączono z MariaDB
+[2025-04-01 13:41:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:41:09] [INFO] Połączono z MariaDB
+[2025-04-01 13:42:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:42:24] [INFO] Połączono z MariaDB
+[2025-04-01 13:43:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:43:06] [INFO] Połączono z MariaDB
+[2025-04-01 13:43:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:43:19] [INFO] Połączono z MariaDB
+[2025-04-01 13:44:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:44:32] [INFO] Połączono z MariaDB
+[2025-04-01 13:45:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:45:09] [INFO] Połączono z MariaDB
+[2025-04-01 13:45:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:45:25] [INFO] Połączono z MariaDB
+[2025-04-01 13:49:50] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-01 13:49:53] [INFO] Zalogowano Serwis
+[2025-04-01 13:51:02] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-01 13:51:03] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-01 13:54:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:54:09] [INFO] Połączono z MariaDB
+[2025-04-01 13:54:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:54:15] [INFO] Połączono z MariaDB
+[2025-04-01 13:55:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 13:55:34] [INFO] Połączono z MariaDB
+[2025-04-01 15:05:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:05:17] [INFO] Połączono z MariaDB
+[2025-04-01 15:07:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:07:03] [INFO] Połączono z MariaDB
+[2025-04-01 15:07:04] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:13408, no: 1054, SQLState: 42S22) Unknown column 's.Kolor' in 'SELECT'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+      s.Kolor,
+      s.TekstKolor,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.Kuw... - parameters:[]
+[2025-04-01 15:07:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:13409, no: 1054, SQLState: 42S22) Unknown column 's.Kolor' in 'SELECT'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+      s.Kolor,
+      s.TekstKolor,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.Kuw... - parameters:[]
+[2025-04-01 15:07:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:13410, no: 1054, SQLState: 42S22) Unknown column 's.Kolor' in 'SELECT'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+      s.Kolor,
+      s.TekstKolor,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.Kuw... - parameters:[]
+[2025-04-01 15:07:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:07:26] [INFO] Połączono z MariaDB
+[2025-04-01 15:07:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:07:36] [INFO] Połączono z MariaDB
+[2025-04-01 15:07:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:07:48] [INFO] Połączono z MariaDB
+[2025-04-01 15:08:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:08:06] [INFO] Połączono z MariaDB
+[2025-04-01 15:08:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:08:36] [INFO] Połączono z MariaDB
+[2025-04-01 15:09:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:09:22] [INFO] Połączono z MariaDB
+[2025-04-01 15:09:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:09:39] [INFO] Połączono z MariaDB
+[2025-04-01 15:09:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:09:51] [INFO] Połączono z MariaDB
+[2025-04-01 15:10:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:10:00] [INFO] Połączono z MariaDB
+[2025-04-01 15:52:12] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-01 15:56:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:56:12] [INFO] Połączono z MariaDB
+[2025-04-01 15:57:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:57:40] [INFO] Połączono z MariaDB
+[2025-04-01 15:58:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:58:05] [INFO] Połączono z MariaDB
+[2025-04-01 15:59:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:59:04] [INFO] Połączono z MariaDB
+[2025-04-01 15:59:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:59:09] [INFO] Połączono z MariaDB
+[2025-04-01 15:59:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:59:12] [INFO] Połączono z MariaDB
+[2025-04-01 15:59:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-01 15:59:29] [INFO] Połączono z MariaDB

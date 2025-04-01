@@ -456,3 +456,140 @@ tr.kuweta-item td:last-child {
   right: 40px;
   bottom: 40px;
 }
+
+.zamowienie-kuwet-container {
+  width: 80%;
+  height: 70vh;
+  display: flex;
+}
+
+.zamowienie-dostepne-kuwety {
+  width: calc(100% / 3);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  background: var(--background-container-light-color);
+  margin-right: 10px;
+  padding: 20px;
+}
+
+.zamowienie-dostepne-smaki {
+  width: calc(100% / 3);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  background: var(--background-container-light-color);
+  margin: 0 10px 0 10px;
+  padding: 20px;
+}
+
+.zamowienie-zamowione-kuwety {
+  width: calc(100% / 3);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  background: var(--background-container-light-color);
+  margin-left: 10px;
+  padding: 20px;
+}
+
+.zamowienie-dostepne-kuwety h2,
+.zamowienie-zamowione-kuwety h2,
+.zamowienie-dostepne-smaki h2 {
+  text-align: center;
+  margin: 20px auto;
+  border-radius: 5px;
+  color: var(--text-white-color);
+  letter-spacing: 1px;
+  padding: 10px;
+  background: var(--button-light-color);
+  width: 80%;
+  font-size: 20px;
+}
+
+table#zamowienie-dostepne-kuwety-table,
+table#zamowienie-dostepne-smaki-table,
+table#zamowienie-zamowione-kuwety-table {
+  width: 100%;
+}
+
+button.zamowienie-kuwety-btn,
+button.zamowienie-smaki-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 8px;
+  background: var(--green-color);
+}
+
+button.zamowienie-kuwety-btn img,
+button.zamowienie-smaki-btn img {
+  width: 100%;
+}
+
+table#zamowienie-dostepne-kuwety-table,
+table#zamowienie-dostepne-smaki-table,
+table#zamowienie-zamowione-kuwety-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table#zamowienie-dostepne-kuwety-table thead,
+table#zamowienie-dostepne-smaki-table thead,
+table#zamowienie-zamowione-kuwety-table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table#zamowienie-dostepne-kuwety-table thead th,
+table#zamowienie-dostepne-smaki-table thead th,
+table#zamowienie-zamowione-kuwety-table thead th {
+  background: var(--button-light-color);
+  font-size: 16px;
+  padding: 14px;
+  color: var(--text-white-color);
+  letter-spacing: 1px;
+}
+
+table#zamowienie-dostepne-kuwety-table thead th:first-child,
+table#zamowienie-dostepne-smaki-table thead th:first-child,
+table#zamowienie-zamowione-kuwety-table thead th:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+table#zamowienie-dostepne-kuwety-table thead th:last-child,
+table#zamowienie-dostepne-smaki-table thead th:last-child,
+table#zamowienie-zamowione-kuwety-table thead th:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+table#zamowienie-dostepne-kuwety-table tbody,
+table#zamowienie-dostepne-smaki-table tbody,
+table#zamowienie-zamowione-kuwety-table tbody {
+  display: block;
+  max-height: calc(100vh - 450px);
+  overflow-y: auto;
+}
+
+table#zamowienie-dostepne-kuwety-table tbody tr,
+table#zamowienie-dostepne-smaki-table tbody tr,
+table#zamowienie-zamowione-kuwety-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table#zamowienie-dostepne-kuwety-table tbody td,
+table#zamowienie-dostepne-smaki-table tbody td,
+table#zamowienie-zamowione-kuwety-table tbody td {
+  padding: 10px !important;
+  font-size: 20px;
+  text-align: center;
+}
+
+table#zamowienie-dostepne-kuwety-table tbody td:last-child,
+table#zamowienie-dostepne-kuwety-table thead th:last-child,
+table#zamowienie-dostepne-smaki-table tbody td:last-child,
+table#zamowienie-dostepne-smaki-table thead th:last-child,
+table#zamowienie-zamowione-kuwety-table tbody td:last-child,
+table#zamowienie-zamowione-kuwety-table thead th:last-child {
+  width: 70px;
+}
