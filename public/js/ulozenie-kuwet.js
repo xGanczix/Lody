@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             nameCell.style.color = przypisanySmak.TekstKolor;
 
             let colorCell = document.createElement("td");
-            colorCell.textContent = przypisanySmak.Pojemnosc;
+            colorCell.textContent = przypisanySmak.Porcje;
             colorCell.style.background = przypisanySmak.Kolor;
             colorCell.style.color = przypisanySmak.TekstKolor;
 
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         nameCell.style.color = smak.TekstKolor;
 
         let colorCell = document.createElement("td");
-        colorCell.textContent = smak.Pojemnosc;
+        colorCell.textContent = smak.Porcje;
         colorCell.style.background = smak.Kolor;
         colorCell.style.color = smak.TekstKolor;
 

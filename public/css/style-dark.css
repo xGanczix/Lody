@@ -62,7 +62,8 @@ body.dark-mode form.serwis,
 body.dark-mode .ulozenie-kuwet-container,
 body.dark-mode .dostepne-kuwety-container,
 body.dark-mode .sklep-wybor-towarow,
-body.dark-mode .sklep-pozycje-wydania {
+body.dark-mode .sklep-pozycje-wydania,
+body.dark-mode .raporty-sprzedazy-container {
   background: var(--background-container-dark-color);
 }
 
@@ -75,7 +76,8 @@ body.dark-mode nav .dropdown-menu,
 body.dark-mode .progress-container,
 body.dark-mode .sklep-menu-btn:disabled,
 body.dark-mode .ulozenie-kuwet-kuweta,
-body.dark-mode span#wartosc-wydania {
+body.dark-mode span#wartosc-wydania,
+body.dark-mode .apexcharts-menu {
   background: var(--background-input-dark-color);
 }
 

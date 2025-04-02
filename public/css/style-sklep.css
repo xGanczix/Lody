@@ -224,7 +224,6 @@ button.pozycje-wydania-delete img {
 }
 
 .podsumowanie-wydania {
-  margin-top: auto;
   width: 100%;
   background: var(--button-light-color);
   display: flex;
@@ -592,4 +591,14 @@ table#zamowienie-dostepne-smaki-table thead th:last-child,
 table#zamowienie-zamowione-kuwety-table tbody td:last-child,
 table#zamowienie-zamowione-kuwety-table thead th:last-child {
   width: 70px;
+}
+
+span#message {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 10px;
+  margin: auto 10px 10px 10px;
+  text-align: center;
 }

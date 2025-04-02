@@ -146,6 +146,8 @@ app.post("/api/login", async (req, res) => {
         login: user.UzLogin,
         imie: user.UzImie,
         nazwisko: user.UzNazwisko,
+        sklepId: pinSklep,
+        sklepNazwa: sklepNazwa,
       },
       SECRET_KEY,
       { expiresIn: "8h" }
@@ -1326,6 +1328,61 @@ app.get("/api/smaki-dostepne-centrala", async (req, res) => {
   }
 });
 
+app.get("/api/raport-sprzedaz-formy-platnosci", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `
+    SELECT
+      d.DokFormaPlatnosci,
+      format(SUM(dp.DokPozCena),2) AS wartoscSprzedazy
+    FROM
+      dokumenty AS d
+    LEFT JOIN dokumentypozycje AS dp ON
+      dp.DokPozDokId = d.DokId
+    GROUP BY
+      d.DokFormaPlatnosci;
+
+    `;
+
+    const data = await connection.query(sql);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/raport-sprzedazy-wartosci-dzien", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `
+    select
+	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
+	    date(d.DokData) as SprzedazDzien
+    from
+	    dokumentypozycje as dp
+    left join dokumenty as d on
+	    d.DokId = dp.DokPozDokId
+	  where date(d.DokData) >= now() - interval 7 day
+    group by
+	    date(d.DokData)`;
+
+    const data = await connection.query(sql);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
 app.put("/api/zamowienie-bufor/:kuwetaId", async (req, res) => {
   const kuwetaId = req.params.id;
   let connection;
@@ -1342,6 +1399,80 @@ app.put("/api/zamowienie-bufor/:kuwetaId", async (req, res) => {
     logToFile(`[ERROR] Błąd MariaDB: ${err}`);
   } finally {
     if (connection) connection.release();
+  }
+});
+
+async function generujNumerDokumentu(sklepId) {
+  const rok = new Date().getFullYear();
+
+  try {
+    // Pobieramy wynik zapytania, sprawdzamy, co jest zwracane
+    const result = await dbConfig.query(
+      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ?",
+      [sklepId, rok]
+    );
+
+    // Sprawdzamy, czy wynik zawiera dane
+    let nowyNumer;
+
+    if (!result || result.length === 0) {
+      // Jeśli brak wyników, dodajemy nowy rekord z numerem 1
+      await dbConfig.query(
+        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr) VALUES (?, ?, ?)",
+        [sklepId, rok, 1]
+      );
+      nowyNumer = 1; // Nowy numer dokumentu
+    } else {
+      // Jeśli wynik istnieje, zwiększamy numer
+      nowyNumer = result[0].DokNumOstatniNr + 1;
+
+      // Aktualizujemy numerację
+      await dbConfig.query(
+        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ?",
+        [nowyNumer, sklepId, rok]
+      );
+    }
+
+    // Zwracamy numer dokumentu w oczekiwanym formacie
+    return `WZ/${nowyNumer}/${rok}/${sklepId}`;
+  } catch (error) {
+    console.error("Błąd w generujNumerDokumentu:", error);
+    return null;
+  }
+}
+
+// 📌 API do zapisu dokumentu
+app.post("/api/zapisz-wydanie", async (req, res) => {
+  try {
+    const { sklepId, platnosc, autorId, pozycje } = req.body;
+    const numerDokumentu = await generujNumerDokumentu(sklepId);
+
+    const result = await dbConfig.query(
+      "INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId) VALUES (?, ?, ?, ?)",
+      [numerDokumentu, sklepId, platnosc, autorId]
+    );
+
+    const dokumentId = result.insertId;
+
+    for (const pozycja of pozycje) {
+      if (pozycja.towId) {
+        await dbConfig.query(
+          "INSERT INTO DokumentyPozycje (DokPozDokId, DokPozTowId, DokPozTowIlosc, DokPozCena) VALUES (?, ?, ?, ?)",
+          [dokumentId, pozycja.towId, pozycja.ilosc, pozycja.cena]
+        );
+
+        // 3️⃣ Aktualizacja ilości w Kuwety
+        await dbConfig.query(
+          "UPDATE Kuwety SET KuwPorcje = KuwPorcje - ? WHERE KuwId = ?",
+          [pozycja.ilosc, pozycja.towId]
+        );
+      }
+    }
+
+    res.status(200).json({ message: "Wydanie zapisane", numerDokumentu });
+  } catch (err) {
+    console.error("Błąd zapisu dokumentu:", err);
+    res.status(500).json({ error: "Błąd serwera" });
   }
 });
 

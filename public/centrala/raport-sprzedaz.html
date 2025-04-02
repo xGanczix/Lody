@@ -1,75 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link id="them-style" rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="stylesheet" href="../css/style-dark.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Home</title>
   </head>
   <body>
-    <div>
-      <div id="chart"></div>
-    </div>
-  </body>
-  <script src="../js/chart.js"></script>
-  <script>
-    var colors = [
-      "#008FFB",
-      "#00E396",
-      "#FEB019",
-      "#FF4560",
-      "#775DD0",
-      "#3F51B5",
-      "#546E7A",
-      "#D4526E",
-    ];
-    var options = {
-      series: [
-        {
-          data: [21, 22, 10, 28, 21, 13, 30],
-        },
-      ],
-      chart: {
-        height: 350,
-        type: "bar",
-        events: {
-          click: function (chart, w, e) {
-            // console.log(chart, w, e)
-          },
-        },
-      },
-      colors: colors,
-      plotOptions: {
-        bar: {
-          columnWidth: "45%",
-          distributed: true,
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      legend: {
-        show: false,
-      },
-      xaxis: {
-        categories: [
-          ["John", "Doe"],
-          ["Joe", "Smith"],
-          ["Jake", "Williams"],
-          ["Peter", "Brown"],
-          ["Mary", "Evans"],
-          ["David", "Wilson"],
-          ["Lily", "Roberts"],
-        ],
-        labels: {
-          style: {
-            colors: colors,
-            fontSize: "12px",
-          },
-        },
-      },
-    };
+    <div class="centrala-container">
+      <div class="centrala-uzytkownik-container">
+        <span id="username"></span>
 
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-  </script>
+        <button id="theme-toggle">
+          <img src="../img/white/moon-white.png" id="theme-icon" />
+        </button>
+        <button id="logout">
+          <img src="../img/white/power-off-white.png" alt="" />
+        </button>
+      </div>
+      <nav></nav>
+      <main>
+        <div class="raporty-sprzedazy-container">
+          <div id="formy-platnosci" class="wykres-container"></div>
+          <div id="sprzedaz-wartosci-dzien" class="wykres-container"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/chart.js"></script>
+    <script src="../js/raport-sprzedaz.js"></script>
+  </body>
 </html>

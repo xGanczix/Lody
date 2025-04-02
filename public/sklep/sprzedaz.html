@@ -7,46 +7,7 @@
     <link rel="stylesheet" href="../css/style-dark.css" />
     <link rel="stylesheet" href="../css/style-sklep.css" />
     <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
-    <title>Centrala - Home</title>
-    <style>
-      .pozycja {
-        position: relative;
-        transition: transform 0.3s ease-in-out;
-        cursor: grab;
-      }
-
-      .pozycja .usun {
-        position: absolute;
-        right: -100px;
-        top: 0;
-        bottom: 0;
-        width: 100px;
-        background: red;
-        color: white;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out;
-        pointer-events: none; /* Zapobiega blokowaniu dotyku */
-      }
-
-      .usun {
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s;
-      }
-
-      .wiersz-przesuwany {
-        background-color: red !important;
-      }
-
-      .pokaz-usun .usun {
-        opacity: 1;
-      }
-    </style>
+    <title>Sklep - Sprzedaż</title>
   </head>
   <body>
     <div class="sklep-menu-container">
@@ -63,18 +24,19 @@
           </thead>
           <tbody id="pozycje-wydania-tbody"></tbody>
         </table>
+        <span id="message"></span>
         <div class="podsumowanie-wydania">
           <span id="razem-wydania">RAZEM</span
           ><span id="wartosc-wydania">0,00 zł</span>
         </div>
         <div class="pozycje-wydania-btn-container">
-          <button id="gotowka" onclick="gotowka()">
+          <button id="gotowka">
             <img src="../img/white/money-white.png" alt="" />Gotówka
           </button>
-          <button id="karta" onclick="karta()">
+          <button id="karta">
             <img src="../img/white/credit-card-white.png" alt="" />Karta
           </button>
-          <button id="bon" onclick="bon()">
+          <button id="bon">
             <img src="../img/white/gift-card-white.png" alt="" />Bon
           </button>
         </div>
@@ -105,7 +67,6 @@
     <script src="../js/config.js"></script>
     <script src="../js/token.js"></script>
     <script src="../js/app-sklep.js"></script>
-    <script src="../js/logout.js"></script>
     <script src="../js/sprzedaz.js"></script>
   </body>
 </html>
