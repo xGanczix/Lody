@@ -176,9 +176,9 @@ table#pozycja-wydania tbody td {
   font-size: 30px;
 }
 
-table#pozycje-wydania th:first-child,
-table#pozycje-wydania td:first-child {
-  width: 50px;
+table#pozycje-wydania thead th:first-child,
+table#pozycje-wydania tbody td:first-child {
+  width: 40px;
   text-align: center;
 }
 
@@ -189,6 +189,12 @@ table#pozycje-wydania td:nth-child(2) {
 
 table#pozycje-wydania th:nth-child(3),
 table#pozycje-wydania td:nth-child(3) {
+  width: 40px;
+  text-align: center;
+}
+
+table#pozycje-wydania th:nth-child(4),
+table#pozycje-wydania td:nth-child(4) {
   width: 80px;
   text-align: center;
 }
@@ -199,7 +205,7 @@ table#pozycje-wydania td:last-child {
   text-align: center;
 }
 
-button.pozycje-wydania-delete {
+button.usun-btn {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -208,7 +214,7 @@ button.pozycje-wydania-delete {
   margin-right: 5px;
 }
 
-button.pozycje-wydania-delete img {
+button.usun-btn img {
   width: 100%;
 }
 
@@ -267,36 +273,36 @@ button.pozycje-wydania-delete img {
 }
 
 button#gotowka {
-  background: var(--green-color);
+  background: var(--green-color) !important;
 }
 
 button#gotowka:hover {
-  background: var(--green-hover-color);
+  background: var(--green-hover-color) !important;
 }
 
 button#karta {
-  background: var(--blue-color);
+  background: var(--blue-color) !important;
 }
 
 button#karta:hover {
-  background: var(--blue-hover-color);
+  background: var(--blue-hover-color) !important;
 }
 
 button#bon {
-  background: var(--yellow-color);
+  background: var(--yellow-color) !important;
 }
 
 button#bon:hover {
-  background: var(--yellow-hover-color);
+  background: var(--yellow-hover-color) !important;
 }
 
 button#pozycje-wydania-anuluj {
-  background: var(--red-color);
+  background: var(--red-color) !important;
   border-radius: 0 0 10px 10px;
 }
 
 button#pozycje-wydania-anuluj:hover {
-  background: var(--red-hover-color);
+  background: var(--red-hover-color) !important;
 }
 
 .sklep-wybor-towarow {
@@ -449,6 +455,13 @@ tr.kuweta-item td:last-child {
   margin-top: auto;
 }
 
+#zamowienie-zapisz-btn {
+  width: 200px;
+  position: absolute;
+  right: 150px;
+  bottom: 40px;
+}
+
 #sprzedaz-menu-btn {
   width: 100px;
   position: absolute;
@@ -515,7 +528,12 @@ button.zamowienie-smaki-btn {
   height: 40px;
   border-radius: 50%;
   padding: 8px;
-  background: var(--green-color);
+  background: var(--green-color) !important;
+}
+
+button.zamowienie-kuwety-btn:hover,
+button.zamowienie-smaki-btn:hover {
+  background: var(--green-hover-color) !important;
 }
 
 button.zamowienie-kuwety-btn img,
@@ -536,6 +554,7 @@ table#zamowienie-zamowione-kuwety-table thead {
   display: table;
   width: 100%;
   table-layout: fixed;
+  margin-bottom: 10px;
 }
 
 table#zamowienie-dostepne-kuwety-table thead th,
@@ -564,7 +583,7 @@ table#zamowienie-dostepne-kuwety-table tbody,
 table#zamowienie-dostepne-smaki-table tbody,
 table#zamowienie-zamowione-kuwety-table tbody {
   display: block;
-  max-height: calc(100vh - 450px);
+  max-height: calc(100vh - 450px - 10px);
   overflow-y: auto;
 }
 
@@ -574,6 +593,7 @@ table#zamowienie-zamowione-kuwety-table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
+  margin-bottom: 5px;
 }
 
 table#zamowienie-dostepne-kuwety-table tbody td,
@@ -593,6 +613,20 @@ table#zamowienie-zamowione-kuwety-table thead th:last-child {
   width: 70px;
 }
 
+table#zamowienie-dostepne-kuwety-table tbody td:first-child,
+table#zamowienie-zamowione-kuwety-table tbody td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+table#zamowienie-dostepne-kuwety-table tbody td:nth-child(2),
+table#zamowienie-zamowione-kuwety-table tbody td:nth-child(2) {
+  border-radius: 0 10px 10px 0;
+}
+
+table#zamowienie-dostepne-smaki-table tbody td {
+  border-radius: 10px;
+}
+
 span#message {
   opacity: 1;
   transition: 0.3s ease-in-out;
@@ -601,4 +635,19 @@ span#message {
   border-radius: 10px;
   margin: auto 10px 10px 10px;
   text-align: center;
+}
+
+p#zamowienia-info {
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  width: 50%;
+  text-align: center;
+  color: var(--text-black-color);
+  background: var(--background-container-light-color);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  border: 2px solid var(--button-light-color);
+  font-size: 20px;
+  padding: 10px;
 }

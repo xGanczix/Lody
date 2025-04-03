@@ -14,11 +14,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const sklepId = decoded.sklepId;
 
-    // Pobranie danych ułożenia kuwet
     const res = await fetch(`${CONFIG.URL}/api/ulozenie-kuwet-menu/${sklepId}`);
     const ulozenieData = res.ok ? (await res.json())[0] || {} : {};
 
-    // Pobranie dostępnych kuwet w sklepie
     const kuwetRes = await fetch(`${CONFIG.URL}/api/kuwety-sklep/${sklepId}`);
     if (!kuwetRes.ok) {
       console.log("Błąd pobierania kuwet");
@@ -26,7 +24,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     const kuwetData = await kuwetRes.json();
 
-    // Pobranie przycisków smaków lodów
     document
       .querySelectorAll(".lody-rzemieslnicze-smak")
       .forEach((przycisk, index) => {
@@ -52,20 +49,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Cena za 1 porcję
 const CENA_PORCJI = 6.5;
 
-/**
- * Dodaje wybrany smak do tabeli zamówienia.
- */
 function dodajDoTabeli(smak) {
   const tbody = document.getElementById("pozycje-wydania-tbody");
 
   let istniejącyWiersz = [...tbody.rows].find(
-    (row) => row.dataset.id == smak.Id // Zmieniamy dataset.smakId na dataset.id
+    (row) => row.dataset.id == smak.Id
   );
   if (istniejącyWiersz) {
-    // Jeśli smak już istnieje, zwiększamy ilość i aktualizujemy cenę
     let iloscCell = istniejącyWiersz.querySelector(".ilosc");
     let cenaCell = istniejącyWiersz.querySelector(".cena");
 
@@ -73,18 +65,16 @@ function dodajDoTabeli(smak) {
     iloscCell.textContent = nowaIlosc;
     cenaCell.textContent = (nowaIlosc * CENA_PORCJI).toFixed(2) + " zł";
   } else {
-    // Jeśli smak nie istnieje, dodajemy nowy wiersz
     const nowyWiersz = document.createElement("tr");
-    nowyWiersz.dataset.id = smak.Id; // Używamy dataset.id, zgodnie z zapytaniem
+    nowyWiersz.dataset.id = smak.Id;
     nowyWiersz.innerHTML = `
       <td class="licznik"></td>
       <td>${smak.Nazwa}</td>
       <td class="ilosc">1</td>
       <td class="cena">${CENA_PORCJI.toFixed(2)} zł</td>
-      <td><button class="usun-btn">❌ Usuń</button></td>
+      <td><button class="usun-btn"><img src="../img/white/delete-white.png"></button></td>
     `;
 
-    // Obsługa usuwania
     nowyWiersz.querySelector(".usun-btn").addEventListener("click", () => {
       nowyWiersz.remove();
       aktualizujLiczniki();
@@ -95,13 +85,9 @@ function dodajDoTabeli(smak) {
     aktualizujLiczniki();
   }
 
-  // Aktualizacja sumy wartości wydania
   aktualizujSume();
 }
 
-/**
- * Aktualizuje numerację pozycji w tabeli.
- */
 function aktualizujLiczniki() {
   document
     .querySelectorAll("#pozycje-wydania-tbody tr")
@@ -110,9 +96,6 @@ function aktualizujLiczniki() {
     });
 }
 
-/**
- * Aktualizuje sumę wartości wydania.
- */
 function aktualizujSume() {
   let suma = 0;
   document
@@ -128,13 +111,13 @@ function aktualizujSume() {
 document
   .getElementById("pozycje-wydania-anuluj")
   .addEventListener("click", () => {
-    // Usunięcie wszystkich wierszy z tabeli
     document.getElementById("pozycje-wydania-tbody").innerHTML = "";
     const message = document.getElementById("message");
     message.style.opacity = 1;
     message.innerHTML = "Anulowanie wydania";
+    message.style.background = "rgba(255, 0, 0, 0.3)";
+    message.style.border = "2px solid #dc3545";
 
-    // Reset numeracji i sumy
     aktualizujLiczniki();
     aktualizujSume();
   });
@@ -156,10 +139,9 @@ async function zapiszWydanie(formaPlatnosci) {
   alert("sklep:" + decoded.sklepId);
   alert("uzytkowniik:" + decoded.id);
 
-  const sklepId = decoded.sklepId; // 🛠 Pobierz rzeczywiste ID sklepu
-  const autorId = decoded.id; // 🛠 Pobierz rzeczywiste ID użytkownika (możesz trzymać w JWT)
+  const sklepId = decoded.sklepId;
+  const autorId = decoded.id;
 
-  // Pobieramy pozycje z tabeli
   const pozycje = [];
   document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
     const towId = row.getAttribute("data-id");
@@ -171,7 +153,6 @@ async function zapiszWydanie(formaPlatnosci) {
 
   console.log("Pozycje do wysłania:", pozycje);
 
-  // Wysyłamy dane do backendu
   try {
     const response = await fetch("/api/zapisz-wydanie", {
       method: "POST",
@@ -187,7 +168,6 @@ async function zapiszWydanie(formaPlatnosci) {
     const data = await response.json();
 
     if (response.ok) {
-      // Po zapisie, czyścimy tabelę
       document.getElementById("pozycje-wydania-tbody").innerHTML = "";
       document.getElementById("wartosc-wydania").innerHTML = "0.00 zł";
       const message = document.getElementById("message");

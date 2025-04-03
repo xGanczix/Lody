@@ -38,7 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </td>
                 <td>${
-                  kuweta.KuwSklNazwa !== null ? kuweta.KuwSklNazwa : ""
+                  kuweta.KuwSklNazwa !== null
+                    ? kuweta.KuwSklNazwa
+                    : kuweta.KuwStatusZamowienia === 3
+                    ? "⚠️ BUFOR ⚠️"
+                    : ""
                 }</td>
                 <td>${statusText}</td>
                 <td>

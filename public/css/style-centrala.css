@@ -672,7 +672,7 @@ button.serwis-btn:last-child {
   background: var(--background-container-light-color);
   border-radius: 10px;
   box-shadow: 0 0 10px var(--box-shadow-color);
-  width: calc((100% / 3) - 40px);
+  width: calc((100% / 3) - 10px);
   height: 300px;
   padding: 20px;
 }

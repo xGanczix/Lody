@@ -63,7 +63,10 @@ body.dark-mode .ulozenie-kuwet-container,
 body.dark-mode .dostepne-kuwety-container,
 body.dark-mode .sklep-wybor-towarow,
 body.dark-mode .sklep-pozycje-wydania,
-body.dark-mode .raporty-sprzedazy-container {
+body.dark-mode .zamowienie-dostepne-kuwety,
+body.dark-mode .zamowienie-dostepne-smaki,
+body.dark-mode .zamowienie-zamowione-kuwety,
+body.dark-mode p#zamowienia-info {
   background: var(--background-container-dark-color);
 }
 
@@ -77,7 +80,8 @@ body.dark-mode .progress-container,
 body.dark-mode .sklep-menu-btn:disabled,
 body.dark-mode .ulozenie-kuwet-kuweta,
 body.dark-mode span#wartosc-wydania,
-body.dark-mode .apexcharts-menu {
+body.dark-mode .apexcharts-menu,
+body.dark-mode .wykres-container {
   background: var(--background-input-dark-color);
 }
 
@@ -132,11 +136,28 @@ body.dark-mode table#centrala-sklepy thead th,
 body.dark-mode table#centrala-kuwety thead th,
 body.dark-mode table#centrala-rcp thead th,
 body.dark-mode .progress-text,
-body.dark-mode .ulozenie-kuwet-container h2 {
+body.dark-mode .ulozenie-kuwet-container h2,
+body.dark-mode p#zamowienia-info {
   color: var(--text-white-color);
 }
 
 /* DARK TEXT COMMENT COLOR */
 body.dark-mode p#dodawanie-komentarz {
   color: var(--button-dark-color);
+}
+
+body.dark-mode .apexcharts-title-text,
+body.dark-mode .wykres-container tspan,
+body.dark-mode .apexcharts-legend-text,
+body.dark-mode .apexcharts-menu-icon svg,
+body.dark-mode .apexcharts-reset-icon svg,
+body.dark-mode .apexcharts-zoom-icon svg,
+body.dark-mode .apexcharts-zoomin-icon svg,
+body.dark-mode .apexcharts-zoomout-icon svg {
+  fill: var(--text-white-color);
+  color: var(--text-white-color) !important;
+}
+
+body.dark-mode p#zamowienia-info {
+  border: 2px solid var(--button-dark-color);
 }

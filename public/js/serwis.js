@@ -154,3 +154,36 @@ document
       btn.disabled = false;
     }
   });
+
+document
+  .getElementById("czyszczenieBuforaZamowien")
+  .addEventListener("click", async () => {
+    const btn = document.getElementById("czyszczenieBuforaZamowien");
+    const originalText = btn.textContent;
+
+    try {
+      btn.disabled = true;
+      btn.textContent = "Czyszczenie...";
+
+      const response = await fetch("/api/czyszczenie-bufora-zamowien", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Nie udało się wyczyścić bufora");
+      }
+
+      alert(data.message);
+      console.log("Sukces:", data);
+    } catch (error) {
+      console.error("Błąd:", error);
+      alert(`Błąd: ${error.message}`);
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });

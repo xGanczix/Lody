@@ -728,6 +728,7 @@ app.get("/api/kuwety", async (req, res) => {
 	    r.RozPojemnosc as KuwRozmiarIlosc,
 	    k.KuwPorcje,
 	    k.KuwStatus,
+      k.KuwStatusZamowienia,
       sk.SklNazwa as KuwSklNazwa,
       ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) AS KuwProcent
     from
@@ -1052,6 +1053,7 @@ app.get("/api/rcp", async (req, res) => {
 	      rcp
       left join uzytkownicy as u on
 	      u.UzId = rcp.RCPUzId
+      where u.UzId != 123456789
       group by
 	      RCPUzId
       `);
@@ -1383,6 +1385,37 @@ app.get("/api/raport-sprzedazy-wartosci-dzien", async (req, res) => {
   }
 });
 
+app.get("/api/raport-sprzedazy-ilosci-smaki", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      select
+	      s.SmkNazwa,
+	      sum(dp.DokPozTowIlosc) as iloscSprzedana,
+	      s.SmkKolor,
+        s.SmkTekstKolor
+      from
+	      dokumentypozycje as dp
+	    left join kuwety as k on k.KuwId = dp.DokPozTowId
+	    left join smaki as s on s.SmkId = k.KuwSmkId
+	    left join dokumenty as d on d.DokId = dp.DokPozDokId 
+	    left join sklepy as sk on sk.SklId = d.DokSklepId
+	    where d.DokData >= now() - interval 7 day
+      group by
+	      s.SmkId
+	    order by s.SmkNazwa`;
+
+    const data = await dbConfig.query(sql);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
 app.put("/api/zamowienie-bufor/:kuwetaId", async (req, res) => {
   const kuwetaId = req.params.id;
   let connection;
@@ -1402,38 +1435,99 @@ app.put("/api/zamowienie-bufor/:kuwetaId", async (req, res) => {
   }
 });
 
+app.put("/api/status-zamowienia-kuwety", async (req, res) => {
+  const kuwetaId = req.body.kuwetaId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `UPDATE Kuwety SET KuwStatusZamowienia = 3, KuwDataZmiany = NOW() WHERE KuwId = ?`;
+    await dbConfig.query(sql, [kuwetaId]);
+    logToFile(
+      `[INFO] Kuweta o ID: ${kuwetaId} przeniesiona do bufora zamówień`
+    );
+    res.status(200).json({ message: "Status zamówienia zaktualizowany" });
+
+    setTimeout(async () => {
+      await checkAndResetKuwetaStatus(kuwetaId);
+    }, 10 * 60 * 1000);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
+  }
+});
+
+app.put("/api/czyszczenie-bufora-zamowien", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `UPDATE Kuwety SET KuwStatusZamowienia = 1 WHERE KuwStatusZamowienia = 3`;
+    await dbConfig.query(sql);
+    logToFile("[INFO] Wyczyszczono bufor zamówień");
+    res.status(200).json({ message: "Wyczyszczono bufor zamówień" });
+  } catch (err) {
+    logToFile(`[ERROR] Błąd czyszczeia bufora zamówień: ${err}`);
+    res.status(500).json({ message: "Błąd czyszczenia bufora zamówień" });
+  }
+});
+
+async function checkAndResetKuwetaStatus(kuwetaId) {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `SELECT KuwDataZmiany, KuwStatusZamowienia FROM Kuwety WHERE KuwId = ?`;
+    let result = await dbConfig.query(sql, [kuwetaId]);
+
+    if (result && result[0]) {
+      let statusChangeDate = result[0].KuwDataZmiany;
+      let currentStatus = result[0].KuwStatusZamowienia;
+
+      if (currentStatus === 3) {
+        let currentTime = new Date();
+        let timeDiff = currentTime - new Date(statusChangeDate);
+
+        if (timeDiff >= 10 * 60 * 1) {
+          let updateSql = `UPDATE Kuwety SET KuwStatusZamowienia = 1, KuwDataZmiany = now() WHERE KuwId = ?`;
+          await dbConfig.query(updateSql, [kuwetaId]);
+          logToFile(
+            `[INFO] Kuweta o ID: ${kuwetaId} zmieniła status na 1 po 10 minutach`
+          );
+        }
+      }
+    }
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  }
+}
+
 async function generujNumerDokumentu(sklepId) {
   const rok = new Date().getFullYear();
 
   try {
-    // Pobieramy wynik zapytania, sprawdzamy, co jest zwracane
     const result = await dbConfig.query(
       "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ?",
       [sklepId, rok]
     );
 
-    // Sprawdzamy, czy wynik zawiera dane
     let nowyNumer;
 
     if (!result || result.length === 0) {
-      // Jeśli brak wyników, dodajemy nowy rekord z numerem 1
       await dbConfig.query(
         "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr) VALUES (?, ?, ?)",
         [sklepId, rok, 1]
       );
-      nowyNumer = 1; // Nowy numer dokumentu
+      nowyNumer = 1;
     } else {
-      // Jeśli wynik istnieje, zwiększamy numer
       nowyNumer = result[0].DokNumOstatniNr + 1;
 
-      // Aktualizujemy numerację
       await dbConfig.query(
         "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ?",
         [nowyNumer, sklepId, rok]
       );
     }
 
-    // Zwracamy numer dokumentu w oczekiwanym formacie
     return `WZ/${nowyNumer}/${rok}/${sklepId}`;
   } catch (error) {
     console.error("Błąd w generujNumerDokumentu:", error);
@@ -1441,7 +1535,6 @@ async function generujNumerDokumentu(sklepId) {
   }
 }
 
-// 📌 API do zapisu dokumentu
 app.post("/api/zapisz-wydanie", async (req, res) => {
   try {
     const { sklepId, platnosc, autorId, pozycje } = req.body;
@@ -1461,7 +1554,6 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
           [dokumentId, pozycja.towId, pozycja.ilosc, pozycja.cena]
         );
 
-        // 3️⃣ Aktualizacja ilości w Kuwety
         await dbConfig.query(
           "UPDATE Kuwety SET KuwPorcje = KuwPorcje - ? WHERE KuwId = ?",
           [pozycja.ilosc, pozycja.towId]
@@ -1473,6 +1565,55 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
   } catch (err) {
     console.error("Błąd zapisu dokumentu:", err);
     res.status(500).json({ error: "Błąd serwera" });
+  }
+});
+
+app.post("/api/zamowienie", async (req, res) => {
+  let { sklepId, zamowienieData } = req.body;
+
+  // Jeśli dane przyszły w złym formacie, popraw
+  if (!zamowienieData && Array.isArray(req.body)) {
+    zamowienieData = req.body;
+    sklepId = zamowienieData[0]?.sklepId; // Pobierz sklepId z pierwszego elementu
+  }
+
+  console.log(
+    "Po korekcie:",
+    JSON.stringify({ sklepId, zamowienieData }, null, 2)
+  );
+
+  if (!sklepId) {
+    return res.status(400).json({ message: "Brak sklepu ID" });
+  }
+
+  if (!Array.isArray(zamowienieData) || zamowienieData.length === 0) {
+    return res.status(400).json({ message: "Brak danych zamówienia" });
+  }
+
+  try {
+    for (const { kuwetaId, smakId } of zamowienieData) {
+      if (kuwetaId && smakId) {
+        await dbConfig.query(
+          "INSERT INTO zamowienia (ZamKuwId, ZamSmkId, ZamSklId) VALUES (?, ?, ?)",
+          [kuwetaId, smakId, sklepId]
+        );
+      } else if (kuwetaId) {
+        await dbConfig.query(
+          "INSERT INTO zamowienia (ZamKuwId, ZamSklId) VALUES (?, ?)",
+          [kuwetaId, sklepId]
+        );
+      } else if (smakId) {
+        await dbConfig.query(
+          "INSERT INTO zamowienia (ZamSmkId, ZamSklId) VALUES (?, ?)",
+          [smakId, sklepId]
+        );
+      }
+    }
+
+    res.status(201).json({ message: "Zamówienie zapisane" });
+  } catch (error) {
+    console.error("Błąd zapisywania zamówienia:", error);
+    res.status(500).json({ message: "Błąd zapisywania zamówienia" });
   }
 });
 
