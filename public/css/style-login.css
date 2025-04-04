@@ -18,6 +18,15 @@
   --box-shadow-color: rgba(0, 0, 0, 0.3);
   --text-white-color: rgb(255, 255, 255);
   --text-black-color: rgb(0, 0, 0);
+
+  --blue-color: #007bff;
+  --blue-hover-color: #0068d6;
+  --red-color: #dc3545;
+  --red-hover-color: #be0d1f;
+  --green-color: #28a745;
+  --green-hover-color: #188d33;
+
+  --red-rgba-color: rgba(220, 53, 69, 0.3);
 }
 
 .container-login {
@@ -115,4 +124,22 @@ table#pin-keyboard .pin-key img {
 
 form#form-login-password button#password-zaloguj {
   margin-top: 50px;
+}
+
+p#message-login {
+  width: 50%;
+  background: rgba(220, 53, 69, 0.5);
+  border: 2px solid var(--red-color);
+  color: var(--text-black-color);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  display: block;
+  left: 50%;
+  top: 50px;
+  padding: 10px;
+  text-align: center;
+  transform: translateX(-50%);
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
 }

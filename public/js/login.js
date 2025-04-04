@@ -30,6 +30,7 @@ document
     const password = document.getElementById("password-password").value;
 
     try {
+      const message = document.getElementById("message-login");
       const response = await fetch(`${CONFIG.URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,7 +43,11 @@ document
         localStorage.setItem("token", data.token);
         window.location.href = "centrala/centrala.html";
       } else {
-        alert(data.message);
+        message.textContent = data.message;
+        message.style.opacity = 1;
+        setTimeout(() => {
+          message.style.opacity = 0;
+        }, 3000);
       }
     } catch (error) {
       console.error("❗ Błąd logowania:", error);
@@ -80,6 +85,7 @@ document
     const pin = document.getElementById("pin-pin").value;
 
     try {
+      const message = document.getElementById("message-login");
       const response = await fetch(`${CONFIG.URL}/api/login-pin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -92,7 +98,11 @@ document
         localStorage.setItem("token", data.token);
         window.location.href = "sklep/sklep-menu.html";
       } else {
-        alert(data.message);
+        message.textContent = data.message;
+        message.style.opacity = 1;
+        setTimeout(() => {
+          message.style.opacity = 0;
+        }, 3000);
       }
     } catch (error) {
       console.error("❗ Błąd logowania:", error);

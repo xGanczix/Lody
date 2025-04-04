@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  aktualizujLicznik();
+
   try {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -42,6 +44,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           }
         }
       });
+
+    document.querySelectorAll(".pozostale-towary").forEach((przycisk) => {
+      przycisk.addEventListener("click", () => {
+        const nazwa = przycisk.textContent.trim();
+        dodajDoTabeliLodyWloskie(nazwa);
+      });
+    });
 
     console.log("Ułożenie kuwet zakończone.");
   } catch (err) {
@@ -136,9 +145,6 @@ async function zapiszWydanie(formaPlatnosci) {
   const token = localStorage.getItem("token");
   const decoded = parseJwt(token);
 
-  alert("sklep:" + decoded.sklepId);
-  alert("uzytkowniik:" + decoded.id);
-
   const sklepId = decoded.sklepId;
   const autorId = decoded.id;
 
@@ -194,3 +200,83 @@ async function zapiszWydanie(formaPlatnosci) {
     console.error("Błąd połączenia z serwerem:", error);
   }
 }
+
+function dodajDoTabeliLodyWloskie(nazwaTowaru) {
+  const tbody = document.getElementById("pozycje-wydania-tbody");
+
+  // Ustawienie ceny w zależności od nazwy przycisku
+  let cenaTowaru = 0;
+  if (nazwaTowaru === "Lody Włoskie Małe") {
+    cenaTowaru = 6; // cena za małe lody
+  } else if (nazwaTowaru === "Lody Włoskie Duże") {
+    cenaTowaru = 8; // cena za duże lody
+  } else if (nazwaTowaru === "Kawa Duża") {
+    cenaTowaru = 10;
+  } else if (nazwaTowaru === "Kawa Mała") {
+    cenaTowaru = 8;
+  } else if (nazwaTowaru === "Granita Mała") {
+    cenaTowaru = 8;
+  } else if (nazwaTowaru === "Granita Duża") {
+    cenaTowaru = 10;
+  }
+
+  // Sprawdzamy, czy dany towar już istnieje w tabeli
+  let istniejącyWiersz = [...tbody.rows].find(
+    (row) => row.dataset.nazwa === nazwaTowaru
+  );
+
+  // Jeżeli istnieje, aktualizujemy ilość i cenę
+  if (istniejącyWiersz) {
+    let iloscCell = istniejącyWiersz.querySelector(".ilosc");
+    let cenaCell = istniejącyWiersz.querySelector(".cena");
+
+    let nowaIlosc = parseInt(iloscCell.textContent) + 1;
+    iloscCell.textContent = nowaIlosc;
+    cenaCell.textContent = (nowaIlosc * cenaTowaru).toFixed(2) + " zł";
+  } else {
+    // Jeżeli nie istnieje, tworzymy nowy wiersz
+    const nowyWiersz = document.createElement("tr");
+    nowyWiersz.dataset.nazwa = nazwaTowaru;
+    nowyWiersz.innerHTML = `
+      <td class="licznik"></td>
+      <td>${nazwaTowaru}</td>
+      <td class="ilosc">1</td>
+      <td class="cena">${cenaTowaru.toFixed(2)} zł</td>
+      <td><button class="usun-btn"><img src="../img/white/delete-white.png"></button></td>
+    `;
+
+    nowyWiersz.querySelector(".usun-btn").addEventListener("click", () => {
+      nowyWiersz.remove();
+      aktualizujLiczniki();
+      aktualizujSume();
+    });
+
+    tbody.appendChild(nowyWiersz);
+    aktualizujLiczniki();
+  }
+
+  // Zaktualizowanie sumy
+  aktualizujSume();
+}
+
+let poziom = 100;
+
+const licznik = document.querySelector(".licznik-wypelnienie");
+
+document.querySelectorAll(".pozostale-towary").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const zmiana = parseInt(btn.dataset.zmiana);
+    poziom = Math.max(0, poziom - zmiana);
+    aktualizujLicznik();
+  });
+});
+
+function aktualizujLicznik() {
+  licznik.style.height = poziom + "%";
+  licznik.textContent = poziom + "%";
+}
+
+document.querySelector("button.reset-wloskie").addEventListener("click", () => {
+  poziom = 100;
+  aktualizujLicznik();
+});

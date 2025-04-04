@@ -187,3 +187,45 @@ document
       btn.disabled = false;
     }
   });
+
+document
+  .getElementById("zamowienieToPDF")
+  .addEventListener("click", async function () {
+    try {
+      // Wysyłanie zapytania do endpointu
+      const response = await fetch(
+        `${CONFIG.URL}/api/generator-zamowien-sklepy`
+      );
+      const data = await response.json();
+
+      // Tworzenie nowego PDF
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      // Dodawanie tytułu
+      doc.text("Serwisowe generowanie zamówień", 20, 10);
+
+      // Tworzenie nagłówka tabeli
+      const headers = ["SmkId", "SmkNazwa", "Liczba wystąpień", "ZamSklId"];
+      const tableData = data.map((row) => [
+        row.SmkId,
+        row.SmkNazwa,
+        row.liczba_wystapien,
+        row.ZamSklId,
+      ]);
+
+      // Dodawanie tabeli do PDF
+      doc.autoTable({
+        head: [headers],
+        body: tableData,
+        startY: 20,
+        theme: "grid",
+      });
+
+      // Generowanie pliku PDF i pobieranie go
+      doc.save("zamowienie_serwisowe.pdf");
+    } catch (error) {
+      console.error("Błąd przy generowaniu PDF:", error);
+      alert("Błąd przy generowaniu PDF: " + error.message);
+    }
+  });

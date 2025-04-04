@@ -1571,16 +1571,10 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
 app.post("/api/zamowienie", async (req, res) => {
   let { sklepId, zamowienieData } = req.body;
 
-  // Jeśli dane przyszły w złym formacie, popraw
   if (!zamowienieData && Array.isArray(req.body)) {
     zamowienieData = req.body;
-    sklepId = zamowienieData[0]?.sklepId; // Pobierz sklepId z pierwszego elementu
+    sklepId = zamowienieData[0]?.sklepId;
   }
-
-  console.log(
-    "Po korekcie:",
-    JSON.stringify({ sklepId, zamowienieData }, null, 2)
-  );
 
   if (!sklepId) {
     return res.status(400).json({ message: "Brak sklepu ID" });
@@ -1614,6 +1608,83 @@ app.post("/api/zamowienie", async (req, res) => {
   } catch (error) {
     console.error("Błąd zapisywania zamówienia:", error);
     res.status(500).json({ message: "Błąd zapisywania zamówienia" });
+  }
+});
+
+app.get("/api/rcp-uzytkownik/:uzytkownikId", async (req, res) => {
+  const { uzytkownikId } = req.params;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    const data = await connection.query(
+      `SELECT
+        DATE(RCPStartZmiany) as data,
+        SEC_TO_TIME(SUM(TIMESTAMPDIFF(second, RCPStartZmiany, RCPKoniecZmiany))) as RoznicaCzasu,
+        RCPUzId,
+        u.UzImie,
+        u.UzNazwisko
+      FROM
+        rcp
+      LEFT JOIN uzytkownicy as u on u.UzId = rcp.RCPUzId
+      WHERE
+        RCPKoniecZmiany IS NOT NULL
+        AND RCPUzId = ?
+      GROUP BY
+        DATE(RCPStartZmiany),
+        RCPUzId
+      ORDER BY
+        data;`,
+      [uzytkownikId]
+    );
+
+    // Przekształcanie daty na format YYYY-MM-DD
+    data.forEach((item) => {
+      // Zamienia datę na format lokalny
+      const date = new Date(item.data);
+      item.data = date.toLocaleDateString("pl-PL"); // Przekształca na lokalną datę (np. "2025-04-04")
+    });
+
+    res.json(data);
+  } catch (err) {
+    console.error(
+      `[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`
+    );
+    res.status(500).json({ error: "Wystąpił błąd serwera." });
+  }
+});
+
+app.get("/api/generator-zamowien-sklepy", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `SELECT 
+    s.SmkId,
+    s.SmkNazwa,
+    COUNT(s.SmkId) AS liczba_wystapien,
+    z.ZamSklId
+FROM zamowienia AS z
+LEFT JOIN smaki AS s ON s.SmkId = z.ZamSmkId
+WHERE ZamKuwId IS NULL
+GROUP BY s.SmkId, z.ZamSklId
+ORDER BY z.ZamSklId;
+`;
+    const data = await dbConfig.query(sql);
+
+    // Convert BigInt to number or string
+    const processedData = data.map((row) => {
+      return {
+        ...row,
+        liczba_wystapien: row.liczba_wystapien.toString(), // Convert BigInt to string
+        SmkId: row.SmkId.toString(), // If SmkId is BigInt, convert to string
+      };
+    });
+
+    res.json(processedData);
+  } catch (err) {
+    console.error(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).json({ error: "Błąd podczas pobierania danych" });
+  } finally {
+    if (connection) connection.release();
   }
 });
 

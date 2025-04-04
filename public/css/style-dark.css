@@ -137,7 +137,8 @@ body.dark-mode table#centrala-kuwety thead th,
 body.dark-mode table#centrala-rcp thead th,
 body.dark-mode .progress-text,
 body.dark-mode .ulozenie-kuwet-container h2,
-body.dark-mode p#zamowienia-info {
+body.dark-mode p#zamowienia-info,
+body.dark-mode p#message-login {
   color: var(--text-white-color);
 }
 

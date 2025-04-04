@@ -30,10 +30,26 @@ async function fetchRCP() {
               }" value="0.00" disabled>
             </td>
             <td>
-              <button id="rcp-month"><img src="../img/white/calendar-white.png"></button>
+              <button id="rcp-month" data-uzytkownik-id="${
+                czas.UzId
+              }"><img src="../img/white/calendar-white.png"></button>
             </td>
-            `;
+          `;
       tableBody.appendChild(row);
+
+      // Dodajemy event listener do przycisku
+      const button = row.querySelector("#rcp-month");
+      console.log(
+        "data-uzytkownik-id:",
+        button.getAttribute("data-uzytkownik-id")
+      );
+      button.addEventListener("click", (event) => {
+        const uzytkownikId = event.target
+          .closest("button")
+          .getAttribute("data-uzytkownik-id");
+        console.log("Przekierowuję na stronę dla ID:", uzytkownikId);
+        window.location.href = `rcp-uzytkownik.html?uzytkownikId=${uzytkownikId}`;
+      });
     });
   } catch (error) {
     console.error("Błąd pobierania danych:", error);

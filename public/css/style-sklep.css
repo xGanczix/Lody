@@ -651,3 +651,66 @@ p#zamowienia-info {
   font-size: 20px;
   padding: 10px;
 }
+
+.sprzedaz-pozostale {
+  display: flex;
+  align-items: flex-start; /* Wyrównuje elementy wewnętrzne od góry */
+  justify-content: flex-start; /* Wyrównuje elementy do lewej */
+  flex-wrap: wrap; /* Pozwala elementom przejść do następnego wiersza, jeśli jest to konieczne */
+}
+
+.licznik-pojemnika {
+  width: 20px;
+  height: 280px;
+  border: 1px solid var(--border-light-color);
+  position: relative;
+  background: #eee;
+  margin: 10px 0 0 20px;
+  border-radius: 20px;
+}
+
+.licznik-wypelnienie {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: green;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  transition: height 0.3s ease;
+  border-radius: 20px;
+}
+
+.sprzedaz-pozostale-rzad {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.pozostale-towary {
+  width: 150px;
+  height: 150px;
+  margin: 15px 10px 0 10px;
+  background: var(--background-input-light-color) !important;
+  color: var(--text-black-color);
+  box-shadow: 0 0 5px var(--box-shadow-color);
+}
+
+.pozostale-towary:first-child {
+  margin-left: 20px;
+}
+
+button.reset-wloskie {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 10px;
+  bottom: 40px;
+  padding: 5px;
+}
+
+button.reset-wloskie img {
+  width: 100%;
+}
