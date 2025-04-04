@@ -110,3 +110,10 @@ create table if not exists Dokumenty(
 	DokData datetime not null default now(),
 	DokFormaPlatnosci ENUM('gotówka', 'karta', 'bon') not null,
 	DokAutorId int not null)
+
+create table if not exists ceny(
+	CId int not null primary key auto_increment,
+	CTowId int not null,
+	CCena float not null,
+	CPoprzedniaCena float not null,
+	CDataZmiany datetime not null default now())
