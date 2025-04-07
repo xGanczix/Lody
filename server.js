@@ -146,8 +146,6 @@ app.post("/api/login", async (req, res) => {
         login: user.UzLogin,
         imie: user.UzImie,
         nazwisko: user.UzNazwisko,
-        sklepId: pinSklep,
-        sklepNazwa: sklepNazwa,
       },
       SECRET_KEY,
       { expiresIn: "8h" }
@@ -602,6 +600,31 @@ app.get("/api/sklepy-logowanie", async (req, res) => {
     let sql = "select * from Sklepy";
 
     const data = await connection.query(sql);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    res.status(500).send("Błąd podczas pobierania danych");
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/sklepy-raportowanie/:uzytkownikId", async (req, res) => {
+  const uzytkownikId = req.params.uzytkownikId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `
+    select * from sklepy as s left join uzytkownicysklep as us on us.UzSklSklId = s.SklId`;
+
+    if (uzytkownikId !== "123456789") {
+      sql += " WHERE us.UzSklUzId = ?";
+    } else {
+      sql += "";
+    }
+
+    const data = await connection.query(sql, uzytkownikId);
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
@@ -1330,12 +1353,15 @@ app.get("/api/smaki-dostepne-centrala", async (req, res) => {
   }
 });
 
-app.get("/api/raport-sprzedaz-formy-platnosci", async (req, res) => {
-  let connection;
-  try {
-    connection = await dbConfig.getConnection();
+app.get(
+  "/api/raport-sprzedaz-formy-platnosci/:uzytkownikId",
+  async (req, res) => {
+    let uzytkownikId = req.params.uzytkownikId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
 
-    let sql = `
+      let sql = `
     SELECT
       d.DokFormaPlatnosci,
       format(SUM(dp.DokPozCena),2) AS wartoscSprzedazy
@@ -1343,27 +1369,73 @@ app.get("/api/raport-sprzedaz-formy-platnosci", async (req, res) => {
       dokumenty AS d
     LEFT JOIN dokumentypozycje AS dp ON
       dp.DokPozDokId = d.DokId
+      left join uzytkownicysklep as us on us.UzSklSklId = d.DokSklepId
+    
+
+    `;
+
+      if (uzytkownikId !== "123456789") {
+        sql += `WHERE us.UzSklUzId = ?
+    GROUP BY
+      d.DokFormaPlatnosci;`;
+      } else {
+        sql += `GROUP BY
+      d.DokFormaPlatnosci;`;
+      }
+
+      const data = await connection.query(sql, uzytkownikId);
+      res.json(data);
+    } catch (err) {
+      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
+    }
+  }
+);
+
+app.get(
+  "/api/raport-sprzedaz-formy-platnosci-sklep/:sklepId",
+  async (req, res) => {
+    let sklepId = req.params.sklepId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
+
+      let sql = `
+    SELECT
+      d.DokFormaPlatnosci,
+      format(SUM(dp.DokPozCena),2) AS wartoscSprzedazy
+    FROM
+      dokumenty AS d
+    LEFT JOIN dokumentypozycje AS dp ON
+      dp.DokPozDokId = d.DokId
+    WHERE d.DokSklepId = ?
     GROUP BY
       d.DokFormaPlatnosci;
 
     `;
 
-    const data = await connection.query(sql);
-    res.json(data);
-  } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
-    res.status(500).send("Błąd podczas pobierania danych");
-  } finally {
-    if (connection) connection.release();
+      const data = await connection.query(sql, sklepId);
+      res.json(data);
+    } catch (err) {
+      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
+    }
   }
-});
+);
 
-app.get("/api/raport-sprzedazy-wartosci-dzien", async (req, res) => {
-  let connection;
-  try {
-    connection = await dbConfig.getConnection();
+app.get(
+  "/api/raport-sprzedazy-wartosci-dzien/:uzytkownikId",
+  async (req, res) => {
+    let uzytkownikId = req.params.uzytkownikId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
 
-    let sql = `
+      let sql = `
     select
 	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
 	    date(d.DokData) as SprzedazDzien
@@ -1371,25 +1443,68 @@ app.get("/api/raport-sprzedazy-wartosci-dzien", async (req, res) => {
 	    dokumentypozycje as dp
     left join dokumenty as d on
 	    d.DokId = dp.DokPozDokId
-	  where date(d.DokData) >= now() - interval 7 day
+	    left join uzytkownicysklep as us on us.UzSklSklId = d.DokSklepId
+	  where date(d.DokData) >= now() - interval 7 day`;
+
+      if (uzytkownikId !== "123456789") {
+        sql += ` and us.UzSklUzId = ?
     group by
 	    date(d.DokData)`;
+      } else {
+        sql += ` group by
+      date(d.DokData)`;
+      }
 
-    const data = await connection.query(sql);
-    res.json(data);
-  } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
-    res.status(500).send("Błąd podczas pobierania danych");
-  } finally {
-    if (connection) connection.release();
+      const data = await connection.query(sql, uzytkownikId);
+      res.json(data);
+    } catch (err) {
+      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
+    }
   }
-});
+);
 
-app.get("/api/raport-sprzedazy-ilosci-smaki", async (req, res) => {
-  let connection;
-  try {
-    connection = await dbConfig.getConnection();
-    let sql = `
+app.get(
+  "/api/raport-sprzedazy-wartosci-dzien-sklep/:sklepId",
+  async (req, res) => {
+    let sklepId = req.params.sklepId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
+
+      let sql = `
+    select
+	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
+	    date(d.DokData) as SprzedazDzien
+    from
+	    dokumentypozycje as dp
+    left join dokumenty as d on
+	    d.DokId = dp.DokPozDokId
+	  where date(d.DokData) >= now() - interval 7 day AND d.DokSklepId = ?
+    group by
+	    date(d.DokData), d.DokSklepId`;
+
+      const data = await connection.query(sql, sklepId);
+      res.json(data);
+    } catch (err) {
+      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
+    }
+  }
+);
+
+app.get(
+  "/api/raport-sprzedazy-ilosci-smaki/:uzytkownikId",
+  async (req, res) => {
+    let uzytkownikId = req.params.uzytkownikId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
+      let sql = `
       select
 	      s.SmkNazwa,
 	      sum(dp.DokPozTowIlosc) as iloscSprzedana,
@@ -1401,20 +1516,65 @@ app.get("/api/raport-sprzedazy-ilosci-smaki", async (req, res) => {
 	    left join smaki as s on s.SmkId = k.KuwSmkId
 	    left join dokumenty as d on d.DokId = dp.DokPozDokId 
 	    left join sklepy as sk on sk.SklId = d.DokSklepId
-	    where d.DokData >= now() - interval 7 day
+	    left join uzytkownicysklep as us on us.UzSklSklId = d.DokSklepId
+	    where d.DokData >= now() - interval 7 day`;
+
+      if (uzytkownikId !== "123456789") {
+        sql += ` and us.UzSklUzId = ?
       group by
 	      s.SmkId
 	    order by s.SmkNazwa`;
+      } else {
+        sql += ` group by
+	      s.SmkId
+	    order by s.SmkNazwa`;
+      }
 
-    const data = await dbConfig.query(sql);
-    res.json(data);
-  } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
-    res.status(500).send("Błąd podczas pobierania danych");
-  } finally {
-    if (connection) connection.release();
+      const data = await dbConfig.query(sql, uzytkownikId);
+      res.json(data);
+    } catch (err) {
+      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
+    }
   }
-});
+);
+
+app.get(
+  "/api/raport-sprzedazy-ilosci-smaki-sklep/:sklepId",
+  async (req, res) => {
+    let sklepId = req.params.sklepId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
+      let sql = `
+      select
+	      s.SmkNazwa,
+	      sum(dp.DokPozTowIlosc) as iloscSprzedana,
+	      s.SmkKolor,
+        s.SmkTekstKolor
+      from
+	      dokumentypozycje as dp
+	    left join kuwety as k on k.KuwId = dp.DokPozTowId
+	    left join smaki as s on s.SmkId = k.KuwSmkId
+	    left join dokumenty as d on d.DokId = dp.DokPozDokId 
+	    left join sklepy as sk on sk.SklId = d.DokSklepId
+	    where d.DokData >= now() - interval 7 day AND d.DokSklepId = ?
+      group by
+	      s.SmkId, d.DokSklepId
+	    order by s.SmkNazwa`;
+
+      const data = await dbConfig.query(sql, sklepId);
+      res.json(data);
+    } catch (err) {
+      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
+    }
+  }
+);
 
 app.put("/api/zamowienie-bufor/:kuwetaId", async (req, res) => {
   const kuwetaId = req.params.id;

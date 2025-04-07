@@ -40,6 +40,7 @@ function updateIcons() {
     { id: "raport-sprzedaz-icon", name: "goods" },
     { id: "raport-status-icon", name: "clipboard" },
     { id: "raport-formy-platnosci-icon", name: "top-up" },
+    { id: "raport-sprzedaz-sklep-icon", name: "tag_goods" },
   ];
 
   icons.forEach(({ id, name }) => {

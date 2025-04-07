@@ -1,7 +1,7 @@
 ## Tworzenie bazy oraz tabel Lody Łącko ##
 
 ## Tworzenie bazy danych ##
-CREATE DATABASE LodyLacko
+CREATE DATABASE LodyLacko;
 
 ## Użytkownicy ##
 create table Uzytkownicy(
@@ -13,7 +13,7 @@ create table Uzytkownicy(
 	UzPIN varchar(255),
 	UzStatus boolean not null default 1,
 	UzStawkaGodzinowa float default 0.00,
-	UzDataZmiany datetime not null default now())
+	UzDataZmiany datetime not null default now());
 
 ## Sklepy ##
 create table Sklepy(
@@ -25,13 +25,13 @@ create table Sklepy(
 	SklMiejscowosc varchar(255),
 	SklPojemnosc int not null,
 	SklDataZmiany datetime not null default now(),
-	SklStatus boolean not null default 1)
+	SklStatus boolean not null default 1);
 
 ## Połączenie Użytkowników ze sklepami ##
 create table UzytkownicySklep (
     UzSklId int not null primary key auto_increment,
     UzSklUzId int not null,
-    UzSklSklId int not null)
+    UzSklSklId int not null);
 
 ## Smaki ##
 create table Smaki(
@@ -40,21 +40,21 @@ create table Smaki(
 	SmkDataZmiany datetime not null default now(),
 	SmkKolor varchar(255),
 	SmkTekstKolor varchar(255),
-	SmkStatus boolean not null default 1)
+	SmkStatus boolean not null default 1);
 
 ## ECP ##
 create table RCP(
 	RCPId int not null primary key auto_increment,
 	RCPStartZmiany datetime,
 	RCPKoniecZmiany datetime,
-	RCPUzId int not null)
+	RCPUzId int not null);
 		
 ## Ceny ##
 create table Ceny(
 	CenId int not null primary key auto_increment,
 	CenNazwa varchar(255) not null,
 	CenCena float not null,
-	CenDataZmiany datetime not null default now())
+	CenDataZmiany datetime not null default now());
 	
 ## Rozmiary ##
 create table Rozmiary(
@@ -62,20 +62,20 @@ create table Rozmiary(
 	RozNazwa varchar(255) not null,
 	RozPojemnosc int not null,
 	RozDataZmiany datetime not null default now(),
-	RozStatus boolean not null default 1)
+	RozStatus boolean not null default 1);
 	
 ## Magazyny ##
 create table Magazyny(
 	MagId int not null primary key auto_increment,
 	MagNazwa varchar(255) not null,
 	MagSklId int not null,
-	MagDataZmiany datetime not null default now())
+	MagDataZmiany datetime not null default now());
 
 ## Typy dokumentów ##
 create table TypDokumentow(
 	TypDokId int not null primary key auto_increment,
 	TypDokNazwa varchar(255) not null,
-	TypDokPrefix varchar(5) not null)
+	TypDokPrefix varchar(5) not null);
 
 ## Dokumenty numeracja ##
 create table DokumentyNumeracja(
@@ -83,7 +83,7 @@ create table DokumentyNumeracja(
 	DokNumTypDokId int not null,
 	DokNumOstatniNumer int not null default 0,
 	DokNumSklId int not null,
-	DokNumDatazmiany datetime not null default now())
+	DokNumDatazmiany datetime not null default now());
 
 ## Dokumenty ##
 create table Dokumenty(
@@ -91,7 +91,7 @@ create table Dokumenty(
 	DokTypDokId int not null,
 	DokNumer varchar(255) not null,
 	DokSklId int not null,
-	DokData datetime not null default now())
+	DokData datetime not null default now());
 	
 ## Kuwety ##
 create table Kuwety(
@@ -101,14 +101,14 @@ create table Kuwety(
 	KuwPorcje int not null,
 	KuwSklId int,
 	KuwDataZmiany datetime default now(),
-	KuwStatus boolean not null default 1)
+	KuwStatus boolean not null default 1);
 	
 ## Towary ##
 create table Towary(
 	TowId int not null primary key auto_increment,
 	TowNazwa varchar(255) not null,
 	TowCenaId int not null,
-	TowDataZmiany datetime not null default now())
+	TowDataZmiany datetime not null default now());
 	
 ## Układ kuwet na sklep ##
 create table ulozenie (UId int not null primary key auto_increment,
@@ -123,7 +123,7 @@ create table ulozenie (UId int not null primary key auto_increment,
 	UKuw9Id int,
 	UKuw10Id int,
 	USklId int not null,
-	UzDataZmiany datetime not null default now())
+	UzDataZmiany datetime not null default now());
 
 ## Procedura otwierania i zamykania zmiany (! NIE DZIAŁA NA DBEAVER !) ##
 DELIMITER //
@@ -148,3 +148,16 @@ BEGIN
     END IF;
 END//
 DELIMITER ;
+
+
+
+insert into towary
+	(TowNazwa, TowCenaId)
+	values
+	('LodyRzemieslnicze',1),
+	('WloskieMale',2),
+	('WloskieDuze',3),
+	('Kawa',4),
+	('Granita',5),
+	('PolewaPosypka',6),
+	('BitaSmietana',7);

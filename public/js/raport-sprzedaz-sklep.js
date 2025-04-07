@@ -1,10 +1,39 @@
-const decoded = parseJwt(token);
-const uzytkownikId = decoded.id;
+let sklepSelect = document.getElementById("centrala-raport-sklep");
 
-async function fetchRaportSprzedazFormyPlatnosci() {
+document.addEventListener("DOMContentLoaded", function () {
+  function loadSklepy() {
+    const token = localStorage.getItem("token");
+    const decoded = parseJwt(token);
+    const uzytkownikId = decoded.id;
+    fetch(`${CONFIG.URL}/api/sklepy-raportowanie/${uzytkownikId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        sklepSelect.innerHTML = "";
+
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = "-- Wybierz sklep --";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        sklepSelect.appendChild(defaultOption);
+
+        data.forEach((sklep) => {
+          const option = document.createElement("option");
+          option.value = sklep.SklId;
+          option.textContent = sklep.SklNazwa;
+          sklepSelect.appendChild(option);
+        });
+      })
+      .catch((error) => console.error("Błąd pobierania sklepów:", error));
+  }
+
+  loadSklepy();
+});
+
+async function fetchRaportSprzedazFormyPlatnosciSklep(sklepId) {
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedaz-formy-platnosci/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-sprzedaz-formy-platnosci-sklep/${sklepId}`
     );
     const data = await response.json();
 
@@ -38,7 +67,7 @@ async function fetchRaportSprzedazFormyPlatnosci() {
         categories: formyPlatnosci,
       },
       title: {
-        text: "Wartość sprzedaży według formy płatności",
+        text: `Wartości sprzedaży według form płatności`,
       },
       colors: colors.slice(0, formyPlatnosci.length),
       plotOptions: {
@@ -56,7 +85,6 @@ async function fetchRaportSprzedazFormyPlatnosci() {
         show: false,
       },
     };
-
     const chart = new ApexCharts(
       document.querySelector("#formy-platnosci"),
       options
@@ -67,10 +95,10 @@ async function fetchRaportSprzedazFormyPlatnosci() {
   }
 }
 
-async function fetchRaportSprzedazSmaki() {
+async function fetchRaportSprzedazSmakiSklep(sklepId) {
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedazy-ilosci-smaki/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-sprzedazy-ilosci-smaki-sklep/${sklepId}`
     );
     const data = await response.json();
 
@@ -145,10 +173,10 @@ async function fetchRaportSprzedazSmaki() {
   }
 }
 
-async function fetchRaportSprzedazWartosc() {
+async function fetchRaportSprzedazWartoscSklep(sklepId) {
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedazy-wartosci-dzien/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-sprzedazy-wartosci-dzien-sklep/${sklepId}`
     );
     const data = await response.json();
 
@@ -201,8 +229,18 @@ async function fetchRaportSprzedazWartosc() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetchRaportSprzedazFormyPlatnosci();
-  fetchRaportSprzedazWartosc();
-  fetchRaportSprzedazSmaki();
+sklepSelect.addEventListener("change", function () {
+  const sklepId = sklepSelect.value;
+  const raportFormyPlatnosciSklep = document.getElementById("formy-platnosci");
+  const raportSprzedaneSmaki = document.getElementById("sprzedawane-smaki");
+  const raportWartoscSprzedazy = document.getElementById(
+    "sprzedaz-wartosci-dzien"
+  );
+  raportFormyPlatnosciSklep.innerHTML = "";
+  raportSprzedaneSmaki.innerHTML = "";
+  raportWartoscSprzedazy.innerHTML = "";
+
+  fetchRaportSprzedazFormyPlatnosciSklep(sklepId);
+  fetchRaportSprzedazSmakiSklep(sklepId);
+  fetchRaportSprzedazWartoscSklep(sklepId);
 });

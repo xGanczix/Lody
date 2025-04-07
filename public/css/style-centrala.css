@@ -240,9 +240,38 @@ main {
   color: var(--text-black-color);
 }
 
-.centrala-help-container {
+.centrala-help-nav-container {
+  position: sticky;
+  top: 0;
+  background: var(--background-container-light-color);
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.centrala-help-nav-container h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
+.centrala-help-manual-container {
   overflow-y: auto;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
+  scroll-behavior: smooth;
+  height: calc(100% - 120px);
+}
+
+.centrala-help-container h3 {
+  padding: 40px 0 10px 0;
+  text-align: center;
+  font-size: 24px;
+  color: var(--button-light-color);
+}
+
+.centrala-help-container p {
+  font-size: 16px;
+  line-height: 26px;
+  word-spacing: 3px;
+  text-align: justify;
 }
 
 button#add {
@@ -684,4 +713,13 @@ button.serwis-btn:last-child {
   width: calc((100% / 3) - 10px);
   height: 300px;
   padding: 20px;
+}
+
+select#centrala-raport-sklep {
+  width: 300px;
+}
+
+tbody#rcp-user-tbody tr {
+  border-bottom: 2px solid var(--border-light-color);
+  padding: 0 10px;
 }

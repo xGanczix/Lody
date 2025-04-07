@@ -1,64 +1,258 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Raport Pracowników</title>
+    <title>Document</title>
   </head>
   <body>
-    <table id="raportTabela">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Różnica Czasu</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Dane będą dodane dynamicznie -->
-      </tbody>
-    </table>
-
-    <script>
-      // Funkcja do pobrania danych z serwera i wstawienia ich do tabeli
-      async function fetchRaportData() {
-        // Pobierz token z lokalnego storage lub innego źródła
-        const token = localStorage.getItem("token"); // lub inny sposób przechowywania tokenu
-        const decoded = parseJwt(token); // Funkcja do dekodowania tokenu JWT
-
-        const userId = decoded.id; // Pobierz userId z tokenu
-        // Wyślij zapytanie do serwera (przykładowy endpoint)
-        const response = await fetch(`/api/raport?userId=${userId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        // Jeżeli odpowiedź jest ok, to przetwórz dane
-        if (response.ok) {
-          const data = await response.json();
-          const tbody = document.querySelector("#raportTabela tbody");
-
-          // Przeiteruj po danych i wstaw je do tabeli
-          data.forEach((item) => {
-            const row = document.createElement("tr");
-            const dataCell = document.createElement("td");
-            dataCell.textContent = item.data; // Data
-            const timeCell = document.createElement("td");
-            timeCell.textContent = item.roznicaCzasu; // Różnica Czasu
-            row.appendChild(dataCell);
-            row.appendChild(timeCell);
-            tbody.appendChild(row);
-          });
-        } else {
-          console.error("Błąd podczas pobierania danych");
-        }
-      }
-
-      // Uruchomienie funkcji po załadowaniu strony
-      window.onload = function () {
-        fetchRaportData();
-      };
-    </script>
+    <p><a href="#proba">Przenieś</a></p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex
+      autem ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa,
+      adipisci quas neque perferendis consequuntur libero expedita consectetur
+      aperiam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+      quaerat ex autem ipsa earum. Tenetur, accusamus cumque porro quos ipsa
+      culpa, adipisci quas neque perferendis consequuntur libero expedita
+      consectetur aperiam. Lorem ipsum dolor sit amet consectetur adipisicing
+      elit. Fugit quaerat ex autem ipsa earum. Tenetur, accusamus cumque porro
+      quos ipsa culpa, adipisci quas neque perferendis consequuntur libero
+      expedita consectetur aperiam. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Fugit quaerat ex autem ipsa earum. Tenetur, accusamus
+      cumque porro quos ipsa culpa, adipisci quas neque perferendis consequuntur
+      libero expedita consectetur aperiam. Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Fugit quaerat ex autem ipsa earum. Tenetur,
+      accusamus cumque porro quos ipsa culpa, adipisci quas neque perferendis
+      consequuntur libero expedita consectetur aperiam. Lorem ipsum dolor sit
+      amet consectetur adipisicing elit. Fugit quaerat ex autem ipsa earum.
+      Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas neque
+      perferendis consequuntur libero expedita consectetur aperiam. Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem ipsa
+      earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam. Lorem
+      ipsum dolor sit amet consectetur adipisicing elit. Fugit quaerat ex autem
+      ipsa earum. Tenetur, accusamus cumque porro quos ipsa culpa, adipisci quas
+      neque perferendis consequuntur libero expedita consectetur aperiam.
+    </p>
+    <p id="proba">To tu</p>
   </body>
 </html>

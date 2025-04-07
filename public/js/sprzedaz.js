@@ -52,6 +52,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
 
+    document.querySelectorAll(".dodatek").forEach((przycisk) => {
+      przycisk.addEventListener("click", () => {
+        const nazwa = przycisk.textContent.replace(/\s+/g, " ").trim();
+
+        console.log("Dodatek:", nazwa);
+        dodajDoTabeliLodyWloskie(nazwa);
+      });
+    });
+
     console.log("Ułożenie kuwet zakończone.");
   } catch (err) {
     console.log("Błąd podczas układania kuwet:", err);
@@ -210,14 +219,14 @@ function dodajDoTabeliLodyWloskie(nazwaTowaru) {
     cenaTowaru = 6; // cena za małe lody
   } else if (nazwaTowaru === "Lody Włoskie Duże") {
     cenaTowaru = 8; // cena za duże lody
-  } else if (nazwaTowaru === "Kawa Duża") {
+  } else if (nazwaTowaru === "Kawa") {
     cenaTowaru = 10;
-  } else if (nazwaTowaru === "Kawa Mała") {
+  } else if (nazwaTowaru === "Granita") {
     cenaTowaru = 8;
-  } else if (nazwaTowaru === "Granita Mała") {
-    cenaTowaru = 8;
-  } else if (nazwaTowaru === "Granita Duża") {
-    cenaTowaru = 10;
+  } else if (nazwaTowaru === "Polewa Posypka") {
+    cenaTowaru = 0.5;
+  } else if (nazwaTowaru === "Bita Śmietana") {
+    cenaTowaru = 2;
   }
 
   // Sprawdzamy, czy dany towar już istnieje w tabeli

@@ -316,12 +316,15 @@ button#pozycje-wydania-anuluj:hover {
 
 .lody-rzemieslnicze-rzad {
   width: 100%;
-  display: block;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 .lody-rzemieslnicze-smak {
   height: 230px;
   width: 230px;
+  font-size: 24px;
   background: var(--background-input-light-color);
   color: var(--text-black-color);
   box-shadow: 0 0 5px var(--box-shadow-color);
@@ -341,10 +344,6 @@ button#pozycje-wydania-anuluj:hover {
 
 .lody-rzemieslnicze-rzad .lody-rzemieslnicze-smak:first-child {
   margin-left: 20px;
-}
-
-.lody-rzemieslnicze-rzad .lody-rzemieslnicze-smak:last-child {
-  margin-right: 20px;
 }
 
 main {
@@ -713,4 +712,29 @@ button.reset-wloskie {
 
 button.reset-wloskie img {
   width: 100%;
+}
+
+.lody-rzemieslnicze-rzad:first-child button.dodatek {
+  width: 150px;
+  height: 230px;
+  margin: 20px 10px 10px 10px;
+  text-align: center;
+  background: url("../img/polewa.png");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  color: var(--text-white-color);
+  font-size: 30px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.lody-rzemieslnicze-rzad:last-child button.dodatek {
+  width: 150px;
+  height: 230px;
+  margin: 10px 10px 20px 10px;
+  text-align: center;
+  background: #f8f4ea;
+  color: var(--text-black-color);
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  font-size: 30px;
 }
