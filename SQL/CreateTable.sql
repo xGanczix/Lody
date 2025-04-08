@@ -57,7 +57,7 @@ create table if not exists Kuwety(
 	KuwDataZmiany datetime default now())
 	;
 
-create table if not exists ulozenie (
+create table if not exists Ulozenie (
     UId int not null primary key auto_increment,
 	UKuw1Id int,
 	UKuw2Id int,

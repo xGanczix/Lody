@@ -52,3 +52,7 @@ sql: create table if not exists DokumentyPozycje(
 	DokPozCena float(10,2) not null,
 ) - parameters:[]
 [2025-04-08 08:55:41] [INFO] Poprawne utworzenie tabel
+[2025-04-08 08:59:49] [INFO] Zalogowano Serwis
+[2025-04-08 08:59:52] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:15105, no: 45025, SQLState: 08004) Client does not support authentication protocol 'auth_gssapi_client' requested by server.
+[2025-04-08 09:00:01] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-08 09:00:42] [ERROR] Błąd tworzenia bazy danych

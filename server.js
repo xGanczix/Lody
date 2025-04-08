@@ -125,7 +125,7 @@ app.post("/api/login", async (req, res) => {
 
     connection = await dbConfig.getConnection();
     const rows = await connection.query(
-      "SELECT * FROM uzytkownicy WHERE UzLogin = ? AND UzStatus = 1",
+      "SELECT * FROM Uzytkownicy WHERE UzLogin = ? AND UzStatus = 1",
       [login]
     );
 
@@ -395,10 +395,10 @@ app.get("/api/kuwety-sklep/:sklepId", async (req, res) => {
 	    r.RozPojemnosc as Pojemnosc,
 	    k.KuwPorcje as Porcje
     from
-	    kuwety as k
-    left join rozmiary as r on
+	    Kuwety as k
+    left join Rozmiary as r on
 	    r.RozId = k.KuwRozId
-    left join smaki as s on
+    left join Smaki as s on
 	    s.SmkId = k.KuwSmkId
       where k.KuwSklId = ?`;
 
@@ -582,7 +582,7 @@ app.get("/api/sklepy", async (req, res) => {
     const uzytkownikId = req.query.uzytkownik;
 
     let sql =
-      "select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from uzytkownicysklep as us left join uzytkownicy as u on u.UzId = us.UzSklUzId left join sklepy as s on s.SklId = us.UzSklSklId";
+      "select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from UzytkownicySklep as us left join Uzytkownicy as u on u.UzId = us.UzSklUzId left join Sklepy as s on s.SklId = us.UzSklSklId";
     if (status === "aktywne" && uzytkownikId === "123456789") {
       sql += ` WHERE s.SklStatus = 1 group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
     } else if (status === "usuniete" && uzytkownikId === "123456789") {
@@ -637,7 +637,7 @@ app.get("/api/sklepy-raportowanie/:uzytkownikId", async (req, res) => {
     connection = await dbConfig.getConnection();
 
     let sql = `
-    select * from sklepy as s left join uzytkownicysklep as us on us.UzSklSklId = s.SklId`;
+    select * from Sklepy as s left join UzytkownicySklep as us on us.UzSklSklId = s.SklId`;
 
     if (uzytkownikId !== "123456789") {
       sql += " WHERE us.UzSklUzId = ?";
@@ -806,7 +806,7 @@ app.post("/api/kuwety-dodanie", async (req, res) => {
     connection = await dbConfig.getConnection();
 
     const rows = await connection.query(
-      "SELECT RozPojemnosc FROM rozmiary WHERE RozId = ?",
+      "SELECT RozPojemnosc FROM Rozmiary WHERE RozId = ?",
       [kuwetaRozmiar]
     );
 
@@ -1094,8 +1094,8 @@ app.get("/api/rcp", async (req, res) => {
 	      u.UzNazwisko,
 	      u.UzStawkaGodzinowa
       from
-	      rcp
-      left join uzytkownicy as u on
+	      RCP
+      left join Uzytkownicy as u on
 	      u.UzId = rcp.RCPUzId
       where u.UzId != 123456789
       group by
@@ -1129,7 +1129,7 @@ app.get("/api/rcp-dni/:uzytkownikId", async (req, res) => {
             ), 2) as Wynagrodzenie,
 	        RCPUzId as uzytkownikId
         from
-	        rcp
+	        RCP
         where rcp.RCPUzId = ${uzytkownikId}
         group by
 	        RCPUzId,
@@ -1285,16 +1285,16 @@ async function createProcedure() {
         DECLARE v_end_time DATETIME;
         
         SELECT RCPId, RCPKoniecZmiany INTO v_last_id, v_end_time
-        FROM rcp 
+        FROM RCP 
         WHERE RCPUzId = user_id
         ORDER BY RCPStartZmiany DESC 
         LIMIT 1;
         
         IF v_last_id IS NULL OR v_end_time IS NOT NULL THEN
-            INSERT INTO rcp (RCPUzId, RCPStartZmiany, RCPKoniecZmiany)
+            INSERT INTO RCP (RCPUzId, RCPStartZmiany, RCPKoniecZmiany)
             VALUES (user_id, NOW(), NULL);
         ELSE
-            UPDATE rcp 
+            UPDATE RCP
             SET RCPKoniecZmiany = NOW()
             WHERE RCPId = v_last_id;
         END IF;
@@ -1389,10 +1389,10 @@ app.get(
       d.DokFormaPlatnosci,
       format(SUM(dp.DokPozCena),2) AS wartoscSprzedazy
     FROM
-      dokumenty AS d
-    LEFT JOIN dokumentypozycje AS dp ON
+      Dokumenty AS d
+    LEFT JOIN DokumentyPozycje AS dp ON
       dp.DokPozDokId = d.DokId
-      left join uzytkownicysklep as us on us.UzSklSklId = d.DokSklepId
+      left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
     
 
     `;
@@ -1430,8 +1430,8 @@ app.get(
       d.DokFormaPlatnosci,
       format(SUM(dp.DokPozCena),2) AS wartoscSprzedazy
     FROM
-      dokumenty AS d
-    LEFT JOIN dokumentypozycje AS dp ON
+      Dokumenty AS d
+    LEFT JOIN DokumentyPozycje AS dp ON
       dp.DokPozDokId = d.DokId
     WHERE d.DokSklepId = ?
     GROUP BY
@@ -1463,10 +1463,10 @@ app.get(
 	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
 	    date(d.DokData) as SprzedazDzien
     from
-	    dokumentypozycje as dp
-    left join dokumenty as d on
+	    DokumentyPozycje as dp
+    left join Dokumenty as d on
 	    d.DokId = dp.DokPozDokId
-	    left join uzytkownicysklep as us on us.UzSklSklId = d.DokSklepId
+	    left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
 	  where date(d.DokData) >= now() - interval 7 day`;
 
       if (uzytkownikId !== "123456789") {
@@ -1502,8 +1502,8 @@ app.get(
 	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
 	    date(d.DokData) as SprzedazDzien
     from
-	    dokumentypozycje as dp
-    left join dokumenty as d on
+	    DokumentyPozycje as dp
+    left join Dokumenty as d on
 	    d.DokId = dp.DokPozDokId
 	  where date(d.DokData) >= now() - interval 7 day AND d.DokSklepId = ?
     group by
@@ -1534,12 +1534,12 @@ app.get(
 	      s.SmkKolor,
         s.SmkTekstKolor
       from
-	      dokumentypozycje as dp
-	    left join kuwety as k on k.KuwId = dp.DokPozTowId
-	    left join smaki as s on s.SmkId = k.KuwSmkId
-	    left join dokumenty as d on d.DokId = dp.DokPozDokId 
-	    left join sklepy as sk on sk.SklId = d.DokSklepId
-	    left join uzytkownicysklep as us on us.UzSklSklId = d.DokSklepId
+	      DokumentyPozycje as dp
+	    left join Kuwety as k on k.KuwId = dp.DokPozTowId
+	    left join Smaki as s on s.SmkId = k.KuwSmkId
+	    left join Dokumenty as d on d.DokId = dp.DokPozDokId 
+	    left join Sklepy as sk on sk.SklId = d.DokSklepId
+	    left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
 	    where d.DokData >= now() - interval 7 day`;
 
       if (uzytkownikId !== "123456789") {
@@ -1578,11 +1578,11 @@ app.get(
 	      s.SmkKolor,
         s.SmkTekstKolor
       from
-	      dokumentypozycje as dp
-	    left join kuwety as k on k.KuwId = dp.DokPozTowId
-	    left join smaki as s on s.SmkId = k.KuwSmkId
-	    left join dokumenty as d on d.DokId = dp.DokPozDokId 
-	    left join sklepy as sk on sk.SklId = d.DokSklepId
+	      DokumentyPozycje as dp
+	    left join Kuwety as k on k.KuwId = dp.DokPozTowId
+	    left join Smaki as s on s.SmkId = k.KuwSmkId
+	    left join Dokumenty as d on d.DokId = dp.DokPozDokId 
+	    left join Sklepy as sk on sk.SklId = d.DokSklepId
 	    where d.DokData >= now() - interval 7 day AND d.DokSklepId = ?
       group by
 	      s.SmkId, d.DokSklepId
@@ -1845,8 +1845,8 @@ app.get("/api/generator-zamowien-sklepy", async (req, res) => {
     s.SmkNazwa,
     COUNT(s.SmkId) AS liczba_wystapien,
     z.ZamSklId
-FROM zamowienia AS z
-LEFT JOIN smaki AS s ON s.SmkId = z.ZamSmkId
+FROM Zamowienia AS z
+LEFT JOIN Smaki AS s ON s.SmkId = z.ZamSmkId
 WHERE ZamKuwId IS NULL
 GROUP BY s.SmkId, z.ZamSklId
 ORDER BY z.ZamSklId;
