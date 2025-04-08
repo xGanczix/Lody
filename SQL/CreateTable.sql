@@ -119,5 +119,5 @@ create table if not exists Zamowienia(
 	ZamSmkId int,
 	ZamSklId int not null,
 	ZamStatus int not null default 1,
-	ZamData datetime not null defaul now()
+	ZamData datetime not null default now()
 );
