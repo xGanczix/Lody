@@ -1,4 +1,38 @@
 document
+  .getElementById("tworzenieBazyDanych")
+  .addEventListener("click", async () => {
+    const btn = document.getElementById("tworzenieBazyDanych");
+    const originalText = btn.textContent;
+
+    try {
+      btn.disabled = true;
+      btn.textContent = "Tworzenie...";
+
+      const response = await fetch(`${CONFIG.URL}/api/tworzenie-bazy`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Nie udało się utworzyć bazy danych");
+      }
+
+      alert(data.message);
+      console.log("Sukces:", data);
+    } catch (error) {
+      console.error("Błąd:", error);
+      alert(`Błąd: ${error.message}`);
+    } finally {
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });
+
+document
   .getElementById("tworzenieTabel")
   .addEventListener("click", async () => {
     const button = document.getElementById("tworzenieTabel");

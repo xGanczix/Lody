@@ -1,0 +1,54 @@
+[2025-04-08 08:39:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-08 08:39:12] [INFO] Połączono z MariaDB
+[2025-04-08 08:39:18] [INFO] Zalogowano Serwis
+[2025-04-08 08:40:06] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:14821, no: 1049, SQLState: 42000) Unknown database 'lody_lacko'
+[2025-04-08 08:40:25] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-08 08:40:25] [INFO] Aplikacja zakończyła działanie.
+[2025-04-08 08:40:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-08 08:40:35] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:14833, no: 1049, SQLState: 42000) Unknown database 'lody_lacko'
+[2025-04-08 08:40:40] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-08 08:40:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-08 08:40:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-08 08:40:55] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-08 08:41:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-08 08:41:41] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-08 08:51:23] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-08 08:51:24] [INFO] Aplikacja zakończyła działanie.
+[2025-04-08 08:51:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-08 08:51:34] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-08 08:52:05] [INFO] Baza danych utworzona poprawnie
+[2025-04-08 08:52:10] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-08 08:53:54] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-08 08:53:54] [INFO] Aplikacja zakończyła działanie.
+[2025-04-08 08:53:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-08 08:53:55] [INFO] Połączono z MariaDB
+[2025-04-08 08:53:59] [ERROR] Błąd tworzenia tabel: SqlError: (conn:15055, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'create table if not exists DokumentyNumeracja(
+	DokNumSklepId int not null,...' at line 6
+sql: create table if not exists KuwetyStatusZamowienia(
+	KuwStatZamId int not null primary key auto_increment,
+	KuwStatZamNazwa varchar(255) not null,
+	KuwStatZamDataZmiany datetime not null default now())
+
+create table if not exists DokumentyNumeracja(
+	... - parameters:[]
+[2025-04-08 08:54:54] [ERROR] Błąd tworzenia tabel: SqlError: (conn:15056, no: 1005, SQLState: HY000) Can't create table `lody_lacko`.`dokumentypozycje` (errno: 150 "Foreign key constraint is incorrectly formed")
+sql: create table if not exists DokumentyPozycje(
+	DokPozId int not null primary key auto_increment,
+	DokPozDokId int not null,
+	DokPozTowId int not null,
+	DokPozTowIlosc float not null,
+	DokPozCena float(10,2) not null,
+	foreign key (DokPozDokId) referen... - parameters:[]
+[2025-04-08 08:55:15] [ERROR] Błąd tworzenia tabel: SqlError: (conn:15057, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 7
+sql: create table if not exists DokumentyPozycje(
+	DokPozId int not null primary key auto_increment,
+	DokPozDokId int not null,
+	DokPozTowId int not null,
+	DokPozTowIlosc float not null,
+	DokPozCena float(10,2) not null,
+) - parameters:[]
+[2025-04-08 08:55:41] [INFO] Poprawne utworzenie tabel

@@ -1,7 +1,3 @@
-create database if not exists lody_lacko;
-
-USE lody_lacko;
-
 create table if not exists Uzytkownicy(
 	UzId int not null primary key auto_increment,
 	UzImie varchar(255) not null,
@@ -85,23 +81,22 @@ create table if not exists Towary(
 create table if not exists KuwetyStatusZamowienia(
 	KuwStatZamId int not null primary key auto_increment,
 	KuwStatZamNazwa varchar(255) not null,
-	KuwStatZamDataZmiany datetime not null default now())
+	KuwStatZamDataZmiany datetime not null default now());
 
 create table if not exists DokumentyNumeracja(
 	DokNumSklepId int not null,
 	DokNumRok int not null,
 	DokNumOstatniNr int default 0,
 	primary key(DokNumSklepId, DokNumRok)
-)
+);
 
 create table if not exists DokumentyPozycje(
 	DokPozId int not null primary key auto_increment,
 	DokPozDokId int not null,
 	DokPozTowId int not null,
 	DokPozTowIlosc float not null,
-	DokPozCena float(10,2) not null,
-	foreign key (DokPozDokId) references Dokumenty(DokId)
-)
+	DokPozCena float(10,2) not null
+);
 
 create table if not exists Dokumenty(
 	DokId int not null primary key auto_increment,
@@ -109,11 +104,11 @@ create table if not exists Dokumenty(
 	DokSklepId int not null,
 	DokData datetime not null default now(),
 	DokFormaPlatnosci ENUM('gotówka', 'karta', 'bon') not null,
-	DokAutorId int not null)
+	DokAutorId int not null);
 
 create table if not exists ceny(
 	CId int not null primary key auto_increment,
 	CTowId int not null,
 	CCena float not null,
 	CPoprzedniaCena float not null,
-	CDataZmiany datetime not null default now())
+	CDataZmiany datetime not null default now());

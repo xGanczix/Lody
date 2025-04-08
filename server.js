@@ -514,6 +514,27 @@ app.post("/api/rozmiary-dodanie", async (req, res) => {
   }
 });
 
+app.post("/api/tworzenie-bazy", async (req, res) => {
+  let connection;
+  const pool = mariadb.createPool({
+    host: process.env.DB_SERVER,
+    port: parseInt(process.env.DB_PORT),
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    connectionLimit: 50,
+    queueLimit: 0,
+  });
+  try {
+    connection = await pool.getConnection();
+    await connection.query("create database lody_lacko");
+    logToFile("[INFO] Baza danych utworzona poprawnie");
+    res.status(200).json({ message: "Baza danych utworzona poprawnie" });
+  } catch (err) {
+    logToFile("[ERROR] Błąd tworzenia bazy danych");
+    res.status(500).json({ error: "Błąd tworzenia bazy danych" });
+  }
+});
+
 app.put("/api/rozmiary-usuwanie/:id", async (req, res) => {
   const rozmiarId = req.params.id;
   let connection;
@@ -1171,12 +1192,14 @@ app.post("/api/tworzenie-tabel", async (req, res) => {
       success: true,
       message: "Tabele zostały utworzone na podstawie pliku SQL",
     });
+    logToFile("[INFO] Poprawne utworzenie tabel");
   } catch (error) {
     res.status(500).json({
       success: false,
       error: "Wystąpił błąd podczas tworzenia tabel",
       details: error.message,
     });
+    logToFile(`[ERROR] Błąd tworzenia tabel: ${error}`);
   }
 });
 
