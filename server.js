@@ -1771,17 +1771,17 @@ app.post("/api/zamowienie", async (req, res) => {
     for (const { kuwetaId, smakId } of zamowienieData) {
       if (kuwetaId && smakId) {
         await dbConfig.query(
-          "INSERT INTO zamowienia (ZamKuwId, ZamSmkId, ZamSklId) VALUES (?, ?, ?)",
+          "INSERT INTO Zamowienia (ZamKuwId, ZamSmkId, ZamSklId) VALUES (?, ?, ?)",
           [kuwetaId, smakId, sklepId]
         );
       } else if (kuwetaId) {
         await dbConfig.query(
-          "INSERT INTO zamowienia (ZamKuwId, ZamSklId) VALUES (?, ?)",
+          "INSERT INTO Zamowienia (ZamKuwId, ZamSklId) VALUES (?, ?)",
           [kuwetaId, sklepId]
         );
       } else if (smakId) {
         await dbConfig.query(
-          "INSERT INTO zamowienia (ZamSmkId, ZamSklId) VALUES (?, ?)",
+          "INSERT INTO Zamowienia (ZamSmkId, ZamSklId) VALUES (?, ?)",
           [smakId, sklepId]
         );
       }

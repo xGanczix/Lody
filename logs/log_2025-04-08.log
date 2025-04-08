@@ -56,3 +56,6 @@ sql: create table if not exists DokumentyPozycje(
 [2025-04-08 08:59:52] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:15105, no: 45025, SQLState: 08004) Client does not support authentication protocol 'auth_gssapi_client' requested by server.
 [2025-04-08 09:00:01] [INFO] Poprawny test połączenia z bazą danych
 [2025-04-08 09:00:42] [ERROR] Błąd tworzenia bazy danych
+[2025-04-08 09:59:38] [INFO] Zalogowano Serwis
+[2025-04-08 09:59:42] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-08 09:59:42] [INFO] Aplikacja zakończyła działanie.

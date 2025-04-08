@@ -112,3 +112,12 @@ create table if not exists Ceny(
 	CCena float not null,
 	CPoprzedniaCena float not null,
 	CDataZmiany datetime not null default now());
+
+create table if not exists Zamowienia(
+	ZamId int not null primary key auto_increment,
+	ZamKuwId int,
+	ZamSmkId int,
+	ZamSklId int not null,
+	ZamStatus int not null default 1,
+	ZamData datetime not null defaul now()
+);
