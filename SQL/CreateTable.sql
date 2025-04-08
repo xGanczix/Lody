@@ -106,7 +106,7 @@ create table if not exists Dokumenty(
 	DokFormaPlatnosci ENUM('gotówka', 'karta', 'bon') not null,
 	DokAutorId int not null);
 
-create table if not exists ceny(
+create table if not exists Ceny(
 	CId int not null primary key auto_increment,
 	CTowId int not null,
 	CCena float not null,
