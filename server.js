@@ -1042,7 +1042,7 @@ app.get("/api/rcp-user-info/:uzytkownikId", async (req, res) => {
   try {
     connection = await dbConfig.getConnection();
     const data = await connection.query(
-      `select * from rcp where RCPUzId = ${uzytkownikId} order by RCPStartZmiany desc limit 1`
+      `select * from RCP where RCPUzId = ${uzytkownikId} order by RCPStartZmiany desc limit 1`
     );
     res.json(data);
   } catch (err) {
@@ -1096,7 +1096,7 @@ app.get("/api/rcp", async (req, res) => {
       from
 	      RCP
       left join Uzytkownicy as u on
-	      u.UzId = rcp.RCPUzId
+	      u.UzId = RCP.RCPUzId
       where u.UzId != 123456789
       group by
 	      RCPUzId
@@ -1130,7 +1130,7 @@ app.get("/api/rcp-dni/:uzytkownikId", async (req, res) => {
 	        RCPUzId as uzytkownikId
         from
 	        RCP
-        where rcp.RCPUzId = ${uzytkownikId}
+        where RCP.RCPUzId = ${uzytkownikId}
         group by
 	        RCPUzId,
 	        czasPracy
@@ -1807,8 +1807,8 @@ app.get("/api/rcp-uzytkownik/:uzytkownikId", async (req, res) => {
         u.UzImie,
         u.UzNazwisko
       FROM
-        rcp
-      LEFT JOIN uzytkownicy as u on u.UzId = rcp.RCPUzId
+        RCP
+      LEFT JOIN uzytkownicy as u on u.UzId = RCP.RCPUzId
       WHERE
         RCPKoniecZmiany IS NOT NULL
         AND RCPUzId = ?
