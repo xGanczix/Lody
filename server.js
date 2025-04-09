@@ -1030,6 +1030,7 @@ app.get("/api/ulozenie-kuwet-menu/:sklepId", async (req, res) => {
     }
     res.status(200).json(results);
   } catch (err) {
+    logToFile([ERROR]);
     console.log("Błąd przy pobieraniu ułożenia:", err);
     res.status(500).json({ error: "Błąd serwera" });
   }
@@ -1105,6 +1106,40 @@ app.get("/api/rcp", async (req, res) => {
   } catch (err) {
     logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
     res.status(500).json({ error: "Wystąpił błąd serwera." });
+  }
+});
+
+app.get("/api/status-kuwet/:sklepId", async (req, res) => {
+  const sklepId = req.params.sklepId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+      s.SmkKolor,
+      s.SmkTekstKolor,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      k.KuwStatusZamowienia,
+      sk.SklNazwa as KuwSklNazwa,
+      ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) AS KuwProcent
+    from
+	    Kuwety as k  
+	  left join Rozmiary as r on r.RozId = k.KuwRozId
+	  left join Smaki as s on s.SmkId = k.KuwSmkId
+	  left join Sklepy as sk on sk.SklId = k.KuwSklId
+	  where k.KuwSklId = ?
+    order by k.KuwPorcje, s.SmkNazwa
+	  `;
+    const data = await connection.query(sql, sklepId);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd podczas pobierania danych: ${err}`);
+    res.status(500).json({ error: "Błąd pobierania danych" });
   }
 });
 

@@ -296,7 +296,8 @@ table#centrala-rozmiary,
 table#centrala-sklepy,
 table#centrala-kuwety,
 table#centrala-rcp,
-table#rcp-user-data {
+table#rcp-user-data,
+table#centrala-status-kuwety {
   width: 100%;
   border-collapse: collapse;
 }
@@ -307,7 +308,8 @@ table#centrala-rozmiary thead,
 table#centrala-sklepy thead,
 table#centrala-kuwety thead,
 table#centrala-rcp thead,
-table#rcp-user-data thead {
+table#rcp-user-data thead,
+table#centrala-status-kuwety thead {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -320,12 +322,14 @@ table#centrala-sklepy thead th,
 table#centrala-kuwety thead th,
 table#centrala-kuwety thead th,
 table#centrala-rcp thead th,
-table#rcp-user-data thead th {
+table#rcp-user-data thead th,
+table#centrala-status-kuwety thead th {
   background: var(--button-light-color);
   font-size: 22px;
   padding: 14px;
   color: var(--text-white-color);
   letter-spacing: 1px;
+  cursor: pointer;
 }
 
 table#centrala-sklepy tbody,
@@ -340,7 +344,8 @@ table#rcp-user-data tbody {
 table#centrala-smaki tbody,
 table#centrala-uzytkownicy tbody,
 table#centrala-rozmiary tbody,
-table#centrala-rcp tbody {
+table#centrala-rcp tbody,
+table#centrala-status-kuwety tbody {
   display: block;
   max-height: calc(100vh - 210px);
   overflow-y: auto;
@@ -352,7 +357,8 @@ table#centrala-rozmiary tbody tr,
 table#centrala-sklepy tbody tr,
 table#centrala-kuwety tbody tr,
 table#centrala-rcp tbody tr,
-table#rcp-user-data tbody tr {
+table#rcp-user-data tbody tr,
+table#centrala-status-kuwety tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -364,7 +370,8 @@ table#centrala-rozmiary tbody td,
 table#centrala-sklepy tbody td,
 table#centrala-kuwety tbody td,
 table#centrala-rcp tbody td,
-table#rcp-user-data tbody td {
+table#rcp-user-data tbody td,
+table#centrala-status-kuwety tbody td {
   padding: 10px !important;
   font-size: 20px;
   text-align: center;
@@ -376,7 +383,8 @@ table#centrala-rozmiary thead th:first-child,
 table#centrala-sklepy thead th:first-child,
 table#centrala-kuwety thead th:first-child,
 table#centrala-rcp thead th:first-child,
-table#rcp-user-data thead th:first-child {
+table#rcp-user-data thead th:first-child,
+table#centrala-status-kuwety thead th:first-child {
   border-radius: 10px 0 0 0;
 }
 
@@ -386,7 +394,8 @@ table#centrala-rozmiary thead th:last-child,
 table#centrala-sklepy thead th:last-child,
 table#centrala-kuwety thead th:last-child,
 table#centrala-rcp thead th:last-child,
-table#rcp-user-data thead th:last-child {
+table#rcp-user-data thead th:last-child,
+table#centrala-status-kuwety thead th:last-child {
   border-radius: 0 10px 0 0;
 }
 

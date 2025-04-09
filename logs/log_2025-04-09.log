@@ -183,3 +183,101 @@ sql: UPDATE Smaki SET SmkNazwa = ?, SmkKolor = ?, SmkTekstKolor = ? WHERE SmkId 
 [2025-04-09 14:05:11] [INFO] Połączono z MariaDB
 [2025-04-09 14:08:13] [INFO] Uruchomiono serwer na porcie 3000
 [2025-04-09 14:08:13] [INFO] Połączono z MariaDB
+[2025-04-09 14:10:02] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-09 14:10:08] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: 4 | KUWETA4: 3 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-09 14:10:17] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 19 | KUWETA2: 9 | KUWETA3: 4 | KUWETA4: 3 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 13
+[2025-04-09 14:10:18] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 19 | KUWETA2: 9 | KUWETA3: 4 | KUWETA4: 3 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 13
+[2025-04-09 14:10:19] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 19 | KUWETA2: 9 | KUWETA3: 4 | KUWETA4: 3 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: 13
+[2025-04-09 14:11:42] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-04-09 14:11:42] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 14:11:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:11:43] [INFO] Połączono z MariaDB
+[2025-04-09 14:12:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:12:14] [INFO] Połączono z MariaDB
+[2025-04-09 14:12:21] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-09 14:12:22] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-09 14:12:26] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 19 | KUWETA2: 9 | KUWETA3: 4 | KUWETA4: 3 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: 7 | KUWETA10: 13
+[2025-04-09 14:25:17] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-04-09 14:25:17] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 14:25:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:25:18] [INFO] Połączono z MariaDB
+[2025-04-09 14:28:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:28:05] [INFO] Połączono z MariaDB
+[2025-04-09 14:28:08] [INFO] Zalogowano Serwis
+[2025-04-09 14:28:47] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-04-09 14:28:48] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 14:30:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:30:26] [INFO] Połączono z MariaDB
+[2025-04-09 14:30:32] [INFO] Zalogowano Serwis
+[2025-04-09 14:30:57] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 14:37:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:37:50] [INFO] Połączono z MariaDB
+[2025-04-09 14:40:49] [INFO] Zalogowano Serwis
+[2025-04-09 14:42:08] [INFO] Zalogowano Serwis
+[2025-04-09 14:42:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:42:41] [INFO] Połączono z MariaDB
+[2025-04-09 14:43:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:43:01] [INFO] Połączono z MariaDB
+[2025-04-09 14:43:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:43:47] [INFO] Połączono z MariaDB
+[2025-04-09 14:43:58] [INFO] Zalogowano: mati
+[2025-04-09 14:44:05] [INFO] Zalogowano Serwis
+[2025-04-09 14:44:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:44:50] [INFO] Połączono z MariaDB
+[2025-04-09 14:44:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:44:54] [INFO] Połączono z MariaDB
+[2025-04-09 14:46:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:46:08] [INFO] Połączono z MariaDB
+[2025-04-09 14:46:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:46:19] [INFO] Połączono z MariaDB
+[2025-04-09 14:46:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:46:39] [INFO] Połączono z MariaDB
+[2025-04-09 14:48:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:48:16] [INFO] Połączono z MariaDB
+[2025-04-09 14:48:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:48:18] [INFO] Połączono z MariaDB
+[2025-04-09 15:26:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:26:22] [INFO] Połączono z MariaDB
+[2025-04-09 15:28:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:28:04] [INFO] Połączono z MariaDB
+[2025-04-09 15:28:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:28:46] [INFO] Połączono z MariaDB
+[2025-04-09 15:29:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:29:13] [INFO] Połączono z MariaDB
+[2025-04-09 15:32:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:32:03] [INFO] Połączono z MariaDB
+[2025-04-09 15:33:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:33:32] [INFO] Połączono z MariaDB
+[2025-04-09 15:33:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:33:51] [INFO] Połączono z MariaDB
+[2025-04-09 15:34:49] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 15:34:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:34:50] [INFO] Połączono z MariaDB
+[2025-04-09 15:35:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:35:29] [INFO] Połączono z MariaDB
+[2025-04-09 15:42:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:42:43] [INFO] Połączono z MariaDB
+[2025-04-09 15:43:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:43:32] [INFO] Połączono z MariaDB
+[2025-04-09 15:44:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:44:26] [INFO] Połączono z MariaDB
+[2025-04-09 15:46:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:46:13] [INFO] Połączono z MariaDB
+[2025-04-09 15:46:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:46:44] [INFO] Połączono z MariaDB
+[2025-04-09 15:50:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:50:28] [INFO] Połączono z MariaDB
+[2025-04-09 15:52:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:52:30] [INFO] Połączono z MariaDB
+[2025-04-09 15:52:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:52:35] [INFO] Połączono z MariaDB
+[2025-04-09 15:52:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:52:39] [INFO] Połączono z MariaDB
+[2025-04-09 15:56:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:56:14] [INFO] Połączono z MariaDB
+[2025-04-09 15:57:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:57:41] [INFO] Połączono z MariaDB
+[2025-04-09 15:57:55] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-04-09 15:57:55] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 15:57:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 15:57:55] [INFO] Połączono z MariaDB
