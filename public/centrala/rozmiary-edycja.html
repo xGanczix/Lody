@@ -7,44 +7,38 @@
     <link rel="stylesheet" href="../css/style-dark.css" />
     <link rel="stylesheet" href="../css/style-centrala.css" />
     <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
-    <title>Centrala - Edycja Smaku</title>
+    <title>Centrala - Edycja Rozmiaru</title>
   </head>
   <body>
     <div class="dodawanie-container">
       <div class="message"><span id="message"></span></div>
-      <form id="dodawanie-smaku">
-        <h2>Dodawanie smaku</h2>
-        <label for="dodawanie-smaku-smak">Smak</label>
+      <form id="dodawanie-rozmiaru">
+        <h2>Dodawanie rozmiaru</h2>
+        <label for="dodawanie-uzytkownika-login">Nazwa</label>
         <p id="dodawanie-wymagane">(wymagane)</p>
         <input
           type="text"
-          id="dodawanie-smaku-smak"
-          placeholder="Podaj nazwę smaku"
+          id="dodawanie-rozmiaru-nazwa"
+          placeholder="Podaj nazwę"
           required
         />
-        <label for="dodawanie-smaku-kolor">Kolor tła</label>
+        <label for="dodawanie-uzytkownika-pin">Pojemność</label>
         <p id="dodawanie-wymagane">(wymagane)</p>
         <input
-          type="color"
-          id="dodawanie-smaku-kolor"
-          value="#cccccc"
+          type="number"
+          id="dodawanie-rozmiaru-pojemnosc"
+          placeholder="Podaj pojemność"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          maxlength="6"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '')"
           required
         />
-        <label for="dodawanie-smaku-kolor-text">Kolor tekstu</label>
-        <p id="dodawanie-wymagane">(wymagane)</p>
-        <input
-          type="color"
-          id="dodawanie-smaku-kolor-text"
-          value="#000000"
-          required
-        />
-        <div id="smak-podglad"></div>
         <button type="submit" class="dodawanie-btn-dodaj">Dodaj</button>
-
         <button
           type="button"
           class="dodawanie-btn-anuluj"
-          onclick="centralaSmakiAnuluj()"
+          onclick="centralaRozmiaryAnuluj()"
         >
           Anuluj
         </button>
@@ -53,6 +47,6 @@
     <script src="../js/config.js"></script>
     <script src="../js/token.js"></script>
     <script src="../js/app.js"></script>
-    <script src="../js/smaki-edycja.js"></script>
+    <script src="../js/rozmiary-dodanie.js"></script>
   </body>
 </html>
