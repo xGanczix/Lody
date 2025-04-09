@@ -1022,7 +1022,7 @@ app.get("/api/ulozenie-kuwet-menu/:sklepId", async (req, res) => {
   const sklepId = req.params.sklepId;
   try {
     const results = await dbConfig.query(
-      "SELECT * FROM ulozenie WHERE USklId = ?",
+      "SELECT * FROM Ulozenie WHERE USklId = ?",
       [sklepId]
     );
     if (results.length === 0) {

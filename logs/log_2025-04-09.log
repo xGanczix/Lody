@@ -181,3 +181,5 @@ sql: UPDATE Smaki SET SmkNazwa = ?, SmkKolor = ?, SmkTekstKolor = ? WHERE SmkId 
 [2025-04-09 14:04:38] [INFO] Połączono z MariaDB
 [2025-04-09 14:05:11] [INFO] Uruchomiono serwer na porcie 3000
 [2025-04-09 14:05:11] [INFO] Połączono z MariaDB
+[2025-04-09 14:08:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 14:08:13] [INFO] Połączono z MariaDB
