@@ -1,12 +1,12 @@
-body.dark-mode ::-webkit-scrollbar-track {
+html.dark-mode body ::-webkit-scrollbar-track {
   background: var(--background-input-dark-color);
 }
 
-body.dark-mode ::-webkit-scrollbar-thumb {
+html.dark-mode body ::-webkit-scrollbar-thumb {
   background: var(--button-dark-color);
 }
 
-body.dark-mode ::-webkit-scrollbar-thumb:hover {
+html.dark-mode body ::-webkit-scrollbar-thumb:hover {
   background: var(--button-hover-dark-color);
 }
 
@@ -33,132 +33,132 @@ body.dark-mode ::-webkit-scrollbar-thumb:hover {
 }
 
 /* COLOR SCHEME */
-body.dark-mode * {
+html.dark-mode body * {
   color-scheme: dark;
 }
 
 /* DARK BACKGROUND */
-body.dark-mode,
-body.dark-mode .confirm-delete,
-body.dark-mode .confirm-restore {
+html.dark-mode body,
+html.dark-mode body .confirm-delete,
+html.dark-mode body .confirm-restore {
   background: var(--background-dark-color);
 }
 
 /* DARK CONTAINER */
-body.dark-mode form#form-login-password,
-body.dark-mode form#form-login-pin,
-body.dark-mode .centrala-uzytkownik-container,
-body.dark-mode .sklep-uzytkownik-container,
-body.dark-mode nav,
-body.dark-mode .centrala-main-container,
-body.dark-mode form#przypisywanie-uzytkownika,
-body.dark-mode form#dodawanie-smaku,
-body.dark-mode form#dodawanie-uzytkownika,
-body.dark-mode form#dodawanie-rozmiaru,
-body.dark-mode form#dodawanie-sklepu,
-body.dark-mode .centrala-filtrowanie,
-body.dark-mode form.ustawienia,
-body.dark-mode form.serwis,
-body.dark-mode .ulozenie-kuwet-container,
-body.dark-mode .dostepne-kuwety-container,
-body.dark-mode .sklep-wybor-towarow,
-body.dark-mode .sklep-pozycje-wydania,
-body.dark-mode .zamowienie-dostepne-kuwety,
-body.dark-mode .zamowienie-dostepne-smaki,
-body.dark-mode .zamowienie-zamowione-kuwety,
-body.dark-mode p#zamowienia-info {
+html.dark-mode body form#form-login-password,
+html.dark-mode body form#form-login-pin,
+html.dark-mode body .centrala-uzytkownik-container,
+html.dark-mode body .sklep-uzytkownik-container,
+html.dark-mode body nav,
+html.dark-mode body .centrala-main-container,
+html.dark-mode body form#przypisywanie-uzytkownika,
+html.dark-mode body form#dodawanie-smaku,
+html.dark-mode body form#dodawanie-uzytkownika,
+html.dark-mode body form#dodawanie-rozmiaru,
+html.dark-mode body form#dodawanie-sklepu,
+html.dark-mode body .centrala-filtrowanie,
+html.dark-mode body form.ustawienia,
+html.dark-mode body form.serwis,
+html.dark-mode body .ulozenie-kuwet-container,
+html.dark-mode body .dostepne-kuwety-container,
+html.dark-mode body .sklep-wybor-towarow,
+html.dark-mode body .sklep-pozycje-wydania,
+html.dark-mode body .zamowienie-dostepne-kuwety,
+html.dark-mode body .zamowienie-dostepne-smaki,
+html.dark-mode body .zamowienie-zamowione-kuwety,
+html.dark-mode body p#zamowienia-info {
   background: var(--background-container-dark-color);
 }
 
 /* DARK INPUT */
-body.dark-mode input,
-body.dark-mode select,
-body.dark-mode table#pin-keyboard .pin-key,
-body.dark-mode #przypisywanie-uzytkownika-sklepy,
-body.dark-mode nav .dropdown-menu,
-body.dark-mode .progress-container,
-body.dark-mode .sklep-menu-btn:disabled,
-body.dark-mode .ulozenie-kuwet-kuweta,
-body.dark-mode span#wartosc-wydania,
-body.dark-mode .apexcharts-menu,
-body.dark-mode .wykres-container {
+html.dark-mode body input,
+html.dark-mode body select,
+html.dark-mode body table#pin-keyboard .pin-key,
+html.dark-mode body #przypisywanie-uzytkownika-sklepy,
+html.dark-mode body nav .dropdown-menu,
+html.dark-mode body .progress-container,
+html.dark-mode body .sklep-menu-btn:disabled,
+html.dark-mode body .ulozenie-kuwet-kuweta,
+html.dark-mode body span#wartosc-wydania,
+html.dark-mode body .apexcharts-menu,
+html.dark-mode body .wykres-container {
   background: var(--background-input-dark-color);
 }
 
 /* DARK BUTTON */
-body.dark-mode button,
-body.dark-mode button#theme-toggle,
-body.dark-mode table#pin-keyboard .pin-key:active,
-body.dark-mode table#pin-keyboard .pin-key-action,
-body.dark-mode nav a.logo,
-body.dark-mode nav a.nav-link:hover,
-body.dark-mode nav a.active,
-body.dark-mode table#centrala-smaki thead th,
-body.dark-mode table#centrala-uzytkownicy thead th,
-body.dark-mode table#centrala-rozmiary thead th,
-body.dark-mode table#centrala-sklepy thead th,
-body.dark-mode table#centrala-kuwety thead th,
-body.dark-mode table#centrala-rcp thead th {
+html.dark-mode body button,
+html.dark-mode body button#theme-toggle,
+html.dark-mode body table#pin-keyboard .pin-key:active,
+html.dark-mode body table#pin-keyboard .pin-key-action,
+html.dark-mode body nav a.logo,
+html.dark-mode body nav a.nav-link:hover,
+html.dark-mode body nav a.active,
+html.dark-mode body table#centrala-smaki thead th,
+html.dark-mode body table#centrala-uzytkownicy thead th,
+html.dark-mode body table#centrala-rozmiary thead th,
+html.dark-mode body table#centrala-sklepy thead th,
+html.dark-mode body table#centrala-kuwety thead th,
+html.dark-mode body table#centrala-rcp thead th {
   background: var(--button-dark-color);
 }
 
 /* DARK BUTTON HOVER */
-body.dark-mode button:hover,
-body.dark-mode table#pin-keyboard .pin-key-action:hover,
-body.dark-mode .centrala-uzytkownik-container button:hover,
-body.dark-mode .sklep-uzytkownik-container button:hover {
+html.dark-mode body button:hover,
+html.dark-mode body table#pin-keyboard .pin-key-action:hover,
+html.dark-mode body .centrala-uzytkownik-container button:hover,
+html.dark-mode body .sklep-uzytkownik-container button:hover {
   background: var(--button-hover-dark-color) !important;
 }
 
 /* DARK BORDER */
-body.dark-mode input,
-body.dark-mode select,
-body.dark-mode input:focus,
-body.dark-mode select:focus,
-body.dark-mode table#pin-keyboard .pin-key,
-body.dark-mode #przypisywanie-uzytkownika-sklepy,
-body.dark-mode .ulozenie-kuwet-kuweta {
+html.dark-mode body input,
+html.dark-mode body select,
+html.dark-mode body input:focus,
+html.dark-mode body select:focus,
+html.dark-mode body table#pin-keyboard .pin-key,
+html.dark-mode body #przypisywanie-uzytkownika-sklepy,
+html.dark-mode body .ulozenie-kuwet-kuweta {
   border: 1px solid var(--border-dark-color);
 }
 
 /* DARK TEXT COLOR */
-body.dark-mode,
-body.dark-mode input,
-body.dark-mode select,
-body.dark-mode table#pin-keyboard .pin-key,
-body.dark-mode table#pin-keyboard .pin-key:active,
-body.dark-mode nav a.nav-link,
-body.dark-mode .centrala-main-container,
-body.dark-mode table#centrala-smaki thead th,
-body.dark-mode table#centrala-uzytkownicy thead th,
-body.dark-mode table#centrala-rozmiary thead th,
-body.dark-mode table#centrala-sklepy thead th,
-body.dark-mode table#centrala-kuwety thead th,
-body.dark-mode table#centrala-rcp thead th,
-body.dark-mode .progress-text,
-body.dark-mode .ulozenie-kuwet-container h2,
-body.dark-mode p#zamowienia-info,
-body.dark-mode p#message-login {
+html.dark-mode body,
+html.dark-mode body input,
+html.dark-mode body select,
+html.dark-mode body table#pin-keyboard .pin-key,
+html.dark-mode body table#pin-keyboard .pin-key:active,
+html.dark-mode body nav a.nav-link,
+html.dark-mode body .centrala-main-container,
+html.dark-mode body table#centrala-smaki thead th,
+html.dark-mode body table#centrala-uzytkownicy thead th,
+html.dark-mode body table#centrala-rozmiary thead th,
+html.dark-mode body table#centrala-sklepy thead th,
+html.dark-mode body table#centrala-kuwety thead th,
+html.dark-mode body table#centrala-rcp thead th,
+html.dark-mode body .progress-text,
+html.dark-mode body .ulozenie-kuwet-container h2,
+html.dark-mode body p#zamowienia-info,
+html.dark-mode body p#message-login {
   color: var(--text-white-color);
 }
 
 /* DARK TEXT COMMENT COLOR */
-body.dark-mode p#dodawanie-komentarz {
+html.dark-mode body p#dodawanie-komentarz {
   color: var(--button-dark-color);
 }
 
-body.dark-mode .apexcharts-title-text,
-body.dark-mode .wykres-container tspan,
-body.dark-mode .apexcharts-legend-text,
-body.dark-mode .apexcharts-menu-icon svg,
-body.dark-mode .apexcharts-reset-icon svg,
-body.dark-mode .apexcharts-zoom-icon svg,
-body.dark-mode .apexcharts-zoomin-icon svg,
-body.dark-mode .apexcharts-zoomout-icon svg {
+html.dark-mode body .apexcharts-title-text,
+html.dark-mode body .wykres-container tspan,
+html.dark-mode body .apexcharts-legend-text,
+html.dark-mode body .apexcharts-menu-icon svg,
+html.dark-mode body .apexcharts-reset-icon svg,
+html.dark-mode body .apexcharts-zoom-icon svg,
+html.dark-mode body .apexcharts-zoomin-icon svg,
+html.dark-mode body .apexcharts-zoomout-icon svg {
   fill: var(--text-white-color);
   color: var(--text-white-color) !important;
 }
 
-body.dark-mode p#zamowienia-info {
+html.dark-mode body p#zamowienia-info {
   border: 2px solid var(--button-dark-color);
 }

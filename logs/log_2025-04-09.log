@@ -281,3 +281,156 @@ sql: UPDATE Smaki SET SmkNazwa = ?, SmkKolor = ?, SmkTekstKolor = ? WHERE SmkId 
 [2025-04-09 15:57:55] [INFO] Aplikacja zakończyła działanie.
 [2025-04-09 15:57:55] [INFO] Uruchomiono serwer na porcie 3000
 [2025-04-09 15:57:55] [INFO] Połączono z MariaDB
+[2025-04-09 22:35:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:35:31] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:36:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:36:34] [INFO] Zalogowano Serwis
+[2025-04-09 22:36:42] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:36:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:42:55] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:42:56] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:42:57] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:43:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:43:39] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10016ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:43:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:43:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:43:59] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:44:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:44:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:45:26] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:45:49] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:45:52] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:45:55] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:45:56] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:27] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:28] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:28] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:37] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:44] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:45] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:46:45] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:47:32] [INFO] Zalogowano Serwis
+[2025-04-09 22:53:20] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 22:53:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:53:32] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:55:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:55:32] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:56:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:56:13] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:56:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:56:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:57:07] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:57:10] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:57:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:57:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:57:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:57:58] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:58:01] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:58:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:58:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:58:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:58:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:58:30] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:58:31] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 22:59:16] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:18] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:21] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:21] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:22] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:22] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:23] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:23] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:26] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 22:59:27] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:00:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:08] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:11] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:13] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:23] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:34] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:41] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:43] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:02:43] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:03:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 23:04:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 23:04:17] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:04:26] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:04:28] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:04:33] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:1479, no: 45025, SQLState: 08004) Client does not support authentication protocol 'auth_gssapi_client' requested by server.
+[2025-04-09 23:04:33] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:04:34] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:04:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:04:40] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-09 23:04:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-09 23:04:47] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 23:04:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 23:04:48] [INFO] Połączono z MariaDB
+[2025-04-09 23:04:50] [INFO] Restart serwera
