@@ -37,11 +37,25 @@
   --box-shadow-color: rgba(0, 0, 0, 0.3);
   --text-white-color: rgb(255, 255, 255);
   --text-black-color: rgb(0, 0, 0);
+
+  --blue-color: #007bff;
+  --blue-hover-color: #0068d6;
+  --red-color: #dc3545;
+  --red-hover-color: #be0d1f;
+  --green-color: #28a745;
+  --green-hover-color: #188d33;
+
+  --red-rgba-color: rgba(220, 53, 69, 0.3);
 }
 
 @font-face {
   font-family: "Roboto Regular";
   src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Black";
+  src: url("../fonts/Roboto/Roboto-Black.ttf");
 }
 
 * {
@@ -100,121 +114,6 @@ button:hover {
 }
 /* GLOBAL */
 
-.container-login {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-login .theme-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-button#theme-toggle {
-  background: var(--button-light-color);
-}
-
-.container-login .theme-container button#theme-toggle {
-  border-radius: 50%;
-  border: none;
-  width: 70px;
-  height: 70px;
-  padding: 20px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-.container-login .theme-container button#theme-toggle img {
-  width: 100%;
-}
-
-form#form-login-password,
-form#form-login-pin {
-  width: 30%;
-  height: 90%;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-  background: var(--background-container-light-color);
-  box-shadow: 0 0 10px var(--box-shadow-color);
-}
-
-form#form-login-password h2,
-form#form-login-pin h2 {
-  text-align: center;
-  font-size: 30px;
-  margin-top: 30px;
-}
-
-form#form-login-password .form-container,
-form#form-login-pin .form-container {
-  width: 100%;
-  height: calc(100% - 30px - 30px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 60px;
-}
-
-table#pin-keyboard {
-  width: 80%;
-}
-
-table#pin-keyboard .pin-key {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  font-size: 28px;
-  background: var(--background-input-light-color);
-  color: var(--text-black-color);
-  transition: all 0.1s ease-in-out;
-  border: 1px solid var(--border-light-color);
-}
-
-table#pin-keyboard .pin-key:active {
-  background: var(--button-light-color);
-  color: var(--text-white-color);
-}
-
-table#pin-keyboard .pin-key-action {
-  background: var(--button-light-color);
-}
-
-table#pin-keyboard .pin-key-action:hover {
-  background: var(--button-hover-light-color);
-}
-
-table#pin-keyboard .pin-key img {
-  width: 50%;
-}
-
-form#form-login-password button#password-zaloguj {
-  margin-top: 50px;
-}
-
-p#message-login {
-  width: 50%;
-  background: rgba(220, 53, 69, 0.5);
-  border: 2px solid var(--red-color);
-  color: var(--text-black-color);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  display: block;
-  left: 50%;
-  top: 50px;
-  padding: 10px;
-  text-align: center;
-  transform: translateX(-50%);
-  position: absolute;
-  transition: all 0.5s ease-in-out;
-  opacity: 0;
-}
-
 html.dark-mode body ::-webkit-scrollbar-track {
   background: var(--background-input-dark-color);
 }
@@ -261,7 +160,8 @@ html.dark-mode body .sklep-pozycje-wydania,
 html.dark-mode body .zamowienie-dostepne-kuwety,
 html.dark-mode body .zamowienie-dostepne-smaki,
 html.dark-mode body .zamowienie-zamowione-kuwety,
-html.dark-mode body p#zamowienia-info {
+html.dark-mode body p#zamowienia-info,
+html.dark-mode body form#dodawanie-kuwet {
   background: var(--background-container-dark-color);
 }
 
@@ -293,16 +193,19 @@ html.dark-mode body table#centrala-uzytkownicy thead th,
 html.dark-mode body table#centrala-rozmiary thead th,
 html.dark-mode body table#centrala-sklepy thead th,
 html.dark-mode body table#centrala-kuwety thead th,
-html.dark-mode body table#centrala-rcp thead th {
+html.dark-mode body table#centrala-rcp thead th,
+html.dark-mode body table#centrala-status-kuwety thead th,
+html.dark-mode body table#rcp-user-data thead th {
   background: var(--button-dark-color);
 }
 
 /* DARK BUTTON HOVER */
 html.dark-mode body button:hover,
+html.dark-mode body button#theme-toggle:hover,
 html.dark-mode body table#pin-keyboard .pin-key-action:hover,
 html.dark-mode body .centrala-uzytkownik-container button:hover,
 html.dark-mode body .sklep-uzytkownik-container button:hover {
-  background: var(--button-hover-dark-color) !important;
+  background: var(--button-hover-dark-color);
 }
 
 /* DARK BORDER */

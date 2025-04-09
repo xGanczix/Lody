@@ -11,38 +11,32 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/style-centrala.css" />
     <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
-    <title>Centrala - Dodawanie Rozmiaru</title>
+    <title>Centrala - Dodawanie kuwet</title>
   </head>
   <body>
     <div class="dodawanie-container">
       <div class="message"><span id="message"></span></div>
-      <form id="dodawanie-rozmiaru">
-        <h2>Dodawanie rozmiaru</h2>
-        <label for="dodawanie-uzytkownika-login">Nazwa</label>
+      <form id="dodawanie-kuwet">
+        <h2>Dodawanie kuwet</h2>
+        <label for="dodawanie-kuwet">Smak</label>
         <p id="dodawanie-wymagane">(wymagane)</p>
-        <input
-          type="text"
-          id="dodawanie-rozmiaru-nazwa"
-          placeholder="Podaj nazwę"
-          required
-        />
-        <label for="dodawanie-uzytkownika-pin">Pojemność</label>
+        <select id="dodawanie-kuwet-smak" required>
+          <option value="" disabled selected>-- Wybierz smak --</option>
+        </select>
+        <label for="dodawanie-kuwet-rozmiar">Rozmiar</label>
         <p id="dodawanie-wymagane">(wymagane)</p>
-        <input
-          type="number"
-          id="dodawanie-rozmiaru-pojemnosc"
-          placeholder="Podaj pojemność"
-          inputmode="numeric"
-          pattern="[0-9]*"
-          maxlength="6"
-          oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-          required
-        />
-        <button type="submit" class="dodawanie-btn-dodaj">Dodaj</button>
+        <select id="dodawanie-kuwet-rozmiar" required>
+          <option value="" disabled selected>-- Wybierz rozmiar --</option>
+        </select>
+        <label for="dodawanie-kuwet-sklep">Sklep</label>
+        <select id="dodawanie-kuwet-sklep">
+          <option value="" disabled selected>-- Wybierz sklep --</option>
+        </select>
+        <button type="submit" class="dodawanie-btn-dodaj">Zmień</button>
         <button
           type="button"
           class="dodawanie-btn-anuluj"
-          onclick="centralaRozmiaryAnuluj()"
+          onclick="centralaKuwetyAnuluj()"
         >
           Anuluj
         </button>
@@ -51,6 +45,6 @@
     <script src="../js/config.js"></script>
     <script src="../js/token.js"></script>
     <script src="../js/app.js"></script>
-    <script src="../js/rozmiary-dodanie.js"></script>
+    <script src="../js/kuwety-edycja.js"></script>
   </body>
 </html>

@@ -1,0 +1,180 @@
+[2025-04-10 00:00:53] [INFO] Zalogowano Serwis
+[2025-04-10 00:03:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:03:03] [INFO] Połączono z MariaDB
+[2025-04-10 00:06:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:06:25] [INFO] Połączono z MariaDB
+[2025-04-10 00:06:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:06:50] [INFO] Połączono z MariaDB
+[2025-04-10 00:07:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:07:40] [INFO] Połączono z MariaDB
+[2025-04-10 00:07:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:07:47] [INFO] Połączono z MariaDB
+[2025-04-10 00:07:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:07:48] [INFO] Połączono z MariaDB
+[2025-04-10 00:07:51] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:08:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:08:22] [INFO] Połączono z MariaDB
+[2025-04-10 00:08:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:08:45] [INFO] Połączono z MariaDB
+[2025-04-10 00:08:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:08:50] [INFO] Połączono z MariaDB
+[2025-04-10 00:08:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:08:58] [INFO] Połączono z MariaDB
+[2025-04-10 00:09:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:09:06] [INFO] Połączono z MariaDB
+[2025-04-10 00:09:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:09:13] [INFO] Połączono z MariaDB
+[2025-04-10 00:09:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:09:19] [INFO] Połączono z MariaDB
+[2025-04-10 00:09:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:09:28] [INFO] Połączono z MariaDB
+[2025-04-10 00:09:36] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:09:40] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:3372, no: 1048, SQLState: 23000) Column 'RozPojemnosc' cannot be null
+sql: UPDATE Rozmiary SET RozNazwa = ?,RozPojemnosc = ?, RozDataZmiany = now() WHERE RozId = ? - parameters:[{},null,'1']
+[2025-04-10 00:12:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:12:02] [INFO] Połączono z MariaDB
+[2025-04-10 00:12:09] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:12:12] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:3422, no: 1048, SQLState: 23000) Column 'RozPojemnosc' cannot be null
+sql: UPDATE Rozmiary SET RozNazwa = ?,RozPojemnosc = ?, RozDataZmiany = now() WHERE RozId = ? - parameters:[{},null,'1']
+[2025-04-10 00:12:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:12:45] [INFO] Połączono z MariaDB
+[2025-04-10 00:12:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:12:51] [INFO] Połączono z MariaDB
+[2025-04-10 00:12:52] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:12:54] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:3522, no: 1048, SQLState: 23000) Column 'RozPojemnosc' cannot be null
+sql: UPDATE Rozmiary SET RozNazwa = ?,RozPojemnosc = ?, RozDataZmiany = now() WHERE RozId = ? - parameters:[{},null,'1']
+[2025-04-10 00:13:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:13:26] [INFO] Połączono z MariaDB
+[2025-04-10 00:14:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:14:11] [INFO] Połączono z MariaDB
+[2025-04-10 00:14:14] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:14:16] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:3621, no: 1048, SQLState: 23000) Column 'RozPojemnosc' cannot be null
+sql: UPDATE Rozmiary SET RozNazwa = ?, RozPojemnosc = ?, RozDataZmiany = now() WHERE RozId = ? - parameters:[{},null,'1']
+[2025-04-10 00:15:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:15:55] [INFO] Połączono z MariaDB
+[2025-04-10 00:16:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:16:03] [INFO] Połączono z MariaDB
+[2025-04-10 00:16:05] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:16:38] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:16:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:16:51] [INFO] Połączono z MariaDB
+[2025-04-10 00:16:52] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:16:57] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:17:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:17:12] [INFO] Połączono z MariaDB
+[2025-04-10 00:17:15] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:17:21] [INFO] Odczytano smakId: 1 
+[2025-04-10 00:17:48] [INFO] Odczytano smakId: 1 
+[2025-04-10 00:17:53] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:17:55] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:18:15] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:22:49] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:23:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:23:10] [INFO] Połączono z MariaDB
+[2025-04-10 00:25:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:25:00] [INFO] Połączono z MariaDB
+[2025-04-10 00:25:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:25:06] [INFO] Połączono z MariaDB
+[2025-04-10 00:25:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:25:11] [INFO] Połączono z MariaDB
+[2025-04-10 00:25:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:25:26] [INFO] Połączono z MariaDB
+[2025-04-10 00:25:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:25:44] [INFO] Połączono z MariaDB
+[2025-04-10 00:25:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:25:57] [INFO] Połączono z MariaDB
+[2025-04-10 00:28:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:28:30] [INFO] Połączono z MariaDB
+[2025-04-10 00:32:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:32:09] [INFO] Połączono z MariaDB
+[2025-04-10 00:32:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:32:31] [INFO] Połączono z MariaDB
+[2025-04-10 00:32:40] [INFO] Odczytano rozmiarId: 1
+[2025-04-10 00:32:43] [INFO] Odczytano smakId: 1 
+[2025-04-10 00:34:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:34:29] [INFO] Połączono z MariaDB
+[2025-04-10 00:34:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:34:31] [INFO] Połączono z MariaDB
+[2025-04-10 00:36:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:36:27] [INFO] Połączono z MariaDB
+[2025-04-10 00:36:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:36:49] [INFO] Połączono z MariaDB
+[2025-04-10 00:37:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:37:20] [INFO] Połączono z MariaDB
+[2025-04-10 00:37:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:37:55] [INFO] Połączono z MariaDB
+[2025-04-10 00:38:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:38:02] [INFO] Połączono z MariaDB
+[2025-04-10 00:38:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:38:09] [INFO] Połączono z MariaDB
+[2025-04-10 00:38:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:38:15] [INFO] Połączono z MariaDB
+[2025-04-10 00:38:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:38:28] [INFO] Połączono z MariaDB
+[2025-04-10 00:39:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:39:36] [INFO] Połączono z MariaDB
+[2025-04-10 00:40:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:40:01] [INFO] Połączono z MariaDB
+[2025-04-10 00:40:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:40:16] [INFO] Połączono z MariaDB
+[2025-04-10 00:43:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:43:02] [INFO] Połączono z MariaDB
+[2025-04-10 00:43:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:43:07] [INFO] Połączono z MariaDB
+[2025-04-10 00:43:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:43:16] [INFO] Połączono z MariaDB
+[2025-04-10 00:43:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:43:50] [INFO] Połączono z MariaDB
+[2025-04-10 00:43:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:43:58] [INFO] Połączono z MariaDB
+[2025-04-10 00:44:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:44:05] [INFO] Połączono z MariaDB
+[2025-04-10 00:44:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:44:15] [INFO] Połączono z MariaDB
+[2025-04-10 00:44:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:44:21] [INFO] Połączono z MariaDB
+[2025-04-10 00:44:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:44:32] [INFO] Połączono z MariaDB
+[2025-04-10 00:44:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:44:36] [INFO] Połączono z MariaDB
+[2025-04-10 00:49:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:49:12] [INFO] Połączono z MariaDB
+[2025-04-10 00:49:22] [ERROR] Nieobsłużony błąd: (conn:5523, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WBERE KuwId = '10'' at line 1
+sql: UPDATE Kuwety SET KuwSmkId = ?,KuwRozId = ?, KuwSklId = ?, KuwDataZmiany = now() WBERE KuwId = ? - parameters:['10','2','1','10']
+[2025-04-10 00:49:22] [INFO] Aplikacja zakończyła działanie.
+[2025-04-10 00:49:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:49:55] [INFO] Połączono z MariaDB
+[2025-04-10 00:50:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:50:12] [INFO] Połączono z MariaDB
+[2025-04-10 00:50:20] [ERROR] Nieobsłużony błąd: (conn:5624, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WBERE KuwId = '1'' at line 1
+sql: UPDATE Kuwety SET KuwSmkId = ?,KuwRozId = ?, KuwSklId = ?, KuwDataZmiany = now() WBERE KuwId = ? - parameters:['1','1','2','1']
+[2025-04-10 00:50:20] [INFO] Aplikacja zakończyła działanie.
+[2025-04-10 00:50:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:50:44] [INFO] Połączono z MariaDB
+[2025-04-10 00:53:19] [INFO] Odczytano smakId: 2 
+[2025-04-10 00:56:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:56:34] [INFO] Połączono z MariaDB
+[2025-04-10 00:57:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:57:00] [INFO] Połączono z MariaDB
+[2025-04-10 00:57:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:57:12] [INFO] Połączono z MariaDB
+[2025-04-10 00:57:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 00:57:24] [INFO] Połączono z MariaDB
+[2025-04-10 01:00:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 01:00:09] [INFO] Połączono z MariaDB
+[2025-04-10 01:00:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 01:00:31] [INFO] Połączono z MariaDB
+[2025-04-10 01:00:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 01:00:55] [INFO] Połączono z MariaDB
+[2025-04-10 01:01:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 01:01:13] [INFO] Połączono z MariaDB
+[2025-04-10 01:01:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 01:01:43] [INFO] Połączono z MariaDB
+[2025-04-10 01:02:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 01:02:14] [INFO] Połączono z MariaDB
+[2025-04-10 01:02:52] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:6219, no: 45025, SQLState: 08004) Client does not support authentication protocol 'auth_gssapi_client' requested by server.
+[2025-04-10 01:04:05] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-10 01:04:17] [INFO] Zalogowano Serwis
+[2025-04-10 01:04:21] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-10 01:04:22] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 01:04:24] [INFO] Zalogowano Serwis

@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${rozmiar.RozPojemnosc}</td>
             <td>${statusText}</td>
             <td>
-              <button id="edit" data-rozmiar="${rozmiar.RozId}">
+              <button id="edit" class="rozmiary-edycja-btn" data-rozmiar="${rozmiar.RozId}">
                 <img src="../img/white/edit-white.png">
               </button>
               <button id="${actionButtonId}" data-rozmiar="${rozmiar.RozId}">
@@ -46,6 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchRozmiar();
+
+  document.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".rozmiary-edycja-btn");
+    if (editBtn) {
+      const rozmiarId = editBtn.dataset.rozmiar;
+      window.location.href = `rozmiary-edycja.html?rozmiar=${encodeURIComponent(
+        rozmiarId
+      )}`;
+    }
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -105,3 +115,58 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+const headers = document.querySelectorAll("#centrala-rozmiary thead th");
+const tbody = document.querySelector("#centrala-rozmiary-tbody");
+
+function sortTable(column, direction) {
+  // Reset strzałek
+  headers.forEach((h, idx) => {
+    h.setAttribute("data-order", "desc");
+    h.textContent = h.textContent.replace(/[\u25B2\u25BC]/g, "");
+
+    // Dodaj strzałki tylko do nagłówków, które nie są ostatnie
+    if (idx !== headers.length - 1) {
+      if (idx === column) {
+        h.setAttribute("data-order", direction);
+        h.textContent += direction === "asc" ? " ▲" : " ▼";
+      }
+    }
+  });
+
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+
+  rows.sort((a, b) => {
+    const aText = a.children[column].textContent.trim();
+    const bText = b.children[column].textContent.trim();
+
+    const aNum = parseFloat(aText.replace("%", "").replace(",", "."));
+    const bNum = parseFloat(bText.replace("%", "").replace(",", "."));
+    const isNumeric = !isNaN(aNum) && !isNaN(bNum);
+
+    if (isNumeric) {
+      return direction === "asc" ? aNum - bNum : bNum - aNum;
+    } else {
+      return direction === "asc"
+        ? aText.localeCompare(bText)
+        : bText.localeCompare(aText);
+    }
+  });
+
+  tbody.innerHTML = "";
+  rows.forEach((row) => tbody.appendChild(row));
+}
+
+// Klikanie nagłówków
+headers.forEach((header, index) => {
+  header.addEventListener("click", () => {
+    const currentOrder = header.getAttribute("data-order");
+    const newOrder = currentOrder === "asc" ? "desc" : "asc";
+    sortTable(index, newOrder);
+  });
+});
+
+// 👉 Domyślne sortowanie po załadowaniu danych
+function applyDefaultSortAfterFetch() {
+  sortTable(0, "asc"); // sortuj po kolumnie 0 rosnąco
+}

@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 }</td>
                 <td>${statusText}</td>
                 <td>
-                  <button id="edit" data-kuweta="${kuweta.KuwId}">
+                  <button id="edit" class="kuwety-edycja-btn" data-kuweta="${
+                    kuweta.KuwId
+                  }">
                     <img src="../img/white/edit-white.png">
                   </button>
                   <button id="${actionButtonId}" data-rozmiar="${kuweta.KuwId}">
@@ -63,6 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchKuwety();
+
+  document.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".kuwety-edycja-btn");
+    if (editBtn) {
+      const kuwetaId = editBtn.dataset.kuweta;
+      window.location.href = `kuwety-edycja.html?kuweta=${encodeURIComponent(
+        kuwetaId
+      )}`;
+    }
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

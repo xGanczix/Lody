@@ -1920,6 +1920,35 @@ app.get("/api/smaki-edycja/:smakId", async (req, res) => {
   }
 });
 
+app.get("/api/rozmiary-edycja/:rozmiarId", async (req, res) => {
+  const rozmiarId = req.params.rozmiarId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `SELECT * FROM Rozmiary WHERE RozId = ?`;
+    const data = await connection.query(sql, rozmiarId);
+    res.json(data).status(200);
+    logToFile(`[INFO] Odczytano rozmiarId: ${rozmiarId}`);
+  } catch (err) {
+    res.status(500).json({ error: "Błąd podczas pobierania danych" });
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  }
+});
+
+app.get("/api/kuwety-edycja/:kuwetaId", async (req, res) => {
+  const kuwetaId = req.params.kuwetaId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `SELECT * FROM Kuwety WHERE KuwId = ?`;
+    const data = await connection.query(sql, kuwetaId);
+    res.json(data).status(200);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).json({ error: "Błąd podczas pobierania danych" });
+  }
+});
+
 app.put("/api/smaki-edycja-zapis/:smakId", async (req, res) => {
   const smakId = req.params.smakId;
   const { smak, kolor, textColor } = req.body;
@@ -1951,6 +1980,78 @@ app.put("/api/smaki-edycja-zapis/:smakId", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: "Błąd podczas pobierania danych" });
     logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  }
+});
+
+app.put("/api/rozmiary-edycja-zapis/:rozmiarId", async (req, res) => {
+  const rozmiarId = req.params.rozmiarId;
+  const { rozmiar, pojemnosc } = req.body;
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `UPDATE Rozmiary SET RozNazwa = ?,RozPojemnosc = ?, RozDataZmiany = now() WHERE RozId = ?`;
+    const data = await dbConfig.query(sql, [rozmiar, pojemnosc, rozmiarId]);
+
+    if (Array.isArray(data)) {
+      const convertedData = data.map((row) => {
+        const obj = {};
+        for (const key in row) {
+          obj[key] =
+            typeof row[key] === "bigint" ? row[key].toString() : row[key];
+        }
+        return obj;
+      });
+      res.json(convertedData);
+    } else {
+      for (const key in data) {
+        if (typeof data[key] === "bigint") {
+          data[key] = data[key].toString();
+        }
+      }
+      res.json(data);
+    }
+  } catch (err) {
+    res.status(500).json({ error: `Błąd podczas pobierania danych: ${err}` });
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.put("/api/kuwety-edycja-zapis/:kuwetaId", async (req, res) => {
+  const kuwetaId = req.params.kuwetaId;
+  const { smak, rozmiar, sklep } = req.body;
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `UPDATE Kuwety SET KuwSmkId = ?,KuwRozId = ?, KuwSklId = ?, KuwDataZmiany = now() WHERE KuwId = ?`;
+    const data = connection.query(sql, [smak, rozmiar, sklep, kuwetaId]);
+
+    if (Array.isArray(data)) {
+      const convertedData = data.map((row) => {
+        const obj = {};
+        for (const key in row) {
+          obj[key] =
+            typeof row[key] === "bigint" ? row[key].toString() : row[key];
+        }
+        return obj;
+      });
+      res.json(convertedData);
+    } else {
+      for (const key in data) {
+        if (typeof data[key] === "bigint") {
+          data[key] = data[key].toString();
+        }
+      }
+      res.json(data);
+    }
+  } catch (err) {
+    res.status(500).json({ error: `Błąd podczas pobiernaia danych: ${err}` });
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  } finally {
+    if (connection) connection.release();
   }
 });
 

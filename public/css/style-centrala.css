@@ -77,7 +77,7 @@
 }
 
 .centrala-uzytkownik-container button:hover {
-  background: var(--button-hover-light-color) !important;
+  background: var(--button-hover-light-color);
 }
 
 .centrala-uzytkownik-container button img {
@@ -449,7 +449,7 @@ button#edit {
 }
 
 button#edit:hover {
-  background: var(--blue-hover-color);
+  background: var(--blue-hover-color) !important;
 }
 
 button#delete {
@@ -457,7 +457,7 @@ button#delete {
 }
 
 button#delete:hover {
-  background: var(--red-hover-color);
+  background: var(--red-hover-color) !important;
 }
 
 button#restore,
@@ -467,7 +467,7 @@ button#rcp-month {
 
 button#restore:hover,
 button#rcp-month:hover {
-  background: var(--green-hover-color);
+  background: var(--green-hover-color) !important;
 }
 
 button#edit img,
@@ -513,7 +513,7 @@ button#rcp-month img {
 }
 
 .confirm-button-container button#confirm-ok:hover {
-  background: var(--green-hover-color);
+  background: var(--green-hover-color) !important;
 }
 
 .confirm-button-container button#confirm-cancel {
@@ -521,7 +521,7 @@ button#rcp-month img {
 }
 
 .confirm-button-container button#confirm-cancel:hover {
-  background: var(--red-hover-color);
+  background: var(--red-hover-color) !important;
 }
 
 .dodawanie-container {
