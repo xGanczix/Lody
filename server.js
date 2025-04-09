@@ -1364,7 +1364,7 @@ app.get("/api/smaki-dostepne-centrala", async (req, res) => {
     connection = await dbConfig.getConnection();
 
     let sql = `
-    select * from smaki where SmkStatus = 1`;
+    select * from Smaki where SmkStatus = 1`;
 
     const data = await connection.query(sql);
     res.json(data);
@@ -1820,11 +1820,9 @@ app.get("/api/rcp-uzytkownik/:uzytkownikId", async (req, res) => {
       [uzytkownikId]
     );
 
-    // Przekształcanie daty na format YYYY-MM-DD
     data.forEach((item) => {
-      // Zamienia datę na format lokalny
       const date = new Date(item.data);
-      item.data = date.toLocaleDateString("pl-PL"); // Przekształca na lokalną datę (np. "2025-04-04")
+      item.data = date.toLocaleDateString("pl-PL");
     });
 
     res.json(data);
@@ -1845,20 +1843,19 @@ app.get("/api/generator-zamowien-sklepy", async (req, res) => {
     s.SmkNazwa,
     COUNT(s.SmkId) AS liczba_wystapien,
     z.ZamSklId
-FROM Zamowienia AS z
-LEFT JOIN Smaki AS s ON s.SmkId = z.ZamSmkId
-WHERE ZamKuwId IS NULL
-GROUP BY s.SmkId, z.ZamSklId
-ORDER BY z.ZamSklId;
+    FROM Zamowienia AS z
+    LEFT JOIN Smaki AS s ON s.SmkId = z.ZamSmkId
+    WHERE ZamKuwId IS NULL
+    GROUP BY s.SmkId, z.ZamSklId
+    ORDER BY z.ZamSklId;
 `;
     const data = await dbConfig.query(sql);
 
-    // Convert BigInt to number or string
     const processedData = data.map((row) => {
       return {
         ...row,
-        liczba_wystapien: row.liczba_wystapien.toString(), // Convert BigInt to string
-        SmkId: row.SmkId.toString(), // If SmkId is BigInt, convert to string
+        liczba_wystapien: row.liczba_wystapien.toString(),
+        SmkId: row.SmkId.toString(),
       };
     });
 
@@ -1868,6 +1865,57 @@ ORDER BY z.ZamSklId;
     res.status(500).json({ error: "Błąd podczas pobierania danych" });
   } finally {
     if (connection) connection.release();
+  }
+});
+
+app.get("/api/smaki-edycja/:smakId", async (req, res) => {
+  const smakId = req.params.smakId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `SELECT * FROM Smaki WHERE SmkId = ?`;
+    const data = await dbConfig.query(sql, smakId);
+    res.json(data);
+    logToFile(`[INFO] Odczytano smakId: ${smakId} `);
+  } catch (err) {
+    res.status(500).json({ error: "Błąd podczas pobierania danych" });
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.put("/api/smaki-edycja-zapis/:smakId", async (req, res) => {
+  const smakId = req.params.smakId;
+  const { smak, kolor, textColor } = req.body;
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `UPDATE Smaki SET SmkNazwa = ?, SmkKolor = ?, SmkTekstKolor = ?, SmkDataZmiany = now() WHERE SmkId = ?`;
+    const data = await dbConfig.query(sql, [smak, kolor, textColor, smakId]);
+
+    if (Array.isArray(data)) {
+      const convertedData = data.map((row) => {
+        const obj = {};
+        for (const key in row) {
+          obj[key] =
+            typeof row[key] === "bigint" ? row[key].toString() : row[key];
+        }
+        return obj;
+      });
+      res.json(convertedData);
+    } else {
+      for (const key in data) {
+        if (typeof data[key] === "bigint") {
+          data[key] = data[key].toString();
+        }
+      }
+      res.json(data);
+    }
+  } catch (err) {
+    res.status(500).json({ error: "Błąd podczas pobierania danych" });
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
   }
 });
 

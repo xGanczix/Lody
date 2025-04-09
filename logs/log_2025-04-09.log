@@ -1,0 +1,170 @@
+[2025-04-09 08:24:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:24:48] [INFO] Połączono z MariaDB
+[2025-04-09 08:24:53] [INFO] Zalogowano Serwis
+[2025-04-09 08:30:25] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 08:30:25] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 08:30:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:30:29] [INFO] Połączono z MariaDB
+[2025-04-09 08:30:39] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-09 08:30:39] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 08:31:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:31:08] [INFO] Połączono z MariaDB
+[2025-04-09 08:31:08] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-09 08:31:08] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 08:31:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:31:43] [INFO] Połączono z MariaDB
+[2025-04-09 08:31:48] [INFO] Zalogowano Serwis
+[2025-04-09 08:31:55] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-09 08:31:55] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 08:32:33] [INFO] Połączono z MariaDB
+[2025-04-09 08:32:59] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 08:33:01] [INFO] Połączono z MariaDB
+[2025-04-09 08:33:14] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 08:33:17] [INFO] Połączono z MariaDB
+[2025-04-09 08:34:23] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 08:34:24] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 08:34:25] [INFO] Połączono z MariaDB
+[2025-04-09 08:34:27] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 08:34:27] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 08:34:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:34:49] [INFO] Połączono z MariaDB
+[2025-04-09 08:34:51] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 08:34:51] [INFO] Aplikacja zakończyła działanie.
+[2025-04-09 08:34:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:34:55] [INFO] Połączono z MariaDB
+[2025-04-09 08:35:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:35:30] [INFO] Połączono z MariaDB
+[2025-04-09 08:35:35] [INFO] Odczytano smakId: 1 
+[2025-04-09 08:35:39] [INFO] Odczytano smakId: 2 
+[2025-04-09 08:35:41] [INFO] Odczytano smakId: 3 
+[2025-04-09 08:36:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:36:43] [INFO] Połączono z MariaDB
+[2025-04-09 08:37:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:37:42] [INFO] Połączono z MariaDB
+[2025-04-09 08:40:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:40:32] [INFO] Połączono z MariaDB
+[2025-04-09 08:41:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:41:12] [INFO] Połączono z MariaDB
+[2025-04-09 08:42:09] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-09 08:42:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:42:10] [INFO] Połączono z MariaDB
+[2025-04-09 08:42:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:42:36] [INFO] Połączono z MariaDB
+[2025-04-09 08:43:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:43:08] [INFO] Połączono z MariaDB
+[2025-04-09 08:43:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:43:30] [INFO] Połączono z MariaDB
+[2025-04-09 08:44:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:44:42] [INFO] Połączono z MariaDB
+[2025-04-09 08:45:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:45:40] [INFO] Połączono z MariaDB
+[2025-04-09 08:46:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:46:04] [INFO] Połączono z MariaDB
+[2025-04-09 08:46:07] [INFO] Odczytano smakId: null 
+[2025-04-09 08:46:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:46:19] [INFO] Połączono z MariaDB
+[2025-04-09 08:46:22] [INFO] Odczytano smakId: null 
+[2025-04-09 08:47:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:47:40] [INFO] Połączono z MariaDB
+[2025-04-09 08:48:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:48:36] [INFO] Połączono z MariaDB
+[2025-04-09 08:48:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:48:39] [INFO] Połączono z MariaDB
+[2025-04-09 08:49:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:49:22] [INFO] Połączono z MariaDB
+[2025-04-09 08:49:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:49:45] [INFO] Połączono z MariaDB
+[2025-04-09 08:49:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:49:46] [INFO] Połączono z MariaDB
+[2025-04-09 08:49:47] [INFO] Odczytano smakId: 1 
+[2025-04-09 08:49:50] [INFO] Odczytano smakId: 1 
+[2025-04-09 08:50:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:50:57] [INFO] Połączono z MariaDB
+[2025-04-09 08:50:57] [INFO] Odczytano smakId: 1 
+[2025-04-09 08:51:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:51:54] [INFO] Połączono z MariaDB
+[2025-04-09 08:51:57] [INFO] Odczytano smakId: 1 
+[2025-04-09 08:52:10] [INFO] Odczytano smakId: 1 
+[2025-04-09 08:52:13] [INFO] Odczytano smakId: 6 
+[2025-04-09 08:53:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:53:03] [INFO] Połączono z MariaDB
+[2025-04-09 08:53:05] [INFO] Odczytano smakId: 3 
+[2025-04-09 08:54:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:54:11] [INFO] Połączono z MariaDB
+[2025-04-09 08:54:15] [INFO] Odczytano smakId: 2 
+[2025-04-09 08:54:40] [INFO] Odczytano smakId: 2 
+[2025-04-09 08:54:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:54:55] [INFO] Połączono z MariaDB
+[2025-04-09 08:54:57] [INFO] Odczytano smakId: 2 
+[2025-04-09 08:55:04] [INFO] Odczytano smakId: 4 
+[2025-04-09 08:56:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 08:56:34] [INFO] Połączono z MariaDB
+[2025-04-09 09:02:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:02:43] [INFO] Połączono z MariaDB
+[2025-04-09 09:02:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:02:58] [INFO] Połączono z MariaDB
+[2025-04-09 09:03:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:03:42] [INFO] Połączono z MariaDB
+[2025-04-09 09:04:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:04:05] [INFO] Połączono z MariaDB
+[2025-04-09 09:04:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:04:29] [INFO] Połączono z MariaDB
+[2025-04-09 09:08:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:08:44] [INFO] Połączono z MariaDB
+[2025-04-09 09:08:47] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:08:50] [INFO] Odczytano smakId: 6 
+[2025-04-09 09:09:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:09:00] [INFO] Połączono z MariaDB
+[2025-04-09 09:09:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:09:14] [INFO] Połączono z MariaDB
+[2025-04-09 09:10:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:10:15] [INFO] Połączono z MariaDB
+[2025-04-09 09:10:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:10:54] [INFO] Połączono z MariaDB
+[2025-04-09 09:10:56] [INFO] Odczytano smakId: 6 
+[2025-04-09 09:10:58] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:11:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:11:44] [INFO] Połączono z MariaDB
+[2025-04-09 09:11:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:11:49] [INFO] Połączono z MariaDB
+[2025-04-09 09:11:51] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:11:53] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:2309, no: 45016, SQLState: HY000) Parameter at position 2 is not set
+sql: UPDATE Smaki SET SmkNazwa = ?, SmkKolor = ?, SmkTekstKolor = ? WHERE SmkId = ? - parameters:['Czekolada123']
+[2025-04-09 09:13:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:13:00] [INFO] Połączono z MariaDB
+[2025-04-09 09:13:03] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:13:05] [ERROR] Błąd połączenia z bazą danych: TypeError: Do not know how to serialize a BigInt
+[2025-04-09 09:15:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:15:18] [INFO] Połączono z MariaDB
+[2025-04-09 09:15:22] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:15:24] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:15:28] [ERROR] Błąd połączenia z bazą danych: TypeError: data.map is not a function
+[2025-04-09 09:15:31] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:15:31] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:15:32] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:15:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:15:39] [INFO] Połączono z MariaDB
+[2025-04-09 09:15:39] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:15:42] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:15:46] [ERROR] Błąd połączenia z bazą danych: TypeError: Do not know how to serialize a BigInt
+[2025-04-09 09:16:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:16:31] [INFO] Połączono z MariaDB
+[2025-04-09 09:17:02] [INFO] Odczytano smakId: 2 
+[2025-04-09 09:17:04] [ERROR] Błąd połączenia z bazą danych: TypeError: Do not know how to serialize a BigInt
+[2025-04-09 09:17:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:17:28] [INFO] Połączono z MariaDB
+[2025-04-09 09:17:30] [INFO] Odczytano smakId: 2 
+[2025-04-09 09:17:31] [ERROR] Błąd połączenia z bazą danych: TypeError: data.map is not a function
+[2025-04-09 09:18:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:18:09] [INFO] Połączono z MariaDB
+[2025-04-09 09:18:10] [INFO] Odczytano smakId: 2 
+[2025-04-09 09:18:12] [ERROR] Błąd połączenia z bazą danych: TypeError: Do not know how to serialize a BigInt
+[2025-04-09 09:18:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:18:48] [INFO] Połączono z MariaDB
+[2025-04-09 09:18:50] [INFO] Odczytano smakId: 2 
+[2025-04-09 09:19:06] [INFO] Odczytano smakId: 1 
+[2025-04-09 09:19:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:19:38] [INFO] Połączono z MariaDB
+[2025-04-09 09:19:48] [INFO] Odczytano smakId: 2 
+[2025-04-09 09:20:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-09 09:20:32] [INFO] Połączono z MariaDB

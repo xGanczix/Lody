@@ -26,10 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
         row.innerHTML = `
           <td>${smak.SmkId}</td>
           <td>${smak.SmkNazwa}</td>
-          <td style="width: 150px"><div class="smak-background-color" style="background:${smak.SmkKolor}; padding: 2px"><span style="color: ${smak.SmkTekstKolor}">TEXT</span></td>
+          <td style="width: 150px">
+            <div class="smak-background-color" style="background:${smak.SmkKolor}; padding: 2px">
+              <span style="color: ${smak.SmkTekstKolor}">TEXT</span>
+            </div>
+          </td>
           <td>${statusText}</td>
           <td>
-            <button id="edit" data-smak="${smak.SmkId}">
+            <button id="edit" class="smaki-edycja-btn" data-smak="${smak.SmkId}">
               <img src="../img/white/edit-white.png">
             </button>
             <button id="${actionButtonId}" data-smak="${smak.SmkId}">
@@ -46,6 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchSmaki();
+
+  document.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".smaki-edycja-btn");
+    if (editBtn) {
+      const smakId = editBtn.dataset.smak;
+      window.location.href = `smaki-edycja.html?smak=${encodeURIComponent(
+        smakId
+      )}`;
+    }
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
