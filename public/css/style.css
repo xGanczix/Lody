@@ -114,6 +114,10 @@ button:hover {
 }
 /* GLOBAL */
 
+.lody-rzemieslnicze-smak {
+  transition: 0.1s;
+}
+
 html.dark-mode body ::-webkit-scrollbar-track {
   background: var(--background-input-dark-color);
 }

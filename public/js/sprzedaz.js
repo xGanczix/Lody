@@ -289,3 +289,23 @@ document.querySelector("button.reset-wloskie").addEventListener("click", () => {
   poziom = 100;
   aktualizujLicznik();
 });
+
+// Złap przycisk za pomocą klasy
+// Złap wszystkie przyciski o tej samej klasie
+const buttons = document.querySelectorAll("button.lody-rzemieslnicze-smak");
+
+// Dla każdego przycisku dodaj nasłuchiwanie na kliknięcie
+buttons.forEach((button) => {
+  button.addEventListener("click", function () {
+    // Zapisz aktualny kolor tła przycisku
+    const originalColor = button.style.backgroundColor;
+
+    // Zmień kolor tła na czerwony
+    button.style.backgroundColor = "red";
+
+    // Po 1.5 sekundy przywróć pierwotny kolor
+    setTimeout(function () {
+      button.style.backgroundColor = originalColor;
+    }, 300);
+  });
+});

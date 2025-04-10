@@ -561,3 +561,56 @@ sql: INSERT INTO Smaki (SmkNazwa,SmkKolor,SmkTekstKolor) VALUES (?,?,?) - parame
 [2025-04-10 15:35:41] [INFO] Zalogowano: mati
 [2025-04-10 15:35:41] [INFO] Użytkownik 1 przypisany do sklepów: 1
 [2025-04-10 15:36:48] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:9067, no: 45025, SQLState: 08004) Client does not support authentication protocol 'auth_gssapi_client' requested by server.
+[2025-04-10 15:46:21] [INFO] Zalogowano Serwis
+[2025-04-10 15:46:45] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-10 15:49:07] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-10 15:49:09] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:49:11] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:49:14] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:49:16] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:49:28] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 1 | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-10 15:51:31] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-10 15:51:34] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 1 | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-10 15:51:52] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:51:56] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:52:00] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:52:09] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:52:11] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:52:13] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:52:17] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:52:18] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-10 15:53:07] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-10 15:54:06] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-10 15:55:16] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-10 15:57:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:57:10] [INFO] Połączono z MariaDB
+[2025-04-10 15:57:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:57:26] [INFO] Połączono z MariaDB
+[2025-04-10 15:57:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:57:41] [INFO] Połączono z MariaDB
+[2025-04-10 15:57:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:57:45] [INFO] Połączono z MariaDB
+[2025-04-10 15:57:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:57:56] [INFO] Połączono z MariaDB
+[2025-04-10 15:58:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:58:10] [INFO] Połączono z MariaDB
+[2025-04-10 15:58:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:58:36] [INFO] Połączono z MariaDB
+[2025-04-10 15:58:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:58:40] [INFO] Połączono z MariaDB
+[2025-04-10 15:59:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:59:31] [INFO] Połączono z MariaDB
+[2025-04-10 15:59:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 15:59:56] [INFO] Połączono z MariaDB
+[2025-04-10 16:00:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 16:00:40] [INFO] Połączono z MariaDB
+[2025-04-10 16:00:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 16:00:50] [INFO] Połączono z MariaDB
+[2025-04-10 16:01:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 16:01:13] [INFO] Połączono z MariaDB
+[2025-04-10 16:01:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 16:01:19] [INFO] Połączono z MariaDB
+[2025-04-10 16:01:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 16:01:21] [INFO] Połączono z MariaDB
+[2025-04-10 16:01:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-10 16:01:27] [INFO] Połączono z MariaDB
