@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const smakArray = await response.json();
     const smak = smakArray[0];
 
-    console.log("Dane smaku:", smak);
-
     const nazwaInput = document.getElementById("dodawanie-smaku-smak");
     const kolorInput = document.getElementById("dodawanie-smaku-kolor");
     const tekstKolorInput = document.getElementById(

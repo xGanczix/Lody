@@ -19,6 +19,7 @@ dotenv.config();
 
 const fs = require("fs");
 const path = require("path");
+const { log } = require("console");
 
 function logToFile(message) {
   try {
@@ -581,8 +582,23 @@ app.get("/api/sklepy", async (req, res) => {
     const status = req.query.status || "aktywne";
     const uzytkownikId = req.query.uzytkownik;
 
-    let sql =
-      "select s.SklId,s.SklNazwa,s.SklUlica,s.SklNumer,s.SklKod,s.SklMiejscowosc,s.SklPojemnosc, s.SklStatus, u.UzId, u.UzImie from UzytkownicySklep as us left join Uzytkownicy as u on u.UzId = us.UzSklUzId left join Sklepy as s on s.SklId = us.UzSklSklId";
+    let sql = `select
+	s.SklId,
+	s.SklNazwa,
+	s.SklUlica,
+	s.SklNumer,
+	s.SklKod,
+	s.SklMiejscowosc,
+	s.SklPojemnosc,
+	s.SklStatus,
+	u.UzId,
+	u.UzImie
+from
+	Sklepy as s
+left join UzytkownicySklep as us on
+	us.UzSklSklId = s.SklId
+	left join Uzytkownicy as u on
+	u.UzId = us.UzSklUzId`;
     if (status === "aktywne" && uzytkownikId === "123456789") {
       sql += ` WHERE s.SklStatus = 1 group by s.SklId ORDER BY s.SklStatus DESC, s.SklId`;
     } else if (status === "usuniete" && uzytkownikId === "123456789") {
@@ -1903,6 +1919,41 @@ app.get("/api/generator-zamowien-sklepy", async (req, res) => {
   }
 });
 
+app.get("/api/ceny", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `select * from Towary as t left join Ceny as c on c.CTowId = t.TowId`;
+    const data = await connection.query(sql);
+
+    data.forEach((item) => {
+      const date = new Date(item.CDataZmiany);
+      item.CDataZmiany = date.toLocaleString("pl-PL");
+    });
+
+    res.json(data);
+  } catch (err) {
+    res.status(500);
+    logToFile[`Błąd połączenia z bazą danych: ${err}`];
+  }
+});
+
+app.put("/api/ceny-edycja/:towarId", async (req, res) => {
+  const towarId = req.params.towarId;
+  const cena = req.body;
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `UPDATE Ceny SET CPoprzedniaCena = CCena, CCena = ? WHERE CTowId = ?`;
+    const data = connection.query(sql, [cena, towarId]);
+    res.json(data).status(200);
+  } catch (err) {
+    res.status(500);
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  }
+});
+
 app.get("/api/smaki-edycja/:smakId", async (req, res) => {
   const smakId = req.params.smakId;
   let connection;
@@ -1946,6 +1997,34 @@ app.get("/api/kuwety-edycja/:kuwetaId", async (req, res) => {
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
     res.status(500).json({ error: "Błąd podczas pobierania danych" });
+  }
+});
+
+app.get("/api/uzytkownik-edycja/:uzytkownikId", async (req, res) => {
+  const uzytkownikId = req.params.uzytkownikId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = "SELECT * FROM Uzytkownicy WHERE UzId = ?";
+    const data = await connection.query(sql, uzytkownikId);
+    res.json(data).status(200);
+  } catch (err) {
+    res.status(500);
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  }
+});
+
+app.get("/api/sklepy-edycja/:sklepId", async (req, res) => {
+  const sklepId = req.params.sklepId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `SELECT * FROM Sklepy WHERE SklId = ?`;
+    const data = await connection.query(sql, sklepId);
+    res.json(data).status(200);
+  } catch (err) {
+    res.status(500);
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
   }
 });
 
@@ -2052,6 +2131,122 @@ app.put("/api/kuwety-edycja-zapis/:kuwetaId", async (req, res) => {
     logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
   } finally {
     if (connection) connection.release();
+  }
+});
+
+app.put("/api/sklepy-edycja-zapis/:sklepId", async (req, res) => {
+  const sklepId = req.params.sklepId;
+  const { nazwa, ulica, numer, kod, miejscowosc, pojemnosc } = req.body;
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `UPDATE Sklepy SET SklNazwa = ?, SklUlica = ?, SklNumer = ?, SklKod = ?, SklMiejscowosc = ?, SklPojemnosc = ?, SklDataZmiany = now() WHERE SklId = ?`;
+    const data = connection.query(sql, [
+      nazwa,
+      ulica,
+      numer,
+      kod,
+      miejscowosc,
+      pojemnosc,
+      sklepId,
+    ]);
+    res.json(data);
+    logToFile(
+      `[INFO] Edycja sklepu o ID: ${sklepId} - Nazwa: ${nazwa} || Ulica: ${ulica} || Numer: ${numer} || Kod: ${kod} || Miejscowość: ${miejscowosc} || Pojemność: ${pojemnosc}`
+    );
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  }
+});
+
+app.put("/api/uzytkownicy-edycja-zapis/:uzytkownikId", async (req, res) => {
+  const uzytkownikId = req.params.uzytkownikId;
+  const { imie, nazwisko, login, haslo, pin, stawka } = req.body;
+  const hashedHaslo = haslo ? await bcrypt.hash(haslo, 10) : null;
+  const hashedPin = pin ? await bcrypt.hash(pin, 10) : null;
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql;
+    let data;
+
+    if (haslo === "" && pin === "" && stawka === "") {
+      sql =
+        "UPDATE Uzytkownicy SET UzImie = ?,UzNazwisko = ?,UzLogin = ?, UzDataZmiany = now() WHERE UzId = ?";
+      data = connection.query(sql, [imie, nazwisko, login, uzytkownikId]);
+    } else if (haslo === "" && pin === "") {
+      sql =
+        "UPDATE Uzytkownicy SET UzImie = ?,UzNazwisko = ?,UzLogin = ?,UzStawkaGodzinowa = ?, UzDataZmiany = now() WHERE UzId = ?";
+      data = connection.query(sql, [
+        imie,
+        nazwisko,
+        login,
+        stawka,
+        uzytkownikId,
+      ]);
+    } else if (haslo === "" && stawka === "") {
+      sql =
+        "UPDATE Uzytkownicy SET UzImie = ?, UzNazwisko = ?, UzLogin = ?, UzPIN = ?, UzStawkaGodzinowa = ?, UzDataZmiany = now() WHERE UzId = ?";
+      data = connection.query(sql, [
+        imie,
+        nazwisko,
+        login,
+        hashedPin,
+        stawka,
+        uzytkownikId,
+      ]);
+    } else if (haslo === "") {
+      sql =
+        "UPDATE Uzytkownicy SET UzImie = ?, UzNazwisko = ?, UzLogin = ?, UzPIN = ?, UzStawkaGodzinowa = ?, UzDataZmiany = now() WHERE UzId = ?";
+      data = connection.query(sql, [
+        imie,
+        nazwisko,
+        login,
+        hashedPin,
+        stawka,
+        uzytkownikId,
+      ]);
+    } else if (pin === "" && stawka === "") {
+      sql =
+        "UPDATE Uzytkownicy SET UzImie = ?, UzNazwisko = ?, UzLogin = ?, UzHaslo = ?, UzDataZmiany = now() WHERE UzId = ?";
+      data = connection.query(sql, [
+        imie,
+        nazwisko,
+        login,
+        hashedHaslo,
+        uzytkownikId,
+      ]);
+    } else if (pin === "") {
+      sql =
+        "UPDATE Uzytkownicy SET UzImie = ?, UzNazwisko = ?, UzLogin = ?, UzHaslo = ?, UzStawkaGodzinowa = ?, UzDataZmiany = now() WHERE UzId = ?";
+      data = connection.query(sql, [
+        imie,
+        nazwisko,
+        login,
+        hashedHaslo,
+        stawka,
+        uzytkownikId,
+      ]);
+    } else {
+      sql =
+        "UPDATE Uzytkownicy SET UzImie = ?, UzNazwisko = ?, UzLogin = ?, UzHaslo = ?, UzPIN = ?, UzStawkaGodzinowa = ?, UzDataZmiany = now() WHERE UzId = ?";
+      data = connection.query(sql, [
+        imie,
+        nazwisko,
+        login,
+        hashedHaslo,
+        hashedPin,
+        stawka,
+        uzytkownikId,
+      ]);
+    }
+
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: `Błąd podczas pobierania danych: ${err}` });
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
   }
 });
 

@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <td>${sklep.SklPojemnosc}</td>
               <td>${statusText}</td>
               <td>
-                <button id="edit" data-sklep="${sklep.SklId}">
+                <button id="edit" class="sklepy-edycja-btn" data-sklep="${sklep.SklId}">
                   <img src="../img/white/edit-white.png">
                 </button>
                 <button id="${actionButtonId}" data-sklep="${sklep.SklId}">
@@ -55,6 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchSklep();
+
+  document.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".sklepy-edycja-btn");
+    if (editBtn) {
+      const sklepId = editBtn.dataset.sklep;
+      window.location.href = `sklepy-edycja.html?sklep=${encodeURIComponent(
+        sklepId
+      )}`;
+    }
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

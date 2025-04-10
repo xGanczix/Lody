@@ -106,7 +106,7 @@
 }
 
 .sklep-uzytkownik-container button:hover {
-  background: var(--button-hover-light-color) !important;
+  background: var(--button-hover-light-color);
 }
 
 .sklep-uzytkownik-container button img {

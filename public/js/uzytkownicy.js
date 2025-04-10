@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${uzytkownik.UzStawkaGodzinowa}</td>
             <td>${statusText}</td>
             <td>
-              <button id="edit" data-uzytkownik="${uzytkownik.UzId}">
+              <button id="edit" class="uzytkownicy-edycja-btn" data-uzytkownik="${uzytkownik.UzId}">
                 <img src="../img/white/edit-white.png">
               </button>
               <button id="${actionButtonId}" data-uzytkownik="${uzytkownik.UzId}">
@@ -50,6 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetchUzytkownicy();
+
+  document.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".uzytkownicy-edycja-btn");
+    if (editBtn) {
+      const uzytkownikId = editBtn.dataset.uzytkownik;
+      window.location.href = `uzytkownicy-edycja.html?uzytkownik=${encodeURIComponent(
+        uzytkownikId
+      )}`;
+    }
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

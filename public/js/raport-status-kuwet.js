@@ -56,7 +56,6 @@ async function fetchStatusKuwet(sklepId) {
 
 sklepSelect.addEventListener("change", function () {
   const sklepId = sklepSelect.value;
-  alert(sklepId);
   fetchStatusKuwet(sklepId);
 });
 

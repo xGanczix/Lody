@@ -28,10 +28,11 @@ create table if not exists UzytkownicySklep (
 create table if not exists Smaki(
 	SmkId int not null primary key auto_increment,
 	SmkNazwa varchar(255) not null,
-	SmkDataZmiany datetime not null default now(),
 	SmkKolor varchar(255),
 	SmkTekstKolor varchar(255),
-	SmkStatus boolean not null default 1);
+	SmkStatus boolean not null default 1,
+	SmkTowId int not null default 1,
+	SmkDataZmiany datetime not null default now());
 
 create table if not exists RCP(
 	RCPId int not null primary key auto_increment,
