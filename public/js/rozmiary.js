@@ -120,12 +120,10 @@ const headers = document.querySelectorAll("#centrala-rozmiary thead th");
 const tbody = document.querySelector("#centrala-rozmiary-tbody");
 
 function sortTable(column, direction) {
-  // Reset strzałek
   headers.forEach((h, idx) => {
     h.setAttribute("data-order", "desc");
     h.textContent = h.textContent.replace(/[\u25B2\u25BC]/g, "");
 
-    // Dodaj strzałki tylko do nagłówków, które nie są ostatnie
     if (idx !== headers.length - 1) {
       if (idx === column) {
         h.setAttribute("data-order", direction);
@@ -157,7 +155,6 @@ function sortTable(column, direction) {
   rows.forEach((row) => tbody.appendChild(row));
 }
 
-// Klikanie nagłówków
 headers.forEach((header, index) => {
   header.addEventListener("click", () => {
     const currentOrder = header.getAttribute("data-order");
@@ -166,7 +163,6 @@ headers.forEach((header, index) => {
   });
 });
 
-// 👉 Domyślne sortowanie po załadowaniu danych
 function applyDefaultSortAfterFetch() {
-  sortTable(0, "asc"); // sortuj po kolumnie 0 rosnąco
+  sortTable(0, "asc");
 }

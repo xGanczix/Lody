@@ -389,19 +389,24 @@ app.get("/api/kuwety-sklep/:sklepId", async (req, res) => {
 
     let sql = `
     select
-	    k.KuwId as Id,
+	k.KuwId as Id,
 	    s.SmkNazwa as Nazwa,
 	    s.SmkKolor as Kolor,
-      s.SmkTekstKolor as TekstKolor,
+	s.SmkTekstKolor as TekstKolor,
 	    r.RozPojemnosc as Pojemnosc,
-	    k.KuwPorcje as Porcje
-    from
+	    k.KuwPorcje as Porcje,
+	    s.SmkTowId,
+	    c.CCena
+from
 	    Kuwety as k
-    left join Rozmiary as r on
+left join Rozmiary as r on
 	    r.RozId = k.KuwRozId
-    left join Smaki as s on
+left join Smaki as s on
 	    s.SmkId = k.KuwSmkId
-      where k.KuwSklId = ?`;
+left join Ceny as c on
+	c.CTowId = s.SmkTowId
+where
+	k.KuwSklId = ?`;
 
     const data = await connection.query(sql, [sklepId]);
     res.json(data);
@@ -1940,12 +1945,12 @@ app.get("/api/ceny", async (req, res) => {
 
 app.put("/api/ceny-edycja/:towarId", async (req, res) => {
   const towarId = req.params.towarId;
-  const cena = req.body;
+  const { cena } = req.body;
 
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    let sql = `UPDATE Ceny SET CPoprzedniaCena = CCena, CCena = ? WHERE CTowId = ?`;
+    let sql = `UPDATE Ceny SET CPoprzedniaCena = CCena, CCena = ?, CDataZmiany = now() WHERE CTowId = ?`;
     const data = connection.query(sql, [cena, towarId]);
     res.json(data).status(200);
   } catch (err) {

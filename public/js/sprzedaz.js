@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   aktualizujLicznik();
+  aktualizujLicznikKawa();
 
   try {
     const token = localStorage.getItem("token");
@@ -38,9 +39,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             przycisk.style.backgroundColor = przypisanySmak.Kolor;
             przycisk.style.color = przypisanySmak.TekstKolor;
             przycisk.textContent = przypisanySmak.Nazwa;
-            przycisk.addEventListener("click", () =>
-              dodajDoTabeli(przypisanySmak)
-            );
+            przycisk.setAttribute("data-cena", przypisanySmak.CCena);
+
+            przycisk.addEventListener("click", () => {
+              const cena = parseFloat(przycisk.getAttribute("data-cena"));
+              dodajDoTabeli(przypisanySmak, cena);
+            });
           }
         }
       });
@@ -67,9 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-const CENA_PORCJI = 6.5;
-
-function dodajDoTabeli(smak) {
+function dodajDoTabeli(smak, cena) {
   const tbody = document.getElementById("pozycje-wydania-tbody");
 
   let istniejącyWiersz = [...tbody.rows].find(
@@ -81,7 +83,7 @@ function dodajDoTabeli(smak) {
 
     let nowaIlosc = parseInt(iloscCell.textContent) + 1;
     iloscCell.textContent = nowaIlosc;
-    cenaCell.textContent = (nowaIlosc * CENA_PORCJI).toFixed(2) + " zł";
+    cenaCell.textContent = (nowaIlosc * cena).toFixed(2) + " zł";
   } else {
     const nowyWiersz = document.createElement("tr");
     nowyWiersz.dataset.id = smak.Id;
@@ -89,7 +91,7 @@ function dodajDoTabeli(smak) {
       <td class="licznik"></td>
       <td>${smak.Nazwa}</td>
       <td class="ilosc">1</td>
-      <td class="cena">${CENA_PORCJI.toFixed(2)} zł</td>
+      <td class="cena">${cena.toFixed(2)} zł</td>
       <td><button class="usun-btn"><img src="../img/white/delete-white.png"></button></td>
     `;
 
@@ -169,7 +171,7 @@ async function zapiszWydanie(formaPlatnosci) {
   console.log("Pozycje do wysłania:", pozycje);
 
   try {
-    const response = await fetch("/api/zapisz-wydanie", {
+    const response = await fetch(`${CONFIG.URL}/api/zapisz-wydanie`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -183,6 +185,32 @@ async function zapiszWydanie(formaPlatnosci) {
     const data = await response.json();
 
     if (response.ok) {
+      let sumaLodyWloskie = 0;
+      document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
+        const nazwa = row.querySelector("td:nth-child(2)").textContent;
+        const ilosc = parseInt(row.querySelector(".ilosc").textContent);
+        if (nazwa.includes("Lody Włoskie Małe")) {
+          sumaLodyWloskie += ilosc * 1; // Małe lody - odejmujemy 1% za każdą sztukę
+        } else if (nazwa.includes("Lody Włoskie Duże")) {
+          sumaLodyWloskie += ilosc * 2; // Duże lody - odejmujemy 2% za każdą sztukę
+        }
+      });
+      // Odejmij od poziomu (dla lodów)
+      poziom = Math.max(0, poziom - sumaLodyWloskie);
+      aktualizujLicznik(); // Aktualizuj licznik dla lodów
+
+      let sumaKawa = 0;
+      document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
+        const nazwaKawa = row.querySelector("td:nth-child(2)").textContent;
+        const iloscKawa = parseInt(row.querySelector(".ilosc").textContent);
+        if (nazwaKawa.includes("Kawa")) {
+          sumaKawa += iloscKawa * 1; // Kawa - odejmujemy 1% za każdą sztukę
+        }
+      });
+      // Odejmij od poziomu (dla kawy)
+      poziomKawa = Math.max(0, poziomKawa - sumaKawa);
+      aktualizujLicznikKawa(); // Aktualizuj licznik dla kawy
+
       document.getElementById("pozycje-wydania-tbody").innerHTML = "";
       document.getElementById("wartosc-wydania").innerHTML = "0.00 zł";
       const message = document.getElementById("message");
@@ -264,25 +292,31 @@ function dodajDoTabeliLodyWloskie(nazwaTowaru) {
     aktualizujLiczniki();
   }
 
-  // Zaktualizowanie sumy
   aktualizujSume();
 }
 
 let poziom = 100;
+let poziomKawa = 100;
 
 const licznik = document.querySelector(".licznik-wypelnienie");
+const licznikKawa = document.querySelector(".licznik-wypelnienie-kawa");
 
-document.querySelectorAll(".pozostale-towary").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const zmiana = parseInt(btn.dataset.zmiana);
-    poziom = Math.max(0, poziom - zmiana);
-    aktualizujLicznik();
-  });
-});
+// document.querySelectorAll(".pozostale-towary").forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     const zmiana = parseInt(btn.dataset.zmiana);
+//     poziom = Math.max(0, poziom - zmiana);
+//     aktualizujLicznik();
+//   });
+// });
 
 function aktualizujLicznik() {
   licznik.style.height = poziom + "%";
   licznik.textContent = poziom + "%";
+}
+
+function aktualizujLicznikKawa() {
+  licznikKawa.style.height = poziomKawa + "%";
+  licznikKawa.textContent = poziomKawa + "%";
 }
 
 document.querySelector("button.reset-wloskie").addEventListener("click", () => {
@@ -290,22 +324,19 @@ document.querySelector("button.reset-wloskie").addEventListener("click", () => {
   aktualizujLicznik();
 });
 
-// Złap przycisk za pomocą klasy
-// Złap wszystkie przyciski o tej samej klasie
+document.querySelector("button.reset-kawa").addEventListener("click", () => {
+  poziomKawa = 100;
+  aktualizujLicznikKawa();
+});
+
 const buttons = document.querySelectorAll("button.lody-rzemieslnicze-smak");
 
-// Dla każdego przycisku dodaj nasłuchiwanie na kliknięcie
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
-    // Zapisz aktualny kolor tła przycisku
-    const originalColor = button.style.backgroundColor;
+    button.style.fontSize = "40px";
 
-    // Zmień kolor tła na czerwony
-    button.style.backgroundColor = "red";
-
-    // Po 1.5 sekundy przywróć pierwotny kolor
     setTimeout(function () {
-      button.style.backgroundColor = originalColor;
+      button.style.fontSize = "20px";
     }, 300);
   });
 });

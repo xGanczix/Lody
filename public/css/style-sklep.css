@@ -210,7 +210,7 @@ button.usun-btn {
   height: 35px;
   border-radius: 50%;
   padding: 5px;
-  background: var(--red-color);
+  background: var(--red-color) !important;
   margin-right: 5px;
 }
 
@@ -328,6 +328,7 @@ button#pozycje-wydania-anuluj:hover {
   background: var(--background-input-light-color);
   color: var(--text-black-color);
   box-shadow: 0 0 5px var(--box-shadow-color);
+  outline: none;
 }
 
 .lody-rzemieslnicze-smak:hover {
@@ -680,6 +681,28 @@ p#zamowienia-info {
   border-radius: 20px;
 }
 
+.licznik-pojemnika-kawa {
+  width: 20px;
+  height: 280px;
+  border: 1px solid var(--border-light-color);
+  position: relative;
+  background: #eee;
+  margin: 10px 0 0 10px;
+  border-radius: 20px;
+}
+
+.licznik-wypelnienie-kawa {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: green;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  transition: height 0.3s ease;
+  border-radius: 20px;
+}
+
 .sprzedaz-pozostale-rzad {
   display: flex;
   width: 100%;
@@ -711,6 +734,20 @@ button.reset-wloskie {
 }
 
 button.reset-wloskie img {
+  width: 100%;
+}
+
+button.reset-kawa {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 390px;
+  bottom: 40px;
+  padding: 5px;
+}
+
+button.reset-kawa img {
   width: 100%;
 }
 

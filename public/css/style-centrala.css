@@ -297,7 +297,8 @@ table#centrala-sklepy,
 table#centrala-kuwety,
 table#centrala-rcp,
 table#rcp-user-data,
-table#centrala-status-kuwety {
+table#centrala-status-kuwety,
+table#centrala-ceny {
   width: 100%;
   border-collapse: collapse;
 }
@@ -309,7 +310,8 @@ table#centrala-sklepy thead,
 table#centrala-kuwety thead,
 table#centrala-rcp thead,
 table#rcp-user-data thead,
-table#centrala-status-kuwety thead {
+table#centrala-status-kuwety thead,
+table#centrala-ceny thead {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -323,7 +325,8 @@ table#centrala-kuwety thead th,
 table#centrala-kuwety thead th,
 table#centrala-rcp thead th,
 table#rcp-user-data thead th,
-table#centrala-status-kuwety thead th {
+table#centrala-status-kuwety thead th,
+table#centrala-ceny thead th {
   background: var(--button-light-color);
   font-size: 22px;
   padding: 14px;
@@ -345,7 +348,8 @@ table#centrala-smaki tbody,
 table#centrala-uzytkownicy tbody,
 table#centrala-rozmiary tbody,
 table#centrala-rcp tbody,
-table#centrala-status-kuwety tbody {
+table#centrala-status-kuwety tbody,
+table#centrala-ceny tbody {
   display: block;
   max-height: calc(100vh - 210px);
   overflow-y: auto;
@@ -358,7 +362,8 @@ table#centrala-sklepy tbody tr,
 table#centrala-kuwety tbody tr,
 table#centrala-rcp tbody tr,
 table#rcp-user-data tbody tr,
-table#centrala-status-kuwety tbody tr {
+table#centrala-status-kuwety tbody tr,
+table#centrala-ceny tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -371,7 +376,8 @@ table#centrala-sklepy tbody td,
 table#centrala-kuwety tbody td,
 table#centrala-rcp tbody td,
 table#rcp-user-data tbody td,
-table#centrala-status-kuwety tbody td {
+table#centrala-status-kuwety tbody td,
+table#centrala-ceny tbody td {
   padding: 10px !important;
   font-size: 20px;
   text-align: center;
@@ -384,7 +390,8 @@ table#centrala-sklepy thead th:first-child,
 table#centrala-kuwety thead th:first-child,
 table#centrala-rcp thead th:first-child,
 table#rcp-user-data thead th:first-child,
-table#centrala-status-kuwety thead th:first-child {
+table#centrala-status-kuwety thead th:first-child,
+table#centrala-ceny thead th:first-child {
   border-radius: 10px 0 0 0;
 }
 
@@ -395,7 +402,8 @@ table#centrala-sklepy thead th:last-child,
 table#centrala-kuwety thead th:last-child,
 table#centrala-rcp thead th:last-child,
 table#rcp-user-data thead th:last-child,
-table#centrala-status-kuwety thead th:last-child {
+table#centrala-status-kuwety thead th:last-child,
+table#centrala-ceny thead th:last-child {
   border-radius: 0 10px 0 0;
 }
 
@@ -404,11 +412,13 @@ table#centrala-uzytkownicy thead th:first-child,
 table#centrala-rozmiary thead th:first-child,
 table#centrala-sklepy thead th:first-child,
 table#centrala-kuwety thead th:first-child,
+table#centrala-ceny thead th:first-child,
 table#centrala-smaki tbody td:first-child,
 table#centrala-uzytkownicy tbody td:first-child,
 table#centrala-rozmiary tbody td:first-child,
 table#centrala-sklepy tbody td:first-child,
-table#centrala-kuwety tbody td:first-child {
+table#centrala-kuwety tbody td:first-child,
+table#centrala-ceny tbody td:first-child {
   width: 8%;
 }
 
@@ -428,7 +438,13 @@ table#centrala-rozmiary tbody td:last-child,
 table#centrala-sklepy tbody td:last-child,
 table#centrala-kuwety tbody td:last-child,
 table#centrala-rcp tbody td:last-child,
-table#centrala-rcp thead th:last-child {
+table#centrala-rcp thead th:last-child,
+table#centrala-ceny
+  tbody
+  td:last-child
+  table#centrala-ceny
+  thead
+  th:last-child {
   width: 10%;
 }
 
@@ -731,4 +747,12 @@ select#centrala-raport-sklep {
 tbody#rcp-user-tbody tr {
   border-bottom: 2px solid var(--border-light-color);
   padding: 0 10px;
+}
+
+table#centrala-status-kuwety tbody tr {
+  margin-top: 10px;
+}
+
+table#centrala-status-kuwety tbody td:nth-child(2) {
+  border-radius: 10px;
 }

@@ -201,7 +201,8 @@ html.dark-mode body table#centrala-rcp thead th,
 html.dark-mode body table#centrala-status-kuwety thead th,
 html.dark-mode body table#rcp-user-data thead th,
 html.dark-mode body .sklep-pozycje-wydania h2,
-html.dark-mode body .podsumowanie-wydania {
+html.dark-mode body .podsumowanie-wydania,
+html.dark-mode body table#centrala-ceny thead th {
   background: var(--button-dark-color);
 }
 
@@ -265,4 +266,12 @@ html.dark-mode body .apexcharts-zoomout-icon svg {
 
 html.dark-mode body p#zamowienia-info {
   border: 2px solid var(--button-dark-color);
+}
+
+html.dark-mode .apexcharts-tooltip.apexcharts-theme-light {
+  background: var(--background-container-dark-color) !important;
+}
+
+html.dark-mode .apexcharts-tooltip-title {
+  background: var(--background-dark-color) !important;
 }
