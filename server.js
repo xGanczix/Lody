@@ -927,17 +927,19 @@ app.post("/api/ustawienia-zapis", (req, res) => {
   const { host, port, user, pass, db } = req.body;
   const envContent = `JWT_SECRET=WUqf6d76cYL@xvYxmpT8*RzV3pQbdt<9<Kmm9vFW5k%oXHD7pSGKd>Th6ozM\nAPP_LOGIN=pinnex\nAPP_HASLO=$2b$10$GyQ.INqS4nPE79RXpWuZTui3O323K9Qxu2drWQ9YU/vdqkk3I0UC6\n\nDB_SERVER=${host}\nDB_PORT=${port}\nDB_USER=${user}\nDB_PASSWORD=${pass}\nDB_DATABASE=${db}\n`;
   fs.writeFileSync(ENV_FILE, envContent);
-  exec(`start ${RESTART_SCRIPT}`, (error, stdout, stderr) => {
+  exec("pm2 restart server", (error, stdout, stderr) => {
     if (error) {
-      logToFile(`[ERROR] Błąd uruchamiania skryptu: ${error}`);
-      return res
-        .status(500)
-        .json({ success: false, message: "Błąd uruchamiania skryptu" });
+      logToFile(`[ERROR] Błąd restartu przez PM2: ${error.message}`);
+      return res.status(500).json({
+        success: false,
+        message: "Błąd restartu serwera przez PM2",
+      });
     }
-    logToFile("[INFO] Restart serwera");
+
+    logToFile("[INFO] Restart serwera przez PM2");
     res.json({
       success: true,
-      message: "Zapisano ustawienia i uruchomiono restart.bat",
+      message: "Zapisano ustawienia i zrestartowano serwer przez PM2",
     });
   });
 });
@@ -1897,6 +1899,7 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
     res.status(200).json({ message: "Wydanie zapisane", numerDokumentu });
   } catch (err) {
     console.error("Błąd zapisu dokumentu:", err);
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
     res.status(500).json({ error: "Błąd serwera" });
   }
 });
@@ -1958,7 +1961,7 @@ app.get("/api/rcp-uzytkownik/:uzytkownikId", async (req, res) => {
         u.UzNazwisko
       FROM
         RCP
-      LEFT JOIN uzytkownicy as u on u.UzId = RCP.RCPUzId
+      LEFT JOIN Uzytkownicy as u on u.UzId = RCP.RCPUzId
       WHERE
         RCPKoniecZmiany IS NOT NULL
         AND RCPUzId = ?

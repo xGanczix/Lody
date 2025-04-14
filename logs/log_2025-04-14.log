@@ -58,3 +58,90 @@
 [2025-04-14 00:58:35] [INFO] Uruchomiono serwer na porcie 3000
 [2025-04-14 00:58:35] [INFO] Połączono z MariaDB
 [2025-04-14 00:58:55] [INFO] Zalogowano Serwis
+[2025-04-14 09:48:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 09:49:04] [INFO] Zalogowano Serwis
+[2025-04-14 09:49:07] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-14 09:49:08] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-14 09:49:12] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-14 09:49:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 09:49:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 09:49:28] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-14 09:49:35] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-14 09:49:35] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-14 09:49:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 09:49:40] [INFO] Połączono z MariaDB
+[2025-04-14 09:49:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 09:49:42] [INFO] Połączono z MariaDB
+[2025-04-14 09:55:47] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:14483, no: 1045, SQLState: 28000) Access denied for user 'app_root'@'localhost' (using password: YES)
+[2025-04-14 09:55:52] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:4686, no: 1203, SQLState: 42000) User app_root already has more than 'max_user_connections' active connections
+[2025-04-14 09:56:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 09:56:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 09:56:08] [INFO] Połączono z MariaDB
+[2025-04-14 09:56:26] [INFO] Użytkownik dodany pomyślnie: 1
+[2025-04-14 09:56:44] [INFO] Zalogowano Serwis
+[2025-04-14 09:56:53] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 1
+[2025-04-14 09:57:16] [INFO] Poprawne wpisanie danych
+[2025-04-14 09:57:37] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 09:57:45] [INFO] Zalogowano Serwis
+[2025-04-14 09:58:01] [INFO] Rozmiar dodany pomyślnie: Kuweta Duża
+[2025-04-14 09:58:09] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 1 | Porcje: 90
+[2025-04-14 09:58:14] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 09:58:20] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 1 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-14 09:58:33] [INFO] Zalogowano Serwis
+[2025-04-14 10:01:30] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 10:03:50] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 10:04:04] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 10:06:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 10:06:19] [INFO] Połączono z MariaDB
+[2025-04-14 10:06:24] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 10:06:28] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:9203, no: 1054, SQLState: 42S22) Unknown column 'DokPozPozostalyTowId' in 'INSERT INTO'
+sql: INSERT INTO DokumentyPozycje 
+            (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+            VALUES (?, ?, ?, ?, ?) - parameters:[5,1,1,5,30]
+[2025-04-14 10:08:53] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:10088, no: 1054, SQLState: 42S22) Unknown column 'DokPozPozostalyTowId' in 'INSERT INTO'
+sql: INSERT INTO DokumentyPozycje 
+            (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+            VALUES (?, ?, ?, ?, ?) - parameters:[6,1,1,2,12]
+[2025-04-14 10:08:58] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-14 10:09:03] [INFO] Zalogowano Serwis
+[2025-04-14 10:09:13] [INFO] Użytkownik 1 przypisany do sklepów: 1
+[2025-04-14 10:09:22] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 123
+[2025-04-14 14:06:30] [INFO] Zalogowano Serwis
+[2025-04-14 14:07:17] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 14:07:26] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:232, no: 1054, SQLState: 42S22) Unknown column 'DokPozPozostalyTowId' in 'INSERT INTO'
+sql: INSERT INTO DokumentyPozycje 
+            (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+            VALUES (?, ?, ?, ?, ?) - parameters:[7,1,1,1,10]
+[2025-04-14 15:06:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 15:06:46] [INFO] Połączono z MariaDB
+[2025-04-14 15:06:50] [INFO] Zalogowano Serwis
+[2025-04-14 15:07:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 15:07:47] [INFO] Połączono z MariaDB
+[2025-04-14 15:21:52] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 15:22:10] [INFO] Zalogowano Serwis
+[2025-04-14 15:22:30] [INFO] Zalogowano Serwis
+[2025-04-14 15:22:39] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 15:25:32] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-14 15:27:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 15:27:09] [INFO] Połączono z MariaDB
+[2025-04-14 15:27:13] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-14 15:27:16] [INFO] Zalogowano Serwis
+[2025-04-14 15:27:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 15:27:42] [INFO] Połączono z MariaDB
+[2025-04-14 15:27:49] [INFO] Zalogowano Serwis
+[2025-04-14 15:29:01] [INFO] Zalogowano Serwis
+[2025-04-14 15:29:16] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 15:29:26] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-14 15:31:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 15:31:10] [INFO] Połączono z MariaDB
+[2025-04-14 15:31:27] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-14 15:31:30] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-14 15:31:31] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-14 15:31:46] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-14 15:31:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-14 15:31:49] [INFO] Połączono z MariaDB
+[2025-04-14 15:32:04] [INFO] Zalogowano Serwis

@@ -734,17 +734,19 @@ button.serwis-btn:last-child {
 
 .raporty-sprzedazy-container {
   width: 100%;
-  height: calc(100vh - 40px - 100px);
+  /* height: calc(100vh - 40px - 100px); */
   margin-top: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .wykres-container {
   background: var(--background-container-light-color);
   border-radius: 10px;
   box-shadow: 0 0 10px var(--box-shadow-color);
-  width: calc((100% / 3) - 10px);
+  width: calc((100% - 20px) / 3);
   height: 300px;
   padding: 20px;
 }
