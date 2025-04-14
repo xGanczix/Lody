@@ -42,6 +42,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             przycisk.setAttribute("data-cena", przypisanySmak.CCena);
 
             przycisk.addEventListener("click", () => {
+              if (parseInt(przypisanySmak.Porcje) <= 0) {
+                alert(`Brak porcji dla smaku: ${przypisanySmak.Nazwa}`);
+                return;
+              }
+
               const cena = parseFloat(przycisk.getAttribute("data-cena"));
               dodajDoTabeli(przypisanySmak, cena);
             });
@@ -52,16 +57,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelectorAll(".pozostale-towary").forEach((przycisk) => {
       przycisk.addEventListener("click", () => {
         const nazwa = przycisk.textContent.trim();
-        dodajDoTabeliLodyWloskie(nazwa);
+        const towId = przycisk.getAttribute("data-towar");
+        dodajDoTabeliLodyWloskie(nazwa, towId);
       });
     });
 
     document.querySelectorAll(".dodatek").forEach((przycisk) => {
       przycisk.addEventListener("click", () => {
         const nazwa = przycisk.textContent.replace(/\s+/g, " ").trim();
-
-        console.log("Dodatek:", nazwa);
-        dodajDoTabeliLodyWloskie(nazwa);
+        const towId = przycisk.getAttribute("data-towar");
+        dodajDoTabeliLodyWloskie(nazwa, towId);
       });
     });
 
@@ -87,6 +92,7 @@ function dodajDoTabeli(smak, cena) {
   } else {
     const nowyWiersz = document.createElement("tr");
     nowyWiersz.dataset.id = smak.Id;
+    nowyWiersz.dataset.towarId = 1;
     nowyWiersz.innerHTML = `
       <td class="licznik"></td>
       <td>${smak.Nazwa}</td>
@@ -161,11 +167,18 @@ async function zapiszWydanie(formaPlatnosci) {
 
   const pozycje = [];
   document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
-    const towId = row.getAttribute("data-id");
+    const towarId = row.getAttribute("data-towar-id"); // zawsze istnieje
+    const kuwetaId = row.getAttribute("data-id"); // tylko jeśli to kuweta
+
     const ilosc = parseFloat(row.querySelector(".ilosc").textContent);
     const cena = parseFloat(row.querySelector(".cena").textContent);
 
-    pozycje.push({ towId, ilosc, cena });
+    pozycje.push({
+      towId: kuwetaId ? parseInt(kuwetaId) : null,
+      pozostalyTowarId: towarId ? parseInt(towarId) : null,
+      ilosc,
+      cena,
+    });
   });
 
   console.log("Pozycje do wysłania:", pozycje);
@@ -190,26 +203,24 @@ async function zapiszWydanie(formaPlatnosci) {
         const nazwa = row.querySelector("td:nth-child(2)").textContent;
         const ilosc = parseInt(row.querySelector(".ilosc").textContent);
         if (nazwa.includes("Lody Włoskie Małe")) {
-          sumaLodyWloskie += ilosc * 1; // Małe lody - odejmujemy 1% za każdą sztukę
+          sumaLodyWloskie += ilosc * 1;
         } else if (nazwa.includes("Lody Włoskie Duże")) {
-          sumaLodyWloskie += ilosc * 2; // Duże lody - odejmujemy 2% za każdą sztukę
+          sumaLodyWloskie += ilosc * 2;
         }
       });
-      // Odejmij od poziomu (dla lodów)
       poziom = Math.max(0, poziom - sumaLodyWloskie);
-      aktualizujLicznik(); // Aktualizuj licznik dla lodów
+      aktualizujLicznik();
 
       let sumaKawa = 0;
       document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
         const nazwaKawa = row.querySelector("td:nth-child(2)").textContent;
         const iloscKawa = parseInt(row.querySelector(".ilosc").textContent);
         if (nazwaKawa.includes("Kawa")) {
-          sumaKawa += iloscKawa * 1; // Kawa - odejmujemy 1% za każdą sztukę
+          sumaKawa += iloscKawa * 1;
         }
       });
-      // Odejmij od poziomu (dla kawy)
       poziomKawa = Math.max(0, poziomKawa - sumaKawa);
-      aktualizujLicznikKawa(); // Aktualizuj licznik dla kawy
+      aktualizujLicznikKawa();
 
       document.getElementById("pozycje-wydania-tbody").innerHTML = "";
       document.getElementById("wartosc-wydania").innerHTML = "0.00 zł";
@@ -238,31 +249,20 @@ async function zapiszWydanie(formaPlatnosci) {
   }
 }
 
-function dodajDoTabeliLodyWloskie(nazwaTowaru) {
+async function dodajDoTabeliLodyWloskie(nazwaTowaru, towarId) {
   const tbody = document.getElementById("pozycje-wydania-tbody");
 
-  // Ustawienie ceny w zależności od nazwy przycisku
-  let cenaTowaru = 0;
-  if (nazwaTowaru === "Lody Włoskie Małe") {
-    cenaTowaru = 6; // cena za małe lody
-  } else if (nazwaTowaru === "Lody Włoskie Duże") {
-    cenaTowaru = 8; // cena za duże lody
-  } else if (nazwaTowaru === "Kawa") {
-    cenaTowaru = 10;
-  } else if (nazwaTowaru === "Granita") {
-    cenaTowaru = 8;
-  } else if (nazwaTowaru === "Polewa Posypka") {
-    cenaTowaru = 0.5;
-  } else if (nazwaTowaru === "Bita Śmietana") {
-    cenaTowaru = 2;
+  let cenaTowaru = await pobierzCeneTowaru(towarId);
+
+  if (cenaTowaru === null || isNaN(cenaTowaru)) {
+    console.error("Nie udało się pobrać ceny towaru");
+    return;
   }
 
-  // Sprawdzamy, czy dany towar już istnieje w tabeli
   let istniejącyWiersz = [...tbody.rows].find(
-    (row) => row.dataset.nazwa === nazwaTowaru
+    (row) => row.dataset.towarId === towarId
   );
 
-  // Jeżeli istnieje, aktualizujemy ilość i cenę
   if (istniejącyWiersz) {
     let iloscCell = istniejącyWiersz.querySelector(".ilosc");
     let cenaCell = istniejącyWiersz.querySelector(".cena");
@@ -271,9 +271,8 @@ function dodajDoTabeliLodyWloskie(nazwaTowaru) {
     iloscCell.textContent = nowaIlosc;
     cenaCell.textContent = (nowaIlosc * cenaTowaru).toFixed(2) + " zł";
   } else {
-    // Jeżeli nie istnieje, tworzymy nowy wiersz
     const nowyWiersz = document.createElement("tr");
-    nowyWiersz.dataset.nazwa = nazwaTowaru;
+    nowyWiersz.dataset.towarId = towarId;
     nowyWiersz.innerHTML = `
       <td class="licznik"></td>
       <td>${nazwaTowaru}</td>
@@ -295,19 +294,42 @@ function dodajDoTabeliLodyWloskie(nazwaTowaru) {
   aktualizujSume();
 }
 
+async function pobierzCeneTowaru(towarId) {
+  try {
+    const response = await fetch(`${CONFIG.URL}/api/cena-towaru/${towarId}`);
+    if (!response.ok) {
+      throw new Error("Błąd pobierania ceny");
+    }
+    const data = await response.json();
+
+    if (
+      Array.isArray(data) &&
+      data.length > 0 &&
+      typeof data[0].CCena === "number"
+    ) {
+      return data[0].CCena;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error("Błąd API:", error);
+    return null;
+  }
+}
+
 let poziom = 100;
 let poziomKawa = 100;
 
 const licznik = document.querySelector(".licznik-wypelnienie");
 const licznikKawa = document.querySelector(".licznik-wypelnienie-kawa");
 
-// document.querySelectorAll(".pozostale-towary").forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     const zmiana = parseInt(btn.dataset.zmiana);
-//     poziom = Math.max(0, poziom - zmiana);
-//     aktualizujLicznik();
-//   });
-// });
+document.querySelectorAll(".pozostale-towary").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const zmiana = parseInt(btn.dataset.zmiana);
+    poziom = Math.max(0, poziom - zmiana);
+    aktualizujLicznik();
+  });
+});
 
 function aktualizujLicznik() {
   licznik.style.height = poziom + "%";

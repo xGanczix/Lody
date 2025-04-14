@@ -1,0 +1,266 @@
+[2025-04-13 20:58:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 20:58:58] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-13 20:59:07] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-13 21:05:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:05:47] [INFO] Zalogowano Serwis
+[2025-04-13 21:05:55] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-13 21:05:56] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-13 21:05:59] [INFO] Restart serwera
+[2025-04-13 21:06:03] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-13 21:06:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:06:04] [INFO] Połączono z MariaDB
+[2025-04-13 21:20:51] [INFO] Zalogowano: mati (Sklep: Prusa)
+[2025-04-13 21:20:53] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-13 21:20:54] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:6363, no: 1054, SQLState: 42S22) Unknown column 's.SmkTowId' in 'SELECT'
+sql: 
+    select
+	k.KuwId as Id,
+	    s.SmkNazwa as Nazwa,
+	    s.SmkKolor as Kolor,
+	s.SmkTekstKolor as TekstKolor,
+	    r.RozPojemnosc as Pojemnosc,
+	    k.KuwPorcje as Porcje,
+	    s.SmkTowId,
+	    c.CCena
+from
+	    Kuwety as k
+left join Rozmiary as r on
+	  ...
+[2025-04-13 21:21:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:21:00] [INFO] Połączono z MariaDB
+[2025-04-13 21:21:01] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:6402, no: 1054, SQLState: 42S22) Unknown column 's.SmkTowId' in 'SELECT'
+sql: 
+    select
+	k.KuwId as Id,
+	    s.SmkNazwa as Nazwa,
+	    s.SmkKolor as Kolor,
+	s.SmkTekstKolor as TekstKolor,
+	    r.RozPojemnosc as Pojemnosc,
+	    k.KuwPorcje as Porcje,
+	    s.SmkTowId,
+	    c.CCena
+from
+	    Kuwety as k
+left join Rozmiary as r on
+	  ...
+[2025-04-13 21:22:33] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:6403, no: 1146, SQLState: 42S02) Table 'lody_lacko.rcp' doesn't exist
+sql: select * from RCP where RCPUzId = 1 order by RCPStartZmiany desc limit 1 - parameters:[]
+[2025-04-13 21:22:34] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:6404, no: 1146, SQLState: 42S02) Table 'lody_lacko.sklepy' doesn't exist
+sql: select * from Sklepy - parameters:[]
+[2025-04-13 21:22:35] [INFO] Zalogowano Serwis
+[2025-04-13 21:22:39] [INFO] Baza danych utworzona poprawnie
+[2025-04-13 21:22:41] [INFO] Poprawne utworzenie tabel
+[2025-04-13 21:22:49] [INFO] Zalogowano Serwis
+[2025-04-13 21:22:57] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: Sklep 1
+[2025-04-13 21:23:00] [INFO] Zalogowano Serwis
+[2025-04-13 21:23:16] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-04-13 21:23:22] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-13 21:23:22] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:6417, no: 1305, SQLState: 42000) PROCEDURE lody_lacko.rejestruj_zmiane does not exist
+sql: CALL rejestruj_zmiane(?) - parameters:[1]
+[2025-04-13 21:23:24] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:6419, no: 1305, SQLState: 42000) PROCEDURE lody_lacko.rejestruj_zmiane does not exist
+sql: CALL rejestruj_zmiane(?) - parameters:[1]
+[2025-04-13 21:23:25] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:6421, no: 1305, SQLState: 42000) PROCEDURE lody_lacko.rejestruj_zmiane does not exist
+sql: CALL rejestruj_zmiane(?) - parameters:[1]
+[2025-04-13 21:23:26] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:6423, no: 1305, SQLState: 42000) PROCEDURE lody_lacko.rejestruj_zmiane does not exist
+sql: CALL rejestruj_zmiane(?) - parameters:[1]
+[2025-04-13 21:23:36] [INFO] Zalogowano Serwis
+[2025-04-13 21:23:40] [INFO] Procedura RCP została utworzona przez API
+[2025-04-13 21:23:45] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-13 21:23:46] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-13 21:33:30] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-13 21:33:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:33:32] [INFO] Połączono z MariaDB
+[2025-04-13 21:38:25] [INFO] Zalogowano Serwis
+[2025-04-13 21:44:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:44:01] [INFO] Połączono z MariaDB
+[2025-04-13 21:44:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:44:53] [INFO] Połączono z MariaDB
+[2025-04-13 21:45:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:45:00] [INFO] Połączono z MariaDB
+[2025-04-13 21:45:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:45:13] [INFO] Połączono z MariaDB
+[2025-04-13 21:45:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:45:24] [INFO] Połączono z MariaDB
+[2025-04-13 21:45:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:45:31] [INFO] Połączono z MariaDB
+[2025-04-13 21:45:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:45:43] [INFO] Połączono z MariaDB
+[2025-04-13 21:46:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:46:44] [INFO] Połączono z MariaDB
+[2025-04-13 21:47:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:47:06] [INFO] Połączono z MariaDB
+[2025-04-13 21:47:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:47:13] [INFO] Połączono z MariaDB
+[2025-04-13 21:47:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:47:21] [INFO] Połączono z MariaDB
+[2025-04-13 21:47:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:47:27] [INFO] Połączono z MariaDB
+[2025-04-13 21:47:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:47:52] [INFO] Połączono z MariaDB
+[2025-04-13 21:48:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:48:04] [INFO] Połączono z MariaDB
+[2025-04-13 21:48:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:48:12] [INFO] Połączono z MariaDB
+[2025-04-13 21:48:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:48:18] [INFO] Połączono z MariaDB
+[2025-04-13 21:49:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:49:01] [INFO] Połączono z MariaDB
+[2025-04-13 21:49:38] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-13 21:49:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:49:56] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-13 21:50:00] [INFO] Baza danych utworzona poprawnie
+[2025-04-13 21:50:04] [INFO] Poprawne utworzenie tabel
+[2025-04-13 21:50:06] [INFO] Procedura RCP została utworzona przez API
+[2025-04-13 21:50:09] [INFO] Poprawne wpisanie danych
+[2025-04-13 21:53:26] [INFO] Dane z tabel zostały usunięte
+[2025-04-13 21:53:29] [ERROR] Błąd wpisywania danych: SqlError: (conn:7482, no: 1136, SQLState: 21S01) Column count doesn't match value count at row 4
+sql: insert into
+	Ceny(
+        CTowId,
+        CCena,
+        CPoprzedniaCena)
+values
+    (1,0,0),
+    (2,0,0),
+    (3,0,0),
+    (4,0.0),
+    (5,0,0) - parameters:[]
+[2025-04-13 21:53:57] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-13 21:53:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:53:58] [INFO] Połączono z MariaDB
+[2025-04-13 21:54:12] [ERROR] Błąd wpisywania danych: SqlError: (conn:7531, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '6,0,0)' at line 1
+sql: (6,0,0) - parameters:[]
+[2025-04-13 21:54:40] [INFO] Poprawne wpisanie danych
+[2025-04-13 21:58:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:58:39] [INFO] Połączono z MariaDB
+[2025-04-13 21:58:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:58:49] [INFO] Połączono z MariaDB
+[2025-04-13 21:58:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:58:52] [INFO] Połączono z MariaDB
+[2025-04-13 21:59:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:59:24] [INFO] Połączono z MariaDB
+[2025-04-13 21:59:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 21:59:32] [INFO] Połączono z MariaDB
+[2025-04-13 21:59:38] [INFO] Zalogowano Serwis
+[2025-04-13 21:59:43] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 1
+[2025-04-13 21:59:54] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-04-13 22:01:19] [INFO] Dane z tabel zostały usunięte
+[2025-04-13 22:01:28] [INFO] Poprawne wpisanie danych
+[2025-04-13 22:02:04] [INFO] Zalogowano Serwis
+[2025-04-13 22:02:10] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 1
+[2025-04-13 22:02:19] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-04-13 22:02:23] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 22:02:25] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-13 22:06:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:06:11] [INFO] Połączono z MariaDB
+[2025-04-13 22:06:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:06:24] [INFO] Połączono z MariaDB
+[2025-04-13 22:06:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:06:36] [INFO] Połączono z MariaDB
+[2025-04-13 22:07:36] [INFO] Zalogowano Serwis
+[2025-04-13 22:07:53] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 22:08:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:08:16] [INFO] Połączono z MariaDB
+[2025-04-13 22:08:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:08:30] [INFO] Połączono z MariaDB
+[2025-04-13 22:09:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:09:18] [INFO] Połączono z MariaDB
+[2025-04-13 22:10:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:10:44] [INFO] Połączono z MariaDB
+[2025-04-13 22:10:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:10:46] [INFO] Połączono z MariaDB
+[2025-04-13 22:11:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:11:06] [INFO] Połączono z MariaDB
+[2025-04-13 22:11:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:11:22] [INFO] Połączono z MariaDB
+[2025-04-13 22:11:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:11:41] [INFO] Połączono z MariaDB
+[2025-04-13 22:11:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:11:53] [INFO] Połączono z MariaDB
+[2025-04-13 22:12:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:12:32] [INFO] Połączono z MariaDB
+[2025-04-13 22:12:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:12:47] [INFO] Połączono z MariaDB
+[2025-04-13 22:14:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:14:35] [INFO] Połączono z MariaDB
+[2025-04-13 22:15:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:15:08] [INFO] Połączono z MariaDB
+[2025-04-13 22:17:03] [INFO] Zalogowano Serwis
+[2025-04-13 22:17:44] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 22:18:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:18:13] [INFO] Połączono z MariaDB
+[2025-04-13 22:18:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:18:20] [INFO] Połączono z MariaDB
+[2025-04-13 22:18:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:18:45] [INFO] Połączono z MariaDB
+[2025-04-13 22:28:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:28:12] [INFO] Połączono z MariaDB
+[2025-04-13 22:29:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:29:13] [INFO] Połączono z MariaDB
+[2025-04-13 22:29:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:29:26] [INFO] Połączono z MariaDB
+[2025-04-13 22:45:12] [INFO] Zalogowano Serwis
+[2025-04-13 22:45:25] [INFO] Smak dodany pomyślnie: test
+[2025-04-13 22:45:34] [INFO] Rozmiar dodany pomyślnie: Duża
+[2025-04-13 22:45:38] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 1 | Porcje: 90
+[2025-04-13 22:45:51] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 22:45:55] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-13 22:52:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:52:59] [INFO] Połączono z MariaDB
+[2025-04-13 22:53:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:53:36] [INFO] Połączono z MariaDB
+[2025-04-13 22:54:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:54:49] [INFO] Połączono z MariaDB
+[2025-04-13 22:55:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:55:03] [INFO] Połączono z MariaDB
+[2025-04-13 22:55:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:55:30] [INFO] Połączono z MariaDB
+[2025-04-13 22:55:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 22:55:42] [INFO] Połączono z MariaDB
+[2025-04-13 23:15:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:15:02] [INFO] Połączono z MariaDB
+[2025-04-13 23:15:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:15:10] [INFO] Połączono z MariaDB
+[2025-04-13 23:19:23] [INFO] Zalogowano Serwis
+[2025-04-13 23:19:31] [INFO] Dane z tabel zostały usunięte
+[2025-04-13 23:25:31] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 1
+[2025-04-13 23:25:48] [INFO] Smak dodany pomyślnie: Toffi
+[2025-04-13 23:25:58] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-04-13 23:26:00] [INFO] Odczytano smakId: 2 
+[2025-04-13 23:26:22] [INFO] Rozmiar dodany pomyślnie: Duża kuweta
+[2025-04-13 23:26:28] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 1 | Porcje: 90
+[2025-04-13 23:26:32] [INFO] Kuweta dodana pomyślnie: Id smak: 2 | Id rozmiar: 1 | Porcje: 90
+[2025-04-13 23:27:21] [INFO] Zalogowano Serwis
+[2025-04-13 23:27:34] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-04-13 23:27:39] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 23:27:40] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-13 23:27:44] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-13 23:28:06] [INFO] Zalogowano Serwis
+[2025-04-13 23:28:13] [INFO] Poprawne wpisanie danych
+[2025-04-13 23:28:17] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 23:28:25] [INFO] Zalogowano Serwis
+[2025-04-13 23:28:51] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 23:29:14] [INFO] Zalogowano Serwis
+[2025-04-13 23:32:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:32:35] [INFO] Połączono z MariaDB
+[2025-04-13 23:38:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:38:41] [INFO] Połączono z MariaDB
+[2025-04-13 23:39:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:39:18] [INFO] Połączono z MariaDB
+[2025-04-13 23:39:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:39:41] [INFO] Połączono z MariaDB
+[2025-04-13 23:46:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:46:40] [INFO] Połączono z MariaDB
+[2025-04-13 23:47:56] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-13 23:49:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:49:32] [INFO] Połączono z MariaDB
+[2025-04-13 23:50:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:50:51] [INFO] Połączono z MariaDB
+[2025-04-13 23:52:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-13 23:52:15] [INFO] Połączono z MariaDB
+[2025-04-13 23:52:58] [INFO] Zalogowano Serwis

@@ -30,28 +30,41 @@
       <main>
         <div class="centrala-main-container centrala-main-container-serwis">
           <form action="" class="serwis">
-            <button id="tworzenieBazyDanych" class="serwis-btn">
+            <h2>Przygotowanie bazy danych</h2>
+            <button id="tworzenieBazyDanych" class="serwis-btn" type="button">
               Tworzenie Bazy Danych
             </button>
-            <button class="serwis-btn" id="tworzenieTabel">
+            <button class="serwis-btn" id="tworzenieTabel" type="button">
               Tworzenie tabel dla aplikacji
             </button>
-            <button class="serwis-btn" id="tworzenieRegul">
+            <button class="serwis-btn" id="tworzenieRegul" type="button">
               Tworzenie reguł dla RCP
             </button>
-            <button class="serwis-btn" id="czyszczenieTabel">
-              Czyszczenie tabel aplikacji
-            </button>
-            <button class="serwis-btn" id="tworzenieAdministratora">
+            <button
+              class="serwis-btn"
+              id="tworzenieAdministratora"
+              type="button"
+            >
               Tworzenie konta administratora
             </button>
-            <button class="serwis-btn" id="czyszczenieBuforaZamowien">
+            <button class="serwis-btn" id="wstawianieDanych" type="button">
+              Tworzenie podstawowych danych
+            </button>
+          </form>
+          <form class="serwis">
+            <h2>Naprawy</h2>
+            <button class="serwis-btn" id="czyszczenieTabel" type="button">
+              Czyszczenie tabel aplikacji
+            </button>
+
+            <button
+              class="serwis-btn"
+              id="czyszczenieBuforaZamowien"
+              type="button"
+            >
               Czyszczenie bufora zamówień
             </button>
-            <button class="serwis-btn" id="zamowienieToPDF">
-              Serwisowe generowanie zamówień
-            </button>
-            <button class="serwis-btn" id="generatorZamowienToPDF">
+            <button class="serwis-btn" id="zamowienieToPDF" type="button">
               Serwisowe generowanie zamówień
             </button>
           </form>
@@ -62,6 +75,7 @@
     <script src="../js/token.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/logout.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 

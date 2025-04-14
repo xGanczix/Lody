@@ -107,6 +107,46 @@ document
   });
 
 document
+  .getElementById("wstawianieDanych")
+  .addEventListener("click", async () => {
+    const button = document.getElementById("wstawianieDanych");
+    let originalText = button.textContent;
+
+    try {
+      const userConfirmed = confirm(
+        "Czy na pewno chcesz wpisać podstawowe dane?"
+      );
+      if (!userConfirmed) return;
+
+      button.textContent = "Wstawianie danych...";
+      button.disabled = true;
+
+      const response = await fetch(`${CONFIG.URL}/api/wstawianie-danych`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert(`Sukces: ${result.message}`);
+      } else {
+        throw new Error(result.error || "Nieznany błąd");
+      }
+    } catch (error) {
+      console.error("Błąd:", error);
+      alert(`Błąd podczas wpisywania danych: ${error.message}`);
+    } finally {
+      if (button) {
+        button.textContent = originalText;
+        button.disabled = false;
+      }
+    }
+  });
+
+document
   .getElementById("czyszczenieTabel")
   .addEventListener("click", async () => {
     const button = document.getElementById("czyszczenieTabel");
@@ -222,24 +262,48 @@ document
     }
   });
 
+function replacePolishChars(text) {
+  const map = {
+    ą: "a",
+    ć: "c",
+    ę: "e",
+    ł: "l",
+    ń: "n",
+    ó: "o",
+    ś: "s",
+    ź: "z",
+    ż: "z",
+    Ą: "A",
+    Ć: "C",
+    Ę: "E",
+    Ł: "L",
+    Ń: "N",
+    Ó: "O",
+    Ś: "S",
+    Ź: "Z",
+    Ż: "Z",
+  };
+  return text.replace(/[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g, (char) => map[char] || char);
+}
+
 document
   .getElementById("zamowienieToPDF")
   .addEventListener("click", async function () {
     try {
-      // Wysyłanie zapytania do endpointu
       const response = await fetch(
         `${CONFIG.URL}/api/generator-zamowien-sklepy`
       );
       const data = await response.json();
 
-      // Tworzenie nowego PDF
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
 
-      // Dodawanie tytułu
-      doc.text("Serwisowe generowanie zamówień", 20, 10);
+      doc.text(
+        replacePolishChars("Serwisowe generowanie zamówień – żółć"),
+        20,
+        10
+      );
 
-      // Tworzenie nagłówka tabeli
       const headers = ["SmkId", "SmkNazwa", "Liczba wystąpień", "ZamSklId"];
       const tableData = data.map((row) => [
         row.SmkId,
@@ -248,7 +312,6 @@ document
         row.ZamSklId,
       ]);
 
-      // Dodawanie tabeli do PDF
       doc.autoTable({
         head: [headers],
         body: tableData,
@@ -256,7 +319,6 @@ document
         theme: "grid",
       });
 
-      // Generowanie pliku PDF i pobieranie go
       doc.save("zamowienie_serwisowe.pdf");
     } catch (error) {
       console.error("Błąd przy generowaniu PDF:", error);

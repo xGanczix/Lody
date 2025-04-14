@@ -1241,6 +1241,32 @@ async function createTables() {
   }
 }
 
+async function insertData() {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.beginTransaction();
+
+    const queries = readSQLFile("./SQL/InsertData.sql");
+
+    for (const query of queries) {
+      if (query) {
+        await connection.query(query);
+      }
+    }
+
+    await connection.commit();
+    console.log("Wszystkie dane zostały wpisane");
+    return true;
+  } catch (error) {
+    if (connection) await connection.rollback();
+    console.error("Błąd podczas wpisywaia danych:", error);
+    throw error;
+  } finally {
+    if (connection) connection.release();
+  }
+}
+
 app.post("/api/tworzenie-tabel", async (req, res) => {
   try {
     await createTables();
@@ -1256,6 +1282,24 @@ app.post("/api/tworzenie-tabel", async (req, res) => {
       details: error.message,
     });
     logToFile(`[ERROR] Błąd tworzenia tabel: ${error}`);
+  }
+});
+
+app.post("/api/wstawianie-danych", async (req, res) => {
+  try {
+    await insertData();
+    res.status(201).json({
+      success: true,
+      message: "Dane zostały wpisane na podstawie pliku SQL",
+    });
+    logToFile("[INFO] Poprawne wpisanie danych");
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: "Wystąpił błąd podczas wpisywania danych",
+      details: error.message,
+    });
+    logToFile(`[ERROR] Błąd wpisywania danych: ${error}`);
   }
 });
 
@@ -1596,7 +1640,7 @@ app.get(
 	    left join Dokumenty as d on d.DokId = dp.DokPozDokId 
 	    left join Sklepy as sk on sk.SklId = d.DokSklepId
 	    left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
-	    where d.DokData >= now() - interval 7 day`;
+	    where d.DokData >= now() - interval 7 day and dp.DokPozTowId is not null`;
 
       if (uzytkownikId !== "123456789") {
         sql += ` and us.UzSklUzId = ?
@@ -1639,7 +1683,7 @@ app.get(
 	    left join Smaki as s on s.SmkId = k.KuwSmkId
 	    left join Dokumenty as d on d.DokId = dp.DokPozDokId 
 	    left join Sklepy as sk on sk.SklId = d.DokSklepId
-	    where d.DokData >= now() - interval 7 day AND d.DokSklepId = ?
+	    where d.DokData >= now() - interval 7 day AND d.DokSklepId = ? and dp.DokPozTowId is not null
       group by
 	      s.SmkId, d.DokSklepId
 	    order by s.SmkNazwa`;
@@ -1654,6 +1698,39 @@ app.get(
     }
   }
 );
+
+app.get("/api/raport-sprzedazy-towarow/:sklepId", async (req, res) => {
+  let sklepId = req.params.sklepId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+    select
+	t.TowNazwa,
+	sum(dp.DokPozTowIlosc) as iloscSprzedana
+from
+	DokumentyPozycje as dp
+left join Towary as t on
+	t.TowId = dp.DokPozPozostalyTowId
+left join Dokumenty as d on
+	d.DokId = dp.DokPozDokId
+where
+	d.DokData >= now() - interval 7 day
+	and d.DokSklepId = ?
+group by
+	      dp.DokPozPozostalyTowId,
+	d.DokSklepId
+order by
+	t.TowNazwa`;
+    const data = await connection.query(sql, sklepId);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).json({ error: "Błąd podczas pobierania danych" });
+  } finally {
+    if (connection) connection.release();
+  }
+});
 
 app.put("/api/zamowienie-bufor/:kuwetaId", async (req, res) => {
   const kuwetaId = req.params.id;
@@ -1779,6 +1856,7 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
     const { sklepId, platnosc, autorId, pozycje } = req.body;
     const numerDokumentu = await generujNumerDokumentu(sklepId);
 
+    // Tworzenie nagłówka dokumentu
     const result = await dbConfig.query(
       "INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId) VALUES (?, ?, ?, ?)",
       [numerDokumentu, sklepId, platnosc, autorId]
@@ -1786,17 +1864,33 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
 
     const dokumentId = result.insertId;
 
+    // Iteracja po pozycjach
     for (const pozycja of pozycje) {
-      if (pozycja.towId) {
+      const { towId, pozostalyTowarId, ilosc, cena } = pozycja;
+
+      if (towId) {
+        // Lody rzemieślnicze (kuwety)
         await dbConfig.query(
-          "INSERT INTO DokumentyPozycje (DokPozDokId, DokPozTowId, DokPozTowIlosc, DokPozCena) VALUES (?, ?, ?, ?)",
-          [dokumentId, pozycja.towId, pozycja.ilosc, pozycja.cena]
+          `INSERT INTO DokumentyPozycje 
+            (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+            VALUES (?, ?, ?, ?, ?)`,
+          [dokumentId, towId, pozostalyTowarId, ilosc, cena]
         );
 
         await dbConfig.query(
           "UPDATE Kuwety SET KuwPorcje = KuwPorcje - ? WHERE KuwId = ?",
-          [pozycja.ilosc, pozycja.towId]
+          [ilosc, towId]
         );
+      } else if (pozostalyTowarId) {
+        // Inne towary
+        await dbConfig.query(
+          `INSERT INTO DokumentyPozycje 
+            (DokPozDokId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+            VALUES (?, ?, ?, ?)`,
+          [dokumentId, pozostalyTowarId, ilosc, cena]
+        );
+      } else {
+        console.warn("Pominięto pozycję bez ID:", pozycja);
       }
     }
 
@@ -1940,6 +2034,21 @@ app.get("/api/ceny", async (req, res) => {
   } catch (err) {
     res.status(500);
     logToFile[`Błąd połączenia z bazą danych: ${err}`];
+  }
+});
+
+app.get("/api/cena-towaru/:towarId", async (req, res) => {
+  const towarId = req.params.towarId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `select * from Towary as t left join Ceny as c on c.CTowId = t.TowId WHERE t.TowId = ?`;
+    const data = await connection.query(sql, towarId);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+  } finally {
+    if (connection) connection.release();
   }
 });
 

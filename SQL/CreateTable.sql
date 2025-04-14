@@ -94,7 +94,8 @@ create table if not exists DokumentyNumeracja(
 create table if not exists DokumentyPozycje(
 	DokPozId int not null primary key auto_increment,
 	DokPozDokId int not null,
-	DokPozTowId int not null,
+	DokPozTowId int,
+	DokPozPozostalyTowId int,
 	DokPozTowIlosc float not null,
 	DokPozCena float(10,2) not null
 );
@@ -121,4 +122,12 @@ create table if not exists Zamowienia(
 	ZamSklId int not null,
 	ZamStatus int not null default 1,
 	ZamData datetime not null default now()
+);
+
+create table if not exists Liczniki(
+	LId int not null primary key auto_increment,
+	LNazwa varchar(255) not null,
+	LPojemnosc float not null,
+	LPorcje float not null,
+	LDataZmiany datetime not null default now()
 );
