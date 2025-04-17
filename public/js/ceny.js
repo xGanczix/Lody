@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const width = window.innerWidth;
+
   async function fetchCeny() {
     try {
       const response = await fetch(`${CONFIG.URL}/api/ceny`);
@@ -10,16 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
       ceny.forEach((cena) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td>${cena.CId}</td>
-            <td>${cena.TowNazwa}</td>
-            <td><input type="number" step="0.01" class="cena-towaru" value="${cena.CCena}"></td>
-            <td><input type="number" step="0.01" value="${cena.CPoprzedniaCena}" disabled></td>
-            <td>${cena.CDataZmiany}</td>
-            <td><button class="ceny-edycja-btn" data-towar="${cena.TowId}">Zapisz</button></td>
-            `;
-
+          <td>${cena.CId}</td>
+          <td>${cena.TowNazwa}</td>
+          <td><input type="number" step="0.01" class="cena-towaru" value="${cena.CCena}"></td>
+          <td><input type="number" step="0.01" value="${cena.CPoprzedniaCena}" disabled></td>
+          <td>${cena.CDataZmiany}</td>
+          <td><button class="ceny-edycja-btn" data-towar="${cena.TowId}"><span>Zapisz</span><img src="../img/white/save-white.png" style="display:none"></button></td>
+        `;
         tableBody.appendChild(row);
       });
+
+      // ⬇⬇⬇ Tutaj dopiero ukrywamy spany, po wygenerowaniu przycisków
+      if (window.innerWidth < 992) {
+        document.querySelectorAll(".ceny-edycja-btn img").forEach((img) => {
+          img.style.display = "block";
+        });
+        document.querySelectorAll(".ceny-edycja-btn span").forEach((span) => {
+          span.style.display = "none";
+        });
+      }
     } catch (error) {
       console.error("Błąd pobierania smaków:", error);
     }

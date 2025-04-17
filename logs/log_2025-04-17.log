@@ -1,0 +1,659 @@
+[2025-04-17 08:25:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 08:25:26] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:26:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 08:26:12] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:13] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:14] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:28] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:29] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:45] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:46] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:51] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:52] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:29:54] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:30:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:30:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:30:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:30:29] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:31:14] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:31:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:31:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:31:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:32:09] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:32:14] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:32:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:32:30] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:33:50] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:34:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:40:13] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:40:52] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:41:02] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10016ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:42:14] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:42:42] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:42:52] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:42:57] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:43:03] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:43:09] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10017ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:43:11] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:44:27] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:44:34] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:44:40] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:44:49] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:45:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:45:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:45:21] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:45:30] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:45:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:45:45] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:45:55] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:46:07] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:46:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:46:28] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:46:39] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:46:50] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:47:35] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:47:58] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:49:21] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:49:34] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:50:01] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:50:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:52:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:52:27] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:52:48] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:53:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:54:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:05] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:10] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:20] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:25] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:30] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:38] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:48] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:53] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10016ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:56:58] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:57:03] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:57:08] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:57:14] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:57:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:57:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:57:49] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:57:55] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:05] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:10] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:15] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:20] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:25] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:31] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:41] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:46] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:51] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:58:56] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:01] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:12] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:22] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:27] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:29] [INFO] Zalogowano Serwis
+[2025-04-17 08:59:32] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:37] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:42] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:42] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:46] [ERROR] Błąd podczas dodawania sklepu: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:47] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:52] [ERROR] Błąd podczas dodawania sklepu: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:52] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 08:59:58] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:03] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:05] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:08] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:13] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:23] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:25] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-17 09:00:28] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:29] [INFO] Restart serwera przez PM2
+[2025-04-17 09:00:29] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:29] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:30] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:30] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:30] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:30] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:31] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:31] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:32] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:32] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:32] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:32] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:33] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:33] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:33] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:33] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:33] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:34] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:34] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:35] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:35] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:35] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:35] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:36] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:36] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:36] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:36] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:37] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:37] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:37] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:37] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:38] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:00:38] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:00:39] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:44] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:49] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:54] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:00:59] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:04] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:09] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:14] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:19] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:25] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:30] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:35] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:40] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:45] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:50] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:01:55] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:11] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:21] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:26] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:31] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:41] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:46] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:52] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:02:57] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:02] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:07] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:12] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:17] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:22] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:27] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:33] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:38] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:48] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:53] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:03:58] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:03] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:08] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:13] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:30] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:42] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10000ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:48] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:04:54] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:12] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:18] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:24] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:30] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:36] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:42] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:48] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:05:54] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:06:00] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:06:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10009ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:06:12] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:15:03] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:14491, no: 45025, SQLState: 08004) Client does not support authentication protocol 'auth_gssapi_client' requested by server.
+[2025-04-17 09:15:10] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-17 09:15:14] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:14] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:14] [INFO] Restart serwera przez PM2
+[2025-04-17 09:15:15] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:15] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:15] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:15] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:16] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:16] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:16] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:16] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:17] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:17] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:17] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:17] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:18] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:18] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:18] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:18] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:19] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:19] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:19] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:19] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:20] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:20] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:21] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:21] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:21] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:21] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:22] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:22] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:22] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-17 09:15:22] [INFO] Aplikacja zakończyła działanie.
+[2025-04-17 09:15:30] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-17 09:15:37] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-17 09:15:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 09:15:39] [INFO] Połączono z MariaDB
+[2025-04-17 09:27:43] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-17 09:27:47] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-17 09:40:45] [INFO] Dane z tabel zostały usunięte
+[2025-04-17 09:40:49] [INFO] Poprawne wpisanie danych
+[2025-04-17 09:41:36] [INFO] Użytkownik dodany pomyślnie: admin
+[2025-04-17 09:43:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 09:43:14] [INFO] Połączono z MariaDB
+[2025-04-17 09:45:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 09:45:18] [INFO] Połączono z MariaDB
+[2025-04-17 09:48:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 09:48:50] [INFO] Połączono z MariaDB
+[2025-04-17 09:49:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 09:49:01] [INFO] Połączono z MariaDB
+[2025-04-17 09:50:30] [INFO] Zalogowano Serwis
+[2025-04-17 09:50:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 09:50:46] [INFO] Połączono z MariaDB
+[2025-04-17 09:50:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 09:50:49] [INFO] Połączono z MariaDB
+[2025-04-17 09:50:59] [INFO] Zalogowano Serwis
+[2025-04-17 09:51:08] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 1
+[2025-04-17 09:51:19] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-04-17 10:04:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:04:43] [INFO] Połączono z MariaDB
+[2025-04-17 10:04:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:04:48] [INFO] Połączono z MariaDB
+[2025-04-17 10:05:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:05:50] [INFO] Połączono z MariaDB
+[2025-04-17 10:06:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:06:00] [INFO] Połączono z MariaDB
+[2025-04-17 10:07:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:07:03] [INFO] Połączono z MariaDB
+[2025-04-17 10:07:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:07:47] [INFO] Połączono z MariaDB
+[2025-04-17 10:15:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:15:30] [INFO] Połączono z MariaDB
+[2025-04-17 10:15:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:15:51] [INFO] Połączono z MariaDB
+[2025-04-17 10:15:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:15:54] [INFO] Połączono z MariaDB
+[2025-04-17 10:16:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:16:09] [INFO] Połączono z MariaDB
+[2025-04-17 10:26:03] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 10:35:00] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 10:35:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:35:19] [INFO] Połączono z MariaDB
+[2025-04-17 10:36:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 10:36:03] [INFO] Połączono z MariaDB
+[2025-04-17 10:42:34] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 10:43:22] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 10:47:48] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 10:49:34] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 10:50:23] [INFO] Zalogowano Serwis
+[2025-04-17 10:50:38] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 2
+[2025-04-17 10:51:35] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 10:51:43] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:01:00] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:01:35] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-17 11:01:39] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-17 11:01:42] [ERROR] Błąd sprawdzania otwartej zmiany użytkownika: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10008ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-17 11:01:45] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10007ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-17 11:02:01] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-17 11:02:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 11:02:03] [INFO] Połączono z MariaDB
+[2025-04-17 11:02:13] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:07:02] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:08:18] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:09:54] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:10:28] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:10:31] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 11:10:33] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 11:10:34] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 11:10:37] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 11:12:17] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:14:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 11:14:35] [INFO] Połączono z MariaDB
+[2025-04-17 11:15:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 11:15:00] [INFO] Połączono z MariaDB
+[2025-04-17 11:15:25] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:18:48] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 11:18:53] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 11:18:53] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 11:21:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 11:21:57] [INFO] Połączono z MariaDB
+[2025-04-17 11:22:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 11:22:16] [INFO] Połączono z MariaDB
+[2025-04-17 11:23:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 11:23:07] [INFO] Połączono z MariaDB
+[2025-04-17 11:23:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 11:23:37] [INFO] Połączono z MariaDB
+[2025-04-17 12:16:33] [INFO] Zalogowano Serwis
+[2025-04-17 12:22:06] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-17 12:22:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 12:22:07] [INFO] Połączono z MariaDB
+[2025-04-17 12:22:54] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:23:01] [INFO] Zalogowano: mati (Sklep: Sklep 5)
+[2025-04-17 12:23:19] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 12:33:04] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-17 12:37:22] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 12:38:48] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 12:38:52] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:39:08] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:40:28] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:41:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 12:41:22] [INFO] Połączono z MariaDB
+[2025-04-17 12:41:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 12:41:41] [INFO] Połączono z MariaDB
+[2025-04-17 12:42:51] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 12:43:31] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:43:55] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:44:12] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:44:19] [INFO] Zalogowano: mati (Sklep: null)
+[2025-04-17 12:44:31] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 12:48:03] [INFO] Zalogowano Serwis
+[2025-04-17 12:48:10] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 12:48:15] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-04-17 12:48:38] [INFO] Smak dodany pomyślnie: Toffi
+[2025-04-17 12:48:47] [INFO] Smak dodany pomyślnie: Truskawka
+[2025-04-17 12:48:58] [INFO] Smak dodany pomyślnie: Mięta
+[2025-04-17 12:49:11] [INFO] Rozmiar dodany pomyślnie: Duża kuweta
+[2025-04-17 12:49:21] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 1 | Porcje: 90
+[2025-04-17 12:49:36] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 12:49:53] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 12:50:08] [INFO] Zalogowano Serwis
+[2025-04-17 12:50:14] [INFO] Kuweta dodana pomyślnie: Id smak: 3 | Id rozmiar: 1 | Porcje: 90
+[2025-04-17 12:51:09] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 12:58:52] [INFO] Kuweta o ID: 2 przeniesiona do bufora zamówień
+[2025-04-17 13:00:07] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 13:00:16] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 13:00:24] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 13:00:31] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 13:00:58] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 13:01:04] [INFO] Zalogowano: mati (Sklep: Sklep 15)
+[2025-04-17 13:01:46] [INFO] Zalogowano: mati (Sklep: Sklep 4)
+[2025-04-17 13:01:50] [INFO] Zalogowano: mati (Sklep: Sklep 4)
+[2025-04-17 13:01:56] [INFO] Zalogowano: mati (Sklep: Sklep 2)
+[2025-04-17 13:02:01] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-17 13:02:16] [INFO] Zalogowano: mati (Sklep: Sklep 4)
+[2025-04-17 13:02:20] [INFO] Zalogowano: mati (Sklep: Sklep 4)
+[2025-04-17 13:03:21] [INFO] Zalogowano: mati (Sklep: Sklep 3)
+[2025-04-17 13:03:26] [INFO] Zalogowano: mati (Sklep: Sklep 7)
+[2025-04-17 13:03:32] [INFO] Zalogowano: mati (Sklep: Sklep 9)
+[2025-04-17 13:06:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 13:06:44] [INFO] Połączono z MariaDB
+[2025-04-17 13:08:33] [INFO] Zalogowano: mati (Sklep: Sklep 10)
+[2025-04-17 13:08:41] [INFO] Zalogowano: mati (Sklep: Sklep 10)
+[2025-04-17 13:08:46] [INFO] Zalogowano: mati (Sklep: Sklep 10)
+[2025-04-17 13:08:53] [INFO] Zalogowano: mati (Sklep: Sklep 10)
+[2025-04-17 13:08:58] [INFO] Zalogowano: mati (Sklep: Sklep 10)
+[2025-04-17 13:09:22] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 13:09:26] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 13:13:30] [INFO] Zalogowano: mati (Sklep: Sklep 5)
+[2025-04-17 13:13:35] [INFO] Zalogowano: mati (Sklep: Sklep 5)
+[2025-04-17 13:13:39] [INFO] Zalogowano: mati (Sklep: Sklep 5)
+[2025-04-17 13:13:52] [INFO] Zalogowano: mati (Sklep: Sklep 5)
+[2025-04-17 13:14:00] [INFO] Zalogowano: mati (Sklep: Sklep 5)
+[2025-04-17 13:16:06] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 13:16:16] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 13:16:19] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 13:16:23] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 13:16:26] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 13:17:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 13:17:04] [INFO] Połączono z MariaDB
+[2025-04-17 13:17:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 13:17:20] [INFO] Połączono z MariaDB
+[2025-04-17 13:21:21] [INFO] Zalogowano Serwis
+[2025-04-17 13:22:11] [INFO] Zalogowano Serwis
+[2025-04-17 13:35:11] [INFO] Zalogowano: mati
+[2025-04-17 13:40:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 13:40:54] [INFO] Połączono z MariaDB
+[2025-04-17 13:42:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 13:42:09] [INFO] Połączono z MariaDB
+[2025-04-17 13:49:59] [INFO] Zalogowano: Mati
+[2025-04-17 13:57:21] [INFO] Zalogowano: Mati
+[2025-04-17 13:59:40] [INFO] Zalogowano: Mati
+[2025-04-17 14:03:05] [INFO] Zalogowano: Mati
+[2025-04-17 14:16:39] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-17 14:16:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:16:41] [INFO] Połączono z MariaDB
+[2025-04-17 14:34:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:34:54] [INFO] Połączono z MariaDB
+[2025-04-17 14:36:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:36:47] [INFO] Połączono z MariaDB
+[2025-04-17 14:38:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:38:27] [INFO] Połączono z MariaDB
+[2025-04-17 14:38:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:38:48] [INFO] Połączono z MariaDB
+[2025-04-17 14:38:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:38:55] [INFO] Połączono z MariaDB
+[2025-04-17 14:39:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:39:21] [INFO] Połączono z MariaDB
+[2025-04-17 14:39:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:39:56] [INFO] Połączono z MariaDB
+[2025-04-17 14:40:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:40:16] [INFO] Połączono z MariaDB
+[2025-04-17 14:40:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:40:35] [INFO] Połączono z MariaDB
+[2025-04-17 14:40:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:40:54] [INFO] Połączono z MariaDB
+[2025-04-17 14:41:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:41:35] [INFO] Połączono z MariaDB
+[2025-04-17 14:42:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:42:30] [INFO] Połączono z MariaDB
+[2025-04-17 14:42:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:42:44] [INFO] Połączono z MariaDB
+[2025-04-17 14:43:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:43:20] [INFO] Połączono z MariaDB
+[2025-04-17 14:44:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:44:06] [INFO] Połączono z MariaDB
+[2025-04-17 14:44:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:44:29] [INFO] Połączono z MariaDB
+[2025-04-17 14:45:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:45:07] [INFO] Połączono z MariaDB
+[2025-04-17 14:45:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 14:45:28] [INFO] Połączono z MariaDB
+[2025-04-17 14:51:31] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-17 15:12:18] [INFO] Odczytano smakId: 4 
+[2025-04-17 15:15:24] [INFO] Zalogowano: mati (Sklep: Sklep 11)
+[2025-04-17 15:15:33] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-17 15:15:39] [INFO] Zalogowano: Mati
+[2025-04-17 15:48:59] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)

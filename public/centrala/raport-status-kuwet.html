@@ -10,12 +10,16 @@
     </script>
     <link id="them-style" rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="stylesheet" href="../css/style-media.css" />
     <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
     <title>Centrala - Status Kuwet</title>
   </head>
   <body>
     <div class="centrala-container">
       <div class="centrala-uzytkownik-container">
+        <button id="menu-display" style="display: none">
+          <img src="../img/white/menu-white.png" />
+        </button>
         <span id="username"></span>
 
         <button id="theme-toggle">
@@ -25,7 +29,7 @@
           <img src="../img/white/power-off-white.png" alt="" />
         </button>
       </div>
-      <nav></nav>
+      <nav class="centrala-menu"></nav>
       <main>
         <div class="centrala-filtrowanie">
           <select id="centrala-raport-sklep" required>

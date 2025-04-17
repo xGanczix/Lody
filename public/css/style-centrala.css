@@ -70,8 +70,8 @@
   border-radius: 50%;
   border: none;
   background: var(--button-light-color);
-  width: 60px !important;
-  height: 60px !important;
+  width: 60px;
+  height: 60px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -227,7 +227,6 @@ nav .nav-link.dropdown-toggle {
 main {
   margin-left: 20px;
   width: calc(80% - 20px);
-  height: calc(100vh - 40px);
 }
 
 .centrala-main-container {
@@ -378,7 +377,7 @@ table#centrala-rcp tbody td,
 table#rcp-user-data tbody td,
 table#centrala-status-kuwety tbody td,
 table#centrala-ceny tbody td {
-  padding: 10px !important;
+  padding: 10px;
   font-size: 20px;
   text-align: center;
 }

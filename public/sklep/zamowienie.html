@@ -10,6 +10,7 @@
     </script>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/style-sklep.css" />
+    <link rel="stylesheet" href="../css/style-media.css" />
     <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
     <title>Sklep - Zamówienie</title>
   </head>
@@ -65,13 +66,13 @@
               <tbody id="zamowienie-tbody"></tbody>
             </table>
           </div>
+          <p id="zamowienia-info">
+            ⚠️ Zamówione kuwety są dodawane do bufora na 10 minut! ⚠️<br />Po 10
+            minutach inne sklepy będą mogły zamówić kuwetę
+          </p>
+          <button id="zamowienie-zapisz-btn">ZAMÓW</button>
+          <button id="sprzedaz-menu-btn" onclick="menu()">MENU</button>
         </div>
-        <p id="zamowienia-info">
-          ⚠️ Zamówione kuwety są dodawane do bufora na 10 minut! ⚠️<br />Po 10
-          minutach inne sklepy będą mogły zamówić kuwetę
-        </p>
-        <button id="zamowienie-zapisz-btn">ZAMÓW</button>
-        <button id="sprzedaz-menu-btn" onclick="menu()">MENU</button>
       </main>
     </div>
     <script src="../js/config.js"></script>

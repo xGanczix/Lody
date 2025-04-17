@@ -1,0 +1,369 @@
+@media screen and (max-width: 575px) {
+  .container-login {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-login .theme-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
+  .container-login .theme-container button#theme-toggle {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+
+  form#form-login-password {
+    width: 90%;
+    height: 40vh;
+    margin-bottom: 0;
+    padding: 10px;
+    margin-top: 100px;
+  }
+
+  form#form-login-password input {
+    margin: 0 0 10px 0;
+  }
+
+  form#form-login-password button#password-zaloguj {
+    margin: 0;
+  }
+
+  form#form-login-pin {
+    width: 90%;
+    height: calc(100vh - 100px);
+    margin-bottom: 0;
+    padding: 10px;
+  }
+
+  form#form-login-password h2,
+  form#form-login-pin h2 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  form#form-login-pin .pin-key {
+    width: 70px;
+    height: 70px;
+  }
+
+  input,
+  select {
+    width: calc(100% + 30%);
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-bottom: 30px;
+  }
+
+  .sklep-menu-container {
+    padding: 10px;
+  }
+
+  nav.sklep-menu {
+    width: 100%;
+    display: flex;
+    padding: 0;
+    height: 150px;
+  }
+
+  button#menuSprzedaz {
+    display: none;
+  }
+
+  button#menuUlozenieKuwet {
+    display: none;
+  }
+
+  .sklep-menu-btn {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  .sklep-menu-btn:first-child {
+    margin-left: 0;
+  }
+
+  .sklep-menu-btn:last-child {
+    margin-right: 0;
+  }
+
+  .sklep-uzytkownik-container {
+    width: calc(100% - 10px);
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    height: 60px;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: space-between;
+  }
+
+  .sklep-uzytkownik-container button {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .zamowienie-kuwet-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .zamowienie-dostepne-kuwety,
+  .zamowienie-dostepne-smaki,
+  .zamowienie-zamowione-kuwety {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  p#zamowienia-info {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+
+  button#sprzedaz-menu-btn,
+  button#zamowienie-zapisz-btn {
+    display: block;
+    position: relative;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  nav.centrala-menu a.logo {
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 30px;
+  }
+
+  nav.centrala-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: calc(100vh - 50px);
+    border-radius: 0;
+  }
+
+  nav.centrala-menu a.logo {
+    height: 50px;
+    border-radius: 0;
+    z-index: 100;
+  }
+
+  nav.centrala-menu a.nav-link img {
+    width: 20px;
+    height: 20px;
+  }
+
+  nav.centrala-menu a.nav-link {
+    font-size: 18px;
+  }
+
+  .centrala-uzytkownik-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 50px;
+    gap: 5px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .centrala-uzytkownik-container button {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  button#menu-display {
+    display: block !important;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1000;
+    padding: 10px;
+  }
+
+  nav.centrala-menu .dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    display: block;
+  }
+
+  .centrala-container {
+    width: 100%;
+    height: calc(100vh - 50px);
+    margin-top: 50px;
+    display: block;
+    padding: 10px;
+  }
+
+  main {
+    width: 100%;
+    margin: 0;
+  }
+
+  .centrala-main-container,
+  .centrala-main-container-ustawienia {
+    margin: 0;
+    width: 100%;
+    height: calc(100% - 10px);
+  }
+
+  table#centrala-ceny tbody {
+    max-height: calc(100vh - 170px);
+  }
+
+  table#centrala-ceny tbody input {
+    margin: 0;
+  }
+
+  table#centrala-ceny thead tr th:nth-child(4),
+  table#centrala-ceny thead tr th:nth-child(5),
+  table#centrala-ceny tbody tr td:nth-child(4),
+  table#centrala-ceny tbody tr td:nth-child(5) {
+    display: none;
+  }
+
+  table#centrala-ceny tbody tr td:nth-child(3),
+  table#centrala-ceny thead tr th:nth-child(3) {
+    width: 20%;
+  }
+
+  table#centrala-ceny thead tr th:nth-child(6),
+  table#centrala-ceny tbody tr td:nth-child(6) {
+    width: 20%;
+  }
+
+  button.ceny-edycja-btn {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  button.ceny-edycja-btn img {
+    width: 100%;
+  }
+
+  form.ustawienia {
+    width: 100%;
+    height: 90%;
+  }
+
+  form.ustawienia h2 {
+    margin: 10px;
+  }
+
+  form.ustawienia input {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 30px;
+  }
+  button#test-db-connection {
+    margin-top: 20px;
+  }
+
+  .centrala-filtrowanie {
+    width: calc(100% - 20px);
+    left: 10px;
+    height: 50px;
+    top: 55px;
+  }
+
+  .centrala-filtrowanie select {
+    width: calc(100% - 50px);
+    margin: 5px 0;
+    height: 40px;
+  }
+
+  button#add {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  table#centrala-smaki {
+    margin-top: 50px;
+    width: 100%;
+  }
+
+  table#centrala-smaki tbody td,
+  table#centrala-smaki thead th {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  table#centrala-smaki tbody tr td:first-child,
+  table#centrala-smaki thead tr th:first-child {
+    width: 16%;
+  }
+
+  table#centrala-smaki tbody tr td:nth-child(2),
+  table#centrala-smaki thead tr th:nth-child(2) {
+    width: 54%;
+  }
+
+  table#centrala-smaki tbody tr td:last-child,
+  table#centrala-smaki thead tr th:last-child {
+    width: 30%;
+  }
+
+  table#centrala-smaki thead tr th:nth-child(3),
+  table#centrala-smaki tbody tr td:nth-child(3),
+  table#centrala-smaki thead tr th:nth-child(4),
+  table#centrala-smaki tbody tr td:nth-child(4) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  form#form-login-pin {
+    width: 90%;
+    height: calc(100vh - 100px);
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  form#form-login-pin {
+    width: 90%;
+    height: calc(100vh - 400px);
+    margin-bottom: 0;
+  }
+
+  form#form-login-pin .pin-key {
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+  }
+
+  nav.sklep-menu {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+}
+
+@media screen and (min-width: 1400px) {
+}

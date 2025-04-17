@@ -99,8 +99,8 @@
   border-radius: 50%;
   border: none;
   background: var(--button-light-color);
-  width: 60px !important;
-  height: 60px !important;
+  width: 60px;
+  height: 60px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -113,7 +113,7 @@
   width: 100%;
 }
 
-nav {
+nav.sklep-menu {
   width: 70%;
   height: 50%;
   background: var(--background-container-light-color);
@@ -639,6 +639,8 @@ span#message {
 
 p#zamowienia-info {
   display: block;
+  left: 50%;
+  transform: translateX(-50%);
   position: absolute;
   bottom: 30px;
   width: 50%;
@@ -654,9 +656,9 @@ p#zamowienia-info {
 
 .sprzedaz-pozostale {
   display: flex;
-  align-items: flex-start; /* Wyrównuje elementy wewnętrzne od góry */
-  justify-content: flex-start; /* Wyrównuje elementy do lewej */
-  flex-wrap: wrap; /* Pozwala elementom przejść do następnego wiersza, jeśli jest to konieczne */
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .licznik-pojemnika {

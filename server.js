@@ -2367,6 +2367,14 @@ app.put("/api/uzytkownicy-edycja-zapis/:uzytkownikId", async (req, res) => {
   }
 });
 
+app.get("/api/haslo", async (req, res) => {
+  try {
+    res.json({ haslo: process.env.HASLO_USTAWIENIA });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);
   logToFile(`[INFO] Uruchomiono serwer na porcie ${appPort}`);

@@ -18,6 +18,19 @@ themeToggleButton.addEventListener("click", () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleButton = document.getElementById("menu-display");
+  const menu = document.querySelector("nav.centrala-menu");
+
+  toggleButton.addEventListener("click", function () {
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "flex";
+    } else {
+      menu.style.display = "none";
+    }
+  });
+});
+
 function updateIcons() {
   const theme = localStorage.getItem("theme") || "light";
   const icons = [
