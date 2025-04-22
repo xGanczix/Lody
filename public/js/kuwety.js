@@ -1,15 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const selectFilter = document.getElementById("centrala-kuwety-filtrowanie");
+  const przypisanieFilter = document.getElementById(
+    "centrala-kuwety-filtrowanie1"
+  );
 
   selectFilter.addEventListener("change", fetchKuwety);
+  przypisanieFilter.addEventListener("change", fetchKuwety);
 
   async function fetchKuwety() {
     try {
       const selectedStatus =
         document.getElementById("centrala-kuwety-filtrowanie").value ||
         "aktywne";
+      const selectedPrzypisanie =
+        document.getElementById("centrala-kuwety-filtrowanie1").value ||
+        "nieprzypisane";
       const response = await fetch(
-        `${CONFIG.URL}/api/kuwety?status=${selectedStatus}`
+        `${CONFIG.URL}/api/kuwety?status=${selectedStatus}&przypisanie=${selectedPrzypisanie}`
       );
       const kuwety = await response.json();
 

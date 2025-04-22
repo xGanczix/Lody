@@ -83,3 +83,151 @@
 [2025-04-22 09:53:01] [INFO] Zbiorczo dodano 1 kuwet - Smak: 7, Rozmiar: 2
 [2025-04-22 09:53:01] [INFO] Zbiorczo dodano 1 kuwet - Smak: 12, Rozmiar: 2
 [2025-04-22 10:23:00] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-22 10:38:59] [INFO] Zalogowano Serwis
+[2025-04-22 10:46:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 10:46:44] [INFO] Połączono z MariaDB
+[2025-04-22 10:47:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 10:47:45] [INFO] Połączono z MariaDB
+[2025-04-22 10:47:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 10:47:56] [INFO] Połączono z MariaDB
+[2025-04-22 10:48:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 10:48:39] [INFO] Połączono z MariaDB
+[2025-04-22 10:48:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 10:48:56] [INFO] Połączono z MariaDB
+[2025-04-22 13:07:47] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-22 13:07:57] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 31 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:08:08] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 31 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:08:37] [INFO] Zalogowano: Mati
+[2025-04-22 13:09:46] [INFO] Zalogowano: mati (Sklep: Sklep 1)
+[2025-04-22 13:09:53] [INFO] Ułożenie dodano pomyślnie: SKLEP: 3 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 3 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:11:08] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-22 13:11:15] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 31 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:11:31] [INFO] Zalogowano Serwis
+[2025-04-22 13:11:47] [INFO] Zalogowano: mati (Sklep: Sklep 7)
+[2025-04-22 13:11:53] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:21764, no: 1364, SQLState: HY000) Field 'DokPozTowId' doesn't have a default value
+sql: INSERT INTO DokumentyPozycje 
+            (DokPozDokId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+            VALUES (?, ?, ?, ?) - parameters:[1,4,17,136]
+[2025-04-22 13:12:43] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:21789, no: 1364, SQLState: HY000) Field 'DokPozTowId' doesn't have a default value
+sql: INSERT INTO DokumentyPozycje 
+            (DokPozDokId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+            VALUES (?, ?, ?, ?) - parameters:[2,7,5,10]
+[2025-04-22 13:12:56] [INFO] Zalogowano Serwis
+[2025-04-22 13:13:14] [INFO] Dane z tabel zostały usunięte
+[2025-04-22 13:13:32] [INFO] Baza danych utworzona poprawnie
+[2025-04-22 13:13:35] [INFO] Poprawne utworzenie tabel
+[2025-04-22 13:13:37] [INFO] Procedura RCP została utworzona przez API
+[2025-04-22 13:13:41] [INFO] Poprawne wpisanie danych
+[2025-04-22 13:14:08] [INFO] Smak dodany pomyślnie: Kutasek
+[2025-04-22 13:14:20] [INFO] Rozmiar dodany pomyślnie: Duża
+[2025-04-22 13:14:35] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: Sklep 123
+[2025-04-22 13:14:42] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 1 | Porcje: 10
+[2025-04-22 13:15:25] [INFO] Zalogowano Serwis
+[2025-04-22 13:15:40] [INFO] Użytkownik dodany pomyślnie: mati
+[2025-04-22 13:15:44] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:15:45] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-22 13:15:48] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:16:17] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:16:25] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:16:33] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:16:41] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:17:05] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:11] [INFO] Ułożenie dodano pomyślnie: SKLEP: 3 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:17:16] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:18] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:20] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:21] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:23] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:24] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:25] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:25] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:26] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:27] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:28] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:29] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:29] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:30] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:31] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:32] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:32] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:34] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:35] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:35] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:38] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:39] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-22 13:17:50] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:17:50] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:17:50] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10001ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:17:51] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:17:51] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:17:51] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:18:00] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10010ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:18:16] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10011ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:18:26] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10012ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:18:48] [ERROR] SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:18:50] [ERROR] SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=50 idle=0 limit=50)
+[2025-04-22 13:19:01] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-22 13:19:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 13:19:03] [INFO] Połączono z MariaDB
+[2025-04-22 13:19:20] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:19:25] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 1 | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:20:21] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:21:30] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:23:43] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:24:19] [INFO] Zalogowano: Mati
+[2025-04-22 13:24:48] [ERROR] Niepoprawny test połączenia z bazą danych: SqlError: (conn:21910, no: 45025, SQLState: 08004) Client does not support authentication protocol 'auth_gssapi_client' requested by server.
+[2025-04-22 13:24:56] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-22 13:26:00] [INFO] Smak dodany pomyślnie: Czekoladka 
+[2025-04-22 13:26:11] [INFO] Zbiorczo dodano 5 kuwet - Smak: 2, Rozmiar: 1
+[2025-04-22 13:26:31] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 1 | KUWETA2: 2 | KUWETA3: 3 | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 13:28:09] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:49:26] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:51:18] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-22 13:51:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 13:51:19] [INFO] Połączono z MariaDB
+[2025-04-22 13:51:40] [INFO] Zalogowano Serwis
+[2025-04-22 13:54:52] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:57:00] [INFO] Zalogowano: mati (Sklep: Sklep 123)
+[2025-04-22 13:57:31] [INFO] Dane z tabel zostały usunięte
+[2025-04-22 13:57:44] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-04-22 13:57:52] [INFO] Smak dodany pomyślnie: Truskawka
+[2025-04-22 13:58:05] [INFO] Użytkownik dodany pomyślnie: 1
+[2025-04-22 13:58:10] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 1
+[2025-04-22 13:58:16] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-22 13:58:17] [INFO] Poprawne wpisanie danych
+[2025-04-22 13:58:36] [INFO] Rozmiar dodany pomyślnie: Duży
+[2025-04-22 13:58:43] [INFO] Kuweta dodana pomyślnie: Id smak: 2 | Id rozmiar: 1 | Porcje: 90
+[2025-04-22 13:58:47] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 1 | Porcje: 90
+[2025-04-22 13:58:52] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 13:58:58] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-22 14:01:13] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 14:01:21] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 14:04:48] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 14:07:18] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-22 14:25:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 14:25:05] [INFO] Połączono z MariaDB
+[2025-04-22 14:40:18] [INFO] Zalogowano Serwis
+[2025-04-22 14:40:39] [INFO] Usunięcie rozmiaru o ID: 1
+[2025-04-22 14:56:15] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 15:12:16] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 15:19:57] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 15:32:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 15:32:30] [INFO] Połączono z MariaDB
+[2025-04-22 15:32:37] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 15:32:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 15:32:42] [INFO] Połączono z MariaDB
+[2025-04-22 15:36:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-22 15:36:13] [INFO] Połączono z MariaDB
+[2025-04-22 15:38:52] [INFO] Zalogowano Serwis
+[2025-04-22 15:45:27] [INFO] Zalogowano: 1 (Sklep: 1)

@@ -783,6 +783,7 @@ app.get("/api/kuwety", async (req, res) => {
     connection = await dbConfig.getConnection();
 
     const status = req.query.status || "aktywne";
+    const przypisanie = req.query.przypisanie || "nieprzypisane";
 
     let sql = `
     select

@@ -323,14 +323,6 @@ let poziomKawa = 100;
 const licznik = document.querySelector(".licznik-wypelnienie");
 const licznikKawa = document.querySelector(".licznik-wypelnienie-kawa");
 
-document.querySelectorAll(".pozostale-towary").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const zmiana = parseInt(btn.dataset.zmiana);
-    poziom = Math.max(0, poziom - zmiana);
-    aktualizujLicznik();
-  });
-});
-
 function aktualizujLicznik() {
   licznik.style.height = poziom + "%";
   licznik.textContent = poziom + "%";
