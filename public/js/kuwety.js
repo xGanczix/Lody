@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.querySelector(".confirm-delete").style.display = "flex";
     } else if (event.target.id === "confirm-ok" && selectedRozmiarId) {
-      fetch(`/api/rozmiary-usuwanie/${selectedRozmiarId}`, {
+      fetch(`/api/kuwety-usuwanie/${selectedRozmiarId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       })

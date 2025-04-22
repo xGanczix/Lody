@@ -657,3 +657,11 @@
 [2025-04-17 15:15:33] [INFO] Zmiana zarejestrowana dla użytkownika: 2
 [2025-04-17 15:15:39] [INFO] Zalogowano: Mati
 [2025-04-17 15:48:59] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-17 15:50:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 15:50:33] [INFO] Połączono z MariaDB
+[2025-04-17 15:50:37] [INFO] Zalogowano Serwis
+[2025-04-17 15:50:42] [INFO] Usunięcie rozmiaru o ID: 1
+[2025-04-17 15:51:10] [INFO] Przywrócenie rozmiaru o ID: 1
+[2025-04-17 15:51:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-17 15:51:32] [INFO] Połączono z MariaDB
+[2025-04-17 15:52:01] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)

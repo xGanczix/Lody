@@ -209,9 +209,11 @@ html.dark-mode body table#centrala-kuwety thead th,
 html.dark-mode body table#centrala-rcp thead th,
 html.dark-mode body table#centrala-status-kuwety thead th,
 html.dark-mode body table#rcp-user-data thead th,
+html.dark-mode body table#kuwety-table thead th,
 html.dark-mode body .sklep-pozycje-wydania h2,
 html.dark-mode body .podsumowanie-wydania,
-html.dark-mode body table#centrala-ceny thead th {
+html.dark-mode body table#centrala-ceny thead th,
+html.dark-mode body table#kuwety-table tbody hr {
   background: var(--button-dark-color);
 }
 

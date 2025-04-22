@@ -802,7 +802,8 @@ app.get("/api/kuwety", async (req, res) => {
 	  left join Smaki as s on s.SmkId = k.KuwSmkId
 	  left join Sklepy as sk on sk.SklId = k.KuwSklId`;
     if (status === "aktywne") {
-      sql += " WHERE k.KuwStatus = 1 ORDER BY k.KuwStatus DESC, k.KuwId";
+      sql +=
+        " WHERE k.KuwStatus = 1 AND k.KuwPorcje > 0 ORDER BY k.KuwStatus DESC, k.KuwId";
     } else if (status === "usuniete") {
       sql += " WHERE k.KuwStatus = 0 ORDER BY k.KuwStatus DESC, k.KuwId";
     } else {
@@ -2372,6 +2373,97 @@ app.get("/api/haslo", async (req, res) => {
     res.json({ haslo: process.env.HASLO_USTAWIENIA });
   } catch (err) {
     console.log(err);
+  }
+});
+
+app.post("/api/kuwety-zbiorczo", async (req, res) => {
+  const { kuwetki } = req.body;
+
+  if (!Array.isArray(kuwetki) || kuwetki.length === 0) {
+    return res.status(400).json({ error: "Brak danych do dodania." });
+  }
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    for (const kuweta of kuwetki) {
+      const { smak, rozmiar, ilosc } = kuweta;
+
+      const rows = await connection.query(
+        "SELECT RozPojemnosc FROM Rozmiary WHERE RozId = ?",
+        [rozmiar]
+      );
+
+      if (rows.length === 0) {
+        continue;
+      }
+
+      const porcje = rows[0].RozPojemnosc;
+
+      for (let i = 0; i < ilosc; i++) {
+        await connection.query(
+          "INSERT INTO Kuwety (KuwSmkId, KuwRozId, KuwPorcje) VALUES (?, ?, ?)",
+          [smak, rozmiar, porcje]
+        );
+      }
+
+      logToFile(
+        `[INFO] Zbiorczo dodano ${ilosc} kuwet - Smak: ${smak}, Rozmiar: ${rozmiar}`
+      );
+    }
+
+    res.status(201).json({ message: "Zbiorczo dodano kuwetki." });
+  } catch (err) {
+    logToFile(`[ERROR] Błąd przy zbiorczym dodawaniu kuwet: ${err}`);
+    res.status(500).json({ error: "Błąd serwera." });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.post("/api/przydziel-kuwety", async (req, res) => {
+  const { sklepId, przydzielenia } = req.body;
+
+  try {
+    for (const przydzielenie of przydzielenia) {
+      const { smakId, ilosc } = przydzielenie;
+
+      const query = `
+        SELECT KuwId, KuwSmkId, KuwSklId
+        FROM Kuwety
+        WHERE KuwSmkId = ? AND KuwSklId IS NULL
+        LIMIT ?
+      `;
+
+      const results = await dbConfig.query(query, [smakId, ilosc]);
+
+      if (results.length < ilosc) {
+        console.log(
+          `Brakuje kuwet: ${ilosc - results.length}, dostępne: ${
+            results.length
+          }, żądane: ${ilosc}`
+        );
+        return res.status(400).send("Brakuje kuwet");
+      }
+
+      for (let i = 0; i < ilosc; i++) {
+        const kuweta = results[i];
+
+        const updateQuery = `
+          UPDATE Kuwety
+          SET KuwSklId = ?
+          WHERE KuwId = ?
+        `;
+
+        await dbConfig.query(updateQuery, [sklepId, kuweta.KuwId]);
+      }
+    }
+
+    res.status(200).send("Kuwety przypisane!");
+  } catch (err) {
+    console.error("Błąd przy przetwarzaniu żądania:", err);
+    res.status(500).send("Wystąpił błąd przy przydzielaniu kuwet");
   }
 });
 

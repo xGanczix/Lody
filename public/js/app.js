@@ -44,6 +44,7 @@ function updateIcons() {
     { id: "rozmiary-icon", name: "size" },
     { id: "support-icon", name: "support" },
     { id: "kuwety-icon", name: "add-product" },
+    { id: "kuwety-zbiorcze-icon", name: "add-product" },
     { id: "help-icon", name: "question" },
     { id: "rcp-icon", name: "clock" },
     { id: "przypisanie-icon", name: "people" },
@@ -54,6 +55,7 @@ function updateIcons() {
     { id: "raport-status-icon", name: "clipboard" },
     { id: "raport-formy-platnosci-icon", name: "top-up" },
     { id: "raport-sprzedaz-sklep-icon", name: "tag_goods" },
+    { id: "przypisanie-zbiorcze-icon", name: "delivery" },
   ];
 
   icons.forEach(({ id, name }) => {
@@ -215,21 +217,34 @@ function initDropdown() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const navSerwis = document.getElementById("nav-serwis");
+  const navUstawienia = document.getElementById("nav-centrala-ustawienia");
   const token = localStorage.getItem("token");
+
+  if (!navSerwis) {
+    console.warn("Nie znaleziono jednego z elementów nawigacji. - ustawienia");
+    return;
+  } else {
+    console.warn("nie znaleziono serwisu");
+  }
 
   if (!token) {
     navSerwis.style.display = "none";
+    navUstawienia.style.display = "none";
     return;
   }
 
   try {
     const decodedToken = JSON.parse(atob(token.split(".")[1]));
     if (decodedToken.login === "pinnex") {
-      navSerwis.style.display = "block";
+      navSerwis.style.display = "inline-flex";
+      navUstawienia.style.display = "inline-flex";
     } else {
       navSerwis.style.display = "none";
+      navUstawienia.style.display = "none";
     }
-  } catch (error) {}
+  } catch (error) {
+    console.error("Błąd dekodowania tokena:", error);
+  }
 });
 
 function centralaSmaki() {

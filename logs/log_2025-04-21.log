@@ -1,0 +1,90 @@
+[2025-04-21 20:53:48] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-21 20:53:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 20:54:01] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-21 20:54:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 20:54:35] [INFO] Zalogowano Serwis
+[2025-04-21 20:54:41] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10004ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-21 20:54:43] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10002ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-21 20:54:56] [INFO] Poprawny test połączenia z bazą danych
+[2025-04-21 20:55:02] [INFO] Restart serwera przez PM2
+[2025-04-21 20:55:06] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-21 20:55:06] [INFO] Aplikacja zakończyła działanie.
+[2025-04-21 20:55:03] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-21 20:55:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 20:55:07] [INFO] Połączono z MariaDB
+[2025-04-21 20:55:08] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-21 20:55:08] [INFO] Aplikacja zakończyła działanie.
+[2025-04-21 20:56:23] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-21 20:56:23] [INFO] Aplikacja zakończyła działanie.
+[2025-04-21 20:56:30] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-21 20:56:30] [INFO] Aplikacja zakończyła działanie.
+[2025-04-21 20:56:40] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-21 20:56:40] [INFO] Aplikacja zakończyła działanie.
+[2025-04-21 20:56:56] [ERROR] Nieobsłużony błąd: listen EADDRINUSE: address already in use :::3000
+[2025-04-21 20:56:56] [INFO] Aplikacja zakończyła działanie.
+[2025-04-21 20:57:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 20:57:12] [INFO] Połączono z MariaDB
+[2025-04-21 20:57:36] [INFO] Zalogowano: Mati
+[2025-04-21 21:14:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:14:47] [INFO] Połączono z MariaDB
+[2025-04-21 21:15:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:15:07] [INFO] Połączono z MariaDB
+[2025-04-21 21:16:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:16:33] [INFO] Połączono z MariaDB
+[2025-04-21 21:17:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:17:06] [INFO] Połączono z MariaDB
+[2025-04-21 21:18:45] [INFO] Zbiorczo dodano 10 kuwet - Smak: 1, Rozmiar: 1
+[2025-04-21 21:18:45] [INFO] Zbiorczo dodano 4 kuwet - Smak: 3, Rozmiar: 1
+[2025-04-21 21:23:13] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-04-21 21:23:13] [INFO] Aplikacja zakończyła działanie.
+[2025-04-21 21:23:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:23:14] [INFO] Połączono z MariaDB
+[2025-04-21 21:25:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:25:15] [INFO] Połączono z MariaDB
+[2025-04-21 21:39:12] [INFO] Zbiorczo dodano 5 kuwet - Smak: 2, Rozmiar: 1
+[2025-04-21 21:50:37] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-21 21:50:39] [INFO] Zmiana zarejestrowana dla użytkownika: 2
+[2025-04-21 21:53:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:53:41] [INFO] Połączono z MariaDB
+[2025-04-21 21:53:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:53:42] [INFO] Połączono z MariaDB
+[2025-04-21 21:53:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:53:57] [INFO] Połączono z MariaDB
+[2025-04-21 21:54:18] [INFO] Zalogowano Serwis
+[2025-04-21 21:57:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:57:30] [INFO] Połączono z MariaDB
+[2025-04-21 21:59:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 21:59:18] [INFO] Połączono z MariaDB
+[2025-04-21 21:59:27] [ERROR] Błąd przy przydzielaniu kuwet: TypeError: kuwety is not iterable
+[2025-04-21 22:00:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:00:32] [INFO] Połączono z MariaDB
+[2025-04-21 22:01:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:01:33] [INFO] Połączono z MariaDB
+[2025-04-21 22:03:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:03:11] [INFO] Połączono z MariaDB
+[2025-04-21 22:03:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:03:42] [INFO] Połączono z MariaDB
+[2025-04-21 22:03:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:03:53] [INFO] Połączono z MariaDB
+[2025-04-21 22:04:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:04:58] [INFO] Połączono z MariaDB
+[2025-04-21 22:06:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:06:48] [INFO] Połączono z MariaDB
+[2025-04-21 22:08:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:08:22] [INFO] Połączono z MariaDB
+[2025-04-21 22:13:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-21 22:13:41] [INFO] Połączono z MariaDB
+[2025-04-21 22:15:45] [INFO] Smak dodany pomyślnie: 123
+[2025-04-21 22:15:52] [INFO] Smak dodany pomyślnie: rth
+[2025-04-21 22:15:56] [INFO] Smak dodany pomyślnie: erhherg
+[2025-04-21 22:16:04] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-04-21 22:16:12] [INFO] Smak dodany pomyślnie: fwer
+[2025-04-21 22:16:16] [INFO] Smak dodany pomyślnie: qwewqef
+[2025-04-21 22:16:18] [INFO] Smak dodany pomyślnie: weqfqwe
+[2025-04-21 22:16:23] [INFO] Smak dodany pomyślnie: wqefqwe
+[2025-04-21 22:16:58] [INFO] Zbiorczo dodano 1 kuwet - Smak: 1, Rozmiar: 1
+[2025-04-21 22:16:58] [INFO] Zbiorczo dodano 20 kuwet - Smak: 8, Rozmiar: 1
+[2025-04-21 22:16:58] [INFO] Zbiorczo dodano 50 kuwet - Smak: 2, Rozmiar: 1

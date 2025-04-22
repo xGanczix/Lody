@@ -101,7 +101,7 @@
 
 .centrala-filtrowanie select,
 input[type="date"] {
-  width: 150px;
+  width: 200px;
   margin-top: 20px;
   outline: none;
 }
@@ -174,7 +174,7 @@ nav a.nav-link img {
   margin-right: 12px;
 }
 
-nav a.nav-last {
+nav a#nav-ustawienia {
   border-radius: 0 0 10px 10px;
 }
 
@@ -297,7 +297,8 @@ table#centrala-kuwety,
 table#centrala-rcp,
 table#rcp-user-data,
 table#centrala-status-kuwety,
-table#centrala-ceny {
+table#centrala-ceny,
+table#kuwety-table {
   width: 100%;
   border-collapse: collapse;
 }
@@ -310,7 +311,8 @@ table#centrala-kuwety thead,
 table#centrala-rcp thead,
 table#rcp-user-data thead,
 table#centrala-status-kuwety thead,
-table#centrala-ceny thead {
+table#centrala-ceny thead,
+table#kuwety-table thead {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -325,7 +327,8 @@ table#centrala-kuwety thead th,
 table#centrala-rcp thead th,
 table#rcp-user-data thead th,
 table#centrala-status-kuwety thead th,
-table#centrala-ceny thead th {
+table#centrala-ceny thead th,
+table#kuwety-table thead th {
   background: var(--button-light-color);
   font-size: 22px;
   padding: 14px;
@@ -348,7 +351,8 @@ table#centrala-uzytkownicy tbody,
 table#centrala-rozmiary tbody,
 table#centrala-rcp tbody,
 table#centrala-status-kuwety tbody,
-table#centrala-ceny tbody {
+table#centrala-ceny tbody,
+table#kuwety-table tbody {
   display: block;
   max-height: calc(100vh - 210px);
   overflow-y: auto;
@@ -362,7 +366,8 @@ table#centrala-kuwety tbody tr,
 table#centrala-rcp tbody tr,
 table#rcp-user-data tbody tr,
 table#centrala-status-kuwety tbody tr,
-table#centrala-ceny tbody tr {
+table#centrala-ceny tbody tr,
+table#kuwety-table tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -376,7 +381,8 @@ table#centrala-kuwety tbody td,
 table#centrala-rcp tbody td,
 table#rcp-user-data tbody td,
 table#centrala-status-kuwety tbody td,
-table#centrala-ceny tbody td {
+table#centrala-ceny tbody td,
+table#kuwety-table tbody td {
   padding: 10px;
   font-size: 20px;
   text-align: center;
@@ -390,7 +396,8 @@ table#centrala-kuwety thead th:first-child,
 table#centrala-rcp thead th:first-child,
 table#rcp-user-data thead th:first-child,
 table#centrala-status-kuwety thead th:first-child,
-table#centrala-ceny thead th:first-child {
+table#centrala-ceny thead th:first-child,
+table#kuwety-table thead th:first-child {
   border-radius: 10px 0 0 0;
 }
 
@@ -402,7 +409,8 @@ table#centrala-kuwety thead th:last-child,
 table#centrala-rcp thead th:last-child,
 table#rcp-user-data thead th:last-child,
 table#centrala-status-kuwety thead th:last-child,
-table#centrala-ceny thead th:last-child {
+table#centrala-ceny thead th:last-child,
+table#kuwety-table thead th:last-child {
   border-radius: 0 10px 0 0;
 }
 
@@ -438,12 +446,8 @@ table#centrala-sklepy tbody td:last-child,
 table#centrala-kuwety tbody td:last-child,
 table#centrala-rcp tbody td:last-child,
 table#centrala-rcp thead th:last-child,
-table#centrala-ceny
-  tbody
-  td:last-child
-  table#centrala-ceny
-  thead
-  th:last-child {
+table#centrala-ceny tbody td:last-child,
+table#centrala-ceny thead th:last-child {
   width: 10%;
 }
 
@@ -765,4 +769,68 @@ table#centrala-status-kuwety tbody tr {
 
 table#centrala-status-kuwety tbody td:nth-child(2) {
   border-radius: 10px;
+}
+
+button#add-row,
+button#submit-bulk {
+  width: 250px;
+  padding: 10px;
+  margin: 0;
+  position: absolute;
+}
+
+button#add-row {
+  top: 40px;
+}
+
+button#submit-bulk {
+  top: 40px;
+  left: calc(20% + 250px + 40px);
+}
+
+#sklep-select {
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.kuweta-container {
+  width: 100%;
+}
+
+#kuwety-container {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+}
+
+#kuwety-container select {
+  width: calc(100px);
+}
+
+table#kuwety-table tbody hr,
+#kuwety-container hr {
+  background: var(--button-light-color);
+  border: 0;
+  height: 2px;
+  margin: 5px 0;
+}
+
+table#kuwety-table tbody hr:first-child,
+#kuwety-container hr:first-child {
+  display: none;
+}
+
+.kuweta-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+}
+
+button#przydziel-btn {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }
