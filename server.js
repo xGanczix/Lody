@@ -2263,7 +2263,12 @@ app.put("/api/kuwety-edycja-zapis/:kuwetaId", async (req, res) => {
   try {
     connection = await dbConfig.getConnection();
     let sql = `UPDATE Kuwety SET KuwSmkId = ?,KuwRozId = ?, KuwSklId = ?, KuwDataZmiany = now() WHERE KuwId = ?`;
-    const data = connection.query(sql, [smak, rozmiar, sklep, kuwetaId]);
+    const data = connection.query(sql, [
+      smak,
+      rozmiar,
+      sklep || null,
+      kuwetaId,
+    ]);
 
     if (Array.isArray(data)) {
       const convertedData = data.map((row) => {

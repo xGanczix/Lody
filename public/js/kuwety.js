@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.querySelector(".confirm-delete").style.display = "flex";
     } else if (event.target.id === "confirm-ok" && selectedKuwetaId) {
-      fetch(`/api/kuwety-usuwanie/${selectedKuwetaId}`, {
+      fetch(`${CONFIG.URL}/api/kuwety-usuwanie/${selectedKuwetaId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       })
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.querySelector(".confirm-restore").style.display = "flex";
     } else if (event.target.id === "confirm-ok" && selectedKuwetaId) {
-      fetch(`/api/kuwety-przywracanie/${selectedKuwetaId}`, {
+      fetch(`${CONFIG.URL}/api/kuwety-przywracanie/${selectedKuwetaId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       })

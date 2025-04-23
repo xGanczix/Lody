@@ -1,0 +1,35 @@
+[2025-04-24 00:07:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:07:33] [INFO] Połączono z MariaDB
+[2025-04-24 00:07:44] [INFO] Zalogowano Serwis
+[2025-04-24 00:08:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:08:46] [INFO] Połączono z MariaDB
+[2025-04-24 00:08:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:08:59] [INFO] Połączono z MariaDB
+[2025-04-24 00:17:26] [INFO] Zalogowano Serwis
+[2025-04-24 00:17:44] [INFO] Rozmiar dodany pomyślnie: Mega
+[2025-04-24 00:17:51] [ERROR] Nieobsłużony błąd: (conn:23486, no: 1366, SQLState: 22007) Incorrect integer value: '' for column `lody_lacko`.`kuwety`.`KuwSklId` at row 1
+sql: UPDATE Kuwety SET KuwSmkId = ?,KuwRozId = ?, KuwSklId = ?, KuwDataZmiany = now() WHERE KuwId = ? - parameters:['1','2','','12']
+[2025-04-24 00:17:51] [INFO] Aplikacja zakończyła działanie.
+[2025-04-24 00:19:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:19:45] [INFO] Połączono z MariaDB
+[2025-04-24 00:28:03] [INFO] Zalogowano Serwis
+[2025-04-24 00:28:10] [INFO] Przywrócenie użytkownika o ID: 1
+[2025-04-24 00:28:15] [INFO] Zalogowano: jk (Sklep: 1)
+[2025-04-24 00:28:27] [INFO] Zalogowano Serwis
+[2025-04-24 00:33:12] [INFO] Zalogowano: jk (Sklep: 1)
+[2025-04-24 00:33:22] [INFO] Zalogowano Serwis
+[2025-04-24 00:35:49] [INFO] Zalogowano: jk (Sklep: 1)
+[2025-04-24 00:36:04] [INFO] Zalogowano Serwis
+[2025-04-24 00:38:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:38:14] [INFO] Połączono z MariaDB
+[2025-04-24 00:38:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:38:36] [INFO] Połączono z MariaDB
+[2025-04-24 00:42:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:42:59] [INFO] Połączono z MariaDB
+[2025-04-24 00:43:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:43:05] [INFO] Połączono z MariaDB
+[2025-04-24 00:43:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 00:43:56] [INFO] Połączono z MariaDB
+[2025-04-24 00:44:34] [INFO] Zalogowano: jk (Sklep: 1)
+[2025-04-24 00:45:40] [INFO] Zalogowano Serwis
+[2025-04-24 00:47:47] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)

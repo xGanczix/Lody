@@ -39,7 +39,7 @@ async function fetchRaportSprzedazFormyPlatnosciSklep(sklepId) {
 
     const formyPlatnosci = data.map((item) => item.DokFormaPlatnosci);
     const wartosciSprzedazy = data.map((item) =>
-      parseFloat(item.wartoscSprzedazy).toFixed(2)
+      parseFloat(item.wartoscSprzedazy.replace(/,/g, "")).toFixed(2)
     );
 
     var colors = [
@@ -181,7 +181,7 @@ async function fetchRaportSprzedazWartoscSklep(sklepId) {
     const data = await response.json();
 
     const wartosciSprzedazy = data.map((item) =>
-      parseFloat(item.wartoscSprzedazyDzien).toFixed(2)
+      parseFloat(item.wartoscSprzedazyDzien.replace(/,/g, "")).toFixed(2)
     );
     const dataSprzedazy = data.map((item) => item.SprzedazDzien.split("T")[0]);
 
