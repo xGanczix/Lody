@@ -1,0 +1,530 @@
+<html>
+  <head>
+    <style>
+      :root {
+        --button-light-color: rgb(81, 85, 195);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: sans-serif;
+        text-align: justify;
+        font-size: 16px;
+      }
+
+      section.manual-nav {
+        position: sticky;
+        top: 0;
+        padding: 20px;
+        background: white;
+        border-bottom: 2px solid grey;
+      }
+
+      .header-center {
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-align: center;
+        scroll-margin-top: 140px;
+        margin: 0 auto 20px auto;
+      }
+
+      h2,
+      h3,
+      h4 {
+        display: inline-block;
+        text-align: center;
+        border-bottom: 5px solid var(--button-light-color);
+        padding: 10px 50px;
+      }
+
+      p.warning {
+        border: 3px solid orange;
+        border-radius: 10px;
+        display: block;
+        margin: 20px auto;
+        width: 40%;
+        text-align: center;
+        padding: 10px;
+      }
+      img {
+        width: 40%;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 0 10px grey;
+      }
+
+      img.img-text {
+        display: inline-block;
+        width: 16px;
+        box-shadow: none;
+      }
+
+      .manual-bold {
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="manual-nav">
+      <h1>Instrukcja Lody Łąckie</h1>
+      <a href="#wstep">Wstęp</a>
+      <a href="#wymagania">Wymagania</a>
+      <a href="#ustawienia">Ustawienia</a>
+      <a href="#serwis">Serwis</a>
+      <a href="#logowanie">Logowanie</a>
+      <a href="#centrala">Centrala</a>
+      <a href="#centrala-interfejs">Centrala-Interfejs</a>
+      <a href="#centrala-uzytkownicy">Centrala-Użytkownicy</a>
+      <a href="#centrala-sklepy">Centrala-Sklepy</a>
+      <a href="#centrala-przypisywanie">Centrala-Przypisywanie użytkowników</a>
+      <a href="#centrala-ceny">Centrala-Ceny</a>
+      <a href="#centrala-smaki">centrala-smaki</a>
+      <a href="#sklep">Sklep</a>
+    </section>
+    <section>
+      <div class="header-center">
+        <h2 id="wstep">Wstęp</h2>
+      </div>
+      <article>
+        <p>
+          Aplikacja Lody Łąckie to kompleksowe narzędzie stworzone z myślą o
+          usprawnieniu procesu zarządzania sprzedażą lodów rzemieślniczych oraz
+          dystrybucją kuwet smakowych pomiędzy punktami sprzedaży. System
+          umożliwia szybkie i intuicyjne zarządzanie asortymentem, definiowanie
+          dostępnych smaków, przypisywanie kuwet do konkretnych punktów, a także
+          analizę danych sprzedażowych. Dzięki aplikacji właściciele i
+          pracownicy punktów sprzedaży mogą w prosty sposób:
+        </p>
+        <ul>
+          <li>Przeglądać i tworzyć aktualną ofertę smaków</li>
+          <li>Przypisywać kuwety do konkretnych lokalizacji</li>
+          <li>Śledzić bieżącą sprzedaż</li>
+          <li>Planować dostawy</li>
+        </ul>
+        <p>
+          Celem tej instrukcji jest przybliżenie funkcjonalności aplikacji oraz
+          wsparcie użytkownika w codziennym korzystaniu z systemu. Znajdziesz tu
+          informacje krok po kroku, jak korzystać z poszczególnych modułów i jak
+          w pełni wykorzystać możliwości aplikacji.
+        </p>
+        <p class="warning">
+          Instrukcja jest przedstawiona w kolejności, w której powinny być
+          wykonywane czynności.<br />Przeskok lub inna kolejność zakładek jest
+          celowa
+        </p>
+      </article>
+    </section>
+    <section>
+      <div class="header-center">
+        <h2 id="wymagania">Wymagania</h2>
+      </div>
+      <ol>
+        <li>Aplikacja webowa (zarządzanie smakami, punktami, kuwetami)</li>
+        <ul>
+          <li>Backend:</li>
+          <ul>
+            <li>Node.js (zalecana wersja: 18.x lub nowsza)</li>
+          </ul>
+          <li>Frontend:</li>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <li>Baza danych:</li>
+          <ul>
+            <li>MariaDB (zalecana wersja: 10.5 lub nowsza)</li>
+          </ul>
+          <li>System operacyjny serwera:</li>
+          <ul>
+            <li>Windows</li>
+            <li>Linux</li>
+          </ul>
+          <li>Aplikacja mobilna:</li>
+          <ul>
+            <li>Android w wersji 9.0 (Pie) lub nowszej</li>
+          </ul>
+          <li>Internet:</li>
+          <ul>
+            <li>
+              Stałe połączenie do internetu lub w przypadku lokalnej instalacji
+              do sieci
+            </li>
+          </ul>
+        </ul>
+        <p class="warning">
+          Do prawidłowego działania aplikacji wymagana jest poprawna
+          konfiguracja połączenia z bazą danych oraz serwerem backendowym
+        </p>
+      </ol>
+    </section>
+    <section>
+      <div class="header-center">
+        <h2 id="ustawienia">Ustawienia</h2>
+      </div>
+      <img
+        src="../img/manual/manual-ustawienia.png"
+        alt="ekran ustawień aplikacji"
+      />
+      <p>
+        Do poprawnego działania aplikacji niezbędne jest skonfigurowanie
+        połączenia do bazy danych oraz stworzenie odpowiednich table w
+        programie.
+      </p>
+      <p class="warning">
+        Konfigurację aplikacji przeprowadza technik!<br />Konfiguracja przez
+        użytkownika odbywa się na własną odpowiedzialność!
+      </p>
+      <p>
+        Pierwszym krokiem do konfiguracji aplikacji jest ustawienie połączenia
+        do bazy danych:
+      </p>
+      <ul>
+        <li>Serwer</li>
+        <li>Port</li>
+        <li>Użytkownik</li>
+        <li>Hasło</li>
+        <li>Baza danych</li>
+      </ul>
+      <p>
+        Po uzupełnieniu powyższych danych należy przeprowadzić test połączenia
+        przyciskiem poniżej. Jeśli test wypada poprawnie to należy zapisać
+        ustawienia i zrestartować aplikację lub serwer.
+      </p>
+      <p>
+        Jeśli ustawienia są zapisane należy przejśc do zakładki
+        <a href="#serwis">Serwis</a> i kontynuować dalsze kroki
+      </p>
+    </section>
+    <section>
+      <div class="header-center">
+        <h2 id="serwis">Serwis</h2>
+      </div>
+
+      <img
+        src="../img/manual/manual-serwis.png"
+        alt="ekran serwisu aplikacji"
+      />
+      <p>
+        W celu pierwszej konfiguracji aplikacji należy wykonać następujące
+        kroki:
+      </p>
+      <ol>
+        <li>
+          Jeśli jeszcze nie utworzona, to stworzyć bazę danych wciskając
+          przycisk <span class="maual-bold">Tworzenie bazy danych</span>
+        </li>
+        <li>
+          Następnie należy stworzyć tabele do przechowywania danych aplijacji.
+          Wciskając przycisk
+          <span class="maual-bold">Tworzenie tabel dla aplikacji</span>
+        </li>
+        <li>
+          Kolejno stworzenie reguł dla aplikacji, które odpwowiadają za
+          sprawdzanie otwartych zmian kasjera. Wciskając przycisk
+          <span class="manual-bold">Tworzenie reguł dla RCP</span>
+        </li>
+        <li>
+          Ostatnim krokiem przy pierwszej konfiguracji jest wpisanie do tabel
+          podstawowych danych, aby można było rozpocząć pracę. Należy wcisnąc
+          przycisk<span class="manual-bold">Tworzenie podstawowy danch</span>
+          <p class="warning">
+            Tworząc podstawowe dane, zakładany jest użytkownik o loginie oraz
+            haśle: <spam class="manual-bold">admin</spam> oraz PIN
+            <span class="manual-bold">1111</span>
+          </p>
+        </li>
+      </ol>
+    </section>
+    <section>
+      <div class="header-center">
+        <h2 id="logowanie">Logowanie</h2>
+      </div>
+      <img
+        src="../img/manual/manual-logowanie.png"
+        alt="ekran logowania aplikacji"
+      />
+      <p>
+        Aplikacja Lody Łąckie umożliwia dwa sposoby logowania w zależności od
+        typu użytkownika:
+      </p>
+      <ul>
+        <li>Centrala</li>
+        <li>Sklep</li>
+      </ul>
+      <p>
+        Logowanie odbywa się na stronie startowej aplikacji, gdzie użytkownik
+        może wybrać odpowiednią metodę uwierzytelniania. Logowanie do Centrali
+        Użytkownicy uprawnieni do zarządzania systemem (np. administratorzy,
+        osoby z centrali) logują się za pomocą loginu i hasła.
+      </p>
+      <div class="header-center">
+        <h3>Logowanie do Centrali:</h3>
+      </div>
+      <ol>
+        <li>Wypełnij pole Login – wpisz swój login użytkownika</li>
+        <li>Wypełnij pole Hasło – wpisz przypisane hasło</li>
+        <li>Kliknij przycisk Zaloguj</li>
+      </ol>
+      <p>
+        Po poprawnym zalogowaniu zostaniesz przekierowany do panelu zarządzania.
+      </p>
+      <div class="header-center">
+        <h3>Logowanie do Sklepu:</h3>
+      </div>
+      <ol>
+        <li>Wybierz sklep z listy rozwijanej Sklep</li>
+        <li>
+          Wprowadź PIN za pomocą klawiatury ekranowej lub klawiatury urządzenia
+        </li>
+        <li>
+          Kliknij przycisk Strzałki na klawiaturze ekranowej lub zatwierdź PIN w
+          systemie
+        </li>
+      </ol>
+      <p>
+        Poprawna weryfikacja PIN-u przekieruje użytkownika do modułu sklepowego.
+      </p>
+      <div class="header-center">
+        <h3>Tryb ciemny (dark mode)</h3>
+      </div>
+      <p>
+        Aplikacja wspiera tryb ciemny, który może być aktywowany za pomocą
+        przycisku z ikoną księżyca w prawym górnym rogu ekranu logowania. Po
+        przełączeniu motywu, preferencja jest zapisywana w przeglądarce i
+        utrzymuje się przy kolejnych uruchomieniach.
+      </p>
+    </section>
+    <section>
+      <div class="header-center">
+        <h2 id="centrala">Centrala</h2>
+      </div>
+      <article>
+        <div class="header-center">
+          <h3 id="centrala-interfejs">Interfejs</h3>
+        </div>
+        <img
+          src="../img/manual/manual-interfejs.png"
+          alt="ekran główny centrali"
+        />
+        <p>
+          Interfejs aplikacji po stronie centrali opiera się na kilku
+          podstawowych elementach:
+        </p>
+        <ul>
+          <li>Nawigacja</li>
+          <p>
+            Po lewej części ekranu znajduje się menu nawigacyjne, które
+            umożliwia poruszanie się pomiędzy zakładkami aplikacji. Obecnie
+            otwarta strona posiada podświetloną zakładkę.
+          </p>
+          <p>
+            Jeżeli przy zakładce menu widnieje znacznik:
+            <img
+              src="../img/black/arrow-right.png"
+              alt="strzałka w prawo"
+              class="img-text"
+            />
+            oznacza to, że pod zakładką znajdują się dodatkowe opcje dostępne po
+            kliknięciu.
+          </p>
+          <li>Menu użytkownika</li>
+          <p>
+            W górnej, prawej części ekranu znajduje się menu użytkownika.
+            Znajduje się na nim informacja o aktualnie zalogowanym użytkowniku
+            oraz dwa przyciski. Pierwszy z nich umożliwia zmianę motywy na
+            ciemny lub jasny, drugi przycisk odpowiada za wylogowanie
+            użytkownika i przekierowanie go na stronę logowania.
+          </p>
+          <p class="warning">
+            Dla każego użytkownika tworzona jest sesja, która po minieciu 8
+            godzin automatycznie wyloguje użytkownika i będzie się trzeba
+            ponownie zalogować.
+          </p>
+          <li>Filtrowanie</li>
+          <p>
+            Nad każdym widokiem głównym o ile jest taka mozliwośc znajduje się
+            panel filtrowania. Odpowiada on za filtrowanie np. aktywnych
+            użytkowników, lub usuniętych których można przywracać
+          </p>
+          <li>Dodawanie</li>
+          <p>
+            Jeżeli istnieje taka możliwość dla danej zakładki programu, obok
+            listy rozwijanej z filtrowaniem widnieje przycisk dodawania z ikoną:
+            <img
+              src="../img/black/add.png"
+              alt="ikona plusa"
+              class="img-text"
+            />, która odpowiada za dodawanie nowych elementów do zakładki.
+          </p>
+          <li>Ekran główny</li>
+          <p>
+            Ekran główny odpowiada za wyświetlanie danych na poszczególnych
+            zakładkach np. użytkowników, smaków, kuwet. W zależności od wybranej
+            zakładki z menu nawigacyjnego.
+          </p>
+        </ul>
+      </article>
+      <article>
+        <div class="header-center">
+          <h3 id="centrala-uzytkownicy">Użytkownicy</h3>
+        </div>
+        <img
+          src="../img/manual/manual-uzytkownicy.png"
+          alt="ekran użytkowników w centrali"
+        />
+        <p>
+          W zakładce <span class="manual-bold">Użytkownicy</span> widzimy
+          istniejących użytkowników, którzy są stworzeni przez administratora
+          systemu lub serwis.
+        </p>
+        <p>
+          Można edytować ich dane wciskając
+          <span class="manual-bold">niebieski okrągły przycisk</span> obok ich
+          danych. W skutek otwiera się okno edycji użutkownika i można zmieniać
+          jego dane personalne.
+        </p>
+        <p>
+          Użytkowników można również usuwać, a dokładniej ustawiać jako
+          nieaktywnych co uniemożliwi im zalogowanie się do systemy po stronie
+          centrali oraz sklepu. Usuwanie użytkowników odbywa się poprzez
+          wciśnięcie
+          <span class="manual-bold">czerwonego okrągłego przycisku</span> oraz
+          potwierdzenia usunięcia użytkownika
+        </p>
+      </article>
+      <article>
+        <div class="header-center">
+          <h3 id="centrala-sklepy">Sklepy</h3>
+        </div>
+        <img
+          src="../img/manual/manual-sklepy.png"
+          alt="ekran sklepów w centrali"
+        />
+        <p>
+          Pierwszą czynnością po zalogowaniu się użytkownika to utworzenie
+          danych punktów sprzedażowych. Odbywa się to poprzez wciśnięcie
+          przycisku dodawania opisanego w zakładce
+          <a href="#centrala-interfejs">Centrala-Interfejs</a>
+        </p>
+        <p class="warning">
+          Stworzenie punktów sprzedażowych jest niezbędne do raportowania
+          sklepów dla danego użytkownika, tworznie numerów dokumentów przy
+          wydaniach oraz tworzenia RCP
+        </p>
+      </article>
+      <article>
+        <div class="header-center">
+          <h3 id="centrala-przypisywanie">Przypisywanie użytkowników</h3>
+        </div>
+        <img
+          src="../img/manual/manual-przypisanie.png"
+          alt="ekran przypisania użytkonwika do sklepów"
+        />
+        <p>
+          Aby przypisać użytkownika do sklepu bądź wielu sklepów należy wybrać
+          zakładkę przypisanie. Zostaniemy przeniesieni na widok umieszczony
+          powyżej.
+        </p>
+        <p>W celu przypisania użytkownika na sklepu należy kolejno:</p>
+        <ol>
+          <li>Wybrać danego użytkownika z listy</li>
+          <li>
+            Po wybraniu użytkownika pojawią się sklepy, do których użytkownik
+            nie został przypisany, należy je zaznaczyć za pomocą checkboxa przy
+            nazwie danego sklepu
+          </li>
+          <li>
+            Po upewnieniu się czy nie występują pomyłki wciśnięcie przycisku
+            <span class="manual-bold">Przypisz</span>
+          </li>
+        </ol>
+        <p class="warning">
+          Przypisywanie użytkowników do sklepów odpowiada za przypisanie ich do
+          części centralnej! <br />Użytkownicy w module sklepowym nie są
+          przypisywani do sklepów z powodu rotacji
+        </p>
+      </article>
+      <article>
+        <div class="header-center">
+          <h3 id="centrala-ceny">Ceny</h3>
+        </div>
+        <img
+          src="../img/manual/manual-ceny.png"
+          alt="ekran zmiany cen w centrali"
+        />
+        <p>
+          W zakładce <span class="manual-bold">Ceny</span> można przeglądać oraz
+          edytować ceny sprzedawanych towarów. Aby zmienić cenę danego towaru,
+          nalezy w kolumnie <span class="manual-bold">Cena</span> wybrać pole
+          dla towaru, któremu chcemy zmienić cenę i kliknąć przycisk
+          <span class="manual-bold">Zapisz</span>. Zostaną pobrane nowe ceny dla
+          towarów, poprzednia cena, która obowiązywała zostanie przeniesiona do
+          pola z kolumną <span class="manual-bold">Poprzednia Cena</span>.
+          Dodatkowo zostaje zapisana data oraz godzina zmiany ceny
+        </p>
+      </article>
+      <article>
+        <div class="header-center">
+          <h3 id="centrala-smaki">Smaki</h3>
+        </div>
+        <img
+          src="../img/manual/manual-smaki.png"
+          alt="ekran smaków w centrali"
+        />
+        <p>
+          Aby rozpocząć sprzedaż na punktach niezbędne jest przypisywanie kuwet
+          do sklepów, a do kuwet niezbędne są definicje smaków. W zakładce
+          rozwijanej <span class="manual-bold">Lody</span> znajduje się
+          podrzędna zakładka <span class="manual-bold">Smaki</span>
+        </p>
+        <p>
+          Należy zdefiniować smaki, które będą dostępne do sprzedaży. Aby to
+          zrobić należy wybrać przycisk
+          <span class="manual-bold">Dodawania</span> opisanu w zakładce
+          <a href="#centrala-interfejs">Interfejs-centrala</a>, który przeniesie
+          nas do ekranu tworzenia smaku.
+        </p>
+        <div class="header-center">
+          <h3>Tworzenie Smaków</h3>
+        </div>
+        <img
+          src="../img/manual/manual-smaki-dodawanie.png"
+          alt="ekran tworzenie smaków w centrali"
+        />
+        <p>
+          Utworzenie smaku wykonuje się tylko w przypadku pierwszej konfiguracji
+          programu przez użytkonwika lub w przypadku wprowadzenia nowego smaku
+          do oferty
+        </p>
+        <p>Odbywa się to w nastepujących krokach:</p>
+        <ol>
+          <li>
+            Podanie nazwy smaku - nazwa musi być unikalna. W przeciwnym wypadku
+            aplikacja powiadomi użytkownika o powtarzającej się nazwie smaku i
+            uniemożliwi jego dodanie
+          </li>
+          <li>
+            Wybranie koloru tła - Opcja stworzona dla usprawnienia sprzedaży dla
+            użytkonwików końcowych
+          </li>
+          <li>
+            Wybranie koloru czcionki - Opcja stworzona dla usprawnienia
+            sprzedaży dla użytkonwików końcowych
+          </li>
+        </ol>
+      </article>
+    </section>
+    <section>
+      <div class="header-center">
+        <h2 id="sklep">Sklep</h2>
+      </div>
+    </section>
+  </body>
+</html>

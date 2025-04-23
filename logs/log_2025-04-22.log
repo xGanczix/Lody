@@ -231,3 +231,6 @@ sql: INSERT INTO DokumentyPozycje
 [2025-04-22 15:36:13] [INFO] Połączono z MariaDB
 [2025-04-22 15:38:52] [INFO] Zalogowano Serwis
 [2025-04-22 15:45:27] [INFO] Zalogowano: 1 (Sklep: 1)
+[2025-04-22 16:02:00] [INFO] Zalogowano: jk (Sklep: 1)
+[2025-04-22 16:04:42] [INFO] Zalogowano: jk (Sklep: 1)
+[2025-04-22 16:04:54] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: 2 | KUWETA5: 1 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
