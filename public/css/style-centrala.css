@@ -252,27 +252,6 @@ main {
   font-size: 30px;
 }
 
-.centrala-help-manual-container {
-  overflow-y: auto;
-  padding: 0 20px 20px 20px;
-  scroll-behavior: smooth;
-  height: calc(100% - 120px);
-}
-
-.centrala-help-container h3 {
-  padding: 40px 0 10px 0;
-  text-align: center;
-  font-size: 24px;
-  color: var(--button-light-color);
-}
-
-.centrala-help-container p {
-  font-size: 16px;
-  line-height: 26px;
-  word-spacing: 3px;
-  text-align: justify;
-}
-
 button#add {
   width: 50px;
   height: 50px;
@@ -510,6 +489,7 @@ button#rcp-month img {
   background: var(--background-light-color);
   text-align: center;
   padding: 50px;
+  z-index: 1000;
 }
 
 .confirm-delete h2,
@@ -719,6 +699,7 @@ button#test-db-connection {
   align-items: center;
   font-weight: bold;
   font-size: 20px;
+  color: var(--text-black-color);
 }
 
 #dodawanie-wymagane {
@@ -833,4 +814,111 @@ button#przydziel-btn {
   width: 50%;
   display: block;
   margin: 0 auto;
+}
+
+.centrala-help-container h3 {
+  padding: 40px 0 10px 0;
+  text-align: center;
+  font-size: 24px;
+  color: var(--button-light-color);
+}
+
+.manual-nav {
+  /* position: sticky;
+  top: 0; */
+  padding: 20px;
+  border-bottom: 2px solid grey;
+}
+
+.header-center {
+  text-align: center;
+}
+
+.manual-container {
+  padding: 0 40px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  height: calc(100% - 120px);
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.centrala-help-container h1,
+.centrala-help-container h2,
+.centrala-help-container h3,
+.centrala-help-container h4 {
+  text-align: center;
+  margin: 0 auto 20px auto;
+  color: var(--text-black-color);
+}
+
+.centrala-help-container h2,
+.centrala-help-container h3,
+.centrala-help-container h4 {
+  display: inline-block;
+  text-align: center;
+  border-bottom: 5px solid var(--button-light-color);
+  padding: 10px 50px;
+}
+
+p.warning {
+  border: 3px solid orange;
+  border-radius: 10px;
+  display: block;
+  margin: 20px auto;
+  width: 60%;
+  text-align: center;
+  padding: 10px;
+}
+img.manual-img {
+  width: 70%;
+  display: block;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 0 10px grey;
+}
+
+img.img-text {
+  display: inline-block;
+  width: 16px;
+  box-shadow: none;
+}
+
+.centrala-help-container .manual-bold {
+  font-weight: 800;
+}
+
+.centrala-help-container ul > li,
+.centrala-help-container ol > li {
+  margin-left: 30px;
+}
+
+.centrala-help-container ul ul > li,
+.centrala-help-container ol ol > li,
+.centrala-help-container ul ol > li,
+.centrala-help-container ol ul > li {
+  margin-left: 60px;
+}
+
+.centrala-help-container ul ul ul > li,
+.centrala-help-container ul ul ol > li,
+.centrala-help-container ul ol ul > li,
+.centrala-help-container ul ol ol > li,
+.centrala-help-container ol ul ul > li,
+.centrala-help-container ol ul ol > li,
+.centrala-help-container ol ol ul > li,
+.centrala-help-container ol ol ol > li {
+  margin-left: 90px;
+}
+
+button#manual-print {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 14px;
+  position: absolute;
+  left: calc(20% + 40px);
+}
+
+button#manual-print img {
+  width: 100%;
 }

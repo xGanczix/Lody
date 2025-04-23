@@ -66,6 +66,10 @@
   transition: background 0.3s ease-in-out;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background-light-color);
   color: var(--text-light-color);
@@ -270,7 +274,11 @@ html.dark-mode body .apexcharts-menu-icon svg,
 html.dark-mode body .apexcharts-reset-icon svg,
 html.dark-mode body .apexcharts-zoom-icon svg,
 html.dark-mode body .apexcharts-zoomin-icon svg,
-html.dark-mode body .apexcharts-zoomout-icon svg {
+html.dark-mode body .apexcharts-zoomout-icon svg,
+html.dark-mode body .centrala-help-container h1,
+html.dark-mode body .centrala-help-container h2,
+html.dark-mode body .centrala-help-container h3,
+html.dark-mode body .centrala-help-container h4 {
   fill: var(--text-white-color);
   color: var(--text-white-color) !important;
 }
@@ -287,11 +295,12 @@ html.dark-mode .apexcharts-tooltip-title {
   background: var(--background-dark-color) !important;
 }
 
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  input,
-  select {
-    width: 100%;
-    font-size: 40px;
-    height: 100px;
-  }
+html.dark-mode body #smak-podglad {
+  color: var(--text-black-color);
+}
+
+html.dark-mode body .centrala-help-container h2,
+html.dark-mode body .centrala-help-container h3,
+html.dark-mode body .centrala-help-container h4 {
+  border-color: var(--button-dark-color);
 }

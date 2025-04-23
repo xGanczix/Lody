@@ -294,3 +294,7 @@ function przypisanie() {
 function przypisanieAnuluj() {
   window.location.href = "centrala.html";
 }
+
+function instrukcjaDrukowanie() {
+  window.location.href = "instrukcja.html";
+}

@@ -10,3 +10,71 @@
 [2025-04-23 14:54:24] [INFO] Usunięcie sklepu o ID: 1
 [2025-04-23 14:54:55] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: Sklep 1
 [2025-04-23 16:00:53] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-23 21:28:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 21:28:13] [INFO] Połączono z MariaDB
+[2025-04-23 21:28:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 21:28:50] [INFO] Połączono z MariaDB
+[2025-04-23 21:28:59] [INFO] Zalogowano Serwis
+[2025-04-23 22:41:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:41:23] [INFO] Połączono z MariaDB
+[2025-04-23 22:41:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:41:38] [INFO] Połączono z MariaDB
+[2025-04-23 22:42:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:42:51] [INFO] Połączono z MariaDB
+[2025-04-23 22:42:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:42:59] [INFO] Połączono z MariaDB
+[2025-04-23 22:43:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:43:11] [INFO] Połączono z MariaDB
+[2025-04-23 22:43:22] [INFO] Usunięcie kuwety o ID: 2
+[2025-04-23 22:43:30] [INFO] Usunięcie sklepu o ID: 2
+[2025-04-23 22:43:46] [INFO] Przywrócenie rozmiaru o ID: 1
+[2025-04-23 22:43:53] [INFO] Usunięcie smaku o ID: 2
+[2025-04-23 22:43:59] [INFO] Usunięcie rozmiaru o ID: 1
+[2025-04-23 22:45:28] [INFO] Usunięcie użytkownika o ID: 1
+[2025-04-23 22:45:35] [INFO] Przywrócenie sklepu o ID: 2
+[2025-04-23 22:45:46] [INFO] Przywrócenie rozmiaru o ID: 2
+[2025-04-23 22:46:26] [INFO] Przywrócenie rozmiaru o ID: 1
+[2025-04-23 22:46:32] [INFO] Przywrócenie smaku o ID: 2
+[2025-04-23 22:47:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:47:50] [INFO] Połączono z MariaDB
+[2025-04-23 22:48:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:48:10] [INFO] Połączono z MariaDB
+[2025-04-23 22:48:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:48:21] [INFO] Połączono z MariaDB
+[2025-04-23 22:48:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:48:22] [INFO] Połączono z MariaDB
+[2025-04-23 22:48:29] [INFO] Usunięcie kuwety o ID: 1
+[2025-04-23 22:48:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:48:39] [INFO] Połączono z MariaDB
+[2025-04-23 22:48:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:48:52] [INFO] Połączono z MariaDB
+[2025-04-23 22:49:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:49:11] [INFO] Połączono z MariaDB
+[2025-04-23 22:49:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:49:58] [INFO] Połączono z MariaDB
+[2025-04-23 22:50:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:50:40] [INFO] Połączono z MariaDB
+[2025-04-23 22:50:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:50:52] [INFO] Połączono z MariaDB
+[2025-04-23 22:50:59] [ERROR] Błąd MariaDB: ReferenceError: rozmiarId is not defined
+[2025-04-23 22:50:59] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-23 22:50:59] [INFO] Aplikacja zakończyła działanie.
+[2025-04-23 22:51:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:51:32] [INFO] Połączono z MariaDB
+[2025-04-23 22:51:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 22:51:33] [INFO] Połączono z MariaDB
+[2025-04-23 22:51:51] [INFO] Przywrócenie kuwety o ID: 2
+[2025-04-23 22:51:53] [INFO] Usunięcie kuwety o ID: 1
+[2025-04-23 22:52:11] [INFO] Zbiorczo dodano 10 kuwet - Smak: 1, Rozmiar: 1
+[2025-04-23 22:52:47] [INFO] Usunięcie kuwety o ID: 3
+[2025-04-23 22:52:51] [INFO] Przywrócenie kuwety o ID: 3
+[2025-04-23 22:52:54] [INFO] Usunięcie kuwety o ID: 6
+[2025-04-23 22:52:56] [INFO] Usunięcie kuwety o ID: 4
+[2025-04-23 22:52:58] [INFO] Usunięcie kuwety o ID: 7
+[2025-04-23 22:53:04] [INFO] Przywrócenie kuwety o ID: 7
+[2025-04-23 23:37:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 23:37:10] [INFO] Połączono z MariaDB
+[2025-04-23 23:46:26] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-04-23 23:46:26] [INFO] Aplikacja zakończyła działanie.
+[2025-04-23 23:46:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-23 23:46:27] [INFO] Połączono z MariaDB

@@ -418,6 +418,25 @@ where
   }
 });
 
+app.put("/api/kuwety-usuwanie/:id", async (req, res) => {
+  const kuwetaId = req.params.id;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.query(
+      "UPDATE Kuwety SET KuwStatus = 0, KuwDataZmiany = NOW() WHERE KuwId = ?",
+      [kuwetaId]
+    );
+    res.status(200).json({ message: "Status zmieniony" });
+    logToFile(`[INFO] Usunięcie kuwety o ID: ${kuwetaId}`);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    res.status(500).json({ error: "Błąd serwera" });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
 app.post("/api/smaki-dodanie", async (req, res) => {
   const { smak, kolor, textColor } = req.body;
 
@@ -566,11 +585,30 @@ app.put("/api/rozmiary-przywracanie/:id", async (req, res) => {
   try {
     connection = await dbConfig.getConnection();
     await connection.query(
-      "UPDATE Rozmiary SET RozStatus = 1 WHERE RozId = ?",
+      "UPDATE Rozmiary SET RozStatus = 1, RozDataZmiany = now() WHERE RozId = ?",
       [rozmiarId]
     );
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Przywrócenie rozmiaru o ID: ${rozmiarId}`);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    res.status(500).json({ error: "Błąd serwera" });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.put("/api/kuwety-przywracanie/:id", async (req, res) => {
+  const kuwetaId = req.params.id;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    await connection.query(
+      "UPDATE Kuwety SET KuwStatus = 1, KuwDataZmiany = now() WHERE KuwId = ?",
+      [kuwetaId]
+    );
+    res.status(200).json({ message: "Status zmieniony" });
+    logToFile(`[INFO] Przywrócenie kuwety o ID: ${kuwetaId}`);
   } catch (err) {
     logToFile(`[ERROR] Błąd MariaDB: ${err}`);
     res.status(500).json({ error: "Błąd serwera" });

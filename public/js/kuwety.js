@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   }">
                     <img src="../img/white/edit-white.png">
                   </button>
-                  <button id="${actionButtonId}" data-rozmiar="${kuweta.KuwId}">
+                  <button id="${actionButtonId}" data-kuweta="${kuweta.KuwId}">
                     <img src="../img/white/${actionIcon}" alt="${actionText}">
                   </button>
                 </td>
@@ -85,16 +85,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  let selectedRozmiarId = null;
+  let selectedKuwetaId = null;
 
   document.addEventListener("click", (event) => {
     if (event.target.closest("#delete")) {
       const button = event.target.closest("#delete");
-      selectedRozmiarId = button.getAttribute("data-rozmiar");
+      selectedKuwetaId = button.getAttribute("data-kuweta");
 
       document.querySelector(".confirm-delete").style.display = "flex";
-    } else if (event.target.id === "confirm-ok" && selectedRozmiarId) {
-      fetch(`/api/kuwety-usuwanie/${selectedRozmiarId}`, {
+    } else if (event.target.id === "confirm-ok" && selectedKuwetaId) {
+      fetch(`/api/kuwety-usuwanie/${selectedKuwetaId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       })
@@ -108,22 +108,22 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch((error) => console.error("Błąd połączenia:", error));
     } else if (event.target.id === "confirm-cancel") {
       document.querySelector(".confirm-delete").style.display = "none";
-      selectedRozmiarId = null;
+      selectedKuwetaId = null;
     }
   });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  let selectedRozmiarId = null;
+  let selectedKuwetaId = null;
 
   document.addEventListener("click", (event) => {
     if (event.target.closest("#restore")) {
       const button = event.target.closest("#restore");
-      selectedRozmiarId = button.getAttribute("data-rozmiar");
+      selectedKuwetaId = button.getAttribute("data-kuweta");
 
       document.querySelector(".confirm-restore").style.display = "flex";
-    } else if (event.target.id === "confirm-ok" && selectedRozmiarId) {
-      fetch(`/api/rozmiary-przywracanie/${selectedRozmiarId}`, {
+    } else if (event.target.id === "confirm-ok" && selectedKuwetaId) {
+      fetch(`/api/kuwety-przywracanie/${selectedKuwetaId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       })
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch((error) => console.error("Błąd połączenia:", error));
     } else if (event.target.id === "confirm-cancel") {
       document.querySelector(".confirm-restore").style.display = "none";
-      selectedRozmiarId = null;
+      selectedKuwetaId = null;
     }
   });
 });
