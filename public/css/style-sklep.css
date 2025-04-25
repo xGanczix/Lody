@@ -47,6 +47,9 @@
   --yellow-color: #ebab0a;
   --yellow-hover-color: #d39908;
 
+  --teal-color: #17a2b8;
+  --teal-hover-color: #148fa1;
+
   --red-rgba-color: rgba(220, 53, 69, 0.3);
 }
 
@@ -272,28 +275,43 @@ button.usun-btn img {
   width: 100%;
 }
 
-button#gotowka {
+button#gotowka,
+button#gotowka-zmiana {
   background: var(--green-color) !important;
 }
 
-button#gotowka:hover {
+button#gotowka:hover,
+button#gotowka-zmiana:hover {
   background: var(--green-hover-color) !important;
 }
 
-button#karta {
+button#karta,
+button#karta-zmiana {
   background: var(--blue-color) !important;
 }
 
-button#karta:hover {
+button#karta:hover,
+button#karta-zmiana:hover {
   background: var(--blue-hover-color) !important;
 }
 
-button#bon {
+button#bon,
+button#bon-zmiana {
   background: var(--yellow-color) !important;
 }
 
-button#bon:hover {
+button#bon:hover,
+button#bon-zmiana:hover {
   background: var(--yellow-hover-color) !important;
+}
+
+button#zmiana-formy-platnosci {
+  border-radius: 0;
+  background: var(--teal-color) !important;
+}
+
+button#zmiana-formy-platnosci:hover {
+  background: var(--teal-hover-color) !important;
 }
 
 button#pozycje-wydania-anuluj {
@@ -776,4 +794,51 @@ button.reset-kawa img {
   color: var(--text-black-color);
   box-shadow: 0 0 10px var(--box-shadow-color);
   font-size: 30px;
+}
+
+.zmiana-formy-platnosci-container {
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.formy-platnosci-container {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.formy-platnosci-container #gotowka-zmiana,
+.formy-platnosci-container #karta-zmiana,
+.formy-platnosci-container #bon-zmiana {
+  width: calc((100% / 3) - 20px);
+  height: 100%;
+  padding: 40px;
+}
+
+.formy-platnosci-container #gotowka-zmiana img,
+.formy-platnosci-container #karta-zmiana img,
+.formy-platnosci-container #bon-zmiana img {
+  width: 100%;
+}
+
+button#zmiana-formy-platnosci-anuluj {
+  margin-top: 20px;
+  width: 40%;
+  background: var(--red-color);
+  height: 70px;
+}
+
+button#zmiana-formy-platnosci-anuluj:hover {
+  background: var(--red-hover-color);
 }

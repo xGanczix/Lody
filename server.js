@@ -19,7 +19,6 @@ dotenv.config();
 
 const fs = require("fs");
 const path = require("path");
-const { log } = require("console");
 
 function logToFile(message) {
   try {
@@ -691,6 +690,12 @@ app.get("/api/sklepy-logowanie", async (req, res) => {
 
 app.get("/api/sklepy-raportowanie/:uzytkownikId", async (req, res) => {
   const uzytkownikId = req.params.uzytkownikId;
+  // const startDate = req.params.startDate;
+  // const endDate = req.params.endDate;
+
+  // startDate = startDate + " 00:00:00";
+  // endDate = endDate + " 23:59:59";
+  // console.log(startDate, endDate);
   let connection;
   try {
     connection = await dbConfig.getConnection();
@@ -2508,6 +2513,33 @@ app.post("/api/przydziel-kuwety", async (req, res) => {
   } catch (err) {
     console.error("Błąd przy przetwarzaniu żądania:", err);
     res.status(500).send("Wystąpił błąd przy przydzielaniu kuwet");
+  }
+});
+
+app.put("/api/zmiana-formy-platnosci", async (req, res) => {
+  const { sklepId, platnosc } = req.body;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      UPDATE Dokumenty
+        SET DokFormaPlatnosci = ?, DokDataZmiany = now()
+      WHERE DokId = (
+        SELECT DokId
+        FROM Dokumenty
+        WHERE DokSklepId = ?
+        ORDER BY DokData DESC
+        LIMIT 1
+      );
+    `;
+    await connection.query(sql, [platnosc, sklepId]);
+    res.status(200).json({ message: "Forma płatności zmieniona" });
+    logToFile(`[INFO] Zmieniono formę płatności na ${platnosc}`);
+  } catch (err) {
+    res.status(500).json({ error: "Błąd podczas zmiany formy płatności" });
+    logToFile(`[ERROR] Błąd podczas połączenia z bazą danych: ${err}`);
+  } finally {
+    if (connection) connection.release();
   }
 });
 

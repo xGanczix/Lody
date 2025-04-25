@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             przycisk.textContent = przypisanySmak.Nazwa;
             przycisk.setAttribute("data-cena", przypisanySmak.CCena);
 
-            przycisk.addEventListener("click", () => {
+            const handleClick = () => {
               if (parseInt(przypisanySmak.Porcje) <= 0) {
                 alert(`Brak porcji dla smaku: ${przypisanySmak.Nazwa}`);
                 return;
@@ -49,24 +49,42 @@ document.addEventListener("DOMContentLoaded", async () => {
 
               const cena = parseFloat(przycisk.getAttribute("data-cena"));
               dodajDoTabeli(przypisanySmak, cena);
+            };
+
+            przycisk.addEventListener("click", handleClick);
+            przycisk.addEventListener("touchstart", (e) => {
+              e.preventDefault();
+              handleClick();
             });
           }
         }
       });
 
     document.querySelectorAll(".pozostale-towary").forEach((przycisk) => {
-      przycisk.addEventListener("click", () => {
+      const handleClick = () => {
         const nazwa = przycisk.textContent.trim();
         const towId = przycisk.getAttribute("data-towar");
         dodajDoTabeliLodyWloskie(nazwa, towId);
+      };
+
+      przycisk.addEventListener("click", handleClick);
+      przycisk.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        handleClick();
       });
     });
 
     document.querySelectorAll(".dodatek").forEach((przycisk) => {
-      przycisk.addEventListener("click", () => {
+      const handleClick = () => {
         const nazwa = przycisk.textContent.replace(/\s+/g, " ").trim();
         const towId = przycisk.getAttribute("data-towar");
         dodajDoTabeliLodyWloskie(nazwa, towId);
+      };
+
+      przycisk.addEventListener("click", handleClick);
+      przycisk.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        handleClick();
       });
     });
 
@@ -180,8 +198,6 @@ async function zapiszWydanie(formaPlatnosci) {
       cena,
     });
   });
-
-  console.log("Pozycje do wysłania:", pozycje);
 
   try {
     const response = await fetch(`${CONFIG.URL}/api/zapisz-wydanie`, {
@@ -344,13 +360,110 @@ document.querySelector("button.reset-kawa").addEventListener("click", () => {
 });
 
 const buttons = document.querySelectorAll("button.lody-rzemieslnicze-smak");
+const buttonsPozostale = document.querySelectorAll("button.dodatek");
 
 buttons.forEach((button) => {
-  button.addEventListener("click", function () {
+  const handleClick = () => {
     button.style.fontSize = "40px";
-
     setTimeout(function () {
       button.style.fontSize = "20px";
-    }, 300);
+    }, 50);
+  };
+
+  button.addEventListener("click", handleClick);
+  button.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    handleClick();
   });
 });
+
+buttonsPozostale.forEach((button) => {
+  const handleClick = () => {
+    button.style.fontSize = "40px";
+    setTimeout(function () {
+      button.style.fontSize = "20px";
+    }, 50);
+  };
+
+  button.addEventListener("click", handleClick);
+  button.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    handleClick();
+  });
+});
+
+document
+  .getElementById("zmiana-formy-platnosci")
+  .addEventListener("click", () => {
+    document.querySelector(".zmiana-formy-platnosci-container").style.display =
+      "flex";
+    document.querySelector(
+      ".zmiana-formy-platnosci-container"
+    ).style.opacity = 1;
+  });
+
+document
+  .getElementById("zmiana-formy-platnosci-anuluj")
+  .addEventListener("click", () => {
+    document.querySelector(".zmiana-formy-platnosci-container").style.display =
+      "none";
+    document.querySelector(
+      ".zmiana-formy-platnosci-container"
+    ).style.opacity = 0;
+  });
+
+async function zmienFormePlatnosci(formaPlatnosci) {
+  const token = localStorage.getItem("token");
+  const decoded = parseJwt(token);
+
+  const sklepId = decoded.sklepId;
+
+  try {
+    const response = await fetch(`${CONFIG.URL}/api/zmiana-formy-platnosci`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sklepId,
+        platnosc: formaPlatnosci,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      document.querySelector(
+        ".zmiana-formy-platnosci-container"
+      ).style.display = "none";
+      const message = document.getElementById("message");
+      message.style.opacity = 1;
+      message.style.background = "rgba(0, 196, 10, 0.3)";
+      message.style.border = "2px solid #28a745";
+      message.innerHTML = "Forma płatności zmieniona";
+
+      setTimeout(() => {
+        message.style.opacity = 0;
+      }, 2000);
+    } else {
+      message.style.opacity = 1;
+      message.style.background = "rgba(255, 0, 0, 0.3)";
+      message.style.border = "2px solid #dc3545";
+      message.innerHTML = "Błąd zmiany formy płatności";
+
+      setTimeout(() => {
+        message.style.opacity = 0;
+      }, 10000);
+    }
+  } catch (err) {
+    console.log("Błąd zmiany formy płatności: ", err);
+  }
+}
+
+document
+  .getElementById("gotowka-zmiana")
+  .addEventListener("click", () => zmienFormePlatnosci("gotówka"));
+document
+  .getElementById("karta-zmiana")
+  .addEventListener("click", () => zmienFormePlatnosci("karta"));
+document
+  .getElementById("bon-zmiana")
+  .addEventListener("click", () => zmienFormePlatnosci("bon"));

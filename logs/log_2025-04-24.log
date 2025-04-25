@@ -33,3 +33,208 @@ sql: UPDATE Kuwety SET KuwSmkId = ?,KuwRozId = ?, KuwSklId = ?, KuwDataZmiany = 
 [2025-04-24 00:44:34] [INFO] Zalogowano: jk (Sklep: 1)
 [2025-04-24 00:45:40] [INFO] Zalogowano Serwis
 [2025-04-24 00:47:47] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-24 08:36:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 08:36:18] [INFO] Połączono z MariaDB
+[2025-04-24 08:36:27] [INFO] Zalogowano Serwis
+[2025-04-24 08:57:25] [INFO] Dane z tabel zostały usunięte
+[2025-04-24 08:57:49] [INFO] Użytkownik dodany pomyślnie: jk
+[2025-04-24 08:58:14] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: Sklep 1
+[2025-04-24 09:00:40] [INFO] Smak dodany pomyślnie: Czekolada
+[2025-04-24 09:00:48] [INFO] Smak dodany pomyślnie: Truskawka
+[2025-04-24 09:01:01] [INFO] Rozmiar dodany pomyślnie: Duży
+[2025-04-24 09:01:06] [INFO] Rozmiar dodany pomyślnie: Mega
+[2025-04-24 09:01:16] [INFO] Kuweta dodana pomyślnie: Id smak: 1 | Id rozmiar: 2 | Porcje: 100
+[2025-04-24 09:19:28] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 09:19:29] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-04-24 09:19:56] [INFO] Zalogowano Serwis
+[2025-04-24 09:20:03] [INFO] Poprawne wpisanie danych
+[2025-04-24 09:22:19] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:20:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:20:51] [INFO] Połączono z MariaDB
+[2025-04-24 13:22:51] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:25:12] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:28:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:28:51] [INFO] Połączono z MariaDB
+[2025-04-24 13:34:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:34:39] [INFO] Połączono z MariaDB
+[2025-04-24 13:36:24] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:38:32] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:40:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:40:49] [INFO] Połączono z MariaDB
+[2025-04-24 13:41:30] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:43:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:43:33] [INFO] Połączono z MariaDB
+[2025-04-24 13:47:39] [INFO] Zalogowano Serwis
+[2025-04-24 13:49:02] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:49:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:49:17] [INFO] Połączono z MariaDB
+[2025-04-24 13:49:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:49:59] [INFO] Połączono z MariaDB
+[2025-04-24 13:50:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:50:17] [INFO] Połączono z MariaDB
+[2025-04-24 13:53:25] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 13:56:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:56:53] [INFO] Połączono z MariaDB
+[2025-04-24 13:59:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 13:59:36] [INFO] Połączono z MariaDB
+[2025-04-24 14:00:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:00:04] [INFO] Połączono z MariaDB
+[2025-04-24 14:00:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:00:13] [INFO] Połączono z MariaDB
+[2025-04-24 14:02:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:02:30] [INFO] Połączono z MariaDB
+[2025-04-24 14:02:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:02:45] [INFO] Połączono z MariaDB
+[2025-04-24 14:02:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:02:48] [INFO] Połączono z MariaDB
+[2025-04-24 14:02:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:02:56] [INFO] Połączono z MariaDB
+[2025-04-24 14:02:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:02:59] [INFO] Połączono z MariaDB
+[2025-04-24 14:03:20] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 14:08:30] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 14:09:14] [INFO] Zalogowano Serwis
+[2025-04-24 14:21:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:21:26] [INFO] Połączono z MariaDB
+[2025-04-24 14:21:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:21:52] [INFO] Połączono z MariaDB
+[2025-04-24 14:22:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:22:34] [INFO] Połączono z MariaDB
+[2025-04-24 14:23:00] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 14:37:51] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 14:41:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:41:07] [INFO] Połączono z MariaDB
+[2025-04-24 14:41:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:41:15] [INFO] Połączono z MariaDB
+[2025-04-24 14:41:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:41:16] [INFO] Połączono z MariaDB
+[2025-04-24 14:41:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:41:59] [INFO] Połączono z MariaDB
+[2025-04-24 14:46:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:46:17] [INFO] Połączono z MariaDB
+[2025-04-24 14:47:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:47:10] [INFO] Połączono z MariaDB
+[2025-04-24 14:48:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:48:08] [INFO] Połączono z MariaDB
+[2025-04-24 14:50:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:50:09] [INFO] Połączono z MariaDB
+[2025-04-24 14:50:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:50:10] [INFO] Połączono z MariaDB
+[2025-04-24 14:50:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:50:39] [INFO] Połączono z MariaDB
+[2025-04-24 14:51:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:51:12] [INFO] Połączono z MariaDB
+[2025-04-24 14:52:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:52:24] [INFO] Połączono z MariaDB
+[2025-04-24 14:52:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:52:54] [INFO] Połączono z MariaDB
+[2025-04-24 14:53:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:53:01] [INFO] Połączono z MariaDB
+[2025-04-24 14:53:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:53:48] [INFO] Połączono z MariaDB
+[2025-04-24 14:54:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:54:09] [INFO] Połączono z MariaDB
+[2025-04-24 14:55:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:55:45] [INFO] Połączono z MariaDB
+[2025-04-24 14:56:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:56:21] [INFO] Połączono z MariaDB
+[2025-04-24 14:56:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:56:28] [INFO] Połączono z MariaDB
+[2025-04-24 14:57:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:57:43] [INFO] Połączono z MariaDB
+[2025-04-24 14:58:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:58:15] [INFO] Połączono z MariaDB
+[2025-04-24 14:58:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:58:38] [INFO] Połączono z MariaDB
+[2025-04-24 14:58:41] [ERROR] Błąd podczas połączenia z bazą danych: SqlError: (conn:25931, no: 1054, SQLState: 42S22) Unknown column 'DokDataZmiany' in 'SET'
+sql: 
+      UPDATE Dokumenty
+        SET DokFormaPlatnosci = ?, DokDataZmiany = now()
+      WHERE DokId = (
+        SELECT DokId
+        FROM Dokumenty
+        WHERE DokSklepId = ?
+        ORDER BY DokData DESC
+        LIMIT 1
+      );
+     - parameters:['karta...
+[2025-04-24 14:59:44] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-24 14:59:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 14:59:46] [INFO] Połączono z MariaDB
+[2025-04-24 14:59:51] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-24 14:59:51] [INFO] Aplikacja zakończyła działanie.
+[2025-04-24 15:00:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:00:39] [INFO] Połączono z MariaDB
+[2025-04-24 15:00:43] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-24 15:00:43] [INFO] Aplikacja zakończyła działanie.
+[2025-04-24 15:01:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:01:15] [INFO] Połączono z MariaDB
+[2025-04-24 15:01:19] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-24 15:01:19] [INFO] Aplikacja zakończyła działanie.
+[2025-04-24 15:01:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:01:42] [INFO] Połączono z MariaDB
+[2025-04-24 15:01:50] [ERROR] Nieobsłużony błąd: Cannot set headers after they are sent to the client
+[2025-04-24 15:01:50] [INFO] Aplikacja zakończyła działanie.
+[2025-04-24 15:03:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:03:30] [INFO] Połączono z MariaDB
+[2025-04-24 15:03:42] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-24 15:03:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:03:43] [INFO] Połączono z MariaDB
+[2025-04-24 15:03:55] [INFO] Zmieniono formę płatności na gotówka
+[2025-04-24 15:04:10] [INFO] Zmieniono formę płatności na bon
+[2025-04-24 15:04:16] [INFO] Zmieniono formę płatności na gotówka
+[2025-04-24 15:04:21] [INFO] Zmieniono formę płatności na karta
+[2025-04-24 15:04:39] [INFO] Zmieniono formę płatności na karta
+[2025-04-24 15:04:52] [INFO] Zalogowano Serwis
+[2025-04-24 15:05:02] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: Sklep 2
+[2025-04-24 15:05:10] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 15:05:19] [INFO] Zalogowano: jk (Sklep: Sklep 2)
+[2025-04-24 15:05:29] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 15:05:38] [INFO] Zmieniono formę płatności na gotówka
+[2025-04-24 15:10:42] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 15:10:53] [INFO] Zmieniono formę płatności na bon
+[2025-04-24 15:11:46] [INFO] Zalogowano Serwis
+[2025-04-24 15:12:18] [INFO] Zbiorczo dodano 6 kuwet - Smak: 2, Rozmiar: 2
+[2025-04-24 15:12:38] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-04-24 15:12:45] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 1 | KUWETA2: 5 | KUWETA3: 7 | KUWETA4: 6 | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-24 15:13:06] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: undefined | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-04-24 15:13:11] [INFO] Zmieniono formę płatności na bon
+[2025-04-24 15:15:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:15:17] [INFO] Połączono z MariaDB
+[2025-04-24 15:15:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:15:31] [INFO] Połączono z MariaDB
+[2025-04-24 15:18:08] [INFO] Zmieniono formę płatności na bon
+[2025-04-24 15:18:27] [INFO] Zalogowano Serwis
+[2025-04-24 15:20:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:20:46] [INFO] Połączono z MariaDB
+[2025-04-24 15:21:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:21:18] [INFO] Połączono z MariaDB
+[2025-04-24 15:22:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:22:31] [INFO] Połączono z MariaDB
+[2025-04-24 15:23:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:23:02] [INFO] Połączono z MariaDB
+[2025-04-24 15:23:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:23:13] [INFO] Połączono z MariaDB
+[2025-04-24 15:23:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:23:30] [INFO] Połączono z MariaDB
+[2025-04-24 15:24:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:24:12] [INFO] Połączono z MariaDB
+[2025-04-24 15:24:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:24:27] [INFO] Połączono z MariaDB
+[2025-04-24 15:24:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:24:37] [INFO] Połączono z MariaDB
+[2025-04-24 15:25:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:25:40] [INFO] Połączono z MariaDB
+[2025-04-24 15:25:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:25:53] [INFO] Połączono z MariaDB
+[2025-04-24 15:26:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:26:10] [INFO] Połączono z MariaDB
+[2025-04-24 15:28:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:28:02] [INFO] Połączono z MariaDB
+[2025-04-24 15:28:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:28:29] [INFO] Połączono z MariaDB
+[2025-04-24 15:28:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:28:33] [INFO] Połączono z MariaDB
+[2025-04-24 15:28:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-24 15:28:52] [INFO] Połączono z MariaDB
+[2025-04-24 15:30:37] [INFO] Zalogowano: jk (Sklep: Sklep 1)

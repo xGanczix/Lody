@@ -35,12 +35,18 @@
           <select id="centrala-raport-sklep" required>
             <option value="" disabled selected>-- Wybierz Sklep --</option>
           </select>
+          <label for="startDate">Początek:</label>
+          <input type="date" name="" id="startDate" />
+          <label for="endDate">Koniec:</label>
+          <input type="date" name="" id="endDate" />
+          <button id="raportujDaty">
+            <img src="../img/white/search-interface-symbol-white.png" alt="" />
+          </button>
         </div>
         <div class="raporty-sprzedazy-container">
           <div id="formy-platnosci" class="wykres-container"></div>
           <div id="sprzedawane-smaki" class="wykres-container"></div>
           <div id="sprzedaz-wartosci-dzien" class="wykres-container"></div>
-          <div id="sprzedawane-towary" class="wykres-container"></div>
         </div>
       </main>
     </div>

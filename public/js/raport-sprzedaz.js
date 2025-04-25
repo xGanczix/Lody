@@ -1,5 +1,7 @@
 const decoded = parseJwt(token);
 const uzytkownikId = decoded.id;
+const startDate = document.getElementById("startDate").value;
+const endDate = document.getElementById("endDate").value;
 
 async function fetchRaportSprzedazFormyPlatnosci() {
   try {
@@ -201,8 +203,31 @@ async function fetchRaportSprzedazWartosc() {
   }
 }
 
+function wartoscDat() {
+  const dzisiaj = new Date();
+  const dzisiajFormatowane = dzisiaj.toISOString().split("T")[0];
+  const tydzienWczesniej = new Date(dzisiaj);
+  tydzienWczesniej.setDate(dzisiaj.getDate() - 7);
+
+  const tydzienWczesniejFormatowane = tydzienWczesniej
+    .toISOString()
+    .split("T")[0];
+
+  const poczatkowa = document.getElementById("startDate");
+  const koncowa = document.getElementById("endDate");
+  poczatkowa.value = tydzienWczesniejFormatowane;
+  koncowa.value = dzisiajFormatowane;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   fetchRaportSprzedazFormyPlatnosci();
   fetchRaportSprzedazWartosc();
   fetchRaportSprzedazSmaki();
+  wartoscDat();
 });
+
+// document.getElementById("raportujDaty").addEventListener("click", () => {
+//   fetchRaportSprzedazFormyPlatnosci();
+//   fetchRaportSprzedazWartosc();
+//   fetchRaportSprzedazSmaki();
+// });

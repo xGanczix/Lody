@@ -824,10 +824,31 @@ button#przydziel-btn {
 }
 
 .manual-nav {
-  /* position: sticky;
-  top: 0; */
+  position: sticky;
+  top: 0;
   padding: 20px;
   border-bottom: 2px solid grey;
+}
+
+.manual-nav .nav-link-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.manual-nav .nav-link-container a {
+  border-radius: 10px;
+  border: 2px solid var(--button-light-color);
+  padding: 5px;
+  text-decoration: none;
+  color: var(--text-black-color);
+  display: block;
+}
+
+.manual-nav .nav-link-container a:hover {
+  background: var(--button-light-color);
+  color: var(--text-white-color);
 }
 
 .header-center {
@@ -838,7 +859,7 @@ button#przydziel-btn {
   padding: 0 40px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  height: calc(100% - 120px);
+  max-height: calc(100% - 190px);
   font-size: 16px;
   line-height: 25px;
 }
@@ -861,7 +882,7 @@ button#przydziel-btn {
   padding: 10px 50px;
 }
 
-p.warning {
+.warning {
   border: 3px solid orange;
   border-radius: 10px;
   display: block;

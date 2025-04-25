@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style></style>
     <script>
       if (localStorage.getItem("theme") === "dark") {
         document.documentElement.classList.add("dark-mode");
@@ -38,22 +39,31 @@
         <div class="centrala-main-container centrala-help-container">
           <section class="manual-nav">
             <h1>Instrukcja Lody Łąckie</h1>
-            <a href="#wstep">Wstęp</a>
-            <a href="#wymagania">Wymagania</a>
-            <a href="#ustawienia">Ustawienia</a>
-            <a href="#serwis">Serwis</a>
-            <a href="#logowanie">Logowanie</a>
-            <a href="#centrala">Centrala</a>
-            <a href="#centrala-interfejs">Centrala-Interfejs</a>
-            <a href="#centrala-uzytkownicy">Centrala-Użytkownicy</a>
-            <a href="#centrala-sklepy">Centrala-Sklepy</a>
-            <a href="#centrala-przypisywanie"
-              >Centrala-Przypisywanie użytkowników</a
-            >
-            <a href="#centrala-ceny">Centrala-Ceny</a>
-            <a href="#centrala-smaki">centrala-smaki</a>
-            <a href="#sklep">Sklep</a>
+            <div class="nav-link-container">
+              <a href="#wstep">Wstęp</a>
+              <a href="#wymagania">Wymagania</a>
+              <a href="#ustawienia">Ustawienia</a>
+              <a href="#serwis">Serwis</a>
+              <a href="#logowanie">Logowanie</a>
+              <a href="#centrala">Centrala</a>
+              <a href="#centrala-interfejs">Centrala-Interfejs</a>
+              <a href="#centrala-uzytkownicy">Centrala-Użytkownicy</a>
+              <a href="#centrala-sklepy">Centrala-Sklepy</a>
+              <a href="#centrala-przypisywanie"
+                >Centrala-Przypisywanie użytkowników</a
+              >
+              <a href="#centrala-ceny">Centrala-Ceny</a>
+              <a href="#centrala-smaki">Centrala-Smaki</a>
+              <a href="#centrala-rozmiary">Centrala-Rozmiary</a>
+              <a href="#centrala-kuwety">Centrala-Kuwety</a>
+              <a href="#centrala-przypisywanie-kuwety"
+                >Centrala-Przypisywanie Kuwety</a
+              >
+              <a href="#centrala-raporty">Centrala-Raporty</a>
+              <a href="#inne">Wsparcie</a>
+            </div>
           </section>
+
           <div class="manual-container">
             <section>
               <div class="header-center">
@@ -172,8 +182,8 @@
                 należy zapisać ustawienia i zrestartować aplikację lub serwer.
               </p>
               <p>
-                Jeśli ustawienia są zapisane należy przejśc do zakładki
-                <a href="#serwis">Serwis</a> i kontynuować dalsze kroki
+                Jeśli ustawienia są zapisane należy przejśc do zakładki Serwis i
+                kontynuować dalsze kroki
               </p>
             </section>
             <section>
@@ -403,7 +413,7 @@
                   Pierwszą czynnością po zalogowaniu się użytkownika to
                   utworzenie danych punktów sprzedażowych. Odbywa się to poprzez
                   wciśnięcie przycisku dodawania opisanego w zakładce
-                  <a href="#centrala-interfejs">Centrala-Interfejs</a>
+                  Centrala-Interfejs
                 </p>
                 <p class="warning">
                   Stworzenie punktów sprzedażowych jest niezbędne do
@@ -488,9 +498,9 @@
                 <p>
                   Należy zdefiniować smaki, które będą dostępne do sprzedaży.
                   Aby to zrobić należy wybrać przycisk
-                  <span class="manual-bold">Dodawania</span> opisanu w zakładce
-                  <a href="#centrala-interfejs">Interfejs-centrala</a>, który
-                  przeniesie nas do ekranu tworzenia smaku.
+                  <span class="manual-bold">Dodawania</span> opisany w zakładce
+                  Interfejs-centrala, który przeniesie nas do ekranu tworzenia
+                  smaku.
                 </p>
                 <div class="header-center">
                   <h3>Tworzenie Smaków</h3>
@@ -514,12 +524,384 @@
                   </li>
                   <li>Wybranie koloru tła</li>
                   <li>Wybranie koloru czcionki</li>
+                  <li>
+                    Zapisanie smaku poprzez wciśnięcie przycisku
+                    <span class="manual-bold">Dodaj</span>
+                  </li>
                 </ol>
+              </article>
+              <article>
+                <div class="header-center">
+                  <h3 id="centrala-rozmiary">Rozmiary</h3>
+                </div>
+                <img
+                  src="../img/manual/manual-romiary.png"
+                  alt="ekran rozmiarów w centrali"
+                  class="manual-img"
+                />
+                <p>
+                  Drugim niezbędnym krokiem, aby rozpocząć sprzedaż na punktach
+                  jest dodanie rozmiarów kuwet. Każda kuweta, która będzie
+                  trafiała na sklep musi mieć swój rozmiar, aby aplikacja mogła
+                  poinformować użytkownika o braku porcji w danej kuwecie.<br />Aby
+                  przejść na zakładkę
+                  <span class="manual-bold">Rozmiary</span> należy z menu
+                  nawigacyjnego wybrać <span class="manual-bold">Lody</span>, a
+                  następnie <span class="manual-bold">Rozmiary</span>
+                </p>
+                <p>
+                  W celu edytowania istniejących smaków należy wybrać
+                  <span class="manual-bold">okrągły niebieski przycisk</span>
+                  obok rozmiaru, który chcemy edytować .
+                </p>
+                <p>
+                  Chcąc usunąć rozmiar, należy wybrać
+                  <span class="manual-bold">okrągły czerwony przycisk</span>
+                  oraz potwierdzić usunięcie rozmiaru .
+                </p>
+                <p>
+                  Aby dodać nowy rozmiar kuwety należy wybrać przycisk
+                  <span class="manual-bold">Dodawania</span>, który przeniesie
+                  użytkownika na ekran dodawania rozmiaru.
+                </p>
+                <div class="header-center">
+                  <h3>Tworzenie Rozmiarów</h3>
+                </div>
+                <img
+                  src="../img/manual/manual-romiar-dodawanie.png"
+                  alt="ekran dodawania rozmiaru w centrali"
+                  class="manual-img"
+                />
+                <p>Tworzenie rozmiaru wymaga podania dwóch informacji:</p>
+                <ul>
+                  <li>
+                    Nazwy rozmiaru - jest to nazwa, która będzie wyświetlana
+                    tworząc kuwety z lodami, aby można było przypisać kuwecie
+                    rozmiar
+                  </li>
+                  <li>
+                    Pojemność kuwety - wartość liczbowa całkowita, która określa
+                    rozmiar kuwety, a dokładniej liczbę porcji, która może się w
+                    niej znaleźć
+                  </li>
+                </ul>
+                <p>
+                  Po wpisaniu obu powyższych informacji należy zapisać zmiany
+                  wciskając przycisk <span class="manual-bold">Dodaj</span>
+                </p>
+              </article>
+              <article>
+                <div class="header-center">
+                  <h3 id="centrala-kuwety">Kuwety</h3>
+                </div>
+                <img
+                  src="../img/manual/manual-kuwety.png"
+                  alt="ekran kuwet w centrali"
+                  class="manual-img"
+                />
+                <p>
+                  Przedostatnim krokiem w centrali, który odpowiada za
+                  przygotowanie do sprzedaży jest utworzenie kuwet. Pracownik na
+                  dziale produkcji tworząc kuwety z lodami musi je wprowadzić do
+                  systemu, aby była możliwość przydzielenia ich na sklepy i
+                  rozpoczęcia sprzedaży
+                </p>
+                <p>
+                  Każdą kuwetę podobnie jak w innych zakładkach można edytować
+                  za pomocą
+                  <span class="manual-bold"
+                    >okrągłego niebieskiego przycisku</span
+                  >
+                </p>
+                <p>
+                  Oraz usuwać, wciskając
+                  <span class="manual-bold">okrągły czerwony przycisk</span>
+                </p>
+                <div class="header-center"><h3>Tworzenie kuwet</h3></div>
+                <p>Dodawać kuwety możemy na dwa sposoby:</p>
+                <img
+                  src="../img/manual/manual-dodawanie-kuwety.png"
+                  alt="ekran dodawania kuwety w centrali"
+                  class="manual-img"
+                />
+                <ol>
+                  <li>
+                    Dodawanie pojedyncze - na zakładce
+                    <span class="manual-bold">Kuwety</span> wybrać przycisk
+                    <span class="manual-bold">Dodawanie</span> u góry ekranu
+
+                    <p>
+                      Zostaniemy przeniesieni do ekrany dodawania kuwet gdzie z
+                      list rozwijanych wybieramy:
+                    </p>
+                    <ul>
+                      <li>
+                        Smak kuwety - stworzony wcześniej w zakładce
+                        <span class="manual-bold">Smaki</span>
+                      </li>
+                      <li>
+                        Rozmiar kuwety - stworzony wcześniej w zakładce
+                        <span class="manual-bold">Rozmiary</span>
+                      </li>
+                      <li>
+                        Sklep - zdefiniowany wcześniej w zakładce
+                        <span class="manual-bold">Sklepy</span> - odpowiada on
+                        za przypisanie kuwety dla sklepu. Jako jedyny nie jest
+                        obowiązkowy na tej liście, sklep można przydzielić na
+                        późniejszym etapie
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+                <img
+                  src="../img/manual/manual-dodawanie-kuwety-zbiorcze.png"
+                  alt="ekran dodawania zbiorczego kuwety w centrali"
+                  class="manual-img"
+                />
+                <ol start="2">
+                  <li>
+                    Dodawanie zbiorcze - zakładka
+                    <span class="manual-bold">Lody</span>, a następnie
+                    <span class="manual-bold">Kuwety Zbiorcze</span>
+                  </li>
+                  <p>
+                    Na ekranie dodawania kuwet zbiorczo widoczna jest tabela, w
+                    której znajdują się kolumny
+                    <span class="manual-bold">Smak</span>,
+                    <span class="manual-bold">Rozmiar</span>,
+                    <span class="manual-bold">Ilość</span>, oraz przycisk
+                    <span class="manual-bold">Usuń</span>, który odpowiada za
+                    usunięcie wiersza
+                  </p>
+                  <p>
+                    Domyślnie na ekranie widoczny jest jeden wiersz, gdzie można
+                    dodać kuwety. Jeśli chcemy ich dodać więcej na jednym etapie
+                    należy z górnej części ekranu wybrać przycisk
+                    <span class="manual-bold">Dodaj wiersz</span>. Pojawi się
+                    drugi wiersz do przypisania kolejnych kuwet.
+                  </p>
+                  <p>Aby dodać kuwety należy uzupełnić następujące dane:</p>
+                  <ol>
+                    <li>
+                      <span class="manual-bold">Smak</span> - podobnie jak w
+                      przypadku pojedynczej kuwety z listy zdefiniowanych
+                      wcześniej smaków
+                    </li>
+                    <li>
+                      <span class="manual-bold">Rozmiar</span> - podobnie jak w
+                      przypadku pojedynczej kuwety z listy zdefiniowanych
+                      wcześniej rozmiarów
+                    </li>
+                    <li>
+                      <span class="manual-bold">Ilość</span> - w polu
+                      numerycznym należy podać ilość kuwety wybranego wcześniej
+                      smaku i rozmiaru do stworzenia
+                    </li>
+                  </ol>
+                  <p>
+                    Po uzupełnieniu powyżej opisanych danych i upewnieniu się,
+                    że nie ma błędów, należy utworzyć kuwety wciskając przycisk
+                    <span class="manual-bold">Zatwierdź wszystkie</span> na
+                    górze ekranu. Zostaniemy poinformowani komunikatem o
+                    poprawnym dodaniu kuwet i przeniesieni na zakładkę
+                    <span class="manual-bold">Kuwety</span>
+                  </p>
+                </ol>
+              </article>
+              <article>
+                <div class="header-center">
+                  <h3 id="centrala-przypisywanie-kuwety">
+                    Przypisywanie kuwety
+                  </h3>
+                </div>
+                <p>
+                  Podobnie jak w przypadku dodawania kuwety, przypisanie również
+                  może się odbywać na dwa sposoby:
+                </p>
+                <ol>
+                  <li>
+                    Pierwszym z nich jest już widoczny w poprzenim kroku (tj.
+                    dodawania kuwet). Tworząc lub edytując pojedynczą kuwetę
+                    możemy przydzielić punkt sprzedaży.
+                  </li>
+                </ol>
+                <img
+                  src="../img/manual/manual-przypisanie-kuwety.png"
+                  alt="ekran zbiorczego przypisania kuwet do sklepów w centrali"
+                  class="manual-img"
+                />
+                <ol start="2">
+                  <li>
+                    Drugim, jest zbiorcze przydzielanie kuwet na sklepy, które
+                    wybieramy na zakładce <span class="manual-bold">Lody</span>,
+                    a następnie
+                    <span class="manual-bold">Kuwety Przypisanie</span>. Otwiera
+                    się okno zbiorczego przypisaywania kuwet widoczne na zrzucie
+                    powyżej.
+                    <p>Przypisanie zbiorcze odbywa się następująco:</p>
+                    <ol>
+                      <li>
+                        Na górze ekranu z listy rozwijanej wybieramy sklep dla
+                        którego chcemy przydzielić kuwety
+                      </li>
+                      <li>
+                        Poniżej listy wyboru sklepu widnieją kuwety stworzone w
+                        centrali, które nie zostały jeszcze przypisane do
+                        sklepu.
+                        <p>
+                          Zawierają one informację o
+                          <span class="manual-bold">Smaku</span>,
+                          <span class="manual-bold">Rozmiarze</span> oraz
+                          <span class="manual-bold">Ilości</span> dostępnych
+                          kuwety do przydzielenia
+                        </p>
+                        <p>
+                          Należy wybrać ilość kuwety, które chcemy przydzielić
+                          na dany sklep i zatwierdzić przyciskiem
+                          <span class="manual-bold">Przydziel kuwety</span>
+                        </p>
+                        <p>
+                          Jeśli przydzielenie kuwety zostanie poprawnie zapisane
+                          otrzymamy komunikat o udanej operacji.
+                        </p>
+                      </li>
+                    </ol>
+                  </li>
+                </ol>
+              </article>
+              <article>
+                <div class="header-center">
+                  <h3 id="centrala-raporty">Raporty</h3>
+                </div>
+                <p>
+                  Z menu nawigacyjnego można wybrać zakładkę rozwijaną
+                  <span class="manual-bold">Raporty</span> gdzie ukażą się
+                  nastepujące z nich:
+                </p>
+                <ul>
+                  <li><span class="manual-bold">RCP</span></li>
+                  <li><span class="manual-bold">Sprzedaż</span></li>
+                  <li><span class="manual-bold">Sprzedaż sklep</span></li>
+                  <li><span class="manual-bold">Status kuwet</span></li>
+                </ul>
+                <div class="header-center">
+                  <h3>RCP</h3>
+                </div>
+                <img
+                  src="../img/manual/manual-raporty-rcp.png"
+                  alt="ekran raportu czasu pracy użytkowników w centrali"
+                  class="manual-img"
+                />
+                <p>
+                  Raport RCP oblicza czas pracy dla użytkowników na podstawie
+                  filtrowania dat z górnej części ekranu. Jeśli przy tworzeniu
+                  użytkonwika została podana stawka godzinowa (niewymagana) to
+                  aplikacja obliczy kwotę wynagrodzenia (liczaba godzin * stawka
+                  godzinowa) i wpisze wartość w kolumnę
+                  <span class="manual-bold">Wynagrodzenie</span>.
+                </p>
+                <p>
+                  Jeśli pracodawca stwierdzi o zmianie stawki może edytować ją
+                  na poziomie edycji użytkownika lub podawać ją ręcznie w polu
+                  <span class="manual-bold">Stawka godzinowa</span>
+                </p>
+                <p>
+                  Dodatkowy
+                  <span class="manual-bold">okrągły zielony przycisk</span>
+                  służy do poglądu przepracowanych godzin dla pracownika
+                  podzielonych na dni. Po wcisnięciu go zostaniemy przeniesieni
+                  na widok przepracowanych godzin dla wybranego pracownika:
+                </p>
+                <img
+                  src="../img/manual/manual-raporty-rcp-użytkonwik.png"
+                  alt="ekran raportu czasu pracy wskazanego użytkownik w centrali"
+                  class="manual-img"
+                />
+              </article>
+              <article>
+                <div class="header-center"><h3>Sprzedaż</h3></div>
+                <img
+                  src="../img/manual/manual-raporty-sprzedaz.png"
+                  alt="ekran raportu sprzedaży dla sklepów w centrali"
+                  class="manual-img"
+                />
+                <p>
+                  Zależnie od zalogowanego użytkownika raport ukazuje łączną
+                  sprzedaż ze sklepów na podsatwie przypisania obecnie
+                  zalogowanego użytkonwika na sklepy. Tj. w zakładce
+                  <span class="manual-bold">Przypisanie</span> przydzielamy
+                  użytkonwika na sklepy i tylko te sklepy będą ukazane w
+                  raporcie
+                </p>
+                <p>
+                  Na ekranie raportu sprzedaży widnieją nastepujące wykresy:
+                </p>
+                <ul>
+                  <li>
+                    <span class="manual-bold"
+                      >Wartość sprzedaży według formy płatnosci</span
+                    >
+                    - ukazuje wartośc wedle form płatności (gotówka, karta, bon)
+                    z zakresu dat wybranych na górze ekranu
+                  </li>
+                  <li>
+                    <span class="manual-bold"
+                      >Ilośc sprzedanych porcji smaków</span
+                    >
+                    - ukazuje ilość sprzedanych porcji dla danych smaków z
+                    zakresu dat wybranych na górze ekranu
+                  </li>
+                </ul>
+              </article>
+              <article>
+                <div class="header-center"><h3>Sprzedaż Sklep</h3></div>
+                <img
+                  src="../img/manual/manual-raporty-sprzedaz-sklep.png"
+                  alt="ekran raportu sprzedaży podzielony na sklepy w centrali"
+                  class="manual-img"
+                />
+                <p>
+                  Raport sprzedaży per sklep jest dokładnie identycznym raportem
+                  jak w poprzednim kroku. Dodatkowo pojawia się filtr
+                  <span class="manual-bold">Sklep</span>, aby wybrać dla którego
+                  sklepu chcemy mieć przedstawione wartosci.
+                </p>
+                <p>
+                  Lista sklepów podobnie jak w poprzednim kroku uzależniona jest
+                  od przypisania użytkowników na sklepy
+                </p>
+              </article>
+              <article>
+                <div class="header-center"><h3>Status kuwety</h3></div>
+                <img
+                  src="../img/manual/manual-raporty-status-kuwet.png"
+                  alt="ekran raportu statusu kuwet w centrali"
+                  class="manual-img"
+                />
+                <p>
+                  Raport przedstawia status kuwet, które są dostępne obecnie na
+                  sklepie, aby można było zaplanować kolejne dostawy.
+                </p>
+                <p>
+                  Aby raport został przedstawiony należy wybrac z listy
+                  rozwijanej
+                  <span class="manual-bold">Sklep</span> dla którego chcemy
+                  zobaczyć status kuwet
+                </p>
               </article>
             </section>
             <section>
               <div class="header-center">
-                <h2 id="sklep">Sklep</h2>
+                <h2 id="inne">Wsparcie</h2>
+                <div class="warning">
+                  <p>
+                    W przypadku problemów z aplikacją bądź dodatkowych pytań
+                    należy się kontaktować:
+                  </p>
+                  <p>📞 12 427 08 08</p>
+                  <p>📧 mateusz.gancarz@pinnex.pl</p>
+                  <p>📧 it@pinnex.pl</p>
+                </div>
               </div>
             </section>
           </div>

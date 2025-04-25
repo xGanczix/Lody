@@ -111,6 +111,7 @@ button {
   border-radius: 5px;
   outline: none;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 button:hover {
@@ -118,7 +119,8 @@ button:hover {
 }
 /* GLOBAL */
 
-.lody-rzemieslnicze-smak {
+.lody-rzemieslnicze-smak,
+.dodatek {
   transition: 0.1s;
 }
 
