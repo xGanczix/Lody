@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 let sklepSelect = document.getElementById("centrala-raport-sklep");
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -183,7 +185,10 @@ async function fetchRaportSprzedazWartoscSklep(sklepId) {
     const wartosciSprzedazy = data.map((item) =>
       parseFloat(item.wartoscSprzedazyDzien.replace(/,/g, "")).toFixed(2)
     );
-    const dataSprzedazy = data.map((item) => item.SprzedazDzien.split("T")[0]);
+    const dataSprzedazy = data.map((item) => {
+      const date = new Date(item.SprzedazDzien);
+      return date.toLocaleDateString("pl-PL");
+    });
 
     const options = {
       chart: {
@@ -243,4 +248,26 @@ sklepSelect.addEventListener("change", function () {
   fetchRaportSprzedazFormyPlatnosciSklep(sklepId);
   fetchRaportSprzedazSmakiSklep(sklepId);
   fetchRaportSprzedazWartoscSklep(sklepId);
+});
+
+const raportowanie = document.getElementById("raportujDaty");
+
+raportowanie.addEventListener("click", () => {
+  const start = document.getElementById("startDate").value;
+  const end = document.getElementById("endDate").value;
+  if (start > end) {
+    alert("Data początkowa nie może być wcześniejsza niż końcwa");
+  } else {
+    async function fetchWartosc() {
+      try {
+        const response = await fetch(
+          `${CONFIG.URL}/api/raport-sprzedazy-test/${sklepId}/${start}/${end}`
+        );
+      } catch (err) {
+        console.log("Błąd pobierania raportu");
+      }
+    }
+  }
+  console.log(start);
+  console.log(end);
 });

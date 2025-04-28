@@ -1597,6 +1597,33 @@ app.get(
   }
 );
 
+app.get("/api/sklepy-wartosc/:start/:end", async (req, res) => {
+  const start = req.params.start;
+  const end = req.params.end;
+
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+
+    let sql = `
+      select
+	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
+	    date(d.DokData) as SprzedazDzien
+    from
+	    DokumentyPozycje as dp
+    left join Dokumenty as d on
+	    d.DokId = dp.DokPozDokId
+	    left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
+	  where date(d.DokData) >= ? and date(d.DokData) <= ?;
+      `;
+
+    const data = await connection.query(sql, [start, end]);
+    res.json(data);
+  } catch (err) {
+    console.log("błędzik: ", err);
+  }
+});
+
 app.get(
   "/api/raport-sprzedazy-wartosci-dzien/:uzytkownikId",
   async (req, res) => {

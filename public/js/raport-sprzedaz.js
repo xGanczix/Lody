@@ -157,7 +157,10 @@ async function fetchRaportSprzedazWartosc() {
     const wartosciSprzedazy = data.map((item) =>
       parseFloat(item.wartoscSprzedazyDzien.replace(/,/g, "")).toFixed(2)
     );
-    const dataSprzedazy = data.map((item) => item.SprzedazDzien.split("T")[0]);
+    const dataSprzedazy = data.map((item) => {
+      const date = new Date(item.SprzedazDzien);
+      return date.toLocaleDateString("pl-PL");
+    });
 
     const options = {
       chart: {
