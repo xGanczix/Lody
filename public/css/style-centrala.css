@@ -943,3 +943,7 @@ button#manual-print {
 button#manual-print img {
   width: 100%;
 }
+
+button.ceny-edycja-btn span {
+  pointer-events: none;
+}

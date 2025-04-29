@@ -1,0 +1,11 @@
+[2025-04-29 00:00:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 00:00:21] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10013ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-29 00:00:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 00:00:42] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10003ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-04-29 00:00:44] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-29 00:00:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 00:00:45] [INFO] Połączono z MariaDB
+[2025-04-29 00:00:54] [INFO] Zalogowano: mati
+[2025-04-29 18:29:55] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
