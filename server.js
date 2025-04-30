@@ -1540,8 +1540,6 @@ app.get(
     LEFT JOIN DokumentyPozycje AS dp ON
       dp.DokPozDokId = d.DokId
       left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
-    
-
     `;
 
       if (uzytkownikId !== "123456789") {
@@ -1593,6 +1591,79 @@ app.get(
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
+    }
+  }
+);
+
+app.get(
+  "/api/raport-towary-sprzedaz-wartosc/:uzytkownikId",
+  async (req, res) => {
+    let uzytkownikId = req.params.uzytkownikId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
+      let sql = `
+    select
+	    t.TowNazwa,
+	    sum(DokPozTowIlosc) as TowaryIlosc,
+	    sum(dp.DokPozCena) as TowaryWartosc
+    from
+	    DokumentyPozycje as dp
+      left join Towary as t on
+	      t.TowId = dp.DokPozPozostalyTowId
+      left join Dokumenty as d on
+	      d.DokId = dp.DokPozDokId
+      left join UzytkownicySklep as us on
+	      us.UzSklSklId = d.DokSklepId
+      `;
+
+      if (uzytkownikId !== "123456789") {
+        sql += `where
+	    DokPozTowId is null and us.UzSklUzId = ? and t.TowId != 6 and t.TowId != 7
+    group by
+	    DokPozPozostalyTowId`;
+      } else {
+        sql += `where
+	    DokPozTowId is null and t.TowId != 6 and t.TowId != 7
+      GROUP BY
+      DokPozPozostalyTowId`;
+      }
+
+      const data = await connection.query(sql, uzytkownikId);
+      res.json(data);
+    } catch (err) {
+      console.log("Błąd");
+    }
+  }
+);
+
+app.get(
+  "/api/raport-towary-sprzedaz-wartosc-sklep/:sklepId",
+  async (req, res) => {
+    let sklepId = req.params.sklepId;
+    let connection;
+    try {
+      connection = await dbConfig.getConnection();
+      let sql = `
+    select
+	    t.TowNazwa,
+	    sum(DokPozTowIlosc) as TowaryIlosc,
+	    sum(dp.DokPozCena) as TowaryWartosc
+    from
+	    DokumentyPozycje as dp
+      left join Towary as t on
+	      t.TowId = dp.DokPozPozostalyTowId
+      left join Dokumenty as d on
+	      d.DokId = dp.DokPozDokId where
+	    DokPozTowId is null and d.DokSklepId = ? and t.TowId != 6 and t.TowId != 7
+      GROUP BY
+      DokPozPozostalyTowId
+      `;
+
+      const data = await connection.query(sql, sklepId);
+      res.json(data);
+    } catch (err) {
+      console.log("Bład:", err);
     }
   }
 );

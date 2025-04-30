@@ -947,3 +947,11 @@ button#manual-print img {
 button.ceny-edycja-btn span {
   pointer-events: none;
 }
+
+g.apex-charts-series {
+  color: #000 !important;
+}
+
+path.apexcharts-bar-area {
+  color: #000 !important;
+}

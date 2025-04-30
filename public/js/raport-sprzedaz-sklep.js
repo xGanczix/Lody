@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 let sklepSelect = document.getElementById("centrala-raport-sklep");
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -234,6 +232,173 @@ async function fetchRaportSprzedazWartoscSklep(sklepId) {
   }
 }
 
+async function fetchRaportSprzedazTowaryWartoscSklep(sklepId) {
+  try {
+    const response = await fetch(
+      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc-sklep/${sklepId}`
+    );
+    const data = await response.json();
+
+    const nazwaTowaru = data.map((item) => item.TowNazwa);
+    const wartoscSprzedazy = data.map((item) =>
+      parseFloat(String(item.TowaryWartosc).replace(/,/g, "")).toFixed(2)
+    );
+
+    var colors = [
+      "#008FFB",
+      "#00E396",
+      "#FEB019",
+      "#FF4560",
+      "#775DD0",
+      "#3F51B5",
+      "#546E7A",
+      "#D4526E",
+    ];
+
+    const options = {
+      chart: {
+        type: "bar",
+      },
+      series: [
+        {
+          name: "Wartość Sprzedaży",
+          data: wartoscSprzedazy,
+        },
+      ],
+      xaxis: {
+        labels: {
+          show: false,
+        },
+        categories: nazwaTowaru,
+      },
+      yaxis: {
+        labels: {
+          show: true,
+        },
+      },
+      title: {
+        text: "Wartość sprzedaży towarów",
+      },
+      colors: colors.slice(0, nazwaTowaru.length),
+      plotOptions: {
+        bar: {
+          distributed: true,
+        },
+      },
+      dataLabels: {
+        enabled: true,
+        formatter: function (val) {
+          return parseFloat(val).toFixed(2);
+        },
+      },
+      legend: {
+        show: true,
+        position: "bottom",
+        markers: {
+          fillColors: colors.slice(0, nazwaTowaru.length),
+        },
+        labels: {
+          colors: "#000",
+          useSeriesColors: false,
+          formatter: function (val, index) {
+            return TowNazwa[index];
+          },
+        },
+      },
+    };
+
+    const chart = new ApexCharts(
+      document.querySelector("#sprzedawane-towary-wartosc"),
+      options
+    );
+    chart.render();
+  } catch (error) {
+    console.error("Błąd podczas pobierania danych:", error);
+  }
+}
+
+async function fetchRaportSprzedazTowaryIloscSklep(sklepId) {
+  try {
+    const response = await fetch(
+      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc-sklep/${sklepId}`
+    );
+    const data = await response.json();
+
+    const nazwaTowaru = data.map((item) => item.TowNazwa);
+    const iloscSprzedana = data.map((item) =>
+      parseFloat(String(item.TowaryIlosc).replace(/,/g, "")).toFixed(2)
+    );
+
+    var colors = [
+      "#008FFB",
+      "#00E396",
+      "#FEB019",
+      "#FF4560",
+      "#775DD0",
+      "#3F51B5",
+      "#546E7A",
+      "#D4526E",
+    ];
+
+    const options = {
+      chart: {
+        type: "bar",
+      },
+      series: [
+        {
+          name: "Sprzedana Ilość",
+          data: iloscSprzedana,
+        },
+      ],
+      xaxis: {
+        labels: {
+          show: false,
+        },
+        categories: nazwaTowaru,
+      },
+      yaxis: {
+        labels: {
+          show: false,
+        },
+      },
+      title: {
+        text: "Ilość sprzedanych towarów",
+      },
+      colors: colors.slice(0, nazwaTowaru.length),
+      plotOptions: {
+        bar: {
+          distributed: true,
+        },
+      },
+      dataLabels: {
+        enabled: true,
+      },
+      legend: {
+        show: true,
+        position: "bottom",
+        markers: {
+          fillColors: colors.slice(0, nazwaTowaru.length),
+        },
+        labels: {
+          colors: "#000",
+          useSeriesColors: false,
+          formatter: function (val, index) {
+            return TowNazwa[index];
+          },
+        },
+      },
+    };
+
+    const chart = new ApexCharts(
+      document.querySelector("#sprzedawane-towary-ilosc"),
+      options
+    );
+    chart.render();
+  } catch (error) {
+    console.error("Błąd podczas pobierania danych:", error);
+  }
+}
+
 sklepSelect.addEventListener("change", function () {
   const sklepId = sklepSelect.value;
   const raportFormyPlatnosciSklep = document.getElementById("formy-platnosci");
@@ -241,13 +406,23 @@ sklepSelect.addEventListener("change", function () {
   const raportWartoscSprzedazy = document.getElementById(
     "sprzedaz-wartosci-dzien"
   );
+  const raportSprzedanychIlosciTowarow = document.getElementById(
+    "sprzedawane-towary-ilosc"
+  );
+  const raportSprzedanychTowarowWartosc = document.getElementById(
+    "sprzedawane-towary-wartosc"
+  );
   raportFormyPlatnosciSklep.innerHTML = "";
   raportSprzedaneSmaki.innerHTML = "";
   raportWartoscSprzedazy.innerHTML = "";
+  raportSprzedanychIlosciTowarow.innerHTML = "";
+  raportSprzedanychTowarowWartosc.innerHTML = "";
 
   fetchRaportSprzedazFormyPlatnosciSklep(sklepId);
   fetchRaportSprzedazSmakiSklep(sklepId);
   fetchRaportSprzedazWartoscSklep(sklepId);
+  fetchRaportSprzedazTowaryIloscSklep(sklepId);
+  fetchRaportSprzedazTowaryWartoscSklep(sklepId);
 });
 
 const raportowanie = document.getElementById("raportujDaty");

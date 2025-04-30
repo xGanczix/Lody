@@ -9,3 +9,198 @@
 [2025-04-29 00:00:45] [INFO] Połączono z MariaDB
 [2025-04-29 00:00:54] [INFO] Zalogowano: mati
 [2025-04-29 18:29:55] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-04-29 22:11:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:11:48] [INFO] Połączono z MariaDB
+[2025-04-29 22:12:00] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-29 22:17:53] [INFO] Zalogowano Serwis
+[2025-04-29 22:25:44] [INFO] Użytkownik 1 przypisany do sklepów: 1
+[2025-04-29 22:26:27] [INFO] Zalogowano: mati
+[2025-04-29 22:26:59] [INFO] Zalogowano Serwis
+[2025-04-29 22:27:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:27:43] [INFO] Połączono z MariaDB
+[2025-04-29 22:33:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:33:32] [INFO] Połączono z MariaDB
+[2025-04-29 22:34:29] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-29 22:34:38] [INFO] Zalogowano: mati
+[2025-04-29 22:38:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:38:22] [INFO] Połączono z MariaDB
+[2025-04-29 22:38:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:38:32] [INFO] Połączono z MariaDB
+[2025-04-29 22:39:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:39:09] [INFO] Połączono z MariaDB
+[2025-04-29 22:39:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:39:14] [INFO] Połączono z MariaDB
+[2025-04-29 22:40:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:40:08] [INFO] Połączono z MariaDB
+[2025-04-29 22:40:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:40:14] [INFO] Połączono z MariaDB
+[2025-04-29 22:41:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:41:03] [INFO] Połączono z MariaDB
+[2025-04-29 22:41:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:41:31] [INFO] Połączono z MariaDB
+[2025-04-29 22:42:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:42:15] [INFO] Połączono z MariaDB
+[2025-04-29 22:42:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:42:47] [INFO] Połączono z MariaDB
+[2025-04-29 22:43:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:43:45] [INFO] Połączono z MariaDB
+[2025-04-29 22:44:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:44:02] [INFO] Połączono z MariaDB
+[2025-04-29 22:44:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:44:18] [INFO] Połączono z MariaDB
+[2025-04-29 22:44:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:44:25] [INFO] Połączono z MariaDB
+[2025-04-29 22:45:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:45:13] [INFO] Połączono z MariaDB
+[2025-04-29 22:45:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:45:50] [INFO] Połączono z MariaDB
+[2025-04-29 22:46:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:46:45] [INFO] Połączono z MariaDB
+[2025-04-29 22:48:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:48:06] [INFO] Połączono z MariaDB
+[2025-04-29 22:48:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:48:40] [INFO] Połączono z MariaDB
+[2025-04-29 22:48:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:48:43] [INFO] Połączono z MariaDB
+[2025-04-29 22:49:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:49:27] [INFO] Połączono z MariaDB
+[2025-04-29 22:49:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:49:40] [INFO] Połączono z MariaDB
+[2025-04-29 22:51:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:51:17] [INFO] Połączono z MariaDB
+[2025-04-29 22:52:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:52:06] [INFO] Połączono z MariaDB
+[2025-04-29 22:52:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:52:33] [INFO] Połączono z MariaDB
+[2025-04-29 22:53:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:53:57] [INFO] Połączono z MariaDB
+[2025-04-29 22:54:15] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:54:15] [INFO] Połączono z MariaDB
+[2025-04-29 22:55:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:55:10] [INFO] Połączono z MariaDB
+[2025-04-29 22:55:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:55:31] [INFO] Połączono z MariaDB
+[2025-04-29 22:55:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:55:37] [INFO] Połączono z MariaDB
+[2025-04-29 22:55:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:55:46] [INFO] Połączono z MariaDB
+[2025-04-29 22:56:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:56:37] [INFO] Połączono z MariaDB
+[2025-04-29 22:57:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:57:34] [INFO] Połączono z MariaDB
+[2025-04-29 22:57:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:57:35] [INFO] Połączono z MariaDB
+[2025-04-29 22:57:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:57:44] [INFO] Połączono z MariaDB
+[2025-04-29 22:58:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:58:16] [INFO] Połączono z MariaDB
+[2025-04-29 22:58:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:58:45] [INFO] Połączono z MariaDB
+[2025-04-29 22:59:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:59:27] [INFO] Połączono z MariaDB
+[2025-04-29 22:59:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:59:48] [INFO] Połączono z MariaDB
+[2025-04-29 22:59:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 22:59:57] [INFO] Połączono z MariaDB
+[2025-04-29 23:00:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:00:06] [INFO] Połączono z MariaDB
+[2025-04-29 23:01:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:01:09] [INFO] Połączono z MariaDB
+[2025-04-29 23:02:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:02:55] [INFO] Połączono z MariaDB
+[2025-04-29 23:07:19] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: 2
+[2025-04-29 23:07:27] [INFO] Zalogowano: mati (Sklep: 2)
+[2025-04-29 23:07:32] [INFO] Zalogowano: mati
+[2025-04-29 23:07:40] [INFO] Zalogowano Serwis
+[2025-04-29 23:08:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:08:21] [INFO] Połączono z MariaDB
+[2025-04-29 23:08:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:08:29] [INFO] Połączono z MariaDB
+[2025-04-29 23:09:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:09:14] [INFO] Połączono z MariaDB
+[2025-04-29 23:09:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:09:28] [INFO] Połączono z MariaDB
+[2025-04-29 23:09:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:09:42] [INFO] Połączono z MariaDB
+[2025-04-29 23:09:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:09:58] [INFO] Połączono z MariaDB
+[2025-04-29 23:12:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:12:47] [INFO] Połączono z MariaDB
+[2025-04-29 23:12:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:12:58] [INFO] Połączono z MariaDB
+[2025-04-29 23:13:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:13:05] [INFO] Połączono z MariaDB
+[2025-04-29 23:13:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:13:11] [INFO] Połączono z MariaDB
+[2025-04-29 23:13:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:13:51] [INFO] Połączono z MariaDB
+[2025-04-29 23:14:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:14:01] [INFO] Połączono z MariaDB
+[2025-04-29 23:14:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:14:39] [INFO] Połączono z MariaDB
+[2025-04-29 23:14:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:14:51] [INFO] Połączono z MariaDB
+[2025-04-29 23:16:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:16:27] [INFO] Połączono z MariaDB
+[2025-04-29 23:17:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:17:01] [INFO] Połączono z MariaDB
+[2025-04-29 23:17:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:17:41] [INFO] Połączono z MariaDB
+[2025-04-29 23:18:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:18:55] [INFO] Połączono z MariaDB
+[2025-04-29 23:19:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:19:13] [INFO] Połączono z MariaDB
+[2025-04-29 23:28:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:28:56] [INFO] Połączono z MariaDB
+[2025-04-29 23:32:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:32:25] [INFO] Połączono z MariaDB
+[2025-04-29 23:32:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:32:32] [INFO] Połączono z MariaDB
+[2025-04-29 23:32:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:32:58] [INFO] Połączono z MariaDB
+[2025-04-29 23:35:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:35:03] [INFO] Połączono z MariaDB
+[2025-04-29 23:35:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:35:19] [INFO] Połączono z MariaDB
+[2025-04-29 23:35:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:35:35] [INFO] Połączono z MariaDB
+[2025-04-29 23:35:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:35:49] [INFO] Połączono z MariaDB
+[2025-04-29 23:37:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:37:31] [INFO] Połączono z MariaDB
+[2025-04-29 23:37:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:37:44] [INFO] Połączono z MariaDB
+[2025-04-29 23:37:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:37:55] [INFO] Połączono z MariaDB
+[2025-04-29 23:40:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:40:57] [INFO] Połączono z MariaDB
+[2025-04-29 23:41:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:41:05] [INFO] Połączono z MariaDB
+[2025-04-29 23:41:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:41:23] [INFO] Połączono z MariaDB
+[2025-04-29 23:43:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:43:39] [INFO] Połączono z MariaDB
+[2025-04-29 23:44:20] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-04-29 23:44:34] [INFO] Zalogowano Serwis
+[2025-04-29 23:51:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:51:39] [INFO] Połączono z MariaDB
+[2025-04-29 23:56:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:56:09] [INFO] Połączono z MariaDB
+[2025-04-29 23:56:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:56:24] [INFO] Połączono z MariaDB
+[2025-04-29 23:57:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:57:03] [INFO] Połączono z MariaDB
+[2025-04-29 23:57:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:57:18] [INFO] Połączono z MariaDB
+[2025-04-29 23:57:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:57:30] [INFO] Połączono z MariaDB
+[2025-04-29 23:58:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:58:07] [INFO] Połączono z MariaDB
+[2025-04-29 23:58:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:58:46] [INFO] Połączono z MariaDB
+[2025-04-29 23:59:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:59:16] [INFO] Połączono z MariaDB
+[2025-04-29 23:59:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:59:41] [INFO] Połączono z MariaDB
+[2025-04-29 23:59:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-04-29 23:59:59] [INFO] Połączono z MariaDB
