@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const kuwetData = await kuwetResponse.json();
-    console.log("Dane kuwet:", kuwetData);
 
     const przypisaneSmaki = {};
     const przypisaneSmakiSet = new Set();

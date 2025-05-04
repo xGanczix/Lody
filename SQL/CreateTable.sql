@@ -115,13 +115,16 @@ create table if not exists Ceny(
 	CPoprzedniaCena float not null,
 	CDataZmiany datetime not null default now());
 
-create table if not exists Zamowienia(
-	ZamId int not null primary key auto_increment,
-	ZamKuwId int,
-	ZamSmkId int,
-	ZamSklId int not null,
-	ZamStatus int not null default 1,
-	ZamData datetime not null default now()
+create table if not exists Zamowienia (
+	ZId int not null primary key auto_increment,
+	ZTowar varchar(255) not null,
+	ZIsSmak boolean not null,
+	ZOpis varchar(255),
+	ZDataUtowrzenia datetime not null default now(),
+	ZSklId int not null,
+	ZUzId int not null,
+	ZStatus boolean not null default 1,
+	ZZrealizowano boolean not null default 0
 );
 
 create table if not exists Liczniki(

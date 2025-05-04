@@ -56,6 +56,7 @@ function updateIcons() {
     { id: "raport-formy-platnosci-icon", name: "top-up" },
     { id: "raport-sprzedaz-sklep-icon", name: "tag_goods" },
     { id: "przypisanie-zbiorcze-icon", name: "delivery" },
+    { id: "zamowienia-icon", name: "clipboard" },
   ];
 
   icons.forEach(({ id, name }) => {
@@ -245,6 +246,29 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch (error) {
     console.error("Błąd dekodowania tokena:", error);
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("token");
+
+  const decoded = parseJwt(token);
+  const uzytkownik = decoded.id;
+
+  async function fetchNoweZamowienia() {
+    const response = await fetch(
+      `${CONFIG.URL}/api/zamowienia-nowe/${uzytkownik}`
+    );
+    const nowe = await response.json();
+
+    // Sprawdzenie liczby zamówień
+    if (nowe[0].liczbaZamowien > 0) {
+      // Znalezienie elementu o klasie .status-zamowien i ustawienie klasy display
+      const statusElement = document.querySelector(".status-zamowien");
+      statusElement.style.display = "block";
+    }
+  }
+
+  fetchNoweZamowienia(); // Wywołanie funkcji
 });
 
 function centralaSmaki() {

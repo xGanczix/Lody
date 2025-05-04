@@ -1,184 +1,162 @@
-document.addEventListener("DOMContentLoaded", () => {
-  async function fetchDostepneKuwety() {
-    try {
-      const response = await fetch(
-        `${CONFIG.URL}/api/kuwety-dostepne-centrala`
-      );
-      const tableBody = document.getElementById("dostepne-kuwety-tbody");
+async function fetchZamowienieDostepneSmaki() {
+  try {
+    const response = await fetch(`${CONFIG.URL}/api/dostepne-smaki-ilosc`);
+    const smaki = await response.json();
 
-      const dostepneKuwety = await response.json();
+    const tableBodySmaki = document.getElementById(
+      "zamowienie-dostepne-smaki-tbody"
+    );
+    const zamowioneBody = document.getElementById(
+      "zamowienie-pozycje-zamowione-tbody"
+    );
 
-      dostepneKuwety.forEach((kuweta) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `      
-              <td style="background: ${kuweta.SmkKolor}; color: ${kuweta.SmkTekstKolor}">${kuweta.KuwSmakNazwa}</td>
-              <td style="background: ${kuweta.SmkKolor}; color: ${kuweta.SmkTekstKolor}">${kuweta.KuwPorcje}</td>
-              <td>
-                <button class="zamowienie-kuwety-btn" data-kuweta-id="${kuweta.KuwId}">
-                  <img src="../img/white/add-product-white.png">
-                </button>
-              </td>
-            `;
-        tableBody.appendChild(row);
-      });
-    } catch (err) {
-      console.error("Błąd pobierania kuwet:", err);
-    }
-  }
+    tableBodySmaki.innerHTML = "";
 
-  async function fetchDostepneSmaki() {
-    try {
-      const response = await fetch(`${CONFIG.URL}/api/smaki-dostepne-centrala`);
-      const tableBody = document.getElementById("dostepne-smaki-tbody");
+    smaki.forEach((smak) => {
+      const row = document.createElement("tr");
+      row.setAttribute("data-smak", "1");
+      row.innerHTML = `
+        <td style="background: ${smak.SmkKolor}; color: ${smak.SmkTekstKolor}">${smak.Nazwa}</td>
+        <td style="background: ${smak.SmkKolor}; color: ${smak.SmkTekstKolor}">${smak.Dostepne_w_Centrali}</td>
+        <td style="background: ${smak.SmkKolor}; color: ${smak.SmkTekstKolor}">
+          <button data-smakid="${smak.SmkId}" class="zamowienie-smak-btn">
+            <img src="../img/white/add-product-white.png">Zamów
+          </button>
+        </td>
+      `;
 
-      const dostepneSmaki = await response.json();
+      const button = row.querySelector(".zamowienie-smak-btn");
 
-      dostepneSmaki.forEach((smak) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-                <td style="background: ${smak.SmkKolor}; color: ${smak.SmkTekstKolor}">${smak.SmkNazwa}</td>
-                <td>
-                  <button class="zamowienie-smaki-btn" data-smak-id="${smak.SmkId}">
-                    <img src="../img/white/add-product-white.png">
-                  </button>
-                </td>
-            `;
-        tableBody.appendChild(row);
-      });
-    } catch (err) {
-      console.error("Błąd pobierania smaków:", err);
-    }
-  }
+      button.addEventListener("click", () => {
+        const inZamowione = zamowioneBody.contains(row);
 
-  fetchDostepneKuwety();
-  fetchDostepneSmaki();
+        if (inZamowione) {
+          button.innerHTML = `<img src="../img/white/add-product-white.png">Zamów`;
+          button.classList.remove("zamowienie-pozycja-anuluj");
 
-  document
-    .getElementById("dostepne-kuwety-tbody")
-    .addEventListener("click", (event) => {
-      const button = event.target.closest(".zamowienie-kuwety-btn");
-      if (button) {
-        const row = button.closest("tr");
-        row.setAttribute(
-          "data-kuweta-id",
-          button.getAttribute("data-kuweta-id")
-        );
-        button.remove();
-        document.getElementById("zamowienie-tbody").appendChild(row);
+          const rows = Array.from(tableBodySmaki.querySelectorAll("tr"));
+          rows.push(row);
 
-        const kuwetaId = row.getAttribute("data-kuweta-id");
-
-        fetch(`${CONFIG.URL}/api/status-zamowienia-kuwety`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ kuwetaId: kuwetaId }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Odpowiedź z serwera:", data);
-          })
-          .catch((error) => {
-            console.error("Błąd przy wysyłaniu:", error);
+          rows.sort((a, b) => {
+            const nameA = a.children[0].textContent.trim().toLowerCase();
+            const nameB = b.children[0].textContent.trim().toLowerCase();
+            return nameA.localeCompare(nameB);
           });
-      }
-    });
 
-  document
-    .getElementById("dostepne-smaki-tbody")
-    .addEventListener("click", (event) => {
-      const button = event.target.closest(".zamowienie-smaki-btn");
-      if (button) {
-        const row = document.createElement("tr");
-        const originalRow = button.closest("tr");
-        const firstTd = originalRow.querySelector("td");
-        const firstTdClone = firstTd.cloneNode(true);
-        row.appendChild(firstTdClone);
-
-        const newCell1 = document.createElement("td");
-        newCell1.textContent = "";
-        newCell1.style.backgroundColor = firstTd.style.backgroundColor;
-        newCell1.style.color = firstTd.style.color;
-        row.appendChild(newCell1);
-
-        const newCell2 = document.createElement("td");
-        newCell2.textContent = "";
-        row.appendChild(newCell2);
-
-        row.setAttribute("data-smak-id", button.getAttribute("data-smak-id"));
-        document.getElementById("zamowienie-tbody").appendChild(row);
-      }
-    });
-
-  document
-    .getElementById("zamowienie-zapisz-btn")
-    .addEventListener("click", async () => {
-      const zamowienieRows = document.getElementById("zamowienie-tbody").rows;
-      const zamowienieData = [];
-      const updateKuwetyPromises = [];
-
-      for (let row of zamowienieRows) {
-        const kuwetaId = row.getAttribute("data-kuweta-id");
-        const smakId = row.getAttribute("data-smak-id");
-
-        const token = localStorage.getItem("token");
-        const decoded = parseJwt(token);
-        const sklepId = decoded.sklepId;
-        console.log(sklepId);
-
-        if (kuwetaId) {
-          zamowienieData.push({ kuwetaId, sklepId });
-
-          const updateKuwetaPromise = fetch(
-            `${CONFIG.URL}/api/aktualizuj-kuwete-status`,
-            {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                kuwetaId: kuwetaId,
-                KuwStatusZamowienia: 2,
-                KuwSklId: sklepId,
-              }),
-            }
-          );
-          updateKuwetyPromises.push(updateKuwetaPromise);
-        }
-
-        if (smakId) {
-          zamowienieData.push({ smakId, sklepId });
-        }
-      }
-
-      if (zamowienieData.length === 0) {
-        alert("Brak wybranych kuwet i smaków do zamówienia.");
-        return;
-      }
-
-      try {
-        await Promise.all(updateKuwetyPromises);
-
-        const response = await fetch(`${CONFIG.URL}/api/zamowienie`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(zamowienieData),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          alert("Zamówienie zapisane!");
-
-          document.getElementById("zamowienie-tbody").innerHTML = "";
+          tableBodySmaki.innerHTML = "";
+          rows.forEach((r) => tableBodySmaki.appendChild(r));
         } else {
-          alert("Błąd zapisywania zamówienia: " + data.message);
+          zamowioneBody.appendChild(row);
+          button.innerHTML = `<img src="../img/white/delete-white.png">Usuń`;
+          button.classList.add("zamowienie-pozycja-anuluj");
         }
-      } catch (error) {
-        console.error("Błąd przy wysyłaniu zamówienia:", error);
+      });
+
+      tableBodySmaki.appendChild(row);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const towaryTbody = document.getElementById(
+    "zamowienie-pozostale-towary-tbody"
+  );
+  const zamowioneTbody = document.getElementById(
+    "zamowienie-pozycje-zamowione-tbody"
+  );
+
+  const buttons = towaryTbody.querySelectorAll(".zamowienie-towar-btn");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const row = button.closest("tr");
+      const textarea = row.querySelector("textarea");
+
+      const isInZamowione = zamowioneTbody.contains(row);
+
+      if (isInZamowione) {
+        if (textarea) {
+          textarea.value = "";
+        }
+
+        zamowioneTbody.removeChild(row);
+
+        button.classList.remove("zamowienie-pozycja-anuluj");
+        button.classList.add("zamowienie-towar-btn");
+        button.innerHTML = `<img src="../img/white/add-product-white.png">Zamów`;
+      } else {
+        if (textarea && textarea.value.trim() === "") {
+          alert("Uzupełnij opis przed dodaniem tego towaru.");
+          return;
+        }
+
+        const rowClone = row.cloneNode(true);
+        zamowioneTbody.appendChild(rowClone);
+
+        const newButton = rowClone.querySelector(".zamowienie-towar-btn");
+        newButton.classList.add("zamowienie-pozycja-anuluj");
+        newButton.innerHTML = `<img src="../img/white/delete-white.png">Usuń`;
+
+        if (textarea) {
+          textarea.value = "";
+        }
+
+        newButton.addEventListener("click", () => {
+          zamowioneTbody.removeChild(rowClone);
+        });
       }
     });
+  });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchZamowienieDostepneSmaki();
+});
+
+document
+  .getElementById("sprzedaz-zamowienie-btn")
+  .addEventListener("click", async () => {
+    const zamowioneRows = document.querySelectorAll(
+      "#zamowienie-pozycje-zamowione-tbody tr"
+    );
+
+    const token = localStorage.getItem("token");
+
+    const decoded = parseJwt(token);
+    const uzytkownik = decoded.id;
+    const sklep = decoded.sklepId;
+
+    const zamowienia = Array.from(zamowioneRows).map((row) => {
+      const nazwa = row.children[0].textContent.trim();
+
+      const opisElement = row.children[1].querySelector("textarea, input");
+      const opis = opisElement
+        ? opisElement.value.trim()
+        : row.children[1].textContent.trim();
+
+      const isSmak = row.getAttribute("data-smak") === "1" ? 1 : 0;
+      return { nazwa, opis, isSmak };
+    });
+
+    try {
+      const response = await fetch("/api/zamowienie", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ zamowienia, uzytkownik, sklep }),
+      });
+
+      if (response.ok) {
+        alert("Zamówienie zostało zapisane.");
+        window.location.reload();
+      } else {
+        alert("Wystąpił błąd podczas zapisywania zamówienia.");
+      }
+    } catch (err) {
+      console.error("Błąd:", err);
+      alert("Wystąpił błąd podczas zapisywania zamówienia.");
+    }
+  });

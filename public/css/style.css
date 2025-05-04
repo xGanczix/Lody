@@ -153,7 +153,8 @@ html.dark-mode body * {
 /* DARK BACKGROUND */
 html.dark-mode body,
 html.dark-mode body .confirm-delete,
-html.dark-mode body .confirm-restore {
+html.dark-mode body .confirm-restore,
+html.dark-mode body table#zamowienie-pozostale-towary tbody tr td {
   background: var(--background-dark-color);
 }
 
@@ -180,7 +181,10 @@ html.dark-mode body .zamowienie-dostepne-kuwety,
 html.dark-mode body .zamowienie-dostepne-smaki,
 html.dark-mode body .zamowienie-zamowione-kuwety,
 html.dark-mode body p#zamowienia-info,
-html.dark-mode body form#dodawanie-kuwet {
+html.dark-mode body form#dodawanie-kuwet,
+html.dark-mode body .zamowienie-smaki-container,
+html.dark-mode body .zamowienie-pozostale-container,
+html.dark-mode body .zamowienie-pozycje-zamowione-container {
   background: var(--background-container-dark-color);
 }
 
@@ -219,7 +223,13 @@ html.dark-mode body table#kuwety-table thead th,
 html.dark-mode body .sklep-pozycje-wydania h2,
 html.dark-mode body .podsumowanie-wydania,
 html.dark-mode body table#centrala-ceny thead th,
-html.dark-mode body table#kuwety-table tbody hr {
+html.dark-mode body table#kuwety-table tbody hr,
+html.dark-mode body .zamowienie-smaki-container h2,
+html.dark-mode body .zamowienie-pozostale-container h2,
+html.dark-mode body .zamowienie-pozycje-zamowione-container h2,
+html.dark-mode body table#zamowienie-dostepne-smaki thead th,
+html.dark-mode body table#zamowienie-pozostale-towary thead th,
+html.dark-mode body table#zamowienie-pozycje-zamowione thead th {
   background: var(--button-dark-color);
 }
 
@@ -280,7 +290,8 @@ html.dark-mode body .apexcharts-zoomout-icon svg,
 html.dark-mode body .centrala-help-container h1,
 html.dark-mode body .centrala-help-container h2,
 html.dark-mode body .centrala-help-container h3,
-html.dark-mode body .centrala-help-container h4 {
+html.dark-mode body .centrala-help-container h4,
+html.dark-mode body .nav-link-container a {
   fill: var(--text-white-color);
   color: var(--text-white-color) !important;
 }
@@ -305,4 +316,22 @@ html.dark-mode body .centrala-help-container h2,
 html.dark-mode body .centrala-help-container h3,
 html.dark-mode body .centrala-help-container h4 {
   border-color: var(--button-dark-color);
+}
+
+html.dark-mode body .zamowienie-smak-btn,
+html.dark-mode body .zamowienie-towar-btn {
+  background: var(--green-color);
+}
+
+html.dark-mode body .zamowienie-smak-btn:hover,
+html.dark-mode body .zamowienie-towar-btn:hover {
+  background: var(--green-hover-color);
+}
+
+html.dark-mode body .zamowienie-pozycja-anuluj {
+  background: var(--red-color);
+}
+
+html.dark-mode body .zamowienie-pozycja-anuluj:hover {
+  background: var(--red-hover-color) !important;
 }
