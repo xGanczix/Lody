@@ -1882,7 +1882,7 @@ async function generujNumerDokumentu(sklepId) {
 
   try {
     const result = await dbConfig.query(
-      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ? and DokNumTyp = 'WZ'",
+      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ? and DokNumTyp = 1",
       [sklepId, rok]
     );
 
@@ -1890,7 +1890,7 @@ async function generujNumerDokumentu(sklepId) {
 
     if (!result || result.length === 0) {
       await dbConfig.query(
-        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr, DokNumTyp) VALUES (?, ?, ?, 'WZ')",
+        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr, DokNumTyp) VALUES (?, ?, ?, 1)",
         [sklepId, rok, 1]
       );
       nowyNumer = 1;
@@ -1898,7 +1898,7 @@ async function generujNumerDokumentu(sklepId) {
       nowyNumer = result[0].DokNumOstatniNr + 1;
 
       await dbConfig.query(
-        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 'WZ'",
+        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 1",
         [nowyNumer, sklepId, rok]
       );
     }
@@ -1915,6 +1915,7 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
     const { sklepId, platnosc, autorId, pozycje } = req.body;
     const numerDokumentu = await generujNumerDokumentu(sklepId);
 
+    // Zapisanie nagłówka dokumentu
     const result = await dbConfig.query(
       "INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId, DokTyp) VALUES (?, ?, ?, ?, 1)",
       [numerDokumentu, sklepId, platnosc, autorId]
@@ -1922,8 +1923,13 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
 
     const dokumentId = result.insertId;
 
+    // Obiekt przechowujący zmiany w licznikach
+    const zmianyLicznikow = {};
+
+    // Zapisujemy pozycje i aktualizujemy liczniki
     for (const pozycja of pozycje) {
-      const { towId, pozostalyTowarId, ilosc, cena } = pozycja;
+      const { towId, pozostalyTowarId, ilosc, cena, typ } = pozycja;
+      console.log(typ);
 
       if (towId) {
         await dbConfig.query(
@@ -1937,6 +1943,10 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
           "UPDATE Kuwety SET KuwPorcje = KuwPorcje - ? WHERE KuwId = ?",
           [ilosc, towId]
         );
+
+        // Zapisujemy zmiany w liczniku
+        if (!zmianyLicznikow[typ]) zmianyLicznikow[typ] = 0;
+        zmianyLicznikow[typ] += ilosc;
       } else if (pozostalyTowarId) {
         await dbConfig.query(
           `INSERT INTO DokumentyPozycje 
@@ -1944,14 +1954,59 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
             VALUES (?, ?, ?, ?)`,
           [dokumentId, pozostalyTowarId, ilosc, cena]
         );
+
+        // Jeśli chodzi o pozostały towar, to również aktualizujemy liczniki
+        if (!zmianyLicznikow[typ]) zmianyLicznikow[typ] = 0;
+        zmianyLicznikow[typ] += ilosc;
       } else {
         console.warn("Pominięto pozycję bez ID:", pozycja);
       }
     }
 
+    // Aktualizujemy liczniki
+    for (const [typ, zmiana] of Object.entries(zmianyLicznikow)) {
+      await dbConfig.query(
+        `INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
+         VALUES (?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           LWartosc = GREATEST(0, LWartosc - VALUES(LWartosc))`,
+        [sklepId, typ, zmiana]
+      );
+    }
+
     res.status(200).json({ message: "Wydanie zapisane", numerDokumentu });
   } catch (err) {
     console.error("Błąd zapisu dokumentu:", err);
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).json({ error: "Błąd serwera" });
+  }
+});
+
+// Endpoint do odczytywania liczników
+app.get("/api/odczytaj-licznik", async (req, res) => {
+  const { sklepId, typ } = req.query;
+
+  if (!sklepId || !typ) {
+    return res
+      .status(400)
+      .json({ error: "Brak wymaganych parametrów: sklepId i typ" });
+  }
+
+  try {
+    // Zapytanie do bazy danych, aby odczytać licznik
+    const result = await dbConfig.query(
+      "SELECT LWartosc FROM Liczniki WHERE LSklId = ? AND LTyp = ?",
+      [sklepId, typ]
+    );
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: "Licznik nie znaleziony" });
+    }
+
+    // Zwracamy wartość licznika
+    res.status(200).json({ LWartosc: result[0].LWartosc });
+  } catch (err) {
+    console.error("Błąd odczytu licznika:", err);
     logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
     res.status(500).json({ error: "Błąd serwera" });
   }
@@ -2518,7 +2573,7 @@ async function generujNumerZamowienia(sklepId) {
 
   try {
     const result = await dbConfig.query(
-      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 'ZAM'",
+      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 2",
       [sklepId, rok]
     );
 
@@ -2526,7 +2581,7 @@ async function generujNumerZamowienia(sklepId) {
 
     if (!result || result.length === 0) {
       await dbConfig.query(
-        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr, DokNumTyp) VALUES (?, ?, ?, 'ZAM')",
+        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr, DokNumTyp) VALUES (?, ?, ?, 2)",
         [sklepId, rok, 1]
       );
       nowyNumer = 1;
@@ -2534,7 +2589,7 @@ async function generujNumerZamowienia(sklepId) {
       nowyNumer = result[0].DokNumOstatniNr + 1;
 
       await dbConfig.query(
-        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 'ZAM'",
+        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 2",
         [nowyNumer, sklepId, rok]
       );
     }

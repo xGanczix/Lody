@@ -185,19 +185,33 @@ async function zapiszWydanie(formaPlatnosci) {
 
   const pozycje = [];
   document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
-    const towarId = row.getAttribute("data-towar-id"); // zawsze istnieje
-    const kuwetaId = row.getAttribute("data-id"); // tylko jeśli to kuweta
+    const towarId = row.getAttribute("data-towar-id");
+    const kuwetaId = row.getAttribute("data-id");
 
     const ilosc = parseFloat(row.querySelector(".ilosc").textContent);
     const cena = parseFloat(row.querySelector(".cena").textContent);
+    const nazwa = row.querySelector("td:nth-child(2)").textContent;
+
+    // Określenie typu w zależności od nazwy towaru
+    let typ = 0; // Domyślnie typ = 0 (np. inne towary)
+    if (nazwa.includes("Lody Włoskie")) {
+      typ = 1; // Typ 1 dla lodów włoskich
+    } else if (nazwa.includes("Kawa")) {
+      typ = 2; // Typ 2 dla kawy
+    }
 
     pozycje.push({
       towId: kuwetaId ? parseInt(kuwetaId) : null,
       pozostalyTowarId: towarId ? parseInt(towarId) : null,
       ilosc,
       cena,
+      typ, // Dodajemy typ do obiektu pozycji
     });
   });
+
+  // Odczyt liczników przed zapisem
+  let licznikLodyWloskie = await odczytajLicznik(sklepId, 1); // Typ = 1 dla lodów włoskich
+  let licznikKawa = await odczytajLicznik(sklepId, 2); // Typ = 2 dla kawy
 
   try {
     const response = await fetch(`${CONFIG.URL}/api/zapisz-wydanie`, {
@@ -224,8 +238,8 @@ async function zapiszWydanie(formaPlatnosci) {
           sumaLodyWloskie += ilosc * 2;
         }
       });
-      poziom = Math.max(0, poziom - sumaLodyWloskie);
-      aktualizujLicznik();
+      licznikLodyWloskie = Math.max(0, licznikLodyWloskie - sumaLodyWloskie);
+      await aktualizujLicznik(sklepId, 1, licznikLodyWloskie); // Typ = 1 dla lodów włoskich
 
       let sumaKawa = 0;
       document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
@@ -235,9 +249,10 @@ async function zapiszWydanie(formaPlatnosci) {
           sumaKawa += iloscKawa * 1;
         }
       });
-      poziomKawa = Math.max(0, poziomKawa - sumaKawa);
-      aktualizujLicznikKawa();
+      licznikKawa = Math.max(0, licznikKawa - sumaKawa);
+      await aktualizujLicznik(sklepId, 2, licznikKawa); // Typ = 2 dla kawy
 
+      // Czyszczenie tabeli po zapisaniu
       document.getElementById("pozycje-wydania-tbody").innerHTML = "";
       document.getElementById("wartosc-wydania").innerHTML = "0.00 zł";
       const message = document.getElementById("message");
@@ -259,6 +274,46 @@ async function zapiszWydanie(formaPlatnosci) {
       setTimeout(() => {
         message.style.opacity = 0;
       }, 10000);
+    }
+  } catch (error) {
+    console.error("Błąd połączenia z serwerem:", error);
+  }
+}
+
+// Funkcja do odczytywania liczników z API
+async function odczytajLicznik(sklepId, typ) {
+  try {
+    const response = await fetch(
+      `${CONFIG.URL}/api/odczytaj-licznik?sklepId=${sklepId}&typ=${typ}`
+    );
+    if (response.ok) {
+      const data = await response.json();
+      return data.LWartosc || 0; // Jeśli licznik nie istnieje, zwróć 0
+    } else {
+      console.error("Błąd odczytu licznika:", await response.text());
+      return 0;
+    }
+  } catch (error) {
+    console.error("Błąd połączenia z serwerem:", error);
+    return 0;
+  }
+}
+
+// Funkcja do aktualizacji licznika w API
+async function aktualizujLicznik(sklepId, typ, nowaWartosc) {
+  try {
+    const response = await fetch(`${CONFIG.URL}/api/aktualizuj-licznik`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sklepId,
+        typ,
+        nowaWartosc,
+      }),
+    });
+
+    if (!response.ok) {
+      console.error("Błąd aktualizacji licznika:", await response.text());
     }
   } catch (error) {
     console.error("Błąd połączenia z serwerem:", error);

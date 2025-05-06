@@ -178,3 +178,73 @@ sql:
 [2025-05-06 00:53:24] [INFO] Uruchomiono serwer na porcie 3000
 [2025-05-06 00:53:24] [INFO] Połączono z MariaDB
 [2025-05-06 00:53:51] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-06 12:10:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:10:33] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10015ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-05-06 12:10:37] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10006ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-05-06 12:10:44] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 12:10:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:10:45] [INFO] Połączono z MariaDB
+[2025-05-06 12:10:51] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-05-06 12:11:42] [INFO] Zalogowano: mati
+[2025-05-06 12:17:28] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 12:17:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:17:29] [INFO] Połączono z MariaDB
+[2025-05-06 12:22:03] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-05-06 12:24:50] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:3816, no: 1054, SQLState: 42S22) Unknown column 'DokTyp' in 'INSERT INTO'
+sql: INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId, DokTyp) VALUES (?, ?, ?, ?, 1) - parameters:['WZ/15/2025/1','1','gotówka',1]
+[2025-05-06 12:26:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:26:41] [INFO] Połączono z MariaDB
+[2025-05-06 12:36:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:36:39] [INFO] Połączono z MariaDB
+[2025-05-06 12:37:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:37:48] [INFO] Połączono z MariaDB
+[2025-05-06 12:38:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:38:14] [INFO] Połączono z MariaDB
+[2025-05-06 12:38:21] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:4019, no: 1146, SQLState: 42S02) Table 'lody_lacko.licznik' doesn't exist
+sql: INSERT INTO Licznik (LSklId, LTyp, LWartosc)
+         VALUES (?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           LWartosc = GREATEST(0, LWartosc - VALUES(LWartosc)) - parameters:['1','undefined',4]
+[2025-05-06 12:38:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:38:38] [INFO] Połączono z MariaDB
+[2025-05-06 12:38:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:38:40] [INFO] Połączono z MariaDB
+[2025-05-06 12:38:41] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:4111, no: 1366, SQLState: 22007) Incorrect integer value: 'undefined' for column `lody_lacko`.`liczniki`.`LTyp` at row 1
+sql: INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
+         VALUES (?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           LWartosc = GREATEST(0, LWartosc - VALUES(LWartosc)) - parameters:['1','undefined',4]
+[2025-05-06 12:41:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:41:05] [INFO] Połączono z MariaDB
+[2025-05-06 12:41:08] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 12:41:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:41:10] [INFO] Połączono z MariaDB
+[2025-05-06 12:41:16] [INFO] Zalogowano: mati (Sklep: 1)
+[2025-05-06 12:41:20] [ERROR] Błąd połączenia z bazą danych: ReferenceError: typ is not defined
+[2025-05-06 12:41:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:41:36] [INFO] Połączono z MariaDB
+[2025-05-06 12:41:38] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:4261, no: 1366, SQLState: 22007) Incorrect integer value: 'undefined' for column `lody_lacko`.`liczniki`.`LTyp` at row 1
+sql: INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
+         VALUES (?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           LWartosc = GREATEST(0, LWartosc - VALUES(LWartosc)) - parameters:['1','undefined',4]
+[2025-05-06 12:42:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:42:46] [INFO] Połączono z MariaDB
+[2025-05-06 12:42:48] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 12:42:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:42:52] [INFO] Połączono z MariaDB
+[2025-05-06 12:43:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:43:02] [INFO] Połączono z MariaDB
+[2025-05-06 12:43:06] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:4415, no: 1366, SQLState: 22007) Incorrect integer value: 'undefined' for column `lody_lacko`.`liczniki`.`LTyp` at row 1
+sql: INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
+         VALUES (?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           LWartosc = GREATEST(0, LWartosc - VALUES(LWartosc)) - parameters:['1','undefined',2]
+[2025-05-06 12:44:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:44:49] [INFO] Połączono z MariaDB
+[2025-05-06 12:44:52] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 12:44:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 12:44:54] [INFO] Połączono z MariaDB
+[2025-05-06 14:00:34] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)

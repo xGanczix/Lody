@@ -96,7 +96,7 @@ create table if not exists KuwetyStatusZamowienia(
 CREATE TABLE IF NOT EXISTS DokumentyNumeracja (
   DokNumSklepId INT NOT NULL,
   DokNumRok INT NOT NULL,
-  DokNumTyp VARCHAR(10) NOT NULL,
+  DokNumTyp int NOT NULL,
   DokNumOstatniNr INT DEFAULT 0,
   PRIMARY KEY (DokNumSklepId, DokNumRok, DokNumTyp)
 );
