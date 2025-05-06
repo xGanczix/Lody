@@ -7,7 +7,8 @@ create table if not exists Uzytkownicy(
 	UzPIN varchar(255),
 	UzStatus boolean not null default 1,
 	UzStawkaGodzinowa float default 0.00,
-	UzDataZmiany datetime not null default now());
+	UzDataZmiany datetime not null default now()
+);
 
 create table if not exists Sklepy(
 	SklId int not null primary key auto_increment,
@@ -18,12 +19,14 @@ create table if not exists Sklepy(
 	SklMiejscowosc varchar(255),
 	SklPojemnosc int not null,
 	SklDataZmiany datetime not null default now(),
-	SklStatus boolean not null default 1);
+	SklStatus boolean not null default 1
+);
 
 create table if not exists UzytkownicySklep (
     UzSklId int not null primary key auto_increment,
     UzSklUzId int not null,
-    UzSklSklId int not null);
+    UzSklSklId int not null
+);
 
 create table if not exists Smaki(
 	SmkId int not null primary key auto_increment,
@@ -32,20 +35,23 @@ create table if not exists Smaki(
 	SmkTekstKolor varchar(255),
 	SmkStatus boolean not null default 1,
 	SmkTowId int not null default 1,
-	SmkDataZmiany datetime not null default now());
+	SmkDataZmiany datetime not null default now()
+);
 
 create table if not exists RCP(
 	RCPId int not null primary key auto_increment,
 	RCPStartZmiany datetime,
 	RCPKoniecZmiany datetime,
-	RCPUzId int not null);
+	RCPUzId int not null
+);
 
 create table if not exists Rozmiary(
 	RozId int not null primary key auto_increment,
 	RozNazwa varchar(255) not null,
 	RozPojemnosc int not null,
 	RozDataZmiany datetime not null default now(),
-	RozStatus boolean not null default 1);
+	RozStatus boolean not null default 1
+);
 
 create table if not exists Kuwety(
 	KuwId int not null primary key auto_increment,
@@ -55,8 +61,8 @@ create table if not exists Kuwety(
 	KuwSklId int,
 	KuwStatus boolean not null default 1,
 	KuwStatusZamowienia boolean not null default 1,
-	KuwDataZmiany datetime default now())
-	;
+	KuwDataZmiany datetime default now()
+);
 
 create table if not exists Ulozenie (
     UId int not null primary key auto_increment,
@@ -71,25 +77,30 @@ create table if not exists Ulozenie (
 	UKuw9Id int,
 	UKuw10Id int,
 	USklId int not null,
-	UDataZmiany datetime not null default now());
+	UDataZmiany datetime not null default now()
+);
 
 create table if not exists Towary(
 	TowId int not null primary key auto_increment,
 	TowNazwa varchar(255) not null,
 	TowCenaId int not null,
-	TowDataZmiany datetime not null default now());
+	TowDataZmiany datetime not null default now()
+);
 
 create table if not exists KuwetyStatusZamowienia(
 	KuwStatZamId int not null primary key auto_increment,
 	KuwStatZamNazwa varchar(255) not null,
-	KuwStatZamDataZmiany datetime not null default now());
-
-create table if not exists DokumentyNumeracja(
-	DokNumSklepId int not null,
-	DokNumRok int not null,
-	DokNumOstatniNr int default 0,
-	primary key(DokNumSklepId, DokNumRok)
+	KuwStatZamDataZmiany datetime not null default now()
 );
+
+CREATE TABLE IF NOT EXISTS DokumentyNumeracja (
+  DokNumSklepId INT NOT NULL,
+  DokNumRok INT NOT NULL,
+  DokNumTyp VARCHAR(10) NOT NULL,
+  DokNumOstatniNr INT DEFAULT 0,
+  PRIMARY KEY (DokNumSklepId, DokNumRok, DokNumTyp)
+);
+
 
 create table if not exists DokumentyPozycje(
 	DokPozId int not null primary key auto_increment,
@@ -108,29 +119,36 @@ create table if not exists Dokumenty(
 	DokFormaPlatnosci ENUM('gotówka', 'karta', 'bon') not null,
 	DokAutorId int not null);
 
+create table if not exists DokumentyTyp (
+	DokTypId int not null primary key auto_increment,
+	DokTypNazwa varchar(255) not null,
+	DokTypSymbol varchar(255) not null
+);
+
 create table if not exists Ceny(
 	CId int not null primary key auto_increment,
 	CTowId int not null,
 	CCena float not null,
 	CPoprzedniaCena float not null,
-	CDataZmiany datetime not null default now());
-
-create table if not exists Zamowienia (
-	ZId int not null primary key auto_increment,
-	ZTowar varchar(255) not null,
-	ZIsSmak boolean not null,
-	ZOpis varchar(255),
-	ZDataUtowrzenia datetime not null default now(),
-	ZSklId int not null,
-	ZUzId int not null,
-	ZStatus boolean not null default 1,
-	ZZrealizowano boolean not null default 0
+	CDataZmiany datetime not null default now()
 );
 
-create table if not exists Liczniki(
-	LId int not null primary key auto_increment,
-	LNazwa varchar(255) not null,
-	LPojemnosc float not null,
-	LPorcje float not null,
-	LDataZmiany datetime not null default now()
+create table Zamowienia (
+	ZamId int not null primary key auto_increment,
+	ZamNr varchar(255) not null,
+	ZamAutorId int not null,
+	ZamSklId int not null,
+	ZamDokTyp int not null,
+	ZamStatus boolean not null default 1,
+	ZamZrealizowano boolean not null default 0,
+	ZamDataUtworzenia datetime not null default now(),
+	ZamDataZmiany datetime not null default now()
+);
+
+create table ZamowieniaPozycje (
+	ZamPozId int not null primary key auto_increment,
+	ZamPozZamId int not null,
+	ZamPozTowar varchar(255) not null,
+	ZamPozOpis varchar(255),
+	ZamPozIsSmak boolean not null
 );

@@ -277,7 +277,8 @@ table#centrala-rcp,
 table#rcp-user-data,
 table#centrala-status-kuwety,
 table#centrala-ceny,
-table#kuwety-table {
+table#kuwety-table,
+table#centrala-zamowienia {
   width: 100%;
   border-collapse: collapse;
 }
@@ -291,7 +292,8 @@ table#centrala-rcp thead,
 table#rcp-user-data thead,
 table#centrala-status-kuwety thead,
 table#centrala-ceny thead,
-table#kuwety-table thead {
+table#kuwety-table thead,
+table#centrala-zamowienia thead {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -307,7 +309,8 @@ table#centrala-rcp thead th,
 table#rcp-user-data thead th,
 table#centrala-status-kuwety thead th,
 table#centrala-ceny thead th,
-table#kuwety-table thead th {
+table#kuwety-table thead th,
+table#centrala-zamowienia thead th {
   background: var(--button-light-color);
   font-size: 22px;
   padding: 14px;
@@ -319,7 +322,8 @@ table#kuwety-table thead th {
 table#centrala-sklepy tbody,
 table#centrala-kuwety tbody,
 table#centrala-rcp tbody,
-table#rcp-user-data tbody {
+table#rcp-user-data tbody,
+table#centrala-zamowienia tbody {
   display: block;
   max-height: calc(100vh - 240px);
   overflow-y: auto;
@@ -346,7 +350,8 @@ table#centrala-rcp tbody tr,
 table#rcp-user-data tbody tr,
 table#centrala-status-kuwety tbody tr,
 table#centrala-ceny tbody tr,
-table#kuwety-table tbody tr {
+table#kuwety-table tbody tr,
+table#centrala-zamowienia tbody tr {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -361,7 +366,8 @@ table#centrala-rcp tbody td,
 table#rcp-user-data tbody td,
 table#centrala-status-kuwety tbody td,
 table#centrala-ceny tbody td,
-table#kuwety-table tbody td {
+table#kuwety-table tbody td,
+table#centrala-zamowienia tbody td {
   padding: 10px;
   font-size: 20px;
   text-align: center;
@@ -376,7 +382,8 @@ table#centrala-rcp thead th:first-child,
 table#rcp-user-data thead th:first-child,
 table#centrala-status-kuwety thead th:first-child,
 table#centrala-ceny thead th:first-child,
-table#kuwety-table thead th:first-child {
+table#kuwety-table thead th:first-child,
+table#centrala-zamowienia thead th:first-child {
   border-radius: 10px 0 0 0;
 }
 
@@ -389,7 +396,8 @@ table#centrala-rcp thead th:last-child,
 table#rcp-user-data thead th:last-child,
 table#centrala-status-kuwety thead th:last-child,
 table#centrala-ceny thead th:last-child,
-table#kuwety-table thead th:last-child {
+table#kuwety-table thead th:last-child,
+table#centrala-zamowienia thead th:last-child {
   border-radius: 0 10px 0 0;
 }
 

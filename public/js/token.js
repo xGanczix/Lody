@@ -33,7 +33,7 @@ async function checkAuth() {
 
 function redirectToLogin() {
   localStorage.removeItem("token");
-  window.location.href = "index.html";
+  window.location.href = "../index.html";
 }
 
 document.addEventListener("DOMContentLoaded", checkAuth);

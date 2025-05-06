@@ -1,0 +1,180 @@
+[2025-05-06 00:06:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:06:10] [INFO] Połączono z MariaDB
+[2025-05-06 00:06:16] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-06 00:09:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:09:25] [INFO] Połączono z MariaDB
+[2025-05-06 00:09:26] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 00:09:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:09:29] [INFO] Połączono z MariaDB
+[2025-05-06 00:15:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:15:43] [INFO] Połączono z MariaDB
+[2025-05-06 00:15:44] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 00:15:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:15:48] [INFO] Połączono z MariaDB
+[2025-05-06 00:20:30] [INFO] Zalogowano Serwis
+[2025-05-06 00:21:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:21:47] [INFO] Połączono z MariaDB
+[2025-05-06 00:21:58] [INFO] Zalogowano: mati
+[2025-05-06 00:22:49] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3525, no: 1054, SQLState: 42S22) Unknown column 'z.ZDataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+	      ZZrealizowano = 0...
+[2025-05-06 00:22:51] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3527, no: 1054, SQLState: 42S22) Unknown column 'z.ZDataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+	      ZZrealizowano = 1...
+[2025-05-06 00:22:52] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3528, no: 1054, SQLState: 42S22) Unknown column 'z.ZDataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+        z.ZStatus = 1
+  ...
+[2025-05-06 00:22:53] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3529, no: 1054, SQLState: 42S22) Unknown column 'z.ZDataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+        ZStatus = 0
+    ...
+[2025-05-06 00:23:14] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3530, no: 1054, SQLState: 42S22) Unknown column 'z.ZDataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+	      ZZrealizowano = 0...
+[2025-05-06 00:23:15] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3531, no: 1054, SQLState: 42S22) Unknown column 'z.ZDataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+	      ZZrealizowano = 1...
+[2025-05-06 00:23:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:23:50] [INFO] Połączono z MariaDB
+[2025-05-06 00:23:50] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3569, no: 1054, SQLState: 42S22) Unknown column 'z.ZStatus' in 'WHERE'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZamDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZamSklId
+	    left join Sklepy as s on s.SklId = z.ZamSklId
+    where
+        z.ZStatus ...
+[2025-05-06 00:23:50] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3570, no: 1054, SQLState: 42S22) Unknown column 'ZZrealizowano' in 'WHERE'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZamDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZamSklId
+	    left join Sklepy as s on s.SklId = z.ZamSklId
+    where
+	      ZZrealizowa...
+[2025-05-06 00:23:50] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3571, no: 1054, SQLState: 42S22) Unknown column 'ZZrealizowano' in 'WHERE'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZamDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZamSklId
+	    left join Sklepy as s on s.SklId = z.ZamSklId
+    where
+	      ZZrealizowa...
+[2025-05-06 00:23:50] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:3572, no: 1054, SQLState: 42S22) Unknown column 'ZStatus' in 'WHERE'
+sql: 
+      select
+	      s.SklNazwa,
+        date(z.ZamDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZamSklId
+	    left join Sklepy as s on s.SklId = z.ZamSklId
+    where
+        ZStatus = ...
+[2025-05-06 00:24:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:24:46] [INFO] Połączono z MariaDB
+[2025-05-06 00:26:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:26:59] [INFO] Połączono z MariaDB
+[2025-05-06 00:28:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:28:12] [INFO] Połączono z MariaDB
+[2025-05-06 00:28:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:28:58] [INFO] Połączono z MariaDB
+[2025-05-06 00:30:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:30:09] [INFO] Połączono z MariaDB
+[2025-05-06 00:30:29] [INFO] Zalogowano: jk (Sklep: Sklep 2)
+[2025-05-06 00:35:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:35:05] [INFO] Połączono z MariaDB
+[2025-05-06 00:35:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:35:29] [INFO] Połączono z MariaDB
+[2025-05-06 00:35:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:35:37] [INFO] Połączono z MariaDB
+[2025-05-06 00:35:53] [INFO] Zalogowano: mati
+[2025-05-06 00:36:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:36:43] [INFO] Połączono z MariaDB
+[2025-05-06 00:38:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:38:00] [INFO] Połączono z MariaDB
+[2025-05-06 00:38:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:38:32] [INFO] Połączono z MariaDB
+[2025-05-06 00:38:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:38:49] [INFO] Połączono z MariaDB
+[2025-05-06 00:39:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:39:02] [INFO] Połączono z MariaDB
+[2025-05-06 00:41:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:41:20] [INFO] Połączono z MariaDB
+[2025-05-06 00:43:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:43:11] [INFO] Połączono z MariaDB
+[2025-05-06 00:43:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:43:30] [INFO] Połączono z MariaDB
+[2025-05-06 00:43:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:43:44] [INFO] Połączono z MariaDB
+[2025-05-06 00:46:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:46:16] [INFO] Połączono z MariaDB
+[2025-05-06 00:46:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:46:40] [INFO] Połączono z MariaDB
+[2025-05-06 00:52:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:52:16] [INFO] Połączono z MariaDB
+[2025-05-06 00:52:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:52:29] [INFO] Połączono z MariaDB
+[2025-05-06 00:52:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:52:56] [INFO] Połączono z MariaDB
+[2025-05-06 00:53:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 00:53:24] [INFO] Połączono z MariaDB
+[2025-05-06 00:53:51] [INFO] Zalogowano: jk (Sklep: Sklep 1)

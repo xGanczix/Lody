@@ -405,7 +405,7 @@ left join Smaki as s on
 left join Ceny as c on
 	c.CTowId = s.SmkTowId
 where
-	k.KuwSklId = ?`;
+	k.KuwSklId = ? and k.KuwStatus = 1`;
 
     const data = await connection.query(sql, [sklepId]);
     res.json(data);
@@ -1882,7 +1882,7 @@ async function generujNumerDokumentu(sklepId) {
 
   try {
     const result = await dbConfig.query(
-      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ?",
+      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ? and DokNumTyp = 'WZ'",
       [sklepId, rok]
     );
 
@@ -1890,7 +1890,7 @@ async function generujNumerDokumentu(sklepId) {
 
     if (!result || result.length === 0) {
       await dbConfig.query(
-        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr) VALUES (?, ?, ?)",
+        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr, DokNumTyp) VALUES (?, ?, ?, 'WZ')",
         [sklepId, rok, 1]
       );
       nowyNumer = 1;
@@ -1898,7 +1898,7 @@ async function generujNumerDokumentu(sklepId) {
       nowyNumer = result[0].DokNumOstatniNr + 1;
 
       await dbConfig.query(
-        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ?",
+        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 'WZ'",
         [nowyNumer, sklepId, rok]
       );
     }
@@ -1915,20 +1915,17 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
     const { sklepId, platnosc, autorId, pozycje } = req.body;
     const numerDokumentu = await generujNumerDokumentu(sklepId);
 
-    // Tworzenie nagłówka dokumentu
     const result = await dbConfig.query(
-      "INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId) VALUES (?, ?, ?, ?)",
+      "INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId, DokTyp) VALUES (?, ?, ?, ?, 1)",
       [numerDokumentu, sklepId, platnosc, autorId]
     );
 
     const dokumentId = result.insertId;
 
-    // Iteracja po pozycjach
     for (const pozycja of pozycje) {
       const { towId, pozostalyTowarId, ilosc, cena } = pozycja;
 
       if (towId) {
-        // Lody rzemieślnicze (kuwety)
         await dbConfig.query(
           `INSERT INTO DokumentyPozycje 
             (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
@@ -1941,7 +1938,6 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
           [ilosc, towId]
         );
       } else if (pozostalyTowarId) {
-        // Inne towary
         await dbConfig.query(
           `INSERT INTO DokumentyPozycje 
             (DokPozDokId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
@@ -2517,6 +2513,39 @@ order by
   }
 });
 
+async function generujNumerZamowienia(sklepId) {
+  const rok = new Date().getFullYear();
+
+  try {
+    const result = await dbConfig.query(
+      "SELECT DokNumOstatniNr FROM DokumentyNumeracja WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 'ZAM'",
+      [sklepId, rok]
+    );
+
+    let nowyNumer;
+
+    if (!result || result.length === 0) {
+      await dbConfig.query(
+        "INSERT INTO DokumentyNumeracja (DokNumSklepId, DokNumRok, DokNumOstatniNr, DokNumTyp) VALUES (?, ?, ?, 'ZAM')",
+        [sklepId, rok, 1]
+      );
+      nowyNumer = 1;
+    } else {
+      nowyNumer = result[0].DokNumOstatniNr + 1;
+
+      await dbConfig.query(
+        "UPDATE DokumentyNumeracja SET DokNumOstatniNr = ? WHERE DokNumSklepId = ? AND DokNumRok = ? AND DokNumTyp = 'ZAM'",
+        [nowyNumer, sklepId, rok]
+      );
+    }
+
+    return `ZAM/${nowyNumer}/${rok}/${sklepId}`;
+  } catch (error) {
+    console.error("Błąd w generujNumerZamowienia:", error);
+    return null;
+  }
+}
+
 app.post("/api/zamowienie", async (req, res) => {
   const zamowienia = req.body.zamowienia;
   const uzytkownik = req.body.uzytkownik;
@@ -2529,21 +2558,37 @@ app.post("/api/zamowienie", async (req, res) => {
   let connection;
 
   try {
-    for (const zamowienie of zamowienia) {
-      const { nazwa, opis, isSmak } = zamowienie;
+    connection = await dbConfig.getConnection();
+    await connection.beginTransaction();
 
-      connection = await dbConfig.getConnection();
+    const numerZamowienia = await generujNumerZamowienia(sklep);
 
-      let sql = `
-        insert into Zamowienia (ZTowar, ZOpis, ZIsSmak, ZSklId, ZUzId) values (?, ?, ?, ?, ?);
-      `;
+    const zamowienieWynik = await connection.query(
+      `INSERT INTO Zamowienia 
+        (ZamNr, ZamAutorId, ZamSklId, ZamDokTyp) 
+       VALUES (?, ?, ?, 2)`,
+      [numerZamowienia, uzytkownik, sklep]
+    );
 
-      await connection.query(sql, [nazwa, opis, isSmak, sklep, uzytkownik]);
+    const zamowienieId = zamowienieWynik.insertId;
+
+    for (const zam of zamowienia) {
+      const { nazwa, opis, isSmak } = zam;
+
+      await connection.query(
+        `INSERT INTO ZamowieniaPozycje (ZamPozZamId, ZamPozTowar, ZamPozOpis, ZamPozIsSmak) 
+         VALUES (?, ?, ?, ?)`,
+        [zamowienieId, nazwa, opis, isSmak]
+      );
     }
 
-    res.status(200).send("Zamówienie zostało zapisane.");
+    await connection.commit();
+    res
+      .status(200)
+      .json({ message: "Zamówienie zostało zapisane.", numerZamowienia });
   } catch (err) {
-    console.log("Błąd podczas przetwarzania zamówienia:", err);
+    if (connection) await connection.rollback();
+    console.error("Błąd podczas zapisywania zamówienia:", err);
     res.status(500).send("Wystąpił błąd podczas zapisywania zamówienia.");
   } finally {
     if (connection) connection.release();
@@ -2557,13 +2602,13 @@ app.get("/api/zamowienia-nowe/:uzytkownik", async (req, res) => {
     connection = await dbConfig.getConnection();
     let sql = `
       select
-	      count(z.ZId) as liczbaZamowien
+	      count(z.ZamId) as liczbaZamowien
       from
 	      Zamowienia as z
       left join uzytkownicysklep as us on
-	      us.UzSklSklId = z.ZSklId
+	      us.UzSklSklId = z.ZamSklId
       where
-	      us.UzSklUzId = ? and z.ZZrealizowano = 0 and z.ZStatus = 1
+	      us.UzSklUzId = ? and z.ZamZrealizowano = 0 and z.ZamStatus = 1
     `;
     const rows = await connection.query(sql, uzytkownik);
 
@@ -2578,6 +2623,86 @@ app.get("/api/zamowienia-nowe/:uzytkownik", async (req, res) => {
     res.json(converted);
   } catch (err) {
     console.log(err);
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/zamowienia-sklepy/:uzytkownik/:status", async (req, res) => {
+  const uzytkownik = req.params.uzytkownik;
+  const status = req.params.status;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      select
+        z.ZamId,
+	      z.ZamNr,
+	      s.SklNazwa,
+	      date(z.ZamDataUtworzenia) as Data
+      from
+	      Zamowienia as z
+      left join UzytkownicySklep as us on
+	      us.UzSklSklId = z.ZamSklId
+      left join Sklepy as s on
+	      s.SklId = z.ZamSklId
+    `;
+
+    if (status === "niezrealizowane") {
+      sql += `
+      where
+	      us.UzSklUzId = ? and z.ZamStatus = 1 and z.ZamZrealizowano = 0
+      group by
+	      z.ZamNr`;
+    } else if (status === "zrealizowane") {
+      sql += `
+      where
+	      us.UzSklUzId = ? and z.ZamStatus = 1 and z.ZamZrealizowano = 1
+      group by
+	      z.ZamNr`;
+    } else if (status === "aktywne") {
+      sql += `
+      where
+	      us.UzSklUzId = ? and z.ZamStatus = 1
+      group by
+	      z.ZamNr`;
+    } else if (status === "usuniete") {
+      sql += `
+      where
+	      us.UzSklUzId = ? and z.ZamStatus = 0
+      group by
+	      z.ZamNr`;
+    } else {
+      sql += `
+      where
+	      us.UzSklUzId = ?
+      group by
+	      z.ZamNr`;
+    }
+
+    const data = await connection.query(sql, uzytkownik);
+    data.forEach((item) => {
+      const date = new Date(item.Data);
+      item.Data = date.toLocaleDateString("pl-PL");
+    });
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z MariaDB: ${err}`);
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.get("/api/zamowienia-szczegoly/:zamowienieId", async (req, res) => {
+  const zamowienieId = req.params.zamowienieId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `select * from ZamowieniaPozycje where ZamPozZamId = ?`;
+    const data = await connection.query(sql, zamowienieId);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd połączenia z MariaDB: ${err}`);
   } finally {
     if (connection) connection.release();
   }

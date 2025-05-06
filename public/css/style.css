@@ -229,7 +229,8 @@ html.dark-mode body .zamowienie-pozostale-container h2,
 html.dark-mode body .zamowienie-pozycje-zamowione-container h2,
 html.dark-mode body table#zamowienie-dostepne-smaki thead th,
 html.dark-mode body table#zamowienie-pozostale-towary thead th,
-html.dark-mode body table#zamowienie-pozycje-zamowione thead th {
+html.dark-mode body table#zamowienie-pozycje-zamowione thead th,
+html.dark-mode body table#centrala-zamowienia thead th {
   background: var(--button-dark-color);
 }
 

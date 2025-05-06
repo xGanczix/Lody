@@ -1,0 +1,172 @@
+[2025-05-05 09:18:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:18:18] [INFO] Połączono z MariaDB
+[2025-05-05 09:18:34] [INFO] Zalogowano: mati
+[2025-05-05 09:19:37] [INFO] Zalogowano: mati
+[2025-05-05 09:20:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:20:23] [INFO] Połączono z MariaDB
+[2025-05-05 09:29:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:29:56] [INFO] Połączono z MariaDB
+[2025-05-05 09:32:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:32:14] [INFO] Połączono z MariaDB
+[2025-05-05 09:33:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:33:00] [INFO] Połączono z MariaDB
+[2025-05-05 09:33:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:33:29] [INFO] Połączono z MariaDB
+[2025-05-05 09:33:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:33:35] [INFO] Połączono z MariaDB
+[2025-05-05 09:33:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:33:45] [INFO] Połączono z MariaDB
+[2025-05-05 09:33:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:33:57] [INFO] Połączono z MariaDB
+[2025-05-05 09:35:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:35:09] [INFO] Połączono z MariaDB
+[2025-05-05 09:35:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:35:17] [INFO] Połączono z MariaDB
+[2025-05-05 09:35:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:35:51] [INFO] Połączono z MariaDB
+[2025-05-05 09:36:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:36:51] [INFO] Połączono z MariaDB
+[2025-05-05 09:37:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:37:54] [INFO] Połączono z MariaDB
+[2025-05-05 09:38:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:38:04] [INFO] Połączono z MariaDB
+[2025-05-05 09:39:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:39:23] [INFO] Połączono z MariaDB
+[2025-05-05 09:40:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:40:14] [INFO] Połączono z MariaDB
+[2025-05-05 09:40:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:40:33] [INFO] Połączono z MariaDB
+[2025-05-05 09:42:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:42:13] [INFO] Połączono z MariaDB
+[2025-05-05 09:43:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:43:01] [INFO] Połączono z MariaDB
+[2025-05-05 09:44:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:44:28] [INFO] Połączono z MariaDB
+[2025-05-05 09:44:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:44:59] [INFO] Połączono z MariaDB
+[2025-05-05 09:45:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:45:25] [INFO] Połączono z MariaDB
+[2025-05-05 09:45:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:45:40] [INFO] Połączono z MariaDB
+[2025-05-05 09:45:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:45:45] [INFO] Połączono z MariaDB
+[2025-05-05 09:46:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:46:12] [INFO] Połączono z MariaDB
+[2025-05-05 09:46:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:46:29] [INFO] Połączono z MariaDB
+[2025-05-05 09:51:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:51:46] [INFO] Połączono z MariaDB
+[2025-05-05 09:53:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:53:43] [INFO] Połączono z MariaDB
+[2025-05-05 09:57:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:57:50] [INFO] Połączono z MariaDB
+[2025-05-05 09:57:52] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:1846, no: 1054, SQLState: 42S22) Unknown column 'z.DataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        z.DataUtworzenia
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+        ZStatus = 0
+        and us.UzSk...
+[2025-05-05 09:58:02] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:1847, no: 1054, SQLState: 42S22) Unknown column 'z.DataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        z.DataUtworzenia
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+        ZStatus = 0
+        and us.UzSk...
+[2025-05-05 09:58:04] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-05 09:58:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:58:06] [INFO] Połączono z MariaDB
+[2025-05-05 09:58:06] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:1896, no: 1054, SQLState: 42S22) Unknown column 'z.DataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        z.DataUtworzenia
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+        ZStatus = 0
+        and us.UzSk...
+[2025-05-05 09:58:07] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:1897, no: 1054, SQLState: 42S22) Unknown column 'z.DataUtworzenia' in 'SELECT'
+sql: 
+      select
+	      s.SklNazwa,
+        z.DataUtworzenia
+      from
+	      Zamowienia as z
+	    left join UzytkownicySklep as us on us.UzSklSklId = z.ZSklId
+	    left join Sklepy as s on s.SklId = z.ZSklId
+    where
+        ZStatus = 0
+        and us.UzSk...
+[2025-05-05 09:58:42] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:58:42] [INFO] Połączono z MariaDB
+[2025-05-05 09:59:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 09:59:23] [INFO] Połączono z MariaDB
+[2025-05-05 10:01:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 10:01:38] [INFO] Połączono z MariaDB
+[2025-05-05 10:01:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 10:01:54] [INFO] Połączono z MariaDB
+[2025-05-05 10:01:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 10:01:56] [INFO] Połączono z MariaDB
+[2025-05-05 10:04:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 10:04:28] [INFO] Połączono z MariaDB
+[2025-05-05 10:08:06] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-05 16:21:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:21:00] [INFO] Połączono z MariaDB
+[2025-05-05 16:24:25] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-05 16:24:50] [INFO] Zalogowano: jk (Sklep: Sklep 2)
+[2025-05-05 16:26:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:26:02] [INFO] Połączono z MariaDB
+[2025-05-05 16:26:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:26:44] [INFO] Połączono z MariaDB
+[2025-05-05 16:26:55] [INFO] Zalogowano: mati
+[2025-05-05 16:27:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:27:13] [INFO] Połączono z MariaDB
+[2025-05-05 16:27:50] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:27:50] [INFO] Połączono z MariaDB
+[2025-05-05 16:28:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:28:18] [INFO] Połączono z MariaDB
+[2025-05-05 16:29:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:29:59] [INFO] Połączono z MariaDB
+[2025-05-05 16:30:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:30:08] [INFO] Połączono z MariaDB
+[2025-05-05 16:31:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:31:00] [INFO] Połączono z MariaDB
+[2025-05-05 16:31:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:31:19] [INFO] Połączono z MariaDB
+[2025-05-05 16:32:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:32:17] [INFO] Połączono z MariaDB
+[2025-05-05 16:34:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:34:19] [INFO] Połączono z MariaDB
+[2025-05-05 16:34:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:34:30] [INFO] Połączono z MariaDB
+[2025-05-05 16:41:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:41:57] [INFO] Połączono z MariaDB
+[2025-05-05 16:42:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:42:29] [INFO] Połączono z MariaDB
+[2025-05-05 16:42:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:42:53] [INFO] Połączono z MariaDB
+[2025-05-05 16:43:01] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-05 16:43:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 16:43:02] [INFO] Połączono z MariaDB
+[2025-05-05 16:43:11] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-05 22:42:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 22:42:07] [INFO] Połączono z MariaDB
+[2025-05-05 22:59:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 22:59:04] [INFO] Połączono z MariaDB
+[2025-05-05 22:59:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-05 22:59:06] [INFO] Połączono z MariaDB
+[2025-05-05 23:03:00] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)

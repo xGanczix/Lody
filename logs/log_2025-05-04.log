@@ -202,3 +202,35 @@ sql:
 [2025-05-04 16:57:00] [INFO] Zalogowano: 2
 [2025-05-04 16:57:06] [INFO] Zalogowano: mati (Sklep: 2)
 [2025-05-04 16:57:13] [INFO] Zalogowano: 2
+[2025-05-04 20:13:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-04 20:14:02] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10005ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-05-04 20:14:13] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-04 20:14:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-04 20:14:14] [INFO] Połączono z MariaDB
+[2025-05-04 20:14:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-04 20:14:33] [INFO] Połączono z MariaDB
+[2025-05-04 20:14:37] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-04 20:14:39] [INFO] Zmiana zarejestrowana dla użytkownika: 1
+[2025-05-04 20:15:46] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-04 20:15:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-04 20:15:48] [INFO] Połączono z MariaDB
+[2025-05-04 20:16:04] [INFO] Zalogowano: mati
+[2025-05-04 20:24:52] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-04 20:25:02] [INFO] Zalogowano: mati
+[2025-05-04 20:31:29] [INFO] Zalogowano Serwis
+[2025-05-04 20:31:36] [INFO] Użytkownik 1 przypisany do sklepów: 1, 2
+[2025-05-04 20:32:09] [INFO] Zalogowano Serwis
+[2025-05-04 20:32:48] [INFO] Użytkownik dodany pomyślnie: 5
+[2025-05-04 20:34:55] [INFO] Zalogowano: mati
+[2025-05-04 20:35:01] [INFO] Zalogowano: 5
+[2025-05-04 20:35:06] [INFO] Zalogowano: mati
+[2025-05-04 20:43:26] [INFO] Zalogowano: jk (Sklep: Sklep 2)
+[2025-05-04 20:48:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-04 20:48:06] [INFO] Połączono z MariaDB
+[2025-05-04 20:48:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-04 20:48:37] [INFO] Połączono z MariaDB
+[2025-05-04 20:48:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-04 20:48:41] [INFO] Połączono z MariaDB
+[2025-05-04 20:49:14] [INFO] Zalogowano Serwis
+[2025-05-04 20:49:21] [INFO] Użytkownik 3 przypisany do sklepów: 1

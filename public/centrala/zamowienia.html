@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    </script>
+    <style>
+      .status-zamowien {
+        display: none;
+      }
+    </style>
+    <link id="them-style" rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/style-centrala.css" />
+    <link rel="stylesheet" href="../css/style-media.css" />
+    <link rel="icon" href="../img/ice-cream.ico" type="image/x-icon" />
+    <title>Centrala - Zamówienia</title>
+  </head>
+  <body>
+    <div class="centrala-container">
+      <div class="centrala-uzytkownik-container">
+        <button id="menu-display" style="display: none">
+          <img src="../img/white/menu-white.png" />
+        </button>
+        <span id="username"></span>
+
+        <button id="theme-toggle">
+          <img src="../img/white/moon-white.png" id="theme-icon" />
+        </button>
+        <button id="logout">
+          <img src="../img/white/power-off-white.png" alt="" />
+        </button>
+      </div>
+      <nav class="centrala-menu"></nav>
+      <main>
+        <div class="centrala-filtrowanie">
+          <select id="centrala-zamowienia-filtrowanie" required>
+            <option value="niezrealizowane">Niezrealizowane</option>
+            <option value="zrealizowane">Zrealizowane</option>
+            <option value="aktywne">Aktywne</option>
+            <option value="usuniete">Usunięte</option>
+            <option value="wszystkie">Wszystkie</option>
+          </select>
+        </div>
+        <div class="centrala-main-container">
+          <div class="confirm-delete">
+            <h2>Czy chcesz usunąć użytkownika?</h2>
+            <div class="confirm-button-container">
+              <button id="confirm-ok">Usuń</button>
+              <button id="confirm-cancel">Anuluj</button>
+            </div>
+          </div>
+          <div class="confirm-restore">
+            <h2>Czy chcesz przywrócić użytkownika?</h2>
+            <div class="confirm-button-container">
+              <button id="confirm-ok">Przywróć</button>
+              <button id="confirm-cancel">Anuluj</button>
+            </div>
+          </div>
+          <table id="centrala-zamowienia">
+            <thead>
+              <tr>
+                <th data-column="0">Numer Zamówienia</th>
+                <th data-column="1">Nazwa Sklepu</th>
+                <th data-column="2">Data Zamówienia</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="centrala-zamowienia-sklepy-tbody"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/zamowienia-sklepy.js"></script>
+  </body>
+</html>
