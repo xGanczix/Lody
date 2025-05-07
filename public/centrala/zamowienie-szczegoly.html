@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zamówienie</title>
+    <script>
+      console.log("Czy to nowe okno:", window.opener !== null);
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="zamowienie-nr">ZAM/1</h1>
+    <h2 id="zamowienie-sklep">Sklep1</h2>
+    <h3 id="zamowienie-data">2025</h3>
+    <table id="zamowienie-szczegoly">
+      <thead>
+        <tr>
+          <th>Towar</th>
+          <th>Opis</th>
+        </tr>
+      </thead>
+      <tbody id="zamowienie-szczegoly-tbody"></tbody>
+    </table>
+    <button type="button" id="zrealizowane">Zrealizowane</button>
+    <script src="../js/config.js"></script>
+    <script src="../js/zamowienie-szczegoly.js"></script>
+  </body>
+</html>

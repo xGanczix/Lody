@@ -30,10 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${zamowienie.ZamNr}</td>
             <td>${zamowienie.SklNazwa}</td>
             <td>${zamowienie.Data}</td>
-            <td><button data-zamowienieId="${zamowienie.ZamId}">Szczegóły</button></td>
+            <td><button data-zamowienieId="${zamowienie.ZamId}" id="zamowienie-id">Szczegóły</button></td>
         `;
 
         tableBody.appendChild(row);
+
+        const button = row.querySelector("#zamowienie-id");
+
+        button.addEventListener("click", (event) => {
+          const zamowienieId = event.target.getAttribute("data-zamowienieid");
+          window.open(
+            `zamowienie-szczegoly.html?zamowienieId=${zamowienieId}`,
+            "ZamowienieSzczegoly",
+            "width=800,height=600,scrollbars=yes,resizable=yes"
+          );
+        });
       });
     } catch (err) {
       console.log(err);

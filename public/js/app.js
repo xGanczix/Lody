@@ -3,32 +3,38 @@ const themeIcon = document.getElementById("theme-icon");
 
 if (localStorage.getItem("theme") === "dark") {
   document.documentElement.classList.add("dark-mode");
-  themeIcon.setAttribute("src", "../img/white/sun-white.png");
+  if (themeIcon) {
+    themeIcon.setAttribute("src", "../img/white/sun-white.png");
+  }
 }
 
-themeToggleButton.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark-mode");
+if (themeToggleButton) {
+  themeToggleButton.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark-mode");
 
-  if (document.documentElement.classList.contains("dark-mode")) {
-    localStorage.setItem("theme", "dark");
-    themeIcon.setAttribute("src", "../img/white/sun-white.png");
-  } else {
-    localStorage.setItem("theme", "light");
-    themeIcon.setAttribute("src", "../img/white/moon-white.png");
-  }
-});
+    if (document.documentElement.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      themeIcon.setAttribute("src", "../img/white/sun-white.png");
+    } else {
+      localStorage.setItem("theme", "light");
+      themeIcon.setAttribute("src", "../img/white/moon-white.png");
+    }
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.getElementById("menu-display");
   const menu = document.querySelector("nav.centrala-menu");
 
-  toggleButton.addEventListener("click", function () {
-    if (menu.style.display === "none" || menu.style.display === "") {
-      menu.style.display = "flex";
-    } else {
-      menu.style.display = "none";
-    }
-  });
+  if (toggleButton) {
+    toggleButton.addEventListener("click", function () {
+      if (menu.style.display === "none" || menu.style.display === "") {
+        menu.style.display = "flex";
+      } else {
+        menu.style.display = "none";
+      }
+    });
+  }
 });
 
 function updateIcons() {
@@ -168,7 +174,13 @@ fetch("nav.html")
       }
     }, 100);
   })
-  .catch((error) => console.error("Błąd wczytywania menu:", error));
+  .catch((error) => {
+    if (document.querySelector("nav")) {
+      console.error("Błąd wczytywania nav: ", error);
+    } else {
+      return;
+    }
+  });
 
 let lastTheme = localStorage.getItem("theme");
 const observer = new MutationObserver(() => {
@@ -215,61 +227,6 @@ function initDropdown() {
     });
   });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const navSerwis = document.getElementById("nav-serwis");
-  const navUstawienia = document.getElementById("nav-centrala-ustawienia");
-  const token = localStorage.getItem("token");
-
-  if (!navSerwis) {
-    console.warn("Nie znaleziono jednego z elementów nawigacji. - ustawienia");
-    return;
-  } else {
-    console.warn("nie znaleziono serwisu");
-  }
-
-  if (!token) {
-    navSerwis.style.display = "none";
-    navUstawienia.style.display = "none";
-    return;
-  }
-
-  try {
-    const decodedToken = JSON.parse(atob(token.split(".")[1]));
-    if (decodedToken.login === "pinnex") {
-      navSerwis.style.display = "inline-flex";
-      navUstawienia.style.display = "inline-flex";
-    } else {
-      navSerwis.style.display = "none";
-      navUstawienia.style.display = "none";
-    }
-  } catch (error) {
-    console.error("Błąd dekodowania tokena:", error);
-  }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("token");
-
-  const decoded = parseJwt(token);
-  const uzytkownik = decoded.id;
-
-  async function fetchNoweZamowienia() {
-    const response = await fetch(
-      `${CONFIG.URL}/api/zamowienia-nowe/${uzytkownik}`
-    );
-    const nowe = await response.json();
-
-    // Sprawdzenie liczby zamówień
-    if (nowe[0].liczbaZamowien > 0) {
-      // Znalezienie elementu o klasie .status-zamowien i ustawienie klasy display
-      const statusElement = document.querySelector(".status-zamowien");
-      statusElement.style.display = "block";
-    }
-  }
-
-  fetchNoweZamowienia(); // Wywołanie funkcji
-});
 
 function centralaSmaki() {
   window.location.href = "smaki-dodanie.html";

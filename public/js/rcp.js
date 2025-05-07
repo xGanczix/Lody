@@ -39,15 +39,11 @@ async function fetchRCP() {
 
       // Dodajemy event listener do przycisku
       const button = row.querySelector("#rcp-month");
-      console.log(
-        "data-uzytkownik-id:",
-        button.getAttribute("data-uzytkownik-id")
-      );
+
       button.addEventListener("click", (event) => {
         const uzytkownikId = event.target
           .closest("button")
           .getAttribute("data-uzytkownik-id");
-        console.log("Przekierowuję na stronę dla ID:", uzytkownikId);
         window.location.href = `rcp-uzytkownik.html?uzytkownikId=${uzytkownikId}`;
       });
     });

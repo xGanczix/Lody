@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  aktualizujLicznik();
   aktualizujLicznikKawa();
 
   try {
@@ -87,8 +86,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         handleClick();
       });
     });
-
-    console.log("Ułożenie kuwet zakończone.");
   } catch (err) {
     console.log("Błąd podczas układania kuwet:", err);
   }
@@ -176,6 +173,77 @@ document
   .getElementById("bon")
   .addEventListener("click", () => zapiszWydanie("bon"));
 
+async function fetchLicznik() {
+  let licznikWloskie = document.querySelector(".licznik-wypelnienie");
+  const token = localStorage.getItem("token");
+  const decoded = parseJwt(token);
+
+  const sklepId = decoded.sklepId;
+  const typ = 1;
+  try {
+    const response = await fetch(
+      `${CONFIG.URL}/api/odczytaj-licznik-wloskie/${sklepId}/${typ}`
+    );
+    const liczniki = await response.json();
+
+    licznikWloskie.style.height = liczniki[0].LWartosc + "%";
+    licznikWloskie.textContent = liczniki[0].LWartosc + "%";
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchLicznik();
+});
+
+document.querySelector(".reset-wloskie").addEventListener("click", () => {
+  async function resetWloskie() {
+    const token = localStorage.getItem("token");
+    const decoded = parseJwt(token);
+
+    const sklepId = decoded.sklepId;
+    const typ = 1;
+    try {
+      const response = await fetch(
+        `${CONFIG.URL}/api/resetuj-licznik-wloskie/${sklepId}/${typ}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ sklepId, typ }),
+        }
+      );
+
+      if (response.ok) {
+        const message = document.getElementById("message");
+        message.style.opacity = 1;
+        message.style.background = "rgba(0, 196, 10, 0.3)";
+        message.style.border = "2px solid #28a745";
+        message.innerHTML = "Wlew lody włoskie";
+
+        setTimeout(() => {
+          message.style.opacity = 0;
+        }, 2000);
+      } else {
+        message.style.opacity = 1;
+        message.style.background = "rgba(255, 0, 0, 0.3)";
+        message.style.border = "2px solid #dc3545";
+        message.innerHTML = "Błąd zapisu wlewu włoskie";
+
+        setTimeout(() => {
+          message.style.opacity = 0;
+        }, 10000);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  resetWloskie();
+  fetchLicznik();
+});
+
 async function zapiszWydanie(formaPlatnosci) {
   const token = localStorage.getItem("token");
   const decoded = parseJwt(token);
@@ -200,12 +268,22 @@ async function zapiszWydanie(formaPlatnosci) {
       typ = 2; // Typ 2 dla kawy
     }
 
+    let rozmiar = "none";
+    if (nazwa.includes("Lody Włoskie Małe")) {
+      rozmiar = "mala";
+    } else if (nazwa.includes("Lody Włoskie Duże")) {
+      rozmiar = "duza";
+    } else {
+      rozmiar = "none";
+    }
+
     pozycje.push({
       towId: kuwetaId ? parseInt(kuwetaId) : null,
       pozostalyTowarId: towarId ? parseInt(towarId) : null,
       ilosc,
       cena,
       typ, // Dodajemy typ do obiektu pozycji
+      rozmiar,
     });
   });
 
@@ -239,7 +317,6 @@ async function zapiszWydanie(formaPlatnosci) {
         }
       });
       licznikLodyWloskie = Math.max(0, licznikLodyWloskie - sumaLodyWloskie);
-      await aktualizujLicznik(sklepId, 1, licznikLodyWloskie); // Typ = 1 dla lodów włoskich
 
       let sumaKawa = 0;
       document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
@@ -250,7 +327,6 @@ async function zapiszWydanie(formaPlatnosci) {
         }
       });
       licznikKawa = Math.max(0, licznikKawa - sumaKawa);
-      await aktualizujLicznik(sklepId, 2, licznikKawa); // Typ = 2 dla kawy
 
       // Czyszczenie tabeli po zapisaniu
       document.getElementById("pozycje-wydania-tbody").innerHTML = "";
@@ -260,7 +336,8 @@ async function zapiszWydanie(formaPlatnosci) {
       message.style.background = "rgba(0, 196, 10, 0.3)";
       message.style.border = "2px solid #28a745";
       message.innerHTML = "Paragon zapisany";
-      console.log("Dokument zapisany:", data.numerDokumentu);
+
+      fetchLicznik();
 
       setTimeout(() => {
         message.style.opacity = 0;
@@ -284,11 +361,11 @@ async function zapiszWydanie(formaPlatnosci) {
 async function odczytajLicznik(sklepId, typ) {
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/odczytaj-licznik?sklepId=${sklepId}&typ=${typ}`
+      `${CONFIG.URL}/api/odczytaj-licznik-wloskie/${sklepId}/${typ}`
     );
     if (response.ok) {
       const data = await response.json();
-      return data.LWartosc || 0; // Jeśli licznik nie istnieje, zwróć 0
+      return data.LWartosc || 0;
     } else {
       console.error("Błąd odczytu licznika:", await response.text());
       return 0;
@@ -296,27 +373,6 @@ async function odczytajLicznik(sklepId, typ) {
   } catch (error) {
     console.error("Błąd połączenia z serwerem:", error);
     return 0;
-  }
-}
-
-// Funkcja do aktualizacji licznika w API
-async function aktualizujLicznik(sklepId, typ, nowaWartosc) {
-  try {
-    const response = await fetch(`${CONFIG.URL}/api/aktualizuj-licznik`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        sklepId,
-        typ,
-        nowaWartosc,
-      }),
-    });
-
-    if (!response.ok) {
-      console.error("Błąd aktualizacji licznika:", await response.text());
-    }
-  } catch (error) {
-    console.error("Błąd połączenia z serwerem:", error);
   }
 }
 
@@ -394,20 +450,10 @@ let poziomKawa = 100;
 const licznik = document.querySelector(".licznik-wypelnienie");
 const licznikKawa = document.querySelector(".licznik-wypelnienie-kawa");
 
-function aktualizujLicznik() {
-  licznik.style.height = poziom + "%";
-  licznik.textContent = poziom + "%";
-}
-
 function aktualizujLicznikKawa() {
   licznikKawa.style.height = poziomKawa + "%";
   licznikKawa.textContent = poziomKawa + "%";
 }
-
-document.querySelector("button.reset-wloskie").addEventListener("click", () => {
-  poziom = 100;
-  aktualizujLicznik();
-});
 
 document.querySelector("button.reset-kawa").addEventListener("click", () => {
   poziomKawa = 100;
@@ -482,8 +528,6 @@ async function zmienFormePlatnosci(formaPlatnosci) {
         platnosc: formaPlatnosci,
       }),
     });
-
-    const data = await response.json();
 
     if (response.ok) {
       document.querySelector(

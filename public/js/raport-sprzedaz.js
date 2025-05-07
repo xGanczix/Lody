@@ -3,7 +3,6 @@ const uzytkownikId = decoded.id;
 document.addEventListener("DOMContentLoaded", function () {
   let startDate = document.getElementById("startDate").value;
   let endDate = document.getElementById("endDate").value;
-  console.log(startDate);
 });
 
 async function fetchRaportSprzedazFormyPlatnosci() {

@@ -40,12 +40,14 @@
           type="text"
           id="dodawanie-uzytkownika-login"
           placeholder="Podaj login"
+          autocomplete="username"
         />
         <label for="dodawanie-uzytkownika-haslo">Hasło</label>
         <input
           type="password"
           id="dodawanie-uzytkownika-haslo"
           placeholder="Podaj hasło"
+          autocomplete="new-password"
         />
         <label for="dodawanie-uzytkownika-pin">PIN</label>
         <input
@@ -56,6 +58,7 @@
           pattern="[0-9]*"
           maxlength="6"
           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+          autocomplete="new-password"
         />
         <label for="dodawanie-uzytkownika-stawka">Stawka Godzinowa</label>
         <input

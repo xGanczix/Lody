@@ -768,6 +768,11 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
       sklepId,
     ]);
 
+    await connection.query(
+      `insert into Liczniki (LSklId, LTyp, LWartosc) values (?,1,100),(?,2,100),(?,3,100)`,
+      [sklepId, sklepId, sklepId]
+    );
+
     logToFile(
       `[INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: ${sklepNazwa}`
     );
@@ -1913,6 +1918,13 @@ async function generujNumerDokumentu(sklepId) {
 app.post("/api/zapisz-wydanie", async (req, res) => {
   try {
     const { sklepId, platnosc, autorId, pozycje } = req.body;
+
+    if (!sklepId || !platnosc || !autorId || !Array.isArray(pozycje)) {
+      return res
+        .status(400)
+        .json({ error: "Brak wymaganych danych wejściowych." });
+    }
+
     const numerDokumentu = await generujNumerDokumentu(sklepId);
 
     // Zapisanie nagłówka dokumentu
@@ -1922,62 +1934,66 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
     );
 
     const dokumentId = result.insertId;
+    const zmianyLicznikow = {}; // typ => suma zużycia
 
-    // Obiekt przechowujący zmiany w licznikach
-    const zmianyLicznikow = {};
-
-    // Zapisujemy pozycje i aktualizujemy liczniki
     for (const pozycja of pozycje) {
-      const { towId, pozostalyTowarId, ilosc, cena, typ } = pozycja;
-      console.log(typ);
+      const { towId, pozostalyTowarId, ilosc, cena, typ, rozmiar } = pozycja;
 
+      if (!ilosc || !cena || (!towId && !pozostalyTowarId)) {
+        console.warn("Niekompletna pozycja, pominięto:", pozycja);
+        continue;
+      }
+
+      let procentZuzycia = 1;
+      let zuzycie = 0;
+
+      // Tylko lody włoskie (typ 1) aktualizują licznik
+      if (typ === 1) {
+        if (rozmiar === "mala") procentZuzycia = 100 / 52;
+        else if (rozmiar === "duza") procentZuzycia = 100 / 35;
+        else console.warn("Nieznany rozmiar porcji lodów włoskich:", rozmiar);
+
+        zuzycie = Math.round(ilosc * procentZuzycia);
+      }
+
+      // Zapis pozycji
+      await dbConfig.query(
+        `INSERT INTO DokumentyPozycje 
+          (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
+         VALUES (?, ?, ?, ?, ?)`,
+        [dokumentId, towId || null, pozostalyTowarId || null, ilosc, cena]
+      );
+
+      // Aktualizacja stanu kuwet, jeśli dotyczy
       if (towId) {
-        await dbConfig.query(
-          `INSERT INTO DokumentyPozycje 
-            (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
-            VALUES (?, ?, ?, ?, ?)`,
-          [dokumentId, towId, pozostalyTowarId, ilosc, cena]
-        );
-
         await dbConfig.query(
           "UPDATE Kuwety SET KuwPorcje = KuwPorcje - ? WHERE KuwId = ?",
           [ilosc, towId]
         );
+      }
 
-        // Zapisujemy zmiany w liczniku
+      // Aktualizacja liczników tylko dla lodów włoskich
+      if (typ === 1) {
         if (!zmianyLicznikow[typ]) zmianyLicznikow[typ] = 0;
-        zmianyLicznikow[typ] += ilosc;
-      } else if (pozostalyTowarId) {
-        await dbConfig.query(
-          `INSERT INTO DokumentyPozycje 
-            (DokPozDokId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
-            VALUES (?, ?, ?, ?)`,
-          [dokumentId, pozostalyTowarId, ilosc, cena]
-        );
-
-        // Jeśli chodzi o pozostały towar, to również aktualizujemy liczniki
-        if (!zmianyLicznikow[typ]) zmianyLicznikow[typ] = 0;
-        zmianyLicznikow[typ] += ilosc;
-      } else {
-        console.warn("Pominięto pozycję bez ID:", pozycja);
+        zmianyLicznikow[typ] += zuzycie;
       }
     }
 
-    // Aktualizujemy liczniki
+    // Aktualizacja liczników (tylko typy z zużyciem)
     for (const [typ, zmiana] of Object.entries(zmianyLicznikow)) {
       await dbConfig.query(
         `INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
-         VALUES (?, ?, ?)
+         VALUES (?, ?, GREATEST(0, 100 - ?))
          ON DUPLICATE KEY UPDATE
-           LWartosc = GREATEST(0, LWartosc - VALUES(LWartosc))`,
-        [sklepId, typ, zmiana]
+           LWartosc = GREATEST(0, LWartosc - ?)`,
+        [sklepId, typ, zmiana, zmiana]
       );
     }
 
     res.status(200).json({ message: "Wydanie zapisane", numerDokumentu });
   } catch (err) {
     console.error("Błąd zapisu dokumentu:", err);
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    logToFile(`[ERROR] Błąd zapisu wydania: ${err.message}`);
     res.status(500).json({ error: "Błąd serwera" });
   }
 });
@@ -2758,6 +2774,59 @@ app.get("/api/zamowienia-szczegoly/:zamowienieId", async (req, res) => {
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z MariaDB: ${err}`);
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.put("/api/zamowienie-zrealizuj/:zamowienieId", async (req, res) => {
+  const zamowienieId = req.params.zamowienieId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      update Zamowienia set ZamZrealizowano = 1 where ZamId = ?
+    `;
+    await dbConfig.query(sql, zamowienieId);
+    res.status(200).send({ success: true });
+  } catch (err) {
+    logToFile(`[ERROR] Błąd realizacji zamówienia: ${err}`);
+  }
+});
+
+app.get("/api/odczytaj-licznik-wloskie/:sklepId/:typ", async (req, res) => {
+  const sklepId = req.params.sklepId;
+  const typ = req.params.typ;
+  let connection;
+
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      select * from Liczniki where LSklId = ? and LTyp = ?
+    `;
+    const data = await connection.query(sql, [sklepId, typ]);
+    res.json(data);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd pobierania licznika lodów włoskich`);
+    console.log(err);
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.put("/api/resetuj-licznik-wloskie/:sklepId/:typ", async (req, res) => {
+  const sklep = req.params.sklepId;
+  const typ = req.params.typ;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      update Liczniki set LWartosc = 100 where LSklId = ? and LTyp = ?
+    `;
+    await connection.query(sql, [sklep, typ]);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd resetowania licznika lodów włoskich: ${err}`);
+    console.log(err);
   } finally {
     if (connection) connection.release();
   }

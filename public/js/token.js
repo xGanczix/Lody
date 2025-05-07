@@ -61,11 +61,46 @@ const token = localStorage.getItem("token");
 
 if (token) {
   const decoded = parseJwt(token);
-  if (decoded && decoded.imie && decoded.nazwisko && decoded.sklepNazwa) {
+  if (
+    decoded &&
+    decoded.imie &&
+    decoded.nazwisko &&
+    decoded.sklepNazwa &&
+    document.getElementById("username")
+  ) {
     document.getElementById("username").textContent =
       decoded.imie + " " + decoded.nazwisko + " - Sklep: " + decoded.sklepNazwa;
-  } else if (decoded && decoded.imie && decoded.nazwisko) {
+  } else if (
+    decoded &&
+    decoded.imie &&
+    decoded.nazwisko &&
+    document.getElementById("username")
+  ) {
     document.getElementById("username").textContent =
       decoded.imie + " " + decoded.nazwisko;
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("token");
+
+  const decoded = parseJwt(token);
+  const uzytkownik = decoded.id;
+
+  async function fetchNoweZamowienia() {
+    const response = await fetch(
+      `${CONFIG.URL}/api/zamowienia-nowe/${uzytkownik}`
+    );
+    const nowe = await response.json();
+
+    // Sprawdzenie liczby zamówień
+    if (nowe[0].liczbaZamowien > 0) {
+      const statusElement = document.querySelector(".status-zamowien");
+      if (statusElement) {
+        statusElement.style.display = "block";
+      }
+    }
+  }
+
+  fetchNoweZamowienia(); // Wywołanie funkcji
+});

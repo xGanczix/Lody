@@ -152,3 +152,13 @@ create table ZamowieniaPozycje (
 	ZamPozOpis varchar(255),
 	ZamPozIsSmak boolean not null
 );
+
+CREATE TABLE Liczniki (
+  LId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  LSklId INT NOT NULL,
+  LTyp INT NOT NULL,
+  LWartosc INT NOT NULL,
+  LDataUtworzenia DATETIME NOT NULL DEFAULT NOW(),
+  LDataZmiany DATETIME NOT NULL DEFAULT NOW(),
+  UNIQUE KEY uniq_sklep_typ (LSklId, LTyp)
+);

@@ -248,3 +248,110 @@ sql: INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
 [2025-05-06 12:44:54] [INFO] Uruchomiono serwer na porcie 3000
 [2025-05-06 12:44:54] [INFO] Połączono z MariaDB
 [2025-05-06 14:00:34] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 22:18:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 22:18:43] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-05-06 22:18:44] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:-1, no: 45028, SQLState: HY000) retrieve connection from pool timeout after 10014ms
+    (pool connections: active=0 idle=0 limit=50)
+[2025-05-06 22:19:46] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 22:19:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 22:19:47] [INFO] Połączono z MariaDB
+[2025-05-06 22:19:50] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-06 22:19:55] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:4985, no: 1062, SQLState: 23000) Duplicate entry 'WZ/1/2025/1' for key 'DokNr'
+sql: INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId, DokTyp) VALUES (?, ?, ?, ?, 1) - parameters:['WZ/1/2025/1','1','gotówka',1]
+[2025-05-06 22:20:43] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:4996, no: 1062, SQLState: 23000) Duplicate entry 'WZ/1/2025/1' for key 'DokNr'
+sql: INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId, DokTyp) VALUES (?, ?, ?, ?, 1) - parameters:['WZ/1/2025/1','1','gotówka',1]
+[2025-05-06 23:06:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:06:57] [INFO] Połączono z MariaDB
+[2025-05-06 23:08:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:08:16] [INFO] Połączono z MariaDB
+[2025-05-06 23:08:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:08:29] [INFO] Połączono z MariaDB
+[2025-05-06 23:09:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:09:53] [INFO] Połączono z MariaDB
+[2025-05-06 23:09:56] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 23:10:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:10:10] [INFO] Połączono z MariaDB
+[2025-05-06 23:12:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:12:23] [INFO] Połączono z MariaDB
+[2025-05-06 23:24:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:24:30] [INFO] Połączono z MariaDB
+[2025-05-06 23:24:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:24:51] [INFO] Połączono z MariaDB
+[2025-05-06 23:25:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:25:10] [INFO] Połączono z MariaDB
+[2025-05-06 23:31:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:31:47] [INFO] Połączono z MariaDB
+[2025-05-06 23:32:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:32:07] [INFO] Połączono z MariaDB
+[2025-05-06 23:34:04] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 23:34:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:34:05] [INFO] Połączono z MariaDB
+[2025-05-06 23:34:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:34:20] [INFO] Połączono z MariaDB
+[2025-05-06 23:34:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:34:58] [INFO] Połączono z MariaDB
+[2025-05-06 23:36:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:36:49] [INFO] Połączono z MariaDB
+[2025-05-06 23:38:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:38:41] [INFO] Połączono z MariaDB
+[2025-05-06 23:38:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:38:45] [INFO] Połączono z MariaDB
+[2025-05-06 23:39:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:39:08] [INFO] Połączono z MariaDB
+[2025-05-06 23:39:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:39:13] [INFO] Połączono z MariaDB
+[2025-05-06 23:39:20] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:5933, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'VALUES'
+sql: INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
+         VALUES (?, ?, GREATEST(0, 100 - ?))
+         ON DUPLICATE KEY UPDATE
+           LWartosc = GREATEST(0, LWartosc - ?) - parameters:['1','1',NaN,NaN]
+[2025-05-06 23:39:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:39:34] [INFO] Połączono z MariaDB
+[2025-05-06 23:39:38] [ERROR] Błąd połączenia z bazą danych: SqlError: (conn:5983, no: 1054, SQLState: 42S22) Unknown column 'NaN' in 'VALUES'
+sql: INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
+         VALUES (?, ?, GREATEST(0, 100 - ?))
+         ON DUPLICATE KEY UPDATE
+           LWartosc = GREATEST(0, LWartosc - ?) - parameters:['1','1',NaN,NaN]
+[2025-05-06 23:39:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:39:46] [INFO] Połączono z MariaDB
+[2025-05-06 23:40:07] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-06 23:40:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:40:10] [INFO] Połączono z MariaDB
+[2025-05-06 23:41:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:41:35] [INFO] Połączono z MariaDB
+[2025-05-06 23:42:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:42:12] [INFO] Połączono z MariaDB
+[2025-05-06 23:43:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:43:45] [INFO] Połączono z MariaDB
+[2025-05-06 23:43:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:43:54] [INFO] Połączono z MariaDB
+[2025-05-06 23:44:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:44:24] [INFO] Połączono z MariaDB
+[2025-05-06 23:44:29] [INFO] Zmieniono formę płatności na bon
+[2025-05-06 23:48:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:48:46] [INFO] Połączono z MariaDB
+[2025-05-06 23:49:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:49:36] [INFO] Połączono z MariaDB
+[2025-05-06 23:49:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:49:45] [INFO] Połączono z MariaDB
+[2025-05-06 23:52:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:52:04] [INFO] Połączono z MariaDB
+[2025-05-06 23:52:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:52:46] [INFO] Połączono z MariaDB
+[2025-05-06 23:53:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:53:18] [INFO] Połączono z MariaDB
+[2025-05-06 23:54:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:54:01] [INFO] Połączono z MariaDB
+[2025-05-06 23:55:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:55:13] [INFO] Połączono z MariaDB
+[2025-05-06 23:55:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:55:39] [INFO] Połączono z MariaDB
+[2025-05-06 23:56:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:56:28] [INFO] Połączono z MariaDB
+[2025-05-06 23:58:01] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:58:01] [INFO] Połączono z MariaDB
+[2025-05-06 23:58:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:58:07] [INFO] Połączono z MariaDB
+[2025-05-06 23:58:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-06 23:58:13] [INFO] Połączono z MariaDB
