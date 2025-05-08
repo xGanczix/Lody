@@ -405,9 +405,9 @@ left join Smaki as s on
 left join Ceny as c on
 	c.CTowId = s.SmkTowId
 where
-	k.KuwSklId = ? and k.KuwStatus = 1`;
+	k.KuwSklId = ? and k.KuwStatus = 1 and c.CSklepId = ?`;
 
-    const data = await connection.query(sql, [sklepId]);
+    const data = await connection.query(sql, [sklepId, sklepId]);
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
@@ -690,30 +690,29 @@ app.get("/api/sklepy-logowanie", async (req, res) => {
 
 app.get("/api/sklepy-raportowanie/:uzytkownikId", async (req, res) => {
   const uzytkownikId = req.params.uzytkownikId;
-  // const startDate = req.params.startDate;
-  // const endDate = req.params.endDate;
-
-  // startDate = startDate + " 00:00:00";
-  // endDate = endDate + " 23:59:59";
-  // console.log(startDate, endDate);
   let connection;
+
   try {
     connection = await dbConfig.getConnection();
 
     let sql = `
-    select * from Sklepy as s left join UzytkownicySklep as us on us.UzSklSklId = s.SklId`;
+      SELECT DISTINCT s.SklId, s.SklNazwa
+      FROM Sklepy AS s
+      LEFT JOIN UzytkownicySklep AS us ON us.UzSklSklId = s.SklId
+    `;
 
     if (uzytkownikId !== "123456789") {
       sql += " WHERE us.UzSklUzId = ?";
-    } else {
-      sql += "";
     }
 
-    const data = await connection.query(sql, uzytkownikId);
+    const data = await connection.query(
+      sql,
+      uzytkownikId !== "123456789" ? [uzytkownikId] : []
+    );
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
-    res.status(500).send("Błąd podczas pobierania danych");
+    res.status(500).json({ error: "Błąd podczas pobierania danych" });
   } finally {
     if (connection) connection.release();
   }
@@ -773,6 +772,25 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
       [sklepId, sklepId, sklepId]
     );
 
+    await connection.query(
+      `
+      insert into Ceny
+        (CTowId,
+	      CCena,
+	      CPoprzedniaCena,
+	      CSklepId)
+      values
+        (1,6,0,?),
+        (2,6,0,?),
+        (3,9,0,?),
+        (4,8,0,?),
+        (5,10,0,?),
+        (6,0.5,0,?),
+        (7,2,0,?),
+        (8,7,0,?)`,
+      [sklepId, sklepId, sklepId, sklepId, sklepId, sklepId, sklepId, sklepId]
+    );
+
     logToFile(
       `[INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: ${sklepNazwa}`
     );
@@ -781,6 +799,7 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
       .json({ message: "Sklep i przypisanie do Ulozenia dodane pomyślnie." });
   } catch (err) {
     logToFile(`[ERROR] Błąd podczas dodawania sklepu: ${err}`);
+    console.log(err);
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
     if (connection) connection.release();
@@ -1153,28 +1172,39 @@ app.get("/api/rcp", async (req, res) => {
   let connection;
 
   try {
+    const { startDate, endDate } = req.query;
+
+    if (!startDate || !endDate) {
+      return res.status(400).json({ error: "Brak wymaganych dat." });
+    }
+
     connection = await dbConfig.getConnection();
-    const data = await connection.query(`
-      select
+    const data = await connection.query(
+      `
+      SELECT
         RCPId,
-	      TIME_FORMAT(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)))), '%H:%i:%s') as PrzepracowanyCzas,
-	      SUM(ROUND(
-        (hour(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) +
-        minute(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2)
-        ) as PrzepracowaneGodzinyFormat,
-	      RCPUzId,
+        TIME_FORMAT(SEC_TO_TIME(SUM(TIME_TO_SEC(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)))), '%H:%i:%s') AS PrzepracowanyCzas,
+        SUM(ROUND(
+          (HOUR(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) +
+           MINUTE(TIMEDIFF(RCPKoniecZmiany, RCPStartZmiany)) / 60), 2)
+        ) AS PrzepracowaneGodzinyFormat,
+        RCPUzId,
         u.UzId,
-	      u.UzImie,
-	      u.UzNazwisko,
-	      u.UzStawkaGodzinowa
-      from
-	      RCP
-      left join Uzytkownicy as u on
-	      u.UzId = RCP.RCPUzId
-      where u.UzId != 123456789
-      group by
-	      RCPUzId
-      `);
+        u.UzImie,
+        u.UzNazwisko,
+        u.UzStawkaGodzinowa
+      FROM
+        RCP
+      LEFT JOIN Uzytkownicy AS u ON u.UzId = RCP.RCPUzId
+      WHERE
+        u.UzId != 123456789
+        AND DATE(RCPKoniecZmiany) BETWEEN ? AND ?
+      GROUP BY
+        RCPUzId
+      `,
+      [startDate, endDate]
+    );
+
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
@@ -1531,32 +1561,39 @@ app.get("/api/smaki-dostepne-centrala", async (req, res) => {
 app.get(
   "/api/raport-sprzedaz-formy-platnosci/:uzytkownikId",
   async (req, res) => {
-    let uzytkownikId = req.params.uzytkownikId;
+    const uzytkownikId = req.params.uzytkownikId;
+    const { startDate, endDate } = req.query;
     let connection;
+
     try {
       connection = await dbConfig.getConnection();
 
       let sql = `
-    SELECT
-      d.DokFormaPlatnosci,
-      format(SUM(dp.DokPozCena),2) AS wartoscSprzedazy
-    FROM
-      Dokumenty AS d
-    LEFT JOIN DokumentyPozycje AS dp ON
-      dp.DokPozDokId = d.DokId
-      left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
+      SELECT
+        d.DokFormaPlatnosci,
+        FORMAT(SUM(dp.DokPozCena), 2) AS wartoscSprzedazy
+      FROM
+        Dokumenty AS d
+        LEFT JOIN DokumentyPozycje AS dp ON dp.DokPozDokId = d.DokId
+        LEFT JOIN UzytkownicySklep AS us ON us.UzSklSklId = d.DokSklepId
+      WHERE 1 = 1
     `;
 
+      const params = [];
+
       if (uzytkownikId !== "123456789") {
-        sql += `WHERE us.UzSklUzId = ?
-    GROUP BY
-      d.DokFormaPlatnosci;`;
-      } else {
-        sql += `GROUP BY
-      d.DokFormaPlatnosci;`;
+        sql += ` AND us.UzSklUzId = ?`;
+        params.push(uzytkownikId);
       }
 
-      const data = await connection.query(sql, uzytkownikId);
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      }
+
+      sql += ` GROUP BY d.DokFormaPlatnosci`;
+
+      const data = await connection.query(sql, params);
       res.json(data);
     } catch (err) {
       logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
@@ -1570,26 +1607,33 @@ app.get(
 app.get(
   "/api/raport-sprzedaz-formy-platnosci-sklep/:sklepId",
   async (req, res) => {
-    let sklepId = req.params.sklepId;
+    const sklepId = req.params.sklepId;
+    const { startDate, endDate } = req.query;
     let connection;
+
     try {
       connection = await dbConfig.getConnection();
 
       let sql = `
-    SELECT
-      d.DokFormaPlatnosci,
-      format(SUM(dp.DokPozCena),2) AS wartoscSprzedazy
-    FROM
-      Dokumenty AS d
-    LEFT JOIN DokumentyPozycje AS dp ON
-      dp.DokPozDokId = d.DokId
-    WHERE d.DokSklepId = ?
-    GROUP BY
-      d.DokFormaPlatnosci;
+        SELECT
+          d.DokFormaPlatnosci,
+          FORMAT(SUM(dp.DokPozCena), 2) AS wartoscSprzedazy
+        FROM
+          Dokumenty AS d
+        LEFT JOIN DokumentyPozycje AS dp ON dp.DokPozDokId = d.DokId
+        WHERE d.DokSklepId = ?
+      `;
 
-    `;
+      const params = [sklepId];
 
-      const data = await connection.query(sql, sklepId);
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      }
+
+      sql += ` GROUP BY d.DokFormaPlatnosci`;
+
+      const data = await connection.query(sql, params);
       res.json(data);
     } catch (err) {
       logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
@@ -1603,41 +1647,49 @@ app.get(
 app.get(
   "/api/raport-towary-sprzedaz-wartosc/:uzytkownikId",
   async (req, res) => {
-    let uzytkownikId = req.params.uzytkownikId;
+    const uzytkownikId = req.params.uzytkownikId;
+    const { startDate, endDate } = req.query;
     let connection;
+
     try {
       connection = await dbConfig.getConnection();
+
       let sql = `
-    select
-	    t.TowNazwa,
-	    sum(DokPozTowIlosc) as TowaryIlosc,
-	    sum(dp.DokPozCena) as TowaryWartosc
-    from
-	    DokumentyPozycje as dp
-      left join Towary as t on
-	      t.TowId = dp.DokPozPozostalyTowId
-      left join Dokumenty as d on
-	      d.DokId = dp.DokPozDokId
-      left join UzytkownicySklep as us on
-	      us.UzSklSklId = d.DokSklepId
+        SELECT
+          t.TowNazwa,
+          SUM(DokPozTowIlosc) AS TowaryIlosc,
+          SUM(dp.DokPozCena) AS TowaryWartosc
+        FROM
+          DokumentyPozycje AS dp
+          LEFT JOIN Towary AS t ON t.TowId = dp.DokPozPozostalyTowId
+          LEFT JOIN Dokumenty AS d ON d.DokId = dp.DokPozDokId
+          LEFT JOIN UzytkownicySklep AS us ON us.UzSklSklId = d.DokSklepId
+        WHERE
+          DokPozTowId IS NULL
+          AND t.TowId NOT IN (6, 7)
       `;
 
+      const params = [];
+
       if (uzytkownikId !== "123456789") {
-        sql += `where
-	    DokPozTowId is null and us.UzSklUzId = ? and t.TowId != 6 and t.TowId != 7
-    group by
-	    DokPozPozostalyTowId`;
-      } else {
-        sql += `where
-	    DokPozTowId is null and t.TowId != 6 and t.TowId != 7
-      GROUP BY
-      DokPozPozostalyTowId`;
+        sql += ` AND us.UzSklUzId = ?`;
+        params.push(uzytkownikId);
       }
 
-      const data = await connection.query(sql, uzytkownikId);
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      }
+
+      sql += ` GROUP BY DokPozPozostalyTowId`;
+
+      const data = await connection.query(sql, params);
       res.json(data);
     } catch (err) {
-      console.log("Błąd");
+      console.log("Błąd:", err);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
     }
   }
 );
@@ -1645,90 +1697,85 @@ app.get(
 app.get(
   "/api/raport-towary-sprzedaz-wartosc-sklep/:sklepId",
   async (req, res) => {
-    let sklepId = req.params.sklepId;
+    const sklepId = req.params.sklepId;
+    const { startDate, endDate } = req.query;
     let connection;
+
     try {
       connection = await dbConfig.getConnection();
+
       let sql = `
-    select
-	    t.TowNazwa,
-	    sum(DokPozTowIlosc) as TowaryIlosc,
-	    sum(dp.DokPozCena) as TowaryWartosc
-    from
-	    DokumentyPozycje as dp
-      left join Towary as t on
-	      t.TowId = dp.DokPozPozostalyTowId
-      left join Dokumenty as d on
-	      d.DokId = dp.DokPozDokId where
-	    DokPozTowId is null and d.DokSklepId = ? and t.TowId != 6 and t.TowId != 7
-      GROUP BY
-      DokPozPozostalyTowId
+        SELECT
+          t.TowNazwa,
+          SUM(DokPozTowIlosc) AS TowaryIlosc,
+          SUM(dp.DokPozCena) AS TowaryWartosc
+        FROM
+          DokumentyPozycje AS dp
+        LEFT JOIN Towary AS t ON t.TowId = dp.DokPozPozostalyTowId
+        LEFT JOIN Dokumenty AS d ON d.DokId = dp.DokPozDokId
+        WHERE
+          DokPozTowId IS NULL
+          AND d.DokSklepId = ?
+          AND t.TowId != 6 AND t.TowId != 7
       `;
 
-      const data = await connection.query(sql, sklepId);
+      const params = [sklepId];
+
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      }
+
+      sql += ` GROUP BY DokPozPozostalyTowId`;
+
+      const data = await connection.query(sql, params);
       res.json(data);
     } catch (err) {
-      console.log("Bład:", err);
+      console.log("Błąd:", err);
+      res.status(500).send("Błąd podczas pobierania danych");
+    } finally {
+      if (connection) connection.release();
     }
   }
 );
 
-app.get("/api/sklepy-wartosc/:start/:end", async (req, res) => {
-  const start = req.params.start;
-  const end = req.params.end;
-
-  let connection;
-  try {
-    connection = await dbConfig.getConnection();
-
-    let sql = `
-      select
-	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
-	    date(d.DokData) as SprzedazDzien
-    from
-	    DokumentyPozycje as dp
-    left join Dokumenty as d on
-	    d.DokId = dp.DokPozDokId
-	    left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
-	  where date(d.DokData) >= ? and date(d.DokData) <= ?;
-      `;
-
-    const data = await connection.query(sql, [start, end]);
-    res.json(data);
-  } catch (err) {
-    console.log("błędzik: ", err);
-  }
-});
-
 app.get(
   "/api/raport-sprzedazy-wartosci-dzien/:uzytkownikId",
   async (req, res) => {
-    let uzytkownikId = req.params.uzytkownikId;
+    const uzytkownikId = req.params.uzytkownikId;
+    const { startDate, endDate } = req.query;
     let connection;
+
     try {
       connection = await dbConfig.getConnection();
 
       let sql = `
-    select
-	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
-	    date(d.DokData) as SprzedazDzien
-    from
-	    DokumentyPozycje as dp
-    left join Dokumenty as d on
-	    d.DokId = dp.DokPozDokId
-	    left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
-	  where date(d.DokData) >= now() - interval 7 day`;
+        SELECT
+          FORMAT(SUM(dp.DokPozCena), 2) AS wartoscSprzedazyDzien,
+          DATE(d.DokData) AS SprzedazDzien
+        FROM
+          DokumentyPozycje AS dp
+          LEFT JOIN Dokumenty AS d ON d.DokId = dp.DokPozDokId
+          LEFT JOIN UzytkownicySklep AS us ON us.UzSklSklId = d.DokSklepId
+        WHERE 1=1
+          AND dp.DokPozCena IS NOT NULL
+      `;
+
+      const params = [];
 
       if (uzytkownikId !== "123456789") {
-        sql += ` and us.UzSklUzId = ?
-    group by
-	    date(d.DokData)`;
-      } else {
-        sql += ` group by
-      date(d.DokData)`;
+        sql += ` AND us.UzSklUzId = ?`;
+        params.push(uzytkownikId);
       }
 
-      const data = await connection.query(sql, uzytkownikId);
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      }
+
+      sql += ` GROUP BY DATE(d.DokData) ORDER BY SprzedazDzien`;
+
+      const data = await connection.query(sql, params);
       res.json(data);
     } catch (err) {
       logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
@@ -1743,23 +1790,34 @@ app.get(
   "/api/raport-sprzedazy-wartosci-dzien-sklep/:sklepId",
   async (req, res) => {
     let sklepId = req.params.sklepId;
+    const { startDate, endDate } = req.query;
     let connection;
     try {
       connection = await dbConfig.getConnection();
 
       let sql = `
-    select
-	    format(sum(dp.DokPozCena), 2) as wartoscSprzedazyDzien,
-	    date(d.DokData) as SprzedazDzien
-    from
-	    DokumentyPozycje as dp
-    left join Dokumenty as d on
-	    d.DokId = dp.DokPozDokId
-	  where date(d.DokData) >= now() - interval 7 day AND d.DokSklepId = ?
-    group by
-	    date(d.DokData), d.DokSklepId`;
+        SELECT
+          FORMAT(SUM(dp.DokPozCena), 2) AS wartoscSprzedazyDzien,
+          DATE(d.DokData) AS SprzedazDzien
+        FROM
+          DokumentyPozycje AS dp
+        LEFT JOIN Dokumenty AS d ON d.DokId = dp.DokPozDokId
+        WHERE
+          d.DokSklepId = ?
+      `;
 
-      const data = await connection.query(sql, sklepId);
+      const params = [sklepId];
+
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      } else {
+        sql += ` AND DATE(d.DokData) >= NOW() - INTERVAL 7 DAY`;
+      }
+
+      sql += ` GROUP BY DATE(d.DokData), d.DokSklepId`;
+
+      const data = await connection.query(sql, params);
       res.json(data);
     } catch (err) {
       logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
@@ -1773,37 +1831,47 @@ app.get(
 app.get(
   "/api/raport-sprzedazy-ilosci-smaki/:uzytkownikId",
   async (req, res) => {
-    let uzytkownikId = req.params.uzytkownikId;
+    const uzytkownikId = req.params.uzytkownikId;
+    const { startDate, endDate } = req.query;
     let connection;
+
     try {
       connection = await dbConfig.getConnection();
+
       let sql = `
-      select
-	      s.SmkNazwa,
-	      sum(dp.DokPozTowIlosc) as iloscSprzedana,
-	      s.SmkKolor,
-        s.SmkTekstKolor
-      from
-	      DokumentyPozycje as dp
-	    left join Kuwety as k on k.KuwId = dp.DokPozTowId
-	    left join Smaki as s on s.SmkId = k.KuwSmkId
-	    left join Dokumenty as d on d.DokId = dp.DokPozDokId 
-	    left join Sklepy as sk on sk.SklId = d.DokSklepId
-	    left join UzytkownicySklep as us on us.UzSklSklId = d.DokSklepId
-	    where d.DokData >= now() - interval 7 day and dp.DokPozTowId is not null`;
+        SELECT
+          s.SmkNazwa,
+          SUM(dp.DokPozTowIlosc) AS iloscSprzedana,
+          s.SmkKolor,
+          s.SmkTekstKolor
+        FROM
+          DokumentyPozycje AS dp
+          LEFT JOIN Kuwety AS k ON k.KuwId = dp.DokPozTowId
+          LEFT JOIN Smaki AS s ON s.SmkId = k.KuwSmkId
+          LEFT JOIN Dokumenty AS d ON d.DokId = dp.DokPozDokId 
+          LEFT JOIN Sklepy AS sk ON sk.SklId = d.DokSklepId
+          LEFT JOIN UzytkownicySklep AS us ON us.UzSklSklId = d.DokSklepId
+        WHERE dp.DokPozTowId IS NOT NULL
+      `;
+
+      const params = [];
 
       if (uzytkownikId !== "123456789") {
-        sql += ` and us.UzSklUzId = ?
-      group by
-	      s.SmkId
-	    order by s.SmkNazwa`;
-      } else {
-        sql += ` group by
-	      s.SmkId
-	    order by s.SmkNazwa`;
+        sql += ` AND us.UzSklUzId = ?`;
+        params.push(uzytkownikId);
       }
 
-      const data = await dbConfig.query(sql, uzytkownikId);
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      }
+
+      sql += `
+        GROUP BY s.SmkId
+        ORDER BY s.SmkNazwa
+      `;
+
+      const data = await dbConfig.query(sql, params);
       res.json(data);
     } catch (err) {
       logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
@@ -1818,27 +1886,44 @@ app.get(
   "/api/raport-sprzedazy-ilosci-smaki-sklep/:sklepId",
   async (req, res) => {
     let sklepId = req.params.sklepId;
+    const { startDate, endDate } = req.query;
     let connection;
     try {
       connection = await dbConfig.getConnection();
       let sql = `
-      select
-	      s.SmkNazwa,
-	      sum(dp.DokPozTowIlosc) as iloscSprzedana,
-	      s.SmkKolor,
-        s.SmkTekstKolor
-      from
-	      DokumentyPozycje as dp
-	    left join Kuwety as k on k.KuwId = dp.DokPozTowId
-	    left join Smaki as s on s.SmkId = k.KuwSmkId
-	    left join Dokumenty as d on d.DokId = dp.DokPozDokId 
-	    left join Sklepy as sk on sk.SklId = d.DokSklepId
-	    where d.DokData >= now() - interval 7 day AND d.DokSklepId = ? and dp.DokPozTowId is not null
-      group by
-	      s.SmkId, d.DokSklepId
-	    order by s.SmkNazwa`;
+        SELECT
+          s.SmkNazwa,
+          SUM(dp.DokPozTowIlosc) AS iloscSprzedana,
+          s.SmkKolor,
+          s.SmkTekstKolor
+        FROM
+          DokumentyPozycje AS dp
+        LEFT JOIN Kuwety AS k ON k.KuwId = dp.DokPozTowId
+        LEFT JOIN Smaki AS s ON s.SmkId = k.KuwSmkId
+        LEFT JOIN Dokumenty AS d ON d.DokId = dp.DokPozDokId
+        LEFT JOIN Sklepy AS sk ON sk.SklId = d.DokSklepId
+        WHERE
+          d.DokSklepId = ?
+      `;
 
-      const data = await dbConfig.query(sql, sklepId);
+      const params = [sklepId];
+
+      if (startDate && endDate) {
+        sql += ` AND d.DokData BETWEEN ? AND ?`;
+        params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+      } else {
+        sql += ` AND d.DokData >= NOW() - INTERVAL 7 DAY`;
+      }
+
+      sql += `
+        AND dp.DokPozTowId IS NOT NULL
+        GROUP BY
+          s.SmkId, d.DokSklepId
+        ORDER BY
+          s.SmkNazwa
+      `;
+
+      const data = await dbConfig.query(sql, params);
       res.json(data);
     } catch (err) {
       logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
@@ -1851,32 +1936,121 @@ app.get(
 
 app.get("/api/raport-sprzedazy-towarow/:sklepId", async (req, res) => {
   let sklepId = req.params.sklepId;
+  const { startDate, endDate } = req.query;
   let connection;
   try {
     connection = await dbConfig.getConnection();
     let sql = `
-    select
-	t.TowNazwa,
-	sum(dp.DokPozTowIlosc) as iloscSprzedana
-from
-	DokumentyPozycje as dp
-left join Towary as t on
-	t.TowId = dp.DokPozPozostalyTowId
-left join Dokumenty as d on
-	d.DokId = dp.DokPozDokId
-where
-	d.DokData >= now() - interval 7 day
-	and d.DokSklepId = ?
-group by
-	      dp.DokPozPozostalyTowId,
-	d.DokSklepId
-order by
-	t.TowNazwa`;
-    const data = await connection.query(sql, sklepId);
+      SELECT
+        t.TowNazwa,
+        SUM(dp.DokPozTowIlosc) AS iloscSprzedana
+      FROM
+        DokumentyPozycje AS dp
+      LEFT JOIN Towary AS t ON
+        t.TowId = dp.DokPozPozostalyTowId
+      LEFT JOIN Dokumenty AS d ON
+        d.DokId = dp.DokPozDokId
+      WHERE
+        d.DokSklepId = ?
+    `;
+    const params = [sklepId];
+
+    if (startDate && endDate) {
+      sql += ` AND d.DokData BETWEEN ? AND ?`;
+      params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+    } else {
+      sql += ` AND d.DokData >= NOW() - INTERVAL 7 DAY`;
+    }
+
+    sql += `
+      GROUP BY
+        dp.DokPozPozostalyTowId,
+        d.DokSklepId
+      ORDER BY
+        t.TowNazwa
+    `;
+
+    const data = await connection.query(sql, params);
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
     res.status(500).json({ error: "Błąd podczas pobierania danych" });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+const getRozmiary = async (connection) => {
+  const rozmiary = await connection.query(
+    "SELECT RozId, RozNazwa FROM Rozmiary"
+  );
+
+  // Jeśli wynik jest obiektem, sprawdź czy zwrócił jedną tabelę
+  if (!Array.isArray(rozmiary)) {
+    console.log("rozmiary nie są tablicą, ale obiektem:", rozmiary);
+    // Możesz również spróbować wypisać rozmiary w inny sposób:
+    rozmiary = [rozmiary]; // Wymusza traktowanie jako tablica
+  }
+
+  return rozmiary;
+};
+
+app.get("/api/raport-przydzielonych-kuwet/:uzytkownikId", async (req, res) => {
+  const uzytkownikId = req.params.uzytkownikId;
+  const { startDate, endDate } = req.query;
+  let connection;
+
+  try {
+    connection = await dbConfig.getConnection();
+
+    const rozmiary = await getRozmiary(connection);
+
+    const countConditions = rozmiary.map((rozmiar) => {
+      return `COUNT(CASE WHEN k.KuwRozId = ${rozmiar.RozId} THEN 1 END) AS '${rozmiar.RozNazwa}'`;
+    });
+
+    const params = [];
+
+    let sql = `
+      SELECT
+        ${countConditions.join(", ")} ,
+        COUNT(*) AS Wszystkie
+      FROM
+      (
+        SELECT DISTINCT k.*
+        FROM Kuwety AS k
+        LEFT JOIN UzytkownicySklep AS us ON us.UzSklSklId = k.KuwSklId
+        LEFT JOIN Rozmiary AS r ON r.RozId = k.KuwRozId
+        WHERE 1=1
+    `;
+
+    if (startDate && endDate) {
+      sql += ` AND k.KuwDataZmiany BETWEEN ? AND ?`;
+      params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+    }
+
+    if (uzytkownikId !== "123456789") {
+      sql += ` AND us.UzSklUzId = ?`;
+      params.push(uzytkownikId);
+    }
+
+    sql += ` AND k.KuwSklId IS NOT NULL) AS k`;
+
+    const rows = await connection.query(sql, params);
+
+    const converted = rows.map((row) => {
+      const obj = {};
+      for (const key in row) {
+        obj[key] = typeof row[key] === "bigint" ? Number(row[key]) : row[key];
+      }
+      return obj;
+    });
+
+    res.json(converted);
+  } catch (err) {
+    console.log(err);
+    logToFile(`[ERROR] Błąd podczas raportowania przydzielonych kuwet`);
+    res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
   }
@@ -2028,31 +2202,70 @@ app.get("/api/odczytaj-licznik", async (req, res) => {
   }
 });
 
+app.get("/api/odczytaj-licznik", async (req, res) => {
+  const { sklepId, typ } = req.query;
+
+  if (!sklepId || !typ) {
+    return res
+      .status(400)
+      .json({ error: "Brak wymaganych parametrów: sklepId i typ" });
+  }
+
+  try {
+    const result = await dbConfig.query(
+      "SELECT LWartosc FROM Liczniki WHERE LSklId = ? AND LTyp = ?",
+      [sklepId, typ]
+    );
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: "Licznik nie znaleziony" });
+    }
+
+    // Zwracamy wartość licznika
+    res.status(200).json({ LWartosc: result[0].LWartosc });
+  } catch (err) {
+    console.error("Błąd odczytu licznika:", err);
+    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    res.status(500).json({ error: "Błąd serwera" });
+  }
+});
+
 app.get("/api/rcp-uzytkownik/:uzytkownikId", async (req, res) => {
   const { uzytkownikId } = req.params;
+  const { startDate, endDate } = req.query; // Pobranie daty z query
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    const data = await connection.query(
-      `SELECT
-        DATE(RCPStartZmiany) as data,
-        SEC_TO_TIME(SUM(TIMESTAMPDIFF(second, RCPStartZmiany, RCPKoniecZmiany))) as RoznicaCzasu,
+    let sql = `
+      SELECT
+        DATE(RCPStartZmiany) AS data,
+        SEC_TO_TIME(SUM(TIMESTAMPDIFF(second, RCPStartZmiany, RCPKoniecZmiany))) AS RoznicaCzasu,
         RCPUzId,
         u.UzImie,
         u.UzNazwisko
       FROM
         RCP
-      LEFT JOIN Uzytkownicy as u on u.UzId = RCP.RCPUzId
+      LEFT JOIN Uzytkownicy AS u ON u.UzId = RCP.RCPUzId
       WHERE
         RCPKoniecZmiany IS NOT NULL
         AND RCPUzId = ?
+    `;
+    const params = [uzytkownikId];
+
+    if (startDate && endDate) {
+      sql += ` AND RCPStartZmiany BETWEEN ? AND ?`;
+      params.push(`${startDate} 00:00:00`, `${endDate} 23:59:59`);
+    }
+
+    sql += `
       GROUP BY
         DATE(RCPStartZmiany),
         RCPUzId
       ORDER BY
-        data;`,
-      [uzytkownikId]
-    );
+        data DESC
+    `;
+
+    const data = await connection.query(sql, params);
 
     data.forEach((item) => {
       const date = new Date(item.data);
@@ -2065,15 +2278,18 @@ app.get("/api/rcp-uzytkownik/:uzytkownikId", async (req, res) => {
       `[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`
     );
     res.status(500).json({ error: "Wystąpił błąd serwera." });
+  } finally {
+    if (connection) connection.release();
   }
 });
 
-app.get("/api/ceny", async (req, res) => {
+app.get("/api/ceny/:sklepId", async (req, res) => {
+  const sklepId = req.params.sklepId;
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    let sql = `select * from Towary as t left join Ceny as c on c.CTowId = t.TowId`;
-    const data = await connection.query(sql);
+    let sql = `select * from Towary as t left join Ceny as c on c.CTowId = t.TowId where CSklepId = ?`;
+    const data = await connection.query(sql, sklepId);
 
     data.forEach((item) => {
       const date = new Date(item.CDataZmiany);
@@ -2087,13 +2303,14 @@ app.get("/api/ceny", async (req, res) => {
   }
 });
 
-app.get("/api/cena-towaru/:towarId", async (req, res) => {
+app.get("/api/cena-towaru/:towarId/:sklepId", async (req, res) => {
   const towarId = req.params.towarId;
+  const sklepId = req.params.sklepId;
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    let sql = `select * from Towary as t left join Ceny as c on c.CTowId = t.TowId WHERE t.TowId = ?`;
-    const data = await connection.query(sql, towarId);
+    let sql = `select * from Towary as t left join Ceny as c on c.CTowId = t.TowId WHERE t.TowId = ? and c.CSklepId = ?`;
+    const data = await connection.query(sql, [towarId, sklepId]);
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
@@ -2102,17 +2319,19 @@ app.get("/api/cena-towaru/:towarId", async (req, res) => {
   }
 });
 
-app.put("/api/ceny-edycja/:towarId", async (req, res) => {
+app.put("/api/ceny-edycja/:towarId/:sklepId", async (req, res) => {
   const towarId = req.params.towarId;
+  const sklepId = req.params.sklepId;
   const { cena } = req.body;
 
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    let sql = `UPDATE Ceny SET CPoprzedniaCena = CCena, CCena = ?, CDataZmiany = now() WHERE CTowId = ?`;
-    const data = connection.query(sql, [cena, towarId]);
+    let sql = `UPDATE Ceny SET CPoprzedniaCena = CCena, CCena = ?, CDataZmiany = now() WHERE CTowId = ? and CSklepId = ?`;
+    const data = connection.query(sql, [cena, towarId, sklepId]);
     res.json(data).status(200);
   } catch (err) {
+    console.log(err);
     res.status(500);
     logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
   }
@@ -2503,7 +2722,7 @@ app.post("/api/przydziel-kuwety", async (req, res) => {
 
         const updateQuery = `
           UPDATE Kuwety
-          SET KuwSklId = ?
+          SET KuwSklId = ?, KuwDataZmiany = now()
           WHERE KuwId = ?
         `;
 

@@ -422,8 +422,14 @@ async function dodajDoTabeliLodyWloskie(nazwaTowaru, towarId) {
 }
 
 async function pobierzCeneTowaru(towarId) {
+  const token = localStorage.getItem("token");
+  const decoded = parseJwt(token);
+
+  const sklepId = decoded.sklepId;
   try {
-    const response = await fetch(`${CONFIG.URL}/api/cena-towaru/${towarId}`);
+    const response = await fetch(
+      `${CONFIG.URL}/api/cena-towaru/${towarId}/${sklepId}`
+    );
     if (!response.ok) {
       throw new Error("Błąd pobierania ceny");
     }

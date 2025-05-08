@@ -1,56 +1,74 @@
 let rcpData = [];
 
 async function fetchRCP() {
-  try {
-    const response = await fetch(`${CONFIG.URL}/api/rcp`);
-    rcpData = await response.json();
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
 
-    const tableBody = document.getElementById("centrala-rcp-tbody");
-    tableBody.innerHTML = "";
+  if (startDate > endDate) {
+    alert("Data początkowa jest większa od  końcowej!");
+    return;
+  } else {
+    try {
+      const response = await fetch(
+        `${CONFIG.URL}/api/rcp?startDate=${startDate}&endDate=${endDate}`
+      );
 
-    rcpData.forEach((czas) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-            <td>${czas.UzId}</td>
-            <td>${czas.UzImie} ${czas.UzNazwisko}</td>
-            <td>${czas.PrzepracowanyCzas}</td>
-            <td style="display:none">
-              <input type="number" id="rcp-format-${czas.RCPId}" value="${
-        czas.PrzepracowaneGodzinyFormat || 0
-      }">
-            </td>
-            <td>
-              <input type="number" step="0.01" id="rcp-stawka-${
-                czas.RCPId
-              }" value="${czas.UzStawkaGodzinowa || 0}">
-            </td>
-            <td>
-              <input type="number" step="0.01" id="rcp-wynagrodzenie-${
-                czas.RCPId
-              }" value="0.00" disabled>
-            </td>
-            <td>
-              <button id="rcp-month" data-uzytkownik-id="${
-                czas.UzId
-              }"><img src="../img/white/calendar-white.png"></button>
-            </td>
-          `;
-      tableBody.appendChild(row);
+      const tableBody = document.getElementById("centrala-rcp-tbody");
+      tableBody.innerHTML = "";
 
-      // Dodajemy event listener do przycisku
-      const button = row.querySelector("#rcp-month");
+      rcpData = await response.json();
+      rcpData.forEach((czas) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+        <td>${czas.UzId}</td>
+        <td>${czas.UzImie} ${czas.UzNazwisko}</td>
+        <td>${czas.PrzepracowanyCzas}</td>
+        <td style="display:none">
+          <input type="number" id="rcp-format-${czas.RCPId}" value="${
+          czas.PrzepracowaneGodzinyFormat || 0
+        }">
+        </td>
+        <td>
+          <input type="number" step="0.01" id="rcp-stawka-${
+            czas.RCPId
+          }" value="${czas.UzStawkaGodzinowa || 0}">
+        </td>
+        <td>
+          <input type="number" step="0.01" id="rcp-wynagrodzenie-${
+            czas.RCPId
+          }" value="0.00" disabled>
+        </td>
+        <td>
+          <button id="rcp-month" data-uzytkownik-id="${czas.UzId}">
+            <img src="../img/white/calendar-white.png">
+          </button>
+        </td>
+      `;
+        tableBody.appendChild(row);
 
-      button.addEventListener("click", (event) => {
-        const uzytkownikId = event.target
-          .closest("button")
-          .getAttribute("data-uzytkownik-id");
-        window.location.href = `rcp-uzytkownik.html?uzytkownikId=${uzytkownikId}`;
+        const button = row.querySelector("#rcp-month");
+        button.addEventListener("click", (event) => {
+          const uzytkownikId = event.target
+            .closest("button")
+            .getAttribute("data-uzytkownik-id");
+          window.location.href = `rcp-uzytkownik.html?uzytkownikId=${uzytkownikId}`;
+        });
       });
-    });
-  } catch (error) {
-    console.error("Błąd pobierania danych:", error);
+    } catch (error) {
+      console.error("Błąd pobierania danych:", error);
+    }
   }
 }
+
+document.getElementById("obliczRcp").addEventListener("click", async () => {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+
+  if (!startDate || !endDate) return;
+
+  await fetchRCP(startDate, endDate);
+  initCalculation();
+});
 
 function calculateSalary(rcpId) {
   const stawkaInput = document.getElementById(`rcp-stawka-${rcpId}`);
@@ -101,6 +119,6 @@ function wartoscDat() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchRCP().then(initCalculation);
   wartoscDat();
+  fetchRCP().then(initCalculation);
 });

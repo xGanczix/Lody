@@ -44,7 +44,6 @@ realizujBtn.addEventListener("click", () => {
   })
     .then((response) => {
       if (response.ok) {
-        // 🔽 Działa bardziej niezawodnie w wielu przeglądarkach
         window.opener.location.reload();
         window.close();
       } else {

@@ -46,6 +46,7 @@ function updateIcons() {
     { id: "uzytkownicy-icon", name: "user" },
     { id: "ustawienia-icon", name: "setting" },
     { id: "sklepy-icon", name: "tag" },
+    { id: "sklepy-icon-dropdown", name: "tag" },
     { id: "arrow-right", name: "arrow-right" },
     { id: "rozmiary-icon", name: "size" },
     { id: "support-icon", name: "support" },
@@ -63,6 +64,7 @@ function updateIcons() {
     { id: "raport-sprzedaz-sklep-icon", name: "tag_goods" },
     { id: "przypisanie-zbiorcze-icon", name: "delivery" },
     { id: "zamowienia-icon", name: "clipboard" },
+    { id: "arrow-right-sklepy", name: "arrow-right" },
   ];
 
   icons.forEach(({ id, name }) => {

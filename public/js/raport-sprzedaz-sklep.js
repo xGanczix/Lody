@@ -31,9 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function fetchRaportSprzedazFormyPlatnosciSklep(sklepId) {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedaz-formy-platnosci-sklep/${sklepId}`
+      `${CONFIG.URL}/api/raport-sprzedaz-formy-platnosci-sklep/${sklepId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -96,9 +98,11 @@ async function fetchRaportSprzedazFormyPlatnosciSklep(sklepId) {
 }
 
 async function fetchRaportSprzedazSmakiSklep(sklepId) {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedazy-ilosci-smaki-sklep/${sklepId}`
+      `${CONFIG.URL}/api/raport-sprzedazy-ilosci-smaki-sklep/${sklepId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -174,9 +178,11 @@ async function fetchRaportSprzedazSmakiSklep(sklepId) {
 }
 
 async function fetchRaportSprzedazWartoscSklep(sklepId) {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedazy-wartosci-dzien-sklep/${sklepId}`
+      `${CONFIG.URL}/api/raport-sprzedazy-wartosci-dzien-sklep/${sklepId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -233,9 +239,11 @@ async function fetchRaportSprzedazWartoscSklep(sklepId) {
 }
 
 async function fetchRaportSprzedazTowaryWartoscSklep(sklepId) {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc-sklep/${sklepId}`
+      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc-sklep/${sklepId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -318,9 +326,11 @@ async function fetchRaportSprzedazTowaryWartoscSklep(sklepId) {
 }
 
 async function fetchRaportSprzedazTowaryIloscSklep(sklepId) {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc-sklep/${sklepId}`
+      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc-sklep/${sklepId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -399,6 +409,25 @@ async function fetchRaportSprzedazTowaryIloscSklep(sklepId) {
   }
 }
 
+function wartoscDat() {
+  const dzisiaj = new Date();
+  const dzisiajFormatowane = dzisiaj.toISOString().split("T")[0];
+  const tydzienWczesniej = new Date(dzisiaj);
+  tydzienWczesniej.setDate(dzisiaj.getDate() - 7);
+  const tydzienWczesniejFormatowane = tydzienWczesniej
+    .toISOString()
+    .split("T")[0];
+
+  const poczatkowa = document.getElementById("startDate");
+  const koncowa = document.getElementById("endDate");
+  poczatkowa.value = tydzienWczesniejFormatowane;
+  koncowa.value = dzisiajFormatowane;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  wartoscDat();
+});
+
 sklepSelect.addEventListener("change", function () {
   const sklepId = sklepSelect.value;
   const raportFormyPlatnosciSklep = document.getElementById("formy-platnosci");
@@ -425,24 +454,24 @@ sklepSelect.addEventListener("change", function () {
   fetchRaportSprzedazTowaryWartoscSklep(sklepId);
 });
 
-const raportowanie = document.getElementById("raportujDaty");
-
-raportowanie.addEventListener("click", () => {
-  const start = document.getElementById("startDate").value;
-  const end = document.getElementById("endDate").value;
-  if (start > end) {
-    alert("Data początkowa nie może być wcześniejsza niż końcwa");
+document.getElementById("raportujDaty").addEventListener("click", () => {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+  const sklepId = sklepSelect.value;
+  if (startDate > endDate) {
+    alert("Data początkowa jest większa od  końcowej!");
+    return;
   } else {
-    async function fetchWartosc() {
-      try {
-        const response = await fetch(
-          `${CONFIG.URL}/api/raport-sprzedazy-test/${sklepId}/${start}/${end}`
-        );
-      } catch (err) {
-        console.log("Błąd pobierania raportu");
-      }
-    }
+    document.querySelector("#formy-platnosci").innerHTML = "";
+    document.querySelector("#sprzedawane-towary-wartosc").innerHTML = "";
+    document.querySelector("#sprzedaz-wartosci-dzien").innerHTML = "";
+    document.querySelector("#sprzedawane-smaki").innerHTML = "";
+    document.querySelector("#sprzedawane-towary-ilosc").innerHTML = "";
+
+    fetchRaportSprzedazFormyPlatnosciSklep(sklepId);
+    fetchRaportSprzedazSmakiSklep(sklepId);
+    fetchRaportSprzedazWartoscSklep(sklepId);
+    fetchRaportSprzedazTowaryIloscSklep(sklepId);
+    fetchRaportSprzedazTowaryWartoscSklep(sklepId);
   }
-  console.log(start);
-  console.log(end);
 });

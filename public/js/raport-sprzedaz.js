@@ -1,14 +1,13 @@
 const decoded = parseJwt(token);
 const uzytkownikId = decoded.id;
-document.addEventListener("DOMContentLoaded", function () {
-  let startDate = document.getElementById("startDate").value;
-  let endDate = document.getElementById("endDate").value;
-});
 
 async function fetchRaportSprzedazFormyPlatnosci() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedaz-formy-platnosci/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-sprzedaz-formy-platnosci/${uzytkownikId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -72,9 +71,11 @@ async function fetchRaportSprzedazFormyPlatnosci() {
 }
 
 async function fetchRaportSprzedazSmaki() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedazy-ilosci-smaki/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-sprzedazy-ilosci-smaki/${uzytkownikId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -150,9 +151,11 @@ async function fetchRaportSprzedazSmaki() {
 }
 
 async function fetchRaportSprzedazTowaryWartosc() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc/${uzytkownikId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -235,9 +238,11 @@ async function fetchRaportSprzedazTowaryWartosc() {
 }
 
 async function fetchRaportSprzedazTowaryIlosc() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-towary-sprzedaz-wartosc/${uzytkownikId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -317,9 +322,11 @@ async function fetchRaportSprzedazTowaryIlosc() {
 }
 
 async function fetchRaportSprzedazWartosc() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/raport-sprzedazy-wartosci-dzien/${uzytkownikId}`
+      `${CONFIG.URL}/api/raport-sprzedazy-wartosci-dzien/${uzytkownikId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
@@ -372,6 +379,78 @@ async function fetchRaportSprzedazWartosc() {
   }
 }
 
+async function fetchRaportPrzydzieloneKuwety() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+  try {
+    const response = await fetch(
+      `${CONFIG.URL}/api/raport-przydzielonych-kuwet/${uzytkownikId}?startDate=${startDate}&endDate=${endDate}`
+    );
+    const data = await response.json();
+
+    const rekord = data[0];
+    const nazwy = Object.keys(rekord);
+    const ilosci = Object.values(rekord);
+
+    const colors = [
+      "#008FFB",
+      "#00E396",
+      "#FEB019",
+      "#FF4560",
+      "#775DD0",
+      "#3F51B5",
+      "#546E7A",
+      "#D4526E",
+    ];
+
+    const options = {
+      chart: {
+        type: "bar",
+      },
+      series: [
+        {
+          name: "Ilość",
+          data: ilosci,
+        },
+      ],
+      xaxis: {
+        categories: nazwy,
+        labels: {
+          show: true,
+        },
+      },
+      yaxis: {
+        labels: {
+          show: true,
+        },
+      },
+      title: {
+        text: "Ilość kuwet według rozmiaru",
+      },
+      colors: colors.slice(0, nazwy.length),
+      plotOptions: {
+        bar: {
+          distributed: true,
+        },
+      },
+      dataLabels: {
+        enabled: true,
+      },
+      legend: {
+        show: false,
+      },
+    };
+
+    const chart = new ApexCharts(
+      document.querySelector("#przydzielone-kuwety"),
+      options
+    );
+    chart.render();
+  } catch (error) {
+    console.error("Błąd podczas pobierania danych:", error);
+  }
+}
+
 // Funkcja ustawiająca daty
 function wartoscDat() {
   const dzisiaj = new Date();
@@ -389,10 +468,34 @@ function wartoscDat() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  wartoscDat();
   fetchRaportSprzedazFormyPlatnosci();
   fetchRaportSprzedazWartosc();
   fetchRaportSprzedazSmaki();
   fetchRaportSprzedazTowaryWartosc();
   fetchRaportSprzedazTowaryIlosc();
-  wartoscDat();
+  fetchRaportPrzydzieloneKuwety();
+});
+
+document.getElementById("raportujDaty").addEventListener("click", () => {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+  if (startDate > endDate) {
+    alert("Data początkowa jest większa od  końcowej!");
+    return;
+  } else {
+    document.querySelector("#formy-platnosci").innerHTML = "";
+    document.querySelector("#sprzedawane-towary-wartosc").innerHTML = "";
+    document.querySelector("#sprzedaz-wartosci-dzien").innerHTML = "";
+    document.querySelector("#sprzedawane-smaki").innerHTML = "";
+    document.querySelector("#sprzedawane-towary-ilosc").innerHTML = "";
+    document.querySelector("#przydzielone-kuwety").innerHTML = "";
+
+    fetchRaportSprzedazFormyPlatnosci();
+    fetchRaportSprzedazWartosc();
+    fetchRaportSprzedazSmaki();
+    fetchRaportSprzedazTowaryIlosc();
+    fetchRaportSprzedazTowaryWartosc();
+    fetchRaportPrzydzieloneKuwety();
+  }
 });
