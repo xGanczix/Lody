@@ -42,8 +42,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const handleClick = () => {
               if (parseInt(przypisanySmak.Porcje) <= 0) {
-                alert(`Brak porcji dla smaku: ${przypisanySmak.Nazwa}`);
-                return;
+                if (
+                  confirm(
+                    "Kuweta powinna być pusta! Czy kuweta jest pusta?"
+                  ) === true
+                ) {
+                  alert("usuwanie");
+                } else {
+                  return;
+                }
               }
 
               const cena = parseFloat(przycisk.getAttribute("data-cena"));

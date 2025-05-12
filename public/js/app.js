@@ -65,6 +65,7 @@ function updateIcons() {
     { id: "przypisanie-zbiorcze-icon", name: "delivery" },
     { id: "zamowienia-icon", name: "clipboard" },
     { id: "arrow-right-sklepy", name: "arrow-right" },
+    { id: "puste-kuwety-icon", name: "out-of-stock" },
   ];
 
   icons.forEach(({ id, name }) => {

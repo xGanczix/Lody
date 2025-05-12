@@ -3051,6 +3051,74 @@ app.put("/api/resetuj-licznik-wloskie/:sklepId/:typ", async (req, res) => {
   }
 });
 
+app.get("/api/raport-puste-kuwety", async (req, res) => {
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      select
+	      s.SklNazwa,
+        s.SklMiejscowosc,
+	      s.SklId,
+	      count(k.KuwId) as iloscPustychKuwet
+      from
+	      Kuwety as k
+      left join Sklepy as s on
+	      s.SklId = k.KuwSklId
+      where
+	      KuwOdebrano = 0
+	      and KuwPorcje <= 0
+	      and KuwStatus = 1
+	      and KuwSklId is not null
+      group by
+	      s.SklNazwa
+      order by s.SklNazwa
+    `;
+    const rows = await connection.query(sql);
+
+    const converted = rows.map((row) => {
+      const obj = {};
+      for (const key in row) {
+        obj[key] = typeof row[key] === "bigint" ? Number(row[key]) : row[key];
+      }
+      return obj;
+    });
+
+    res.json(converted);
+  } catch (err) {
+    logToFile(`[ERROR] Błąd odczytu pustych kuwety: ${err}`);
+    console.log(err);
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
+app.put("/api/odbierz-puste-kuwety/:sklepId", async (req, res) => {
+  const sklepId = req.params.sklepId;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      update Kuwety
+        set
+          KuwOdebrano = 1
+      where
+        KuwOdebrano = 0
+	      and KuwPorcje <= 0
+	      and KuwStatus = 1
+	      and KuwSklId = ?
+    `;
+    await connection.query(sql, sklepId);
+    res.status(200).json({ message: "Status zmieniony" });
+  } catch (err) {
+    logToFile(`[ERROR] Błąd odbierania pustych kuwet: ${err}`);
+    console.log("Błąd odbierania pustych kuwet: ", err);
+    res.status(500).json({ error: "Błąd serwera" });
+  } finally {
+    if (connection) connection.release();
+  }
+});
+
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);
   logToFile(`[INFO] Uruchomiono serwer na porcie ${appPort}`);
