@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sklepSelect = document.getElementById("sklep-select");
   const kuwetyContainer = document.getElementById("kuwety-container");
 
-  // Pobierz sklepy
   const sklepyRes = await fetch(`${CONFIG.URL}/api/sklepy-logowanie`);
   const sklepy = await sklepyRes.json();
   sklepy.forEach((s) => {
@@ -17,19 +16,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const grupowane = {};
   kuwety.forEach((k) => {
-    const key = `${k.KuwSmkId}|${k.KuwSmakNazwa}`;
+    const key = `${k.KuwSmkId}|${k.KuwSmakNazwa}|${k.KuwRozId}`;
     if (!grupowane[key]) grupowane[key] = 0;
     grupowane[key]++;
   });
 
   for (const key in grupowane) {
-    const [smkId, smkNazwa] = key.split("|");
+    const [smkId, smkNazwa, smkRozmiar] = key.split("|");
     const dostepne = grupowane[key];
     const hr = document.createElement("hr");
     const div = document.createElement("div");
     div.className = "kuweta-container";
     div.innerHTML = `
-          <label>${smkNazwa} (dostępne: ${dostepne})</label>
+          <label>${smkNazwa} - ${smkRozmiar} (dostępne: ${dostepne})</label>
           <select data-smak-id="${smkId}">
             <option value="0">0</option>
             ${Array.from(

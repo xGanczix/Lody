@@ -7,7 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
         `${CONFIG.URL}/api/zamowienia-szczegoly/${zamowienieId}`
       );
       const data = await response.json();
+      const date = new Date(data[0].ZamDataUtworzenia);
+      const formatted = date.toLocaleDateString("pl-PL");
+      document.getElementById("zamowienie-data").textContent = formatted;
 
+      document.getElementById("zamowienie-nr").textContent = data[0].ZamNr;
+      document.getElementById("zamowienie-sklep").textContent =
+        data[0].SklNazwa;
+      document.getElementById("zamowienie-data").textContent = formatted;
       const tableBody = document.getElementById("zamowienie-szczegoly-tbody");
       tableBody.innerHTML = "";
 

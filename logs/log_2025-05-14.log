@@ -1,0 +1,86 @@
+[2025-05-14 10:34:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:34:49] [INFO] Połączono z MariaDB
+[2025-05-14 10:34:55] [INFO] Zalogowano: mati
+[2025-05-14 10:35:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:35:40] [INFO] Połączono z MariaDB
+[2025-05-14 10:36:21] [INFO] Zalogowano: mati
+[2025-05-14 10:36:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:36:28] [INFO] Połączono z MariaDB
+[2025-05-14 10:37:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:37:48] [INFO] Połączono z MariaDB
+[2025-05-14 10:37:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:37:50] [INFO] Połączono z MariaDB
+[2025-05-14 10:38:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:38:54] [INFO] Połączono z MariaDB
+[2025-05-14 10:40:54] [INFO] Zalogowano: jk (Sklep: Lalalala)
+[2025-05-14 10:41:54] [INFO] Zalogowano Serwis
+[2025-05-14 10:42:08] [INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: Sklep testowy
+[2025-05-14 10:42:25] [INFO] Kuweta dodana pomyślnie: Id smak: 2 | Id rozmiar: 1 | Porcje: 90
+[2025-05-14 10:42:34] [INFO] Kuweta dodana pomyślnie: Id smak: 8 | Id rozmiar: 2 | Porcje: 100
+[2025-05-14 10:42:49] [INFO] Kuweta dodana pomyślnie: Id smak: 6 | Id rozmiar: 1 | Porcje: 90
+[2025-05-14 10:42:53] [INFO] Usunięcie kuwety o ID: 31
+[2025-05-14 10:43:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:43:53] [INFO] Połączono z MariaDB
+[2025-05-14 10:44:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:44:21] [INFO] Połączono z MariaDB
+[2025-05-14 10:44:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:44:35] [INFO] Połączono z MariaDB
+[2025-05-14 10:45:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:45:56] [INFO] Połączono z MariaDB
+[2025-05-14 10:46:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 10:46:13] [INFO] Połączono z MariaDB
+[2025-05-14 14:22:23] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-05-14 14:22:24] [INFO] Aplikacja zakończyła działanie.
+[2025-05-14 14:22:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:22:24] [INFO] Połączono z MariaDB
+[2025-05-14 14:49:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:49:02] [INFO] Połączono z MariaDB
+[2025-05-14 14:49:12] [INFO] Zalogowano: mati
+[2025-05-14 14:49:19] [INFO] Kuweta dodana pomyślnie: Id smak: 7 | Id rozmiar: 2 | Porcje: 100
+[2025-05-14 14:49:41] [INFO] Kuweta dodana pomyślnie: Id smak: 7 | Id rozmiar: 3 | Porcje: 200
+[2025-05-14 14:50:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:50:59] [INFO] Połączono z MariaDB
+[2025-05-14 14:51:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:51:41] [INFO] Połączono z MariaDB
+[2025-05-14 14:52:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:52:43] [INFO] Połączono z MariaDB
+[2025-05-14 14:52:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:52:51] [INFO] Połączono z MariaDB
+[2025-05-14 14:53:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:53:37] [INFO] Połączono z MariaDB
+[2025-05-14 14:57:56] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:57:56] [INFO] Połączono z MariaDB
+[2025-05-14 14:58:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:58:04] [INFO] Połączono z MariaDB
+[2025-05-14 14:58:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:58:39] [INFO] Połączono z MariaDB
+[2025-05-14 14:59:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:59:12] [INFO] Połączono z MariaDB
+[2025-05-14 14:59:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 14:59:58] [INFO] Połączono z MariaDB
+[2025-05-14 15:00:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:00:12] [INFO] Połączono z MariaDB
+[2025-05-14 15:00:28] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:00:28] [INFO] Połączono z MariaDB
+[2025-05-14 15:01:04] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:01:04] [INFO] Połączono z MariaDB
+[2025-05-14 15:02:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:02:10] [INFO] Połączono z MariaDB
+[2025-05-14 15:02:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:02:29] [INFO] Połączono z MariaDB
+[2025-05-14 15:04:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:04:10] [INFO] Połączono z MariaDB
+[2025-05-14 15:04:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:04:31] [INFO] Połączono z MariaDB
+[2025-05-14 15:05:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:05:25] [INFO] Połączono z MariaDB
+[2025-05-14 15:05:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:05:45] [INFO] Połączono z MariaDB
+[2025-05-14 15:06:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:06:05] [INFO] Połączono z MariaDB
+[2025-05-14 15:09:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:09:18] [INFO] Połączono z MariaDB
+[2025-05-14 15:21:13] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-05-14 15:21:13] [INFO] Aplikacja zakończyła działanie.
+[2025-05-14 15:21:14] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-14 15:21:14] [INFO] Połączono z MariaDB

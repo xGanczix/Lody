@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  aktualizujLicznikKawa();
-
   try {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -41,18 +39,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             przycisk.setAttribute("data-cena", przypisanySmak.CCena);
 
             const handleClick = () => {
-              if (parseInt(przypisanySmak.Porcje) <= 0) {
-                if (
-                  confirm(
-                    "Kuweta powinna być pusta! Czy kuweta jest pusta?"
-                  ) === true
-                ) {
-                  alert("usuwanie");
-                } else {
-                  return;
-                }
-              }
-
               const cena = parseFloat(przycisk.getAttribute("data-cena"));
               dodajDoTabeli(przypisanySmak, cena);
             };
@@ -182,6 +168,7 @@ document
 
 async function fetchLicznik() {
   let licznikWloskie = document.querySelector(".licznik-wypelnienie");
+  let licznikKawa = document.querySelector(".licznik-wypelnienie-kawa");
   const token = localStorage.getItem("token");
   const decoded = parseJwt(token);
 
@@ -189,7 +176,7 @@ async function fetchLicznik() {
   const typ = 1;
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/odczytaj-licznik-wloskie/${sklepId}/${typ}`
+      `${CONFIG.URL}/api/odczytaj-licznik/${sklepId}/${typ}`
     );
     const liczniki = await response.json();
 
@@ -200,8 +187,29 @@ async function fetchLicznik() {
   }
 }
 
+async function fetchLicznikKawa() {
+  let licznikKawa = document.querySelector(".licznik-wypelnienie-kawa");
+  const token = localStorage.getItem("token");
+  const decoded = parseJwt(token);
+
+  const sklepId = decoded.sklepId;
+  const typ = 2;
+  try {
+    const response = await fetch(
+      `${CONFIG.URL}/api/odczytaj-licznik/${sklepId}/${typ}`
+    );
+    const liczniki = await response.json();
+
+    licznikKawa.style.height = liczniki[0].LWartosc + "%";
+    licznikKawa.textContent = liczniki[0].LWartosc + "%";
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   fetchLicznik();
+  fetchLicznikKawa();
 });
 
 document.querySelector(".reset-wloskie").addEventListener("click", () => {
@@ -213,7 +221,7 @@ document.querySelector(".reset-wloskie").addEventListener("click", () => {
     const typ = 1;
     try {
       const response = await fetch(
-        `${CONFIG.URL}/api/resetuj-licznik-wloskie/${sklepId}/${typ}`,
+        `${CONFIG.URL}/api/resetuj-licznik/${sklepId}/${typ}`,
         {
           method: "PUT",
           headers: {
@@ -229,6 +237,7 @@ document.querySelector(".reset-wloskie").addEventListener("click", () => {
         message.style.background = "rgba(0, 196, 10, 0.3)";
         message.style.border = "2px solid #28a745";
         message.innerHTML = "Wlew lody włoskie";
+        fetchLicznik();
 
         setTimeout(() => {
           message.style.opacity = 0;
@@ -248,7 +257,53 @@ document.querySelector(".reset-wloskie").addEventListener("click", () => {
     }
   }
   resetWloskie();
-  fetchLicznik();
+});
+
+document.querySelector(".reset-kawa").addEventListener("click", () => {
+  async function resetKawa() {
+    const token = localStorage.getItem("token");
+    const decoded = parseJwt(token);
+
+    const sklepId = decoded.sklepId;
+    const typ = 2;
+    try {
+      const response = await fetch(
+        `${CONFIG.URL}/api/resetuj-licznik/${sklepId}/${typ}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ sklepId, typ }),
+        }
+      );
+
+      if (response.ok) {
+        const message = document.getElementById("message");
+        message.style.opacity = 1;
+        message.style.background = "rgba(0, 196, 10, 0.3)";
+        message.style.border = "2px solid #28a745";
+        message.innerHTML = "Wlew kawa";
+        fetchLicznikKawa();
+
+        setTimeout(() => {
+          message.style.opacity = 0;
+        }, 2000);
+      } else {
+        message.style.opacity = 1;
+        message.style.background = "rgba(255, 0, 0, 0.3)";
+        message.style.border = "2px solid #dc3545";
+        message.innerHTML = "Błąd zapisu wlewu włoskie";
+
+        setTimeout(() => {
+          message.style.opacity = 0;
+        }, 10000);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  resetKawa();
 });
 
 async function zapiszWydanie(formaPlatnosci) {
@@ -267,14 +322,13 @@ async function zapiszWydanie(formaPlatnosci) {
     const cena = parseFloat(row.querySelector(".cena").textContent);
     const nazwa = row.querySelector("td:nth-child(2)").textContent;
 
-    // Określenie typu w zależności od nazwy towaru
-    let typ = 0; // Domyślnie typ = 0 (np. inne towary)
+    let typ = 0;
     if (nazwa.includes("Lody Włoskie")) {
-      typ = 1; // Typ 1 dla lodów włoskich
+      typ = 1;
     } else if (nazwa.includes("Kawa")) {
-      typ = 2; // Typ 2 dla kawy
+      typ = 2;
     }
-
+    console.log(typ);
     let rozmiar = "none";
     if (nazwa.includes("Lody Włoskie Małe")) {
       rozmiar = "mala";
@@ -289,14 +343,13 @@ async function zapiszWydanie(formaPlatnosci) {
       pozostalyTowarId: towarId ? parseInt(towarId) : null,
       ilosc,
       cena,
-      typ, // Dodajemy typ do obiektu pozycji
+      typ,
       rozmiar,
     });
   });
 
-  // Odczyt liczników przed zapisem
-  let licznikLodyWloskie = await odczytajLicznik(sklepId, 1); // Typ = 1 dla lodów włoskich
-  let licznikKawa = await odczytajLicznik(sklepId, 2); // Typ = 2 dla kawy
+  let licznikLodyWloskie = await odczytajLicznik(sklepId, 1);
+  let licznikKawa = await odczytajLicznik(sklepId, 2);
 
   try {
     const response = await fetch(`${CONFIG.URL}/api/zapisz-wydanie`, {
@@ -313,29 +366,6 @@ async function zapiszWydanie(formaPlatnosci) {
     const data = await response.json();
 
     if (response.ok) {
-      let sumaLodyWloskie = 0;
-      document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
-        const nazwa = row.querySelector("td:nth-child(2)").textContent;
-        const ilosc = parseInt(row.querySelector(".ilosc").textContent);
-        if (nazwa.includes("Lody Włoskie Małe")) {
-          sumaLodyWloskie += ilosc * 1;
-        } else if (nazwa.includes("Lody Włoskie Duże")) {
-          sumaLodyWloskie += ilosc * 2;
-        }
-      });
-      licznikLodyWloskie = Math.max(0, licznikLodyWloskie - sumaLodyWloskie);
-
-      let sumaKawa = 0;
-      document.querySelectorAll("#pozycje-wydania-tbody tr").forEach((row) => {
-        const nazwaKawa = row.querySelector("td:nth-child(2)").textContent;
-        const iloscKawa = parseInt(row.querySelector(".ilosc").textContent);
-        if (nazwaKawa.includes("Kawa")) {
-          sumaKawa += iloscKawa * 1;
-        }
-      });
-      licznikKawa = Math.max(0, licznikKawa - sumaKawa);
-
-      // Czyszczenie tabeli po zapisaniu
       document.getElementById("pozycje-wydania-tbody").innerHTML = "";
       document.getElementById("wartosc-wydania").innerHTML = "0.00 zł";
       const message = document.getElementById("message");
@@ -345,6 +375,7 @@ async function zapiszWydanie(formaPlatnosci) {
       message.innerHTML = "Paragon zapisany";
 
       fetchLicznik();
+      fetchLicznikKawa();
 
       setTimeout(() => {
         message.style.opacity = 0;
@@ -364,11 +395,10 @@ async function zapiszWydanie(formaPlatnosci) {
   }
 }
 
-// Funkcja do odczytywania liczników z API
 async function odczytajLicznik(sklepId, typ) {
   try {
     const response = await fetch(
-      `${CONFIG.URL}/api/odczytaj-licznik-wloskie/${sklepId}/${typ}`
+      `${CONFIG.URL}/api/odczytaj-licznik/${sklepId}/${typ}`
     );
     if (response.ok) {
       const data = await response.json();
@@ -462,16 +492,6 @@ let poziomKawa = 100;
 
 const licznik = document.querySelector(".licznik-wypelnienie");
 const licznikKawa = document.querySelector(".licznik-wypelnienie-kawa");
-
-function aktualizujLicznikKawa() {
-  licznikKawa.style.height = poziomKawa + "%";
-  licznikKawa.textContent = poziomKawa + "%";
-}
-
-document.querySelector("button.reset-kawa").addEventListener("click", () => {
-  poziomKawa = 100;
-  aktualizujLicznikKawa();
-});
 
 const buttons = document.querySelectorAll("button.lody-rzemieslnicze-smak");
 const buttonsPozostale = document.querySelectorAll("button.dodatek");

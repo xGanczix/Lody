@@ -60,7 +60,6 @@ create table if not exists Kuwety(
 	KuwPorcje int not null,
 	KuwSklId int,
 	KuwStatus boolean not null default 1,
-	KuwStatusZamowienia boolean not null default 1,
 	KuwDataZmiany datetime default now()
 );
 
@@ -93,13 +92,13 @@ create table if not exists KuwetyStatusZamowienia(
 	KuwStatZamDataZmiany datetime not null default now()
 );
 
-CREATE TABLE IF NOT EXISTS DokumentyNumeracja (
-  DokNumSklepId INT NOT NULL,
-  DokNumRok INT NOT NULL,
-  DokNumTyp int NOT NULL,
-  DokNumOstatniNr INT DEFAULT 0,
-  PRIMARY KEY (DokNumSklepId, DokNumRok, DokNumTyp)
-);
+	CREATE TABLE IF NOT EXISTS DokumentyNumeracja (
+	DokNumSklepId INT NOT NULL,
+	DokNumRok INT NOT NULL,
+	DokNumTyp int NOT NULL,
+	DokNumOstatniNr INT DEFAULT 0,
+	PRIMARY KEY (DokNumSklepId, DokNumRok, DokNumTyp)
+	);
 
 
 create table if not exists DokumentyPozycje(
@@ -133,7 +132,7 @@ create table if not exists Ceny(
 	CDataZmiany datetime not null default now()
 );
 
-create table Zamowienia (
+create table if not exists Zamowienia (
 	ZamId int not null primary key auto_increment,
 	ZamNr varchar(255) not null,
 	ZamAutorId int not null,
@@ -145,7 +144,7 @@ create table Zamowienia (
 	ZamDataZmiany datetime not null default now()
 );
 
-create table ZamowieniaPozycje (
+create table if not exists ZamowieniaPozycje (
 	ZamPozId int not null primary key auto_increment,
 	ZamPozZamId int not null,
 	ZamPozTowar varchar(255) not null,
@@ -153,7 +152,7 @@ create table ZamowieniaPozycje (
 	ZamPozIsSmak boolean not null
 );
 
-CREATE TABLE Liczniki (
+CREATE TABLE if not exists Liczniki (
   LId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   LSklId INT NOT NULL,
   LTyp INT NOT NULL,
@@ -161,4 +160,11 @@ CREATE TABLE Liczniki (
   LDataUtworzenia DATETIME NOT NULL DEFAULT NOW(),
   LDataZmiany DATETIME NOT NULL DEFAULT NOW(),
   UNIQUE KEY uniq_sklep_typ (LSklId, LTyp)
+);
+
+create table if not exists Wlewy (
+	WlewId int not null primary key auto_increment,
+	WlewSklepId int not null,
+	WlewTyp int not null,
+	WlewData datetime not null default now()
 );

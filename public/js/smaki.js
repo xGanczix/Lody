@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${smak.SmkId}</td>
           <td>${smak.SmkNazwa}</td>
           <td style="width: 150px">
             <div class="smak-background-color" style="background:${smak.SmkKolor}; padding: 2px">

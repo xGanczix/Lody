@@ -1,0 +1,18 @@
+[2025-05-13 00:00:02] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 00:00:02] [INFO] Połączono z MariaDB
+[2025-05-13 00:00:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 00:00:53] [INFO] Połączono z MariaDB
+[2025-05-13 00:01:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 00:01:07] [INFO] Połączono z MariaDB
+[2025-05-13 00:01:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 00:01:38] [INFO] Połączono z MariaDB
+[2025-05-13 00:01:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 00:01:52] [INFO] Połączono z MariaDB
+[2025-05-13 00:02:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 00:02:07] [INFO] Połączono z MariaDB
+[2025-05-13 00:02:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 00:02:20] [INFO] Połączono z MariaDB
+[2025-05-13 01:34:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-13 01:34:44] [INFO] Połączono z MariaDB
+[2025-05-13 01:34:56] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-13 01:41:43] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)

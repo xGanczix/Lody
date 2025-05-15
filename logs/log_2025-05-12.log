@@ -113,3 +113,156 @@
 [2025-05-12 14:57:26] [INFO] Połączono z MariaDB
 [2025-05-12 14:57:42] [INFO] Zalogowano: jk (Sklep: Sklep 2)
 [2025-05-12 14:58:01] [INFO] Ułożenie dodano pomyślnie: SKLEP: 2 = KUWETA1: 26 | KUWETA2: 21 | KUWETA3: undefined | KUWETA4: 20 | KUWETA5: 2 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-12 15:50:39] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-12 22:35:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:35:26] [INFO] Połączono z MariaDB
+[2025-05-12 22:36:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:36:03] [INFO] Połączono z MariaDB
+[2025-05-12 22:36:11] [INFO] Zalogowano: jk (Sklep: Sklep 2)
+[2025-05-12 22:36:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:36:30] [INFO] Połączono z MariaDB
+[2025-05-12 22:36:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:36:43] [INFO] Połączono z MariaDB
+[2025-05-12 22:37:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:37:03] [INFO] Połączono z MariaDB
+[2025-05-12 22:37:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:37:34] [INFO] Połączono z MariaDB
+[2025-05-12 22:37:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:37:44] [INFO] Połączono z MariaDB
+[2025-05-12 22:37:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:37:55] [INFO] Połączono z MariaDB
+[2025-05-12 22:38:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:38:13] [INFO] Połączono z MariaDB
+[2025-05-12 22:39:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:39:43] [INFO] Połączono z MariaDB
+[2025-05-12 22:39:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:39:49] [INFO] Połączono z MariaDB
+[2025-05-12 22:40:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:40:06] [INFO] Połączono z MariaDB
+[2025-05-12 22:40:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:40:09] [INFO] Połączono z MariaDB
+[2025-05-12 22:40:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:40:51] [INFO] Połączono z MariaDB
+[2025-05-12 22:40:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:40:55] [INFO] Połączono z MariaDB
+[2025-05-12 22:41:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:41:03] [INFO] Połączono z MariaDB
+[2025-05-12 22:41:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:41:08] [INFO] Połączono z MariaDB
+[2025-05-12 22:41:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:41:26] [INFO] Połączono z MariaDB
+[2025-05-12 22:41:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:41:33] [INFO] Połączono z MariaDB
+[2025-05-12 22:43:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:43:18] [INFO] Połączono z MariaDB
+[2025-05-12 22:44:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:44:31] [INFO] Połączono z MariaDB
+[2025-05-12 22:44:31] [ERROR] Błąd resetowania licznika lodów włoskich: TypeError: res.status(...).message is not a function
+[2025-05-12 22:44:33] [ERROR] Błąd resetowania licznika lodów włoskich: TypeError: res.status(...).message is not a function
+[2025-05-12 22:44:37] [ERROR] Błąd resetowania licznika lodów włoskich: TypeError: res.status(...).message is not a function
+[2025-05-12 22:45:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:45:29] [INFO] Połączono z MariaDB
+[2025-05-12 22:53:16] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:53:16] [INFO] Połączono z MariaDB
+[2025-05-12 22:55:37] [ERROR] Błąd resetowania licznika lodów włoskich: SqlError: (conn:3259, no: 1054, SQLState: 42S22) Unknown column 'WlewTyp' in 'INSERT INTO'
+sql: 
+      insert into Wlewy (WlewSklepId, WlewTyp, WlewData) values (?,?,now()) - parameters:['2','1']
+[2025-05-12 22:55:39] [ERROR] Błąd resetowania licznika lodów włoskich: SqlError: (conn:3261, no: 1054, SQLState: 42S22) Unknown column 'WlewTyp' in 'INSERT INTO'
+sql: 
+      insert into Wlewy (WlewSklepId, WlewTyp, WlewData) values (?,?,now()) - parameters:['2','1']
+[2025-05-12 22:55:40] [ERROR] Błąd resetowania licznika lodów włoskich: SqlError: (conn:3263, no: 1054, SQLState: 42S22) Unknown column 'WlewTyp' in 'INSERT INTO'
+sql: 
+      insert into Wlewy (WlewSklepId, WlewTyp, WlewData) values (?,?,now()) - parameters:['2','1']
+[2025-05-12 22:55:41] [ERROR] Błąd resetowania licznika lodów włoskich: SqlError: (conn:3265, no: 1054, SQLState: 42S22) Unknown column 'WlewTyp' in 'INSERT INTO'
+sql: 
+      insert into Wlewy (WlewSklepId, WlewTyp, WlewData) values (?,?,now()) - parameters:['2','1']
+[2025-05-12 22:55:48] [ERROR] Błąd resetowania licznika lodów włoskich: SqlError: (conn:3267, no: 1054, SQLState: 42S22) Unknown column 'WlewTyp' in 'INSERT INTO'
+sql: 
+      insert into Wlewy (WlewSklepId, WlewTyp, WlewData) values (?,?,now()) - parameters:['2','1']
+[2025-05-12 22:55:49] [ERROR] Błąd resetowania licznika lodów włoskich: SqlError: (conn:3269, no: 1054, SQLState: 42S22) Unknown column 'WlewTyp' in 'INSERT INTO'
+sql: 
+      insert into Wlewy (WlewSklepId, WlewTyp, WlewData) values (?,?,now()) - parameters:['2','1']
+[2025-05-12 22:56:31] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-12 22:56:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:56:33] [INFO] Połączono z MariaDB
+[2025-05-12 22:58:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 22:58:30] [INFO] Połączono z MariaDB
+[2025-05-12 23:01:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:01:06] [INFO] Połączono z MariaDB
+[2025-05-12 23:02:06] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-12 23:15:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:15:51] [INFO] Połączono z MariaDB
+[2025-05-12 23:18:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:18:41] [INFO] Połączono z MariaDB
+[2025-05-12 23:20:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:20:20] [INFO] Połączono z MariaDB
+[2025-05-12 23:24:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:24:05] [INFO] Połączono z MariaDB
+[2025-05-12 23:25:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:25:53] [INFO] Połączono z MariaDB
+[2025-05-12 23:27:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:27:41] [INFO] Połączono z MariaDB
+[2025-05-12 23:28:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:28:31] [INFO] Połączono z MariaDB
+[2025-05-12 23:28:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:28:34] [INFO] Połączono z MariaDB
+[2025-05-12 23:28:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:28:46] [INFO] Połączono z MariaDB
+[2025-05-12 23:29:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:29:10] [INFO] Połączono z MariaDB
+[2025-05-12 23:29:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:29:29] [INFO] Połączono z MariaDB
+[2025-05-12 23:30:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:30:07] [INFO] Połączono z MariaDB
+[2025-05-12 23:31:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:31:52] [INFO] Połączono z MariaDB
+[2025-05-12 23:32:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:32:10] [INFO] Połączono z MariaDB
+[2025-05-12 23:32:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:32:25] [INFO] Połączono z MariaDB
+[2025-05-12 23:32:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:32:48] [INFO] Połączono z MariaDB
+[2025-05-12 23:35:27] [INFO] Zalogowano: jk (Sklep: Sklep 2)
+[2025-05-12 23:36:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:36:33] [INFO] Połączono z MariaDB
+[2025-05-12 23:36:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:36:39] [INFO] Połączono z MariaDB
+[2025-05-12 23:36:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:36:44] [INFO] Połączono z MariaDB
+[2025-05-12 23:36:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:36:47] [INFO] Połączono z MariaDB
+[2025-05-12 23:36:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:36:57] [INFO] Połączono z MariaDB
+[2025-05-12 23:37:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:37:40] [INFO] Połączono z MariaDB
+[2025-05-12 23:39:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:39:06] [INFO] Połączono z MariaDB
+[2025-05-12 23:40:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:40:05] [INFO] Połączono z MariaDB
+[2025-05-12 23:40:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:40:41] [INFO] Połączono z MariaDB
+[2025-05-12 23:41:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:41:11] [INFO] Połączono z MariaDB
+[2025-05-12 23:43:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:43:36] [INFO] Połączono z MariaDB
+[2025-05-12 23:45:12] [INFO] Zalogowano Serwis
+[2025-05-12 23:45:26] [INFO] Zalogowano: mati
+[2025-05-12 23:45:37] [INFO] Zalogowano: jk
+[2025-05-12 23:53:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:53:25] [INFO] Połączono z MariaDB
+[2025-05-12 23:54:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:54:58] [INFO] Połączono z MariaDB
+[2025-05-12 23:56:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:56:20] [INFO] Połączono z MariaDB
+[2025-05-12 23:56:43] [ERROR] Błąd połączenia z MariaDB: SqlError: (conn:4895, no: 1064, SQLState: 42000) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from ZamowieniaPozycje as zp left join Zamowienia as z on z.ZamId = zp.ZamPoz...' at line 1
+sql: select * from ZamowieniaPozycje as zp left join Zamowienia as z on z.ZamId = zp.ZamPozZamIdselect * from ZamowieniaPozycje as zp left join Zamowienia as z on z.ZamId = zp.ZamPozZamId left join Sklepy as s on s.SklId = z.ZamSklId where ZamPozZamId = ? - par...
+[2025-05-12 23:57:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:57:20] [INFO] Połączono z MariaDB
+[2025-05-12 23:57:51] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:57:51] [INFO] Połączono z MariaDB
+[2025-05-12 23:58:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:58:05] [INFO] Połączono z MariaDB
+[2025-05-12 23:59:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:59:09] [INFO] Połączono z MariaDB
+[2025-05-12 23:59:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-12 23:59:43] [INFO] Połączono z MariaDB

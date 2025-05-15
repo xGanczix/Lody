@@ -363,11 +363,11 @@ app.get("/api/smaki", async (req, res) => {
 
     let sql = "SELECT * FROM Smaki";
     if (status === "aktywne") {
-      sql += " WHERE SmkStatus = 1 ORDER BY SmkStatus DESC, SmkId";
+      sql += " WHERE SmkStatus = 1 ORDER BY SmkStatus DESC, SmkNazwa";
     } else if (status === "usuniete") {
-      sql += " WHERE SmkStatus = 0 ORDER BY SmkStatus DESC, SmkId";
+      sql += " WHERE SmkStatus = 0 ORDER BY SmkStatus DESC, SmkNazwa";
     } else {
-      sql += " ORDER BY SmkStatus DESC, SmkId";
+      sql += " ORDER BY SmkStatus DESC, SmkNazwa";
     }
 
     const data = await connection.query(sql);
@@ -747,7 +747,6 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
       return res.status(400).json({ error: errorMessages.join(" ") });
     }
 
-    // Wstawienie rekordu do tabeli Sklepy
     const result = await connection.query(
       "INSERT INTO Sklepy (SklNazwa,SklUlica,SklNumer,SklKod,SklMiejscowosc,SklPojemnosc) VALUES (?,?,?,?,?,?)",
       [
@@ -760,9 +759,8 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
       ]
     );
 
-    const sklepId = result.insertId; // Id nowo dodanego sklepu
+    const sklepId = result.insertId;
 
-    // Wstawienie rekordu do tabeli Ulozenie
     await connection.query("INSERT INTO Ulozenie (USklId) VALUES (?)", [
       sklepId,
     ]);
@@ -850,7 +848,6 @@ app.get("/api/kuwety", async (req, res) => {
     connection = await dbConfig.getConnection();
 
     const status = req.query.status || "aktywne";
-    const przypisanie = req.query.przypisanie || "nieprzypisane";
 
     let sql = `
     select
@@ -861,8 +858,9 @@ app.get("/api/kuwety", async (req, res) => {
 	    r.RozPojemnosc as KuwRozmiarIlosc,
 	    k.KuwPorcje,
 	    k.KuwStatus,
-      k.KuwStatusZamowienia,
       sk.SklNazwa as KuwSklNazwa,
+      s.SmkKolor,
+      s.SmkTekstKolor,
       ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) AS KuwProcent
     from
 	    Kuwety as k
@@ -871,11 +869,11 @@ app.get("/api/kuwety", async (req, res) => {
 	  left join Sklepy as sk on sk.SklId = k.KuwSklId`;
     if (status === "aktywne") {
       sql +=
-        " WHERE k.KuwStatus = 1 AND k.KuwPorcje > 0 ORDER BY k.KuwStatus DESC, k.KuwId";
+        " WHERE k.KuwStatus = 1 AND k.KuwPorcje > 0 ORDER BY k.KuwStatus DESC, s.SmkNazwa";
     } else if (status === "usuniete") {
-      sql += " WHERE k.KuwStatus = 0 ORDER BY k.KuwStatus DESC, k.KuwId";
+      sql += " WHERE k.KuwStatus = 0 ORDER BY k.KuwStatus DESC, s.SmkNazwa";
     } else {
-      sql += " ORDER BY k.KuwStatus DESC, k.KuwId";
+      sql += " ORDER BY k.KuwStatus DESC, s.SmkNazwa";
     }
 
     const data = await connection.query(sql);
@@ -1227,7 +1225,7 @@ app.get("/api/status-kuwet/:sklepId", async (req, res) => {
 	    r.RozPojemnosc as KuwRozmiarIlosc,
 	    k.KuwPorcje,
 	    k.KuwStatus,
-      k.KuwStatusZamowienia,
+      k.KuwOdebrano,
       sk.SklNazwa as KuwSklNazwa,
       ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) AS KuwProcent
     from
@@ -1235,7 +1233,7 @@ app.get("/api/status-kuwet/:sklepId", async (req, res) => {
 	  left join Rozmiary as r on r.RozId = k.KuwRozId
 	  left join Smaki as s on s.SmkId = k.KuwSmkId
 	  left join Sklepy as sk on sk.SklId = k.KuwSklId
-	  where k.KuwSklId = ?
+	  where k.KuwSklId = ? and k.KuwStatus = 1 and k.KuwOdebrano = 0
     order by k.KuwPorcje, s.SmkNazwa
 	  `;
     const data = await connection.query(sql, sklepId);
@@ -1528,7 +1526,7 @@ app.get("/api/kuwety-dostepne-centrala", async (req, res) => {
 	  left join Rozmiary as r on r.RozId = k.KuwRozId
 	  left join Smaki as s on s.SmkId = k.KuwSmkId
 	  left join Sklepy as sk on sk.SklId = k.KuwSklId
-    where sk.SklNazwa is null and k.KuwStatusZamowienia = 1`;
+    where sk.SklNazwa is null and k.KuwStatus = 0`;
 
     const data = await connection.query(sql);
     res.json(data);
@@ -1985,11 +1983,9 @@ const getRozmiary = async (connection) => {
     "SELECT RozId, RozNazwa FROM Rozmiary"
   );
 
-  // Jeśli wynik jest obiektem, sprawdź czy zwrócił jedną tabelę
   if (!Array.isArray(rozmiary)) {
     console.log("rozmiary nie są tablicą, ale obiektem:", rozmiary);
-    // Możesz również spróbować wypisać rozmiary w inny sposób:
-    rozmiary = [rozmiary]; // Wymusza traktowanie jako tablica
+    rozmiary = [rozmiary];
   }
 
   return rozmiary;
@@ -2101,14 +2097,13 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
 
     const numerDokumentu = await generujNumerDokumentu(sklepId);
 
-    // Zapisanie nagłówka dokumentu
     const result = await dbConfig.query(
       "INSERT INTO Dokumenty (DokNr, DokSklepId, DokFormaPlatnosci, DokAutorId, DokTyp) VALUES (?, ?, ?, ?, 1)",
       [numerDokumentu, sklepId, platnosc, autorId]
     );
 
     const dokumentId = result.insertId;
-    const zmianyLicznikow = {}; // typ => suma zużycia
+    const zmianyLicznikow = {};
 
     for (const pozycja of pozycje) {
       const { towId, pozostalyTowarId, ilosc, cena, typ, rozmiar } = pozycja;
@@ -2121,16 +2116,16 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
       let procentZuzycia = 1;
       let zuzycie = 0;
 
-      // Tylko lody włoskie (typ 1) aktualizują licznik
       if (typ === 1) {
         if (rozmiar === "mala") procentZuzycia = 100 / 52;
         else if (rozmiar === "duza") procentZuzycia = 100 / 35;
         else console.warn("Nieznany rozmiar porcji lodów włoskich:", rozmiar);
 
         zuzycie = Math.round(ilosc * procentZuzycia);
+      } else if (typ === 2) {
+        zuzycie = Math.round(ilosc * 1);
       }
 
-      // Zapis pozycji
       await dbConfig.query(
         `INSERT INTO DokumentyPozycje 
           (DokPozDokId, DokPozTowId, DokPozPozostalyTowId, DokPozTowIlosc, DokPozCena) 
@@ -2138,7 +2133,6 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
         [dokumentId, towId || null, pozostalyTowarId || null, ilosc, cena]
       );
 
-      // Aktualizacja stanu kuwet, jeśli dotyczy
       if (towId) {
         await dbConfig.query(
           "UPDATE Kuwety SET KuwPorcje = KuwPorcje - ? WHERE KuwId = ?",
@@ -2146,14 +2140,15 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
         );
       }
 
-      // Aktualizacja liczników tylko dla lodów włoskich
       if (typ === 1) {
+        if (!zmianyLicznikow[typ]) zmianyLicznikow[typ] = 0;
+        zmianyLicznikow[typ] += zuzycie;
+      } else if (typ === 2) {
         if (!zmianyLicznikow[typ]) zmianyLicznikow[typ] = 0;
         zmianyLicznikow[typ] += zuzycie;
       }
     }
 
-    // Aktualizacja liczników (tylko typy z zużyciem)
     for (const [typ, zmiana] of Object.entries(zmianyLicznikow)) {
       await dbConfig.query(
         `INSERT INTO Liczniki (LSklId, LTyp, LWartosc)
@@ -2172,67 +2167,9 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
   }
 });
 
-// Endpoint do odczytywania liczników
-app.get("/api/odczytaj-licznik", async (req, res) => {
-  const { sklepId, typ } = req.query;
-
-  if (!sklepId || !typ) {
-    return res
-      .status(400)
-      .json({ error: "Brak wymaganych parametrów: sklepId i typ" });
-  }
-
-  try {
-    // Zapytanie do bazy danych, aby odczytać licznik
-    const result = await dbConfig.query(
-      "SELECT LWartosc FROM Liczniki WHERE LSklId = ? AND LTyp = ?",
-      [sklepId, typ]
-    );
-
-    if (result.length === 0) {
-      return res.status(404).json({ error: "Licznik nie znaleziony" });
-    }
-
-    // Zwracamy wartość licznika
-    res.status(200).json({ LWartosc: result[0].LWartosc });
-  } catch (err) {
-    console.error("Błąd odczytu licznika:", err);
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
-    res.status(500).json({ error: "Błąd serwera" });
-  }
-});
-
-app.get("/api/odczytaj-licznik", async (req, res) => {
-  const { sklepId, typ } = req.query;
-
-  if (!sklepId || !typ) {
-    return res
-      .status(400)
-      .json({ error: "Brak wymaganych parametrów: sklepId i typ" });
-  }
-
-  try {
-    const result = await dbConfig.query(
-      "SELECT LWartosc FROM Liczniki WHERE LSklId = ? AND LTyp = ?",
-      [sklepId, typ]
-    );
-
-    if (result.length === 0) {
-      return res.status(404).json({ error: "Licznik nie znaleziony" });
-    }
-
-    // Zwracamy wartość licznika
-    res.status(200).json({ LWartosc: result[0].LWartosc });
-  } catch (err) {
-    console.error("Błąd odczytu licznika:", err);
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
-    res.status(500).json({ error: "Błąd serwera" });
-  }
-});
-
 app.get("/api/rcp-uzytkownik/:uzytkownikId", async (req, res) => {
   const { uzytkownikId } = req.params;
-  const { startDate, endDate } = req.query; // Pobranie daty z query
+  const { startDate, endDate } = req.query;
   let connection;
   try {
     connection = await dbConfig.getConnection();
@@ -2988,7 +2925,16 @@ app.get("/api/zamowienia-szczegoly/:zamowienieId", async (req, res) => {
   let connection;
   try {
     connection = await dbConfig.getConnection();
-    let sql = `select * from ZamowieniaPozycje where ZamPozZamId = ?`;
+    let sql = `
+    select
+	*
+from
+	ZamowieniaPozycje as zp
+left join Zamowienia as z on
+	z.ZamId = zp.ZamPozZamId
+left join Sklepy as s on
+	s.SklId = z.ZamSklId
+    where ZamPozZamId = ?`;
     const data = await connection.query(sql, zamowienieId);
     res.json(data);
   } catch (err) {
@@ -3013,7 +2959,7 @@ app.put("/api/zamowienie-zrealizuj/:zamowienieId", async (req, res) => {
   }
 });
 
-app.get("/api/odczytaj-licznik-wloskie/:sklepId/:typ", async (req, res) => {
+app.get("/api/odczytaj-licznik/:sklepId/:typ", async (req, res) => {
   const sklepId = req.params.sklepId;
   const typ = req.params.typ;
   let connection;
@@ -3033,19 +2979,32 @@ app.get("/api/odczytaj-licznik-wloskie/:sklepId/:typ", async (req, res) => {
   }
 });
 
-app.put("/api/resetuj-licznik-wloskie/:sklepId/:typ", async (req, res) => {
+app.put("/api/resetuj-licznik/:sklepId/:typ", async (req, res) => {
   const sklep = req.params.sklepId;
   const typ = req.params.typ;
   let connection;
+
   try {
     connection = await dbConfig.getConnection();
-    let sql = `
-      update Liczniki set LWartosc = 100 where LSklId = ? and LTyp = ?
+    await connection.beginTransaction();
+
+    const updateSql = `
+      UPDATE Liczniki SET LWartosc = 100 WHERE LSklId = ? AND LTyp = ?
     `;
-    await connection.query(sql, [sklep, typ]);
+    await connection.query(updateSql, [sklep, typ]);
+
+    const insertSql = `
+      INSERT INTO Wlewy (WlewSklepId, WlewTyp, WlewData) VALUES (?, ?, NOW())
+    `;
+    await connection.query(insertSql, [sklep, typ]);
+
+    await connection.commit();
+    res.status(201).json({ message: "Licznik zresetowany i wlew zapisany" });
   } catch (err) {
+    if (connection) await connection.rollback();
     logToFile(`[ERROR] Błąd resetowania licznika lodów włoskich: ${err}`);
-    console.log(err);
+    console.error(err);
+    res.status(500).json({ error: "Błąd podczas resetowania licznika." });
   } finally {
     if (connection) connection.release();
   }

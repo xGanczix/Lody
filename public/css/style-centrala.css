@@ -363,6 +363,14 @@ table#centrala-puste-kuwety tbody tr {
   table-layout: fixed;
 }
 
+table#centrala-kuwety tbody tr td:nth-child(2) {
+  border-radius: 10px;
+}
+
+table#centrala-kuwety tbody tr {
+  margin-top: 5px;
+}
+
 table#centrala-smaki tbody td,
 table#centrala-uzytkownicy tbody td,
 table#centrala-rozmiary tbody td,
@@ -410,13 +418,11 @@ table#centrala-puste-kuwety thead th:last-child {
   border-radius: 0 10px 0 0;
 }
 
-table#centrala-smaki thead th:first-child,
 table#centrala-uzytkownicy thead th:first-child,
 table#centrala-rozmiary thead th:first-child,
 table#centrala-sklepy thead th:first-child,
 table#centrala-kuwety thead th:first-child,
 table#centrala-ceny thead th:first-child,
-table#centrala-smaki tbody td:first-child,
 table#centrala-uzytkownicy tbody td:first-child,
 table#centrala-rozmiary tbody td:first-child,
 table#centrala-sklepy tbody td:first-child,

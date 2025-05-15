@@ -93,27 +93,22 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       });
 
-      // Dwuklik na kuwetę, aby usunąć przypisanie smaku
       kuweta.addEventListener("dblclick", () => {
         const kuwetaId = kuweta.id.replace("kuweta", "");
         const przypisanySmakId = ulozenieData[`UKuw${kuwetaId}Id`];
 
         if (przypisanySmakId) {
-          // Przywrócenie kuwetki na listę
           const przypisanySmak = kuwetData.find(
             (item) => item.Id === przypisanySmakId
           );
           if (przypisanySmak) {
-            // Zmieniamy wygląd kuwety na domyślny
             kuweta.style.backgroundColor = "";
             kuweta.style.color = "";
             kuweta.textContent = "";
 
-            // Usuwamy przypisanie smaku z obiektu przypisanych smaków
             delete przypisaneSmaki[`kuweta${kuwetaId}`];
             przypisaneSmakiSet.delete(przypisanySmakId);
 
-            // Przywrócenie smaku do listy
             const row = document.createElement("tr");
             row.classList.add("kuweta-item");
             row.setAttribute("id", `list-${przypisanySmak.Id}`);
@@ -171,7 +166,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
 
-    // Zapisz zmiany w bazie
     const zapiszMenuButton = document.getElementById("ulozenie-zapisz-menu");
     zapiszMenuButton.addEventListener("click", async () => {
       try {

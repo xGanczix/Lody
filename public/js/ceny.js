@@ -117,7 +117,6 @@ function sortTable(column, direction) {
     let aText = aCell.textContent.trim();
     let bText = bCell.textContent.trim();
 
-    // Jeśli komórka zawiera input, użyj wartości inputu
     if (aCell.querySelector("input")) {
       aText = aCell.querySelector("input").value;
     }

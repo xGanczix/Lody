@@ -33,7 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const row = document.createElement("tr");
         row.innerHTML = `
                 <td>${kuweta.KuwId}</td>
-                <td>${kuweta.KuwSmakNazwa}</td>
+                <td style="background: ${kuweta.SmkKolor}; color: ${
+          kuweta.SmkTekstKolor
+        }">${kuweta.KuwSmakNazwa}</td>
                 <td>${kuweta.KuwRozmiarIlosc}</td>
                 <td>${kuweta.KuwPorcje}</td>
                 <td>
@@ -45,11 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </td>
                 <td>${
-                  kuweta.KuwSklNazwa !== null
-                    ? kuweta.KuwSklNazwa
-                    : kuweta.KuwStatusZamowienia === 3
-                    ? "⚠️ BUFOR ⚠️"
-                    : ""
+                  kuweta.KuwSklNazwa !== null ? kuweta.KuwSklNazwa : ""
                 }</td>
                 <td>${statusText}</td>
                 <td>
