@@ -405,7 +405,7 @@ left join Smaki as s on
 left join Ceny as c on
 	c.CTowId = s.SmkTowId
 where
-	k.KuwSklId = ? and k.KuwStatus = 1 and c.CSklepId = ?`;
+	k.KuwSklId = ? and k.KuwStatus = 1 and c.CSklepId = ? and k.KuwCzySprzedana = 0`;
 
     const data = await connection.query(sql, [sklepId, sklepId]);
     res.json(data);
@@ -848,6 +848,7 @@ app.get("/api/kuwety", async (req, res) => {
     connection = await dbConfig.getConnection();
 
     const status = req.query.status || "aktywne";
+    const przypisanie = req.query.przypisanie || "nieprzypisane";
 
     let sql = `
     select
@@ -868,10 +869,12 @@ app.get("/api/kuwety", async (req, res) => {
 	  left join Smaki as s on s.SmkId = k.KuwSmkId
 	  left join Sklepy as sk on sk.SklId = k.KuwSklId`;
     if (status === "aktywne") {
-      sql +=
-        " WHERE k.KuwStatus = 1 AND k.KuwPorcje > 0 ORDER BY k.KuwStatus DESC, s.SmkNazwa";
+      sql += ` WHERE k.KuwStatus = 1 AND k.KuwPorcje > 0 AND k.KuwCzySprzedana = 0 ORDER BY k.KuwStatus DESC, s.SmkNazwa`;
     } else if (status === "usuniete") {
       sql += " WHERE k.KuwStatus = 0 ORDER BY k.KuwStatus DESC, s.SmkNazwa";
+    } else if (status === "sprzedane") {
+      sql +=
+        " WHERE k.KuwStatus = 1 AND k.KuwCzySprzedana = 1 ORDER BY k.KuwStatus DESC, s.SmkNazwa";
     } else {
       sql += " ORDER BY k.KuwStatus DESC, s.SmkNazwa";
     }

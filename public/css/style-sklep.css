@@ -619,7 +619,8 @@ button.reset-kawa img {
   font-size: 30px;
 }
 
-.zmiana-formy-platnosci-container {
+.zmiana-formy-platnosci-container,
+.pusta-kuweta-container {
   background: rgba(255, 255, 255, 0.5);
   width: 100%;
   height: 100vh;
@@ -635,10 +636,45 @@ button.reset-kawa img {
   opacity: 0;
 }
 
-.formy-platnosci-container {
+.pusta-kuweta-container h2 {
+  font-size: 40px;
+}
+
+.pusta-kuweta-container p {
+  font-size: 30px;
+  margin: 30px;
+  font-weight: 800;
+}
+
+.formy-platnosci-container,
+.pusta-kuweta-confirm-container {
   width: 40%;
   display: flex;
   justify-content: space-between;
+}
+
+.pusta-kuweta-confirm-container #pusta-kuweta-tak,
+.pusta-kuweta-confirm-container #pusta-kuweta-nie {
+  width: calc((100% / 2) - 20px);
+  height: 100%;
+  padding: 40px;
+  font-size: 24px;
+}
+
+.pusta-kuweta-confirm-container #pusta-kuweta-tak {
+  background: var(--green-color);
+}
+
+.pusta-kuweta-confirm-container #pusta-kuweta-tak:hover {
+  background: var(--green-hover-color);
+}
+
+.pusta-kuweta-confirm-container #pusta-kuweta-nie:hover {
+  background: var(--red-hover-color);
+}
+
+.pusta-kuweta-confirm-container #pusta-kuweta-nie {
+  background: var(--red-color);
 }
 
 .formy-platnosci-container #gotowka-zmiana,

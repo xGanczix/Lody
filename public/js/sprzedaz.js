@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+async function zaladujKuwety() {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -27,24 +27,53 @@ document.addEventListener("DOMContentLoaded", async () => {
     document
       .querySelectorAll(".lody-rzemieslnicze-smak")
       .forEach((przycisk, index) => {
+        const nowyPrzycisk = przycisk.cloneNode(true);
+        przycisk.replaceWith(nowyPrzycisk);
+
         const przypisanySmakId = ulozenieData[`UKuw${index + 1}Id`];
         if (przypisanySmakId) {
           const przypisanySmak = kuwetData.find(
             (item) => item.Id === przypisanySmakId
           );
           if (przypisanySmak) {
-            przycisk.style.backgroundColor = przypisanySmak.Kolor;
-            przycisk.style.color = przypisanySmak.TekstKolor;
-            przycisk.textContent = przypisanySmak.Nazwa;
-            przycisk.setAttribute("data-cena", przypisanySmak.CCena);
+            nowyPrzycisk.style.backgroundColor = przypisanySmak.Kolor;
+            nowyPrzycisk.style.color = przypisanySmak.TekstKolor;
+            nowyPrzycisk.textContent = przypisanySmak.Nazwa;
+            nowyPrzycisk.innerHTML += `<br>${przypisanySmak.Porcje}`;
+            nowyPrzycisk.setAttribute("data-porcje", przypisanySmak.Porcje);
+            nowyPrzycisk.setAttribute("data-cena", przypisanySmak.CCena);
 
             const handleClick = () => {
-              const cena = parseFloat(przycisk.getAttribute("data-cena"));
-              dodajDoTabeli(przypisanySmak, cena);
+              const pustaKuwetaContainer = document.querySelector(
+                ".pusta-kuweta-container"
+              );
+              const pustaKuwetaTak =
+                document.getElementById("pusta-kuweta-tak");
+              const pustaKuwetaNie =
+                document.getElementById("pusta-kuweta-nie");
+              let porcje = parseInt(nowyPrzycisk.getAttribute("data-porcje"));
+
+              console.log(porcje);
+              if (porcje <= 0) {
+                pustaKuwetaContainer.style.display = "flex";
+                pustaKuwetaContainer.style.opacity = 1;
+
+                pustaKuwetaTak.addEventListener("click", () => {
+                  pustaKuwetaContainer.style.display = "none";
+                  pustaKuwetaContainer.style.opacity = 0;
+                });
+                pustaKuwetaNie.addEventListener("click", () => {
+                  pustaKuwetaContainer.style.display = "none";
+                  pustaKuwetaContainer.style.opacity = 0;
+                });
+              } else {
+                const cena = parseFloat(nowyPrzycisk.getAttribute("data-cena"));
+                dodajDoTabeli(przypisanySmak, cena);
+              }
             };
 
-            przycisk.addEventListener("click", handleClick);
-            przycisk.addEventListener("touchstart", (e) => {
+            nowyPrzycisk.addEventListener("click", handleClick);
+            nowyPrzycisk.addEventListener("touchstart", (e) => {
               e.preventDefault();
               handleClick();
             });
@@ -82,6 +111,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (err) {
     console.log("Błąd podczas układania kuwet:", err);
   }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  zaladujKuwety();
 });
 
 function dodajDoTabeli(smak, cena) {
@@ -376,6 +409,7 @@ async function zapiszWydanie(formaPlatnosci) {
 
       fetchLicznik();
       fetchLicznikKawa();
+      zaladujKuwety();
 
       setTimeout(() => {
         message.style.opacity = 0;
