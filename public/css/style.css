@@ -64,6 +64,7 @@
   box-sizing: border-box;
   font-family: "Roboto Regular", sans-serif;
   transition: background 0.3s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -231,7 +232,8 @@ html.dark-mode body table#zamowienie-dostepne-smaki thead th,
 html.dark-mode body table#zamowienie-pozostale-towary thead th,
 html.dark-mode body table#zamowienie-pozycje-zamowione thead th,
 html.dark-mode body table#centrala-zamowienia thead th,
-html.dark-mode body table#centrala-puste-kuwety thead th {
+html.dark-mode body table#centrala-puste-kuwety thead th,
+html.dark-mode body button#menu-display:hover {
   background: var(--button-dark-color);
 }
 
@@ -336,4 +338,53 @@ html.dark-mode body .zamowienie-pozycja-anuluj {
 
 html.dark-mode body .zamowienie-pozycja-anuluj:hover {
   background: var(--red-hover-color) !important;
+}
+
+html.dark-mode body span#przydzielanie-nazwa-rozmiaru {
+  color: var(--button-dark-color);
+}
+
+html.dark-mode body #rozmiar-1 {
+  background: #b71c1c;
+  color: #ffcdd2;
+}
+html.dark-mode body #rozmiar-2 {
+  background: #f57f17;
+  color: #fff9c4;
+}
+html.dark-mode body #rozmiar-3 {
+  background: #2e7d32;
+  color: #c8e6c9;
+}
+html.dark-mode body #rozmiar-4 {
+  background: #0d47a1;
+  color: #bbdefb;
+}
+html.dark-mode body #rozmiar-5 {
+  background: #ad1457;
+  color: #f8bbd0;
+}
+html.dark-mode body #rozmiar-6 {
+  background: #e65100;
+  color: #ffe0b2;
+}
+html.dark-mode body #rozmiar-7 {
+  background: #6a1b9a;
+  color: #e1bee7;
+}
+html.dark-mode body #rozmiar-8 {
+  background: #006064;
+  color: #b2ebf2;
+}
+html.dark-mode body #rozmiar-9 {
+  background: #880e4f;
+  color: #f48fb1;
+}
+html.dark-mode body #rozmiar-10 {
+  background: #01579b;
+  color: #b3e5fc;
+}
+
+html.dark-mode body .pusta-kuweta-container {
+  color: var(--text-black-color);
 }

@@ -106,10 +106,19 @@ async function fetchRaportSprzedazSmakiSklep(sklepId) {
     );
     const data = await response.json();
 
-    const iloscSprzedana = data.map((item) => item.iloscSprzedana);
-    const SmkNazwa = data.map((item) => item.SmkNazwa);
-    const SmkKolor = data.map((item) => item.SmkKolor);
-    const SmkTekstKolor = data.map((item) => item.SmkTekstKolor);
+    const validData = data.filter(
+      (item) =>
+        item &&
+        item.iloscSprzedana != null &&
+        item.SmkNazwa != null &&
+        item.SmkKolor != null &&
+        item.SmkTekstKolor != null
+    );
+
+    const iloscSprzedana = validData.map((item) => item.iloscSprzedana);
+    const SmkNazwa = validData.map((item) => item.SmkNazwa);
+    const SmkKolor = validData.map((item) => item.SmkKolor);
+    const SmkTekstKolor = validData.map((item) => item.SmkTekstKolor);
 
     const options = {
       chart: {

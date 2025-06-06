@@ -153,3 +153,23 @@ p#message-login {
   transition: all 0.5s ease-in-out;
   opacity: 0;
 }
+
+button#zmiana-logowania {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  border-radius: 50%;
+  padding: 20px;
+  top: 10px;
+  left: 10px;
+  display: none;
+}
+
+button#zmiana-logowania img {
+  width: 100%;
+}
+
+form#form-login-pin button#pin-zaloguj {
+  display: none;
+  margin-top: 50px;
+}

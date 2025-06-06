@@ -47,6 +47,7 @@ async function fetchCeny(sklepId) {
           <td>${cena.CDataZmiany}</td>
           <td><button class="ceny-edycja-btn" data-towar="${cena.TowId}"><span>Zapisz</span><img src="../img/white/save-white.png" style="display:none"></button></td>
         `;
+
       tableBody.appendChild(row);
     });
 

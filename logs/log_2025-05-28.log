@@ -1,0 +1,582 @@
+[2025-05-28 05:12:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:12:58] [INFO] Połączono z MariaDB
+[2025-05-28 05:13:13] [INFO] Zalogowano: admin (Sklep: Łącko (przedszkole))
+[2025-05-28 05:22:36] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:22:36] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:24:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:24:30] [INFO] Połączono z MariaDB
+[2025-05-28 05:24:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:24:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:24:59] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:24:59] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:24:59] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:24:59] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:25:01] [INFO] Kuweta o ID: 108 została oznaczona jako sprzedana i usunięta z ułożenia w sklepie o ID: 2
+[2025-05-28 05:25:07] [ERROR] Błąd podczas zmiany statusu kuwety: SqlError: (conn:170, no: 1292, SQLState: 22007) Truncated incorrect DECIMAL value: 'null'
+sql: 
+      update Ulozenie set 
+        UKuw1Id = case when UKuw1Id = ? then null else UKuw1Id end,
+        UKuw2Id = case when UKuw2Id = ? then null else UKuw2Id end,
+        UKuw3Id = case when UKuw3Id = ? then null else UKuw3Id end,
+        UKuw4Id = case w...
+[2025-05-28 05:25:11] [ERROR] Błąd podczas zmiany statusu kuwety: SqlError: (conn:171, no: 1292, SQLState: 22007) Truncated incorrect DECIMAL value: 'null'
+sql: 
+      update Ulozenie set 
+        UKuw1Id = case when UKuw1Id = ? then null else UKuw1Id end,
+        UKuw2Id = case when UKuw2Id = ? then null else UKuw2Id end,
+        UKuw3Id = case when UKuw3Id = ? then null else UKuw3Id end,
+        UKuw4Id = case w...
+[2025-05-28 05:26:19] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:26:19] [INFO] Połączono z MariaDB
+[2025-05-28 05:26:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:26:58] [INFO] Połączono z MariaDB
+[2025-05-28 05:27:06] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:27:06] [INFO] Połączono z MariaDB
+[2025-05-28 05:27:10] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:27:10] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:27:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:27:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:27:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:27:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:27:36] [INFO] Kuweta o ID: 175 została oznaczona jako sprzedana i usunięta z ułożenia w sklepie o ID: 2
+[2025-05-28 05:29:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:29:22] [INFO] Połączono z MariaDB
+[2025-05-28 05:30:47] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:30:47] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:31:05] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:31:05] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:31:05] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:31:05] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:31:10] [INFO] Kuweta o ID: 565 została oznaczona jako sprzedana i usunięta z ułożenia w sklepie o ID: 2
+[2025-05-28 05:31:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:31:48] [INFO] Połączono z MariaDB
+[2025-05-28 05:32:01] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:01] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:06] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:06] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:06] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:06] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:09] [INFO] Kuweta o ID: 211 została oznaczona jako sprzedana i usunięta z ułożenia w sklepie o ID: 2
+[2025-05-28 05:32:35] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:35] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:35] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:35] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:49] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:32:49] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 05:51:43] [ERROR] Nieobsłużony błąd: appVersion is not defined
+[2025-05-28 05:51:43] [INFO] Aplikacja zakończyła działanie.
+[2025-05-28 05:52:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 05:52:31] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 05:52:31] [INFO] Połączono z MariaDB
+[2025-05-28 06:06:32] [INFO] Zalogowano: admin (Sklep: Łącko (przedszkole))
+[2025-05-28 06:06:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:06:33] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:06:53] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:06:53] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:06:53] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:06:53] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:07:11] [INFO] Kuweta o ID: 115 została oznaczona jako sprzedana i usunięta z ułożenia w sklepie o ID: 2
+[2025-05-28 06:07:25] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:07:25] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:07:57] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:07:57] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:07:57] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:07:57] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:08:19] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:08:19] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:08:40] [INFO] Zalogowano: admin (Sklep: Łącko (przedszkole))
+[2025-05-28 06:08:41] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:08:41] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:08:55] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:08:55] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:10:38] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:10:38] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:10:45] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:10:45] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:11:37] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-05-28 06:11:39] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:11:39] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:11:53] [INFO] Zalogowano: admin
+[2025-05-28 06:20:19] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:20:19] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:21:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 06:21:58] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 06:21:58] [INFO] Połączono z MariaDB
+[2025-05-28 06:21:59] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:21:59] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:26:22] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:26:22] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:27:01] [INFO] Zalogowano: admin (Sklep: Jurków (Brzesko))
+[2025-05-28 06:27:02] [ERROR] Błąd rejestracji zmiany: SqlError: (conn:529, no: 1449, SQLState: HY000) The user specified as a definer ('app_root'@'localhost') does not exist
+sql: CALL rejestruj_zmiane(?) - parameters:[1]
+[2025-05-28 06:27:08] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:27:08] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:27:19] [INFO] Zalogowano: admin (Sklep: Wielogłowy)
+[2025-05-28 06:27:20] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:27:20] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 06:28:35] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-05-28 06:28:35] [INFO] Aplikacja zakończyła działanie.
+[2025-05-28 06:28:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 06:28:35] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 06:28:35] [INFO] Połączono z MariaDB
+[2025-05-28 06:30:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 06:30:20] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 06:30:20] [INFO] Połączono z MariaDB
+[2025-05-28 06:30:30] [INFO] Zalogowano: admin
+[2025-05-28 06:32:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 06:32:07] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 06:32:07] [INFO] Połączono z MariaDB
+[2025-05-28 06:33:18] [INFO] Zalogowano Serwis
+[2025-05-28 08:07:48] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-05-28 08:07:48] [INFO] Aplikacja zakończyła działanie.
+[2025-05-28 08:07:48] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 08:07:48] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 08:07:48] [INFO] Połączono z MariaDB
+[2025-05-28 10:18:09] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 10:18:09] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 10:18:09] [INFO] Połączono z MariaDB
+[2025-05-28 10:18:13] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:18:21] [INFO] Zalogowano Serwis
+[2025-05-28 10:18:25] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-05-28 10:18:28] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 1 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:28] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 1 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:28] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 1 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:28] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 1 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:28] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 1 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:34] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla użytkownika o ID: 123456789 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:34] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: 123456789 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:35] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla użytkownika o ID: 123456789 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:35] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: 123456789 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:35] [INFO] Pobranie danych do raportu o formach płatności dla użytkownika o ID: 123456789 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:43] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-05-28 10:18:45] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 2 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:45] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 2 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:45] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 2 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:45] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 2 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:18:45] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 2 z zakresu: 2025-05-21 - 2025-05-28
+[2025-05-28 10:26:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 10:26:55] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 10:26:55] [INFO] Połączono z MariaDB
+[2025-05-28 10:28:23] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:28:30] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-05-28 10:28:30] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 10:28:31] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:28:31] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:28:33] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 10:28:34] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:28:37] [INFO] Zalogowano: admin
+[2025-05-28 10:28:42] [INFO] Pobranie danych o smakach
+[2025-05-28 10:28:42] [INFO] Pobranie danych o rozmiarach
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 18, Rozmiar: 2
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 10, Rozmiar: 2
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 11, Rozmiar: 3
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 4, Rozmiar: 3
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 26, Rozmiar: 3
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 7, Rozmiar: 3
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 30, Rozmiar: 3
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 29, Rozmiar: 3
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 1, Rozmiar: 2
+[2025-05-28 10:29:29] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 20, Rozmiar: 3
+[2025-05-28 10:29:30] [INFO] Pobranie danych o kuwetach
+[2025-05-28 10:29:33] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:29:33] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 300 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 301 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 880 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 364 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 202 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 471 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 238 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 915 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 361 do sklepu: 1
+[2025-05-28 10:30:25] [INFO] Przydzielono kuwetę: 566 do sklepu: 1
+[2025-05-28 10:30:27] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:30:27] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-05-28 10:30:28] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:30:32] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-05-28 10:30:32] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 10:30:33] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:30:33] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:30:47] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 202 | KUWETA2: 238 | KUWETA3: 300 | KUWETA4: 361 | KUWETA5: 364 | KUWETA6: 471 | KUWETA7: 566 | KUWETA8: 880 | KUWETA9: 915 | KUWETA10: undefined
+[2025-05-28 10:30:47] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 10:30:49] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:30:53] [INFO] Zalogowano: admin
+[2025-05-28 10:30:56] [INFO] Pobranie danych o kuwetach
+[2025-05-28 10:31:00] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:31:00] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-05-28 10:31:07] [INFO] Przydzielono kuwetę: 217 do sklepu: 1
+[2025-05-28 10:31:08] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:31:08] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-05-28 10:31:09] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:31:13] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-05-28 10:31:13] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 10:31:14] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:31:14] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:31:17] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: 202 | KUWETA2: 238 | KUWETA3: 300 | KUWETA4: 361 | KUWETA5: 364 | KUWETA6: 471 | KUWETA7: 566 | KUWETA8: 880 | KUWETA9: 915 | KUWETA10: 217
+[2025-05-28 10:31:17] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:31:17] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:31:17] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:31:17] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:32:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 10:32:27] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 10:32:27] [INFO] Połączono z MariaDB
+[2025-05-28 10:32:29] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:32:29] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:32:29] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:32:29] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:35:46] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 10:35:46] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 10:35:46] [INFO] Połączono z MariaDB
+[2025-05-28 10:35:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 10:35:49] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 10:35:49] [INFO] Połączono z MariaDB
+[2025-05-28 10:35:50] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:35:50] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:35:50] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:35:50] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:35:58] [INFO] Pobranie danych  o sklepach do logowania
+[2025-05-28 10:38:48] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 10:47:55] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:47:55] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:47:55] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:47:55] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:48:28] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:48:28] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:48:28] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:48:28] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 10:48:28] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:48:28] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:55:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 10:55:43] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 10:55:43] [INFO] Połączono z MariaDB
+[2025-05-28 10:57:09] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 10:57:10] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:57:10] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:57:17] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 10:57:17] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 10:57:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 10:57:29] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 10:57:29] [INFO] Połączono z MariaDB
+[2025-05-28 11:05:25] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 11:05:26] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:05:26] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 11:05:26] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 11:05:26] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:05:30] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 11:05:30] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 11:05:30] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 11:05:30] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:05:30] [INFO] Odczytano licznik lodów włoskich dla sklepu 
+[2025-05-28 11:05:30] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:09:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:09:31] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:09:31] [INFO] Połączono z MariaDB
+[2025-05-28 11:09:54] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 
+[2025-05-28 11:09:54] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:09:54] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 
+[2025-05-28 11:09:54] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:10:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:10:38] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:10:38] [INFO] Połączono z MariaDB
+[2025-05-28 11:10:41] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:10:41] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:10:41] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:10:41] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:10:54] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:10:54] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:10:54] [INFO] Połączono z MariaDB
+[2025-05-28 11:17:33] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:17:33] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:17:33] [INFO] Połączono z MariaDB
+[2025-05-28 11:17:36] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:17:36] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:17:36] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:17:36] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:17:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:17:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:17:40] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:17:40] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:18:10] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:18:10] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:18:10] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:18:10] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:19:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:19:52] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:19:52] [INFO] Połączono z MariaDB
+[2025-05-28 11:20:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:20:08] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:20:08] [INFO] Połączono z MariaDB
+[2025-05-28 11:20:36] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:20:36] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:20:36] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:20:36] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:20:37] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:20:37] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:20:37] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:20:37] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:20:37] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:20:37] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:20:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:20:52] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:20:52] [INFO] Połączono z MariaDB
+[2025-05-28 11:20:54] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:20:54] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:20:54] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:20:54] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:20:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:20:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:20:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:20:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:20:55] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:20:55] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:21:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:21:00] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:21:01] [INFO] Połączono z MariaDB
+[2025-05-28 11:21:02] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:21:02] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:21:02] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:21:02] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:21:04] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:21:04] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:21:04] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:21:04] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:21:04] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:21:04] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:33:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:33:23] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:33:23] [INFO] Połączono z MariaDB
+[2025-05-28 11:33:28] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:33:28] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:33:28] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:33:28] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:33:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:33:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:33:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:33:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:33:31] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:33:31] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:34:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:34:36] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:34:36] [INFO] Połączono z MariaDB
+[2025-05-28 11:34:38] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:34:38] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:34:38] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:34:38] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:34:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:34:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:34:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:34:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:34:40] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:34:40] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:35:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 11:35:07] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 11:35:07] [INFO] Połączono z MariaDB
+[2025-05-28 11:35:10] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:35:10] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:35:10] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:35:10] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 11:35:12] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:35:12] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:35:12] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 11:35:12] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 11:35:12] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 11:35:12] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:02:56] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:02:56] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:02:56] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:02:56] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:03:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:03:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:03:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:03:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:03:03] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:03:03] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:03:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:03:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:03:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:03:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:03:11] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:03:11] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:08:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:08:10] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:08:10] [INFO] Połączono z MariaDB
+[2025-05-28 12:08:12] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:08:12] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:08:12] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:08:12] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:08:16] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:08:16] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:08:16] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:08:16] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:08:16] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:08:16] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:09:29] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:09:29] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:09:29] [INFO] Połączono z MariaDB
+[2025-05-28 12:09:32] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:09:32] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:09:32] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:09:32] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:09:34] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:09:34] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:09:34] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:09:34] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:09:34] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:09:34] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:11:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:11:57] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:11:57] [INFO] Połączono z MariaDB
+[2025-05-28 12:11:59] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:11:59] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:11:59] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:11:59] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:12:02] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:12:02] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:12:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:12:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:12:03] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:12:03] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:12:08] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:12:08] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:12:08] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:12:08] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:12:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:12:31] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:12:31] [INFO] Połączono z MariaDB
+[2025-05-28 12:13:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:13:49] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:13:49] [INFO] Połączono z MariaDB
+[2025-05-28 12:13:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:13:58] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:13:58] [INFO] Połączono z MariaDB
+[2025-05-28 12:14:01] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:14:01] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:01] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:01] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:14:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:03] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:07] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:07] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:07] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:07] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:11] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:15] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:15] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:15] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:15] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:17] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:17] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:18] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:18] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:22] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:22] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:22] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:22] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:26] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:26] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:14:26] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:14:26] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:16] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:16] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:16] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:17:16] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:17:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:17:25] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:17:25] [INFO] Połączono z MariaDB
+[2025-05-28 12:17:26] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:17:26] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:26] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:26] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:17:28] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:28] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:28] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:28] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:17:39] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:17:39] [INFO] Połączono z MariaDB
+[2025-05-28 12:17:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:40] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:17:40] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:40] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:17:41] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:41] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:41] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:41] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:44] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:44] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:44] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:44] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:53] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:53] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:53] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:53] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:57] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 12:17:59] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:17:59] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:17:59] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:17:59] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:18:00] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:18:00] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:18:00] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:18:00] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:18:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:18:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:18:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:18:55] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:20:07] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 12:20:09] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:20:09] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:20:11] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:20:12] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:21:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:21:31] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:21:31] [INFO] Połączono z MariaDB
+[2025-05-28 12:23:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:23:13] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:23:13] [INFO] Połączono z MariaDB
+[2025-05-28 12:23:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:23:31] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:23:31] [INFO] Połączono z MariaDB
+[2025-05-28 12:23:32] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:23:32] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:24:30] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:24:30] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:24:30] [INFO] Połączono z MariaDB
+[2025-05-28 12:24:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:24:37] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:24:37] [INFO] Połączono z MariaDB
+[2025-05-28 12:24:41] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:24:41] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:57:18] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-05-28 12:57:19] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-05-28 12:57:19] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:57:19] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:57:19] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-05-28 12:57:21] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:57:21] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:57:21] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:57:21] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:57:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:57:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:57:32] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 2
+[2025-05-28 12:57:32] [INFO] Odczytano licznik lodów włoskich dla sklepu: 1 o typie: 1
+[2025-05-28 12:57:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:57:52] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:57:52] [INFO] Połączono z MariaDB
+[2025-05-28 12:58:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 12:58:32] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 12:58:32] [INFO] Połączono z MariaDB
+[2025-05-28 13:46:41] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-05-28 13:46:41] [INFO] Aplikacja zakończyła działanie.
+[2025-05-28 13:46:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 13:46:41] [INFO] Wersja aplikacji: v1.07 :: Data: 2025-05-23
+[2025-05-28 13:46:41] [INFO] Połączono z MariaDB
+[2025-05-28 15:35:39] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-28 15:35:39] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-05-28 15:35:39] [INFO] Połączono z MariaDB
+[2025-05-28 15:35:49] [INFO] Pobranie danych  o sklepach do logowania

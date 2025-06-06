@@ -1,0 +1,6 @@
+[2025-05-21 09:57:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-21 09:57:37] [INFO] Połączono z MariaDB
+[2025-05-21 09:57:37] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-05-21 09:57:37] [INFO] Aplikacja zakończyła działanie.
+[2025-05-21 09:57:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-21 09:57:38] [INFO] Połączono z MariaDB

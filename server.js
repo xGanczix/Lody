@@ -8,6 +8,8 @@ const dotenv = require("dotenv");
 const { exec } = require("child_process");
 
 const appPort = 3000;
+const appVersion = "v1.08";
+const appVersionDate = "2025-05-28";
 const app = express();
 
 app.use(express.json());
@@ -19,6 +21,7 @@ dotenv.config();
 
 const fs = require("fs");
 const path = require("path");
+const { start } = require("repl");
 
 function logToFile(message) {
   try {
@@ -77,10 +80,12 @@ dbConfig
   .getConnection()
   .then((connection) => {
     logToFile("[INFO] Połączono z MariaDB");
+    console.log("✅ Połączono z MaraDB");
     connection.release();
   })
   .catch((err) => {
-    logToFile(`[ERROR] Błąd połączenia z MariaDB: ${err}`);
+    logToFile(`[ERROR] Błąd połączenia z MariaDB || ${err}`);
+    console.log("❌ Błąd połączenia z MariaDB");
   });
 
 app.post("/api/verify", (req, res) => {
@@ -153,7 +158,7 @@ app.post("/api/login", async (req, res) => {
     logToFile(`[INFO] Zalogowano: ${login}`);
     res.json({ message: "Zalogowano pomyślnie", token });
   } catch (err) {
-    logToFile(`[ERROR] ${err}`);
+    logToFile(`[ERROR] Błąd podczas logowania || ${err}`);
     res.status(500).json({ message: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -211,7 +216,9 @@ app.post("/api/login-pin", async (req, res) => {
     logToFile(`[INFO] Zalogowano: ${user.UzLogin} (Sklep: ${sklepNazwa})`);
     res.json({ message: "Zalogowano pomyślnie", token });
   } catch (err) {
-    logToFile(`[ERROR] ${err}`);
+    logToFile(
+      `[ERROR] Błąd logowania użytkownika: ${user.UzLogin} na sklep: ${sklepNazwa} || ${err}`
+    );
     res.status(500).json({ message: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -233,13 +240,16 @@ app.get("/api/uzytkownicy", async (req, res) => {
       sql +=
         " WHERE UzStatus = 0 AND UzLogin != 'admin' ORDER BY UzStatus DESC,UzId";
     } else {
-      sql += " AND UzLogin != 'admin' ORDER BY UzStatus DESC,UzId";
+      sql += " WHERE UzLogin != 'admin' ORDER BY UzStatus DESC,UzId";
     }
 
     const data = await connection.query(sql);
+    logToFile(`[INFO] Pobranie danych o użytkownikach`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o użytkownikach || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -309,7 +319,9 @@ app.post("/api/uzytkownik-dodanie", async (req, res) => {
     logToFile(`[INFO] Użytkownik dodany pomyślnie: ${uzytkownikLogin}`);
     res.status(201).json({ message: "Użytkownik dodany pomyślnie." });
   } catch (err) {
-    logToFile(`[ERROR] Błąd podczas dodawania użytkownika: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas dodawania użytkownika: ${uzytkownikLogin} || ${err}`
+    );
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
     if (connection) connection.release();
@@ -328,7 +340,9 @@ app.put("/api/uzytkownicy-usuwanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Usunięcie użytkownika o ID: ${uzytkownikId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas usuwania użytkownika o ID: ${uzytkownikId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -347,7 +361,9 @@ app.put("/api/uzytkownicy-przywracanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Przywrócenie użytkownika o ID: ${uzytkownikId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd przywracania użytkownika o ID: ${uzytkownikId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -371,9 +387,10 @@ app.get("/api/smaki", async (req, res) => {
     }
 
     const data = await connection.query(sql);
+    logToFile(`[INFO] Pobranie danych o smakach`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(`[ERROR] Błąd podczas pobierania danych o smakach || ${err}`);
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -388,10 +405,11 @@ app.get("/api/kuwety-sklep/:sklepId", async (req, res) => {
 
     let sql = `
     select
-	k.KuwId as Id,
+	    k.KuwId as Id,
 	    s.SmkNazwa as Nazwa,
 	    s.SmkKolor as Kolor,
-	s.SmkTekstKolor as TekstKolor,
+	    s.SmkTekstKolor as TekstKolor,
+      r.RozNazwa as RozmiarNazwa,
 	    r.RozPojemnosc as Pojemnosc,
 	    k.KuwPorcje as Porcje,
 	    s.SmkTowId,
@@ -408,9 +426,12 @@ where
 	k.KuwSklId = ? and k.KuwStatus = 1 and c.CSklepId = ? and k.KuwCzySprzedana = 0`;
 
     const data = await connection.query(sql, [sklepId, sklepId]);
+    logToFile(`[INFO] Pobranie danych o kuwetach dla sklepu o ID: ${sklepId}`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o kuwetach dla sklepu o ID: ${sklepId} || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -429,7 +450,7 @@ app.put("/api/kuwety-usuwanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Usunięcie kuwety o ID: ${kuwetaId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(`[ERROR] Błąd usuwania kuwety o ID: ${kuwetaId} || ${err}`);
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -449,7 +470,7 @@ app.post("/api/smaki-dodanie", async (req, res) => {
     logToFile(`[INFO] Smak dodany pomyślnie: ${smak}`);
     res.status(201).json({ message: "Smak dodany pomyślnie." });
   } catch (err) {
-    logToFile(`[ERROR] Błąd podczas dodawania smaku: ${err}`);
+    logToFile(`[ERROR] Błąd podczas dodawania smaku: ${smak} || ${err}`);
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
     if (connection) connection.release();
@@ -467,7 +488,7 @@ app.put("/api/smaki-usuwanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Usunięcie smaku o ID: ${smakId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(`[ERROR] Błąd podczas usuwania smaku o ID: ${smakId} || ${err}`);
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -485,7 +506,9 @@ app.put("/api/smaki-przywracanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Przywrócenie smaku o ID: ${smakId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas przywracania smaku o ID: ${smakId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -509,9 +532,12 @@ app.get("/api/rozmiary", async (req, res) => {
     }
 
     const data = await connection.query(sql);
+    logToFile(`[INFO] Pobranie danych o rozmiarach`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o rozmiarach kuwet || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -531,7 +557,9 @@ app.post("/api/rozmiary-dodanie", async (req, res) => {
     logToFile(`[INFO] Rozmiar dodany pomyślnie: ${rozmiarNazwa}`);
     res.status(201).json({ message: "Rozmiar dodany pomyślnie." });
   } catch (err) {
-    logToFile(`[ERROR] Błąd podczas dodawania rozmiaru: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas dodawania rozmiaru: ${rozmiarNazwa} || ${err}`
+    );
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
     if (connection) connection.release();
@@ -554,7 +582,7 @@ app.post("/api/tworzenie-bazy", async (req, res) => {
     logToFile("[INFO] Baza danych utworzona poprawnie");
     res.status(200).json({ message: "Baza danych utworzona poprawnie" });
   } catch (err) {
-    logToFile("[ERROR] Błąd tworzenia bazy danych");
+    logToFile(`[ERROR] Błąd tworzenia bazy danych || ${err}`);
     res.status(500).json({ error: "Błąd tworzenia bazy danych" });
   }
 });
@@ -571,7 +599,9 @@ app.put("/api/rozmiary-usuwanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Usunięcie rozmiaru o ID: ${rozmiarId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas usuwania rozmiaru o ID: ${RozId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -590,7 +620,9 @@ app.put("/api/rozmiary-przywracanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Przywrócenie rozmiaru o ID: ${rozmiarId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas przywracania rozmiaru o ID: ${rozmiarId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -609,7 +641,9 @@ app.put("/api/kuwety-przywracanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Przywrócenie kuwety o ID: ${kuwetaId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas przywracania kuwety o ID: ${kuwetaId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -662,9 +696,14 @@ left join UzytkownicySklep as us on
     }
 
     const data = await connection.query(sql);
+    logToFile(
+      `[INFO] Pobranie danych o sklepach dla użytkownika o ID: ${uzytkownikId}`
+    );
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o sklepach dla użytkownika: ${uzytkownikId} || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -679,9 +718,12 @@ app.get("/api/sklepy-logowanie", async (req, res) => {
     let sql = "select * from Sklepy";
 
     const data = await connection.query(sql);
+    logToFile(`[INFO] Pobranie danych  o sklepach do logowania`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o sklepach do logowania || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -709,9 +751,14 @@ app.get("/api/sklepy-raportowanie/:uzytkownikId", async (req, res) => {
       sql,
       uzytkownikId !== "123456789" ? [uzytkownikId] : []
     );
+    logToFile(
+      `[INFO] Pobranie listy sklepów dla użytkownika o ID: ${uzytkownikId}`
+    );
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania listy sklepów dla użytkownika o ID: ${uzytkownikId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd podczas pobierania danych" });
   } finally {
     if (connection) connection.release();
@@ -789,14 +836,12 @@ app.post("/api/sklepy-dodanie", async (req, res) => {
       [sklepId, sklepId, sklepId, sklepId, sklepId, sklepId, sklepId, sklepId]
     );
 
-    logToFile(
-      `[INFO] Sklep i przypisanie do Ulozenia dodane pomyślnie: ${sklepNazwa}`
-    );
+    logToFile(`[INFO] Sklep dodany pomyślnie: ${sklepNazwa}`);
     res
       .status(201)
       .json({ message: "Sklep i przypisanie do Ulozenia dodane pomyślnie." });
   } catch (err) {
-    logToFile(`[ERROR] Błąd podczas dodawania sklepu: ${err}`);
+    logToFile(`[ERROR] Błąd podczas dodawania sklepu: ${sklepNazwa} || ${err}`);
     console.log(err);
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
@@ -816,7 +861,9 @@ app.put("/api/sklepy-usuwanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Usunięcie sklepu o ID: ${sklepId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas usuwania sklepu o ID: ${sklepId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -835,7 +882,9 @@ app.put("/api/sklepy-przywracanie/:id", async (req, res) => {
     res.status(200).json({ message: "Status zmieniony" });
     logToFile(`[INFO] Przywrócenie sklepu o ID: ${sklepId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd MariaDB: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas przywracania sklepu o ID: ${sklepId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   } finally {
     if (connection) connection.release();
@@ -859,6 +908,7 @@ app.get("/api/kuwety", async (req, res) => {
 	    r.RozPojemnosc as KuwRozmiarIlosc,
 	    k.KuwPorcje,
 	    k.KuwStatus,
+      k.KuwCzySprzedana,
       sk.SklNazwa as KuwSklNazwa,
       s.SmkKolor,
       s.SmkTekstKolor,
@@ -880,9 +930,10 @@ app.get("/api/kuwety", async (req, res) => {
     }
 
     const data = await connection.query(sql);
+    logToFile(`[INFO] Pobranie danych o kuwetach`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(`[ERROR] Błąd podczas pobierania danych o kuwetach || ${err}`);
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -913,11 +964,11 @@ app.post("/api/kuwety-dodanie", async (req, res) => {
     );
 
     logToFile(
-      `[INFO] Kuweta dodana pomyślnie: Id smak: ${kuwetaSmak} | Id rozmiar: ${kuwetaRozmiar} | Porcje: ${kuwetaPorcje}`
+      `[INFO] Kuweta dodana pomyślnie :: Id smak: ${kuwetaSmak} | Id rozmiar: ${kuwetaRozmiar} | Porcje: ${kuwetaPorcje}`
     );
     res.status(201).json({ message: "Kuweta dodana pomyślnie." });
   } catch (err) {
-    logToFile(`[ERROR] Błąd podczas dodawania kuwety: ${err}`);
+    logToFile(`[ERROR] Błąd podczas dodawania kuwety || ${err}`);
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
     if (connection) connection.release();
@@ -947,9 +998,14 @@ app.get("/api/sklepy-przypisane", async (req, res) => {
     }
 
     const data = await connection.query(sql, [uzytkownikId]);
+    logToFile(
+      `[INFO] Pobranie danych o sklepach do przypisania dla użytkownika o ID: ${uzytkownikId}`
+    );
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o sklepach do przypisania dla użytkownika o ID: ${uzytkownikId} || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -971,13 +1027,15 @@ app.post("/api/przypisywanie-uzytkownika", async (req, res) => {
     }
 
     logToFile(
-      `[INFO] Użytkownik ${uzytkownikId} przypisany do sklepów: ${sklepyId.join(
+      `[INFO] Użytkownik o ID: ${uzytkownikId} przypisany do sklepów: ${sklepyId.join(
         ", "
       )}`
     );
     res.status(201).json({ message: "Przypisano użytkownika do sklepów." });
   } catch (err) {
-    logToFile(`[ERROR] Błąd podczas przypisywania użytkownika: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas przypisywania użytkownika o ID: ${uzytkownikId} do sklepów || ${err}`
+    );
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   } finally {
     if (connection) connection.release();
@@ -985,7 +1043,6 @@ app.post("/api/przypisywanie-uzytkownika", async (req, res) => {
 });
 
 const ENV_FILE = ".env";
-const RESTART_SCRIPT = "restart.bat";
 
 app.get("/api/ustawienia", (req, res) => {
   if (!fs.existsSync(ENV_FILE)) return res.json({});
@@ -1035,7 +1092,7 @@ app.post("/api/test-db-connection", (req, res) => {
       });
     })
     .catch((err) => {
-      logToFile(`[ERROR] Niepoprawny test połączenia z bazą danych: ${err}`);
+      logToFile(`[ERROR] Niepoprawny test połączenia z bazą danych || ${err}`);
       return res.json({
         success: false,
         message: "Błąd połączenia z bazą danych",
@@ -1122,9 +1179,12 @@ app.get("/api/ulozenie-kuwet-menu/:sklepId", async (req, res) => {
       return res.status(200).json([]);
     }
     res.status(200).json(results);
+    logToFile(`[INFO] Pobranie ułożenia kuwet dla sklepu o ID: ${sklepId}`);
   } catch (err) {
     logToFile([ERROR]);
-    console.log("Błąd przy pobieraniu ułożenia:", err);
+    console.log(
+      `Błąd podczas pobierania danych o ułożeniu kuwet dla sklepu o ID: ${sklepId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd serwera" });
   }
 });
@@ -1138,9 +1198,14 @@ app.get("/api/rcp-user-info/:uzytkownikId", async (req, res) => {
     const data = await connection.query(
       `select * from RCP where RCPUzId = ${uzytkownikId} order by RCPStartZmiany desc limit 1`
     );
+    logToFile(
+      `[INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: ${uzytkownikId}`
+    );
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
+    logToFile(
+      `[ERROR] Błąd sprawdzania otwartej zmiany dla użytkownika o ID: ${uzytkownikId} || ${err}`
+    );
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   }
 });
@@ -1159,7 +1224,9 @@ app.post("/api/zarejestruj-zmiane", async (req, res) => {
     res.json({ success: true, message: "Procedura wykonana pomyślnie" });
     logToFile(`[INFO] Zmiana zarejestrowana dla użytkownika: ${uzytkownikId}`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd rejestracji zmiany: ${err}`);
+    logToFile(
+      `[ERROR] Błąd rejestracji zmiany dla użytkownika: ${uzytkownikId} || ${err}`
+    );
     res.status(500).json({
       error: "Błąd wykonania procedury",
       details: err.message,
@@ -1205,10 +1272,10 @@ app.get("/api/rcp", async (req, res) => {
       `,
       [startDate, endDate]
     );
-
+    logToFile(`[INFO] Pobrania danych o RCP`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
+    logToFile(`[ERROR] Błąd podczas pobierania danych o RCP || ${err}`);
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   }
 });
@@ -1240,9 +1307,14 @@ app.get("/api/status-kuwet/:sklepId", async (req, res) => {
     order by k.KuwPorcje, s.SmkNazwa
 	  `;
     const data = await connection.query(sql, sklepId);
+    logToFile(
+      `[INFO] Pobranie danych o statusie kuwet dla sklepu o ID: ${sklepId}`
+    );
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd podczas pobierania danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o statusie kuwet dla sklepu o ID: ${sklepId} || ${err}`
+    );
     res.status(500).json({ error: "Błąd pobierania danych" });
   }
 });
@@ -1276,9 +1348,14 @@ app.get("/api/rcp-dni/:uzytkownikId", async (req, res) => {
         order by
 	        czasPracy
       `);
+    logToFile(
+      `[INFO] Pobranie danych o szczegółowym RCP dla użytkownika o Id: ${uzytkownikId}`
+    );
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd sprawdzania otwartej zmiany użytkownika: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o szczegółowym RCP dla użytkownika o ID: ${uzytkownikId} || ${err}`
+    );
     res.status(500).json({ error: "Wystąpił błąd serwera." });
   }
 });
@@ -1313,12 +1390,12 @@ async function createTables() {
     }
 
     await connection.commit();
-    console.log("Wszystkie tabele zostały utworzone");
+    logToFile(`[INFO] Wszystkie tabele utworzone poprawnie`);
     return true;
-  } catch (error) {
+  } catch (err) {
     if (connection) await connection.rollback();
-    console.error("Błąd podczas tworzenia tabel:", error);
-    throw error;
+    logToFile(`[ERROR] Błąd podczas tworzenia tabel || ${err}`);
+    throw err;
   } finally {
     if (connection) connection.release();
   }
@@ -1339,12 +1416,12 @@ async function insertData() {
     }
 
     await connection.commit();
-    console.log("Wszystkie dane zostały wpisane");
+    logToFile(`[INFO] Wszystkie dane do tabel wpisane poprawnie`);
     return true;
-  } catch (error) {
+  } catch (err) {
     if (connection) await connection.rollback();
-    console.error("Błąd podczas wpisywaia danych:", error);
-    throw error;
+    logToFile(`[ERROR] Błąd podczas wpisywania danych do tabel || ${err}`);
+    throw err;
   } finally {
     if (connection) connection.release();
   }
@@ -1358,13 +1435,13 @@ app.post("/api/tworzenie-tabel", async (req, res) => {
       message: "Tabele zostały utworzone na podstawie pliku SQL",
     });
     logToFile("[INFO] Poprawne utworzenie tabel");
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({
       success: false,
       error: "Wystąpił błąd podczas tworzenia tabel",
-      details: error.message,
+      details: err.message,
     });
-    logToFile(`[ERROR] Błąd tworzenia tabel: ${error}`);
+    logToFile(`[ERROR] Błąd podczas tworzenia tabel || ${err}`);
   }
 });
 
@@ -1376,13 +1453,13 @@ app.post("/api/wstawianie-danych", async (req, res) => {
       message: "Dane zostały wpisane na podstawie pliku SQL",
     });
     logToFile("[INFO] Poprawne wpisanie danych");
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({
       success: false,
       error: "Wystąpił błąd podczas wpisywania danych",
-      details: error.message,
+      details: err.message,
     });
-    logToFile(`[ERROR] Błąd wpisywania danych: ${error}`);
+    logToFile(`[ERROR] Błąd podczas wpisywania danych || ${err}`);
   }
 });
 
@@ -1404,11 +1481,11 @@ async function deleteData() {
     console.log("Dane z tabel zostały usunięte");
     logToFile("[INFO] Dane z tabel zostały usunięte");
     return true;
-  } catch (error) {
+  } catch (err) {
     if (connection) await connection.rollback();
-    console.error("Błąd podczas usuwania danych z tabel:", error);
-    logToFile(`[ERROR] Błąd podczas usuwania danych z tabel: ${error}`);
-    throw error;
+    console.error("Błąd podczas usuwania danych z tabel:", err);
+    logToFile(`[ERROR] Błąd podczas usuwania danych z tabel || ${err}`);
+    throw err;
   } finally {
     if (connection) connection.release();
   }
@@ -1417,15 +1494,17 @@ async function deleteData() {
 app.post("/api/czyszczenie-tabel", async (req, res) => {
   try {
     await deleteData();
+    logToFile(`[INFO] Dane z tabel zostały wyczyszczone`);
     res.status(201).json({
       success: true,
       message: "Tabele zostały wyczyszczone",
     });
-  } catch (error) {
+  } catch (err) {
+    logToFile(`[ERROR] Błąd podczas czyszczenia danych z tabel || ${err}`);
     res.status(500).json({
       success: false,
       error: "Wystąpił błąd podczas czyszczenia tabel",
-      details: error.message,
+      details: err.message,
     });
   }
 });
@@ -1433,21 +1512,21 @@ app.post("/api/czyszczenie-tabel", async (req, res) => {
 app.post("/api/tworzenie-procedur", async (req, res) => {
   try {
     await createProcedure();
-    logToFile("[INFO] Procedura RCP została utworzona przez API");
+    logToFile("[INFO] Procedura RCP została utworzona pomyślnie");
     res.status(200).json({
       success: true,
       message: "Procedura RCP została pomyślnie utworzona",
       timestamp: new Date().toISOString(),
     });
-  } catch (error) {
-    logToFile(`[ERROR] Błąd tworzenia procedury: ${error.message}`, "error");
+  } catch (err) {
+    logToFile(`[ERROR] Błąd tworzenia procedury || ${err.message}`);
 
     res.status(500).json({
       success: false,
       message: "Nie udało się utworzyć procedury",
       error:
         process.env.NODE_ENV === "development"
-          ? error.message
+          ? err.message
           : "Internal server error",
       code: "PROCEDURE_CREATION_FAILED",
     });
@@ -1488,24 +1567,6 @@ async function createProcedure() {
   }
 }
 
-app.post("/api/tworzenie-administratora", async (req, res) => {
-  let connection;
-  try {
-    connection = await dbConfig.getConnection();
-    await connection.query("INSERT INTO Uzytkownicy()");
-    res.json({ success: true, message: "Procedura wykonana pomyślnie" });
-    logToFile(`[INFO] Zmiana zarejestrowana dla użytkownika: ${uzytkownikId}`);
-  } catch (err) {
-    logToFile(`[ERROR] Błąd rejestracji zmiany: ${err}`);
-    res.status(500).json({
-      error: "Błąd wykonania procedury",
-      details: err.message,
-    });
-  } finally {
-    if (connection) connection.release();
-  }
-});
-
 app.get("/api/kuwety-dostepne-centrala", async (req, res) => {
   let connection;
   try {
@@ -1519,9 +1580,11 @@ app.get("/api/kuwety-dostepne-centrala", async (req, res) => {
       s.SmkKolor as SmkKolor,
       s.SmkTekstKolor as SmkTekstKolor,
 	    k.KuwRozId,
+	    r.RozNazwa as KuwRozmiarNazwa,
 	    r.RozPojemnosc as KuwRozmiarIlosc,
 	    k.KuwPorcje,
 	    k.KuwStatus,
+      k.KuwCzySprzedana,
       sk.SklNazwa as KuwSklNazwa,
       ROUND((k.KuwPorcje / r.RozPojemnosc) * 100, 0) AS KuwProcent
     from
@@ -1529,12 +1592,16 @@ app.get("/api/kuwety-dostepne-centrala", async (req, res) => {
 	  left join Rozmiary as r on r.RozId = k.KuwRozId
 	  left join Smaki as s on s.SmkId = k.KuwSmkId
 	  left join Sklepy as sk on sk.SklId = k.KuwSklId
-    where sk.SklNazwa is null and k.KuwStatus = 0`;
+    where sk.SklNazwa is null and k.KuwStatus = 1 and k.KuwCzySprzedana = 0
+    order by s.SmkNazwa`;
 
     const data = await connection.query(sql);
+    logToFile(`[INFO] Pobranie danych o dostępnych kuwetach`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o dostępnych kuwetach || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -1550,9 +1617,12 @@ app.get("/api/smaki-dostepne-centrala", async (req, res) => {
     select * from Smaki where SmkStatus = 1`;
 
     const data = await connection.query(sql);
+    logToFile(`[INFO] Pobranie dostępnych smaków`);
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z Bazą Danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych o dostępnych smakach || ${err}`
+    );
     res.status(500).send("Błąd podczas pobierania danych");
   } finally {
     if (connection) connection.release();
@@ -1595,9 +1665,14 @@ app.get(
       sql += ` GROUP BY d.DokFormaPlatnosci`;
 
       const data = await connection.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o formach płatności dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      logToFile(
+        `[ERROR] Błąd podczas pobierania danych do raportu o formach płatności dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1635,9 +1710,14 @@ app.get(
       sql += ` GROUP BY d.DokFormaPlatnosci`;
 
       const data = await connection.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      logToFile(
+        `[ERROR] Błąd podczas pobierana danych do raportu o formach płatności dla sklepu o ID: ${sklepId} z zakresu: ${start} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1685,9 +1765,14 @@ app.get(
       sql += ` GROUP BY DokPozPozostalyTowId`;
 
       const data = await connection.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      console.log("Błąd:", err);
+      logToFile(
+        `[ERROR] Błąd podczas pobierania danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1730,9 +1815,14 @@ app.get(
       sql += ` GROUP BY DokPozPozostalyTowId`;
 
       const data = await connection.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      console.log("Błąd:", err);
+      logToFile(
+        `[ERROR] Błąd podczas pobierania danych do raportu o wartości sprzedaży towarów dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1777,9 +1867,14 @@ app.get(
       sql += ` GROUP BY DATE(d.DokData) ORDER BY SprzedazDzien`;
 
       const data = await connection.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      logToFile(
+        `[ERROR] Błąd podczas pobierania danych do raportu o wartości sprzedaży towarów rozbite na dni dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1819,9 +1914,14 @@ app.get(
       sql += ` GROUP BY DATE(d.DokData), d.DokSklepId`;
 
       const data = await connection.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      logToFile(
+        `[ERROR] Błąd podczas pobierania danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1873,9 +1973,14 @@ app.get(
       `;
 
       const data = await dbConfig.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      logToFile(
+        `[ERROR] Błąd podczas pobierania danych do raportu o ilości sprzedanych porcji smaków dla użytkownika o ID: ${uzytkownikId} z zakresu: ${startDate} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1925,9 +2030,14 @@ app.get(
       `;
 
       const data = await dbConfig.query(sql, params);
+      logToFile(
+        `[INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate}`
+      );
       res.json(data);
     } catch (err) {
-      logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+      logToFile(
+        `[ERROR] Błąd poczas pobierania danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate} || ${err}`
+      );
       res.status(500).send("Błąd podczas pobierania danych");
     } finally {
       if (connection) connection.release();
@@ -1972,9 +2082,14 @@ app.get("/api/raport-sprzedazy-towarow/:sklepId", async (req, res) => {
     `;
 
     const data = await connection.query(sql, params);
+    logToFile(
+      `[INFO] Pobranie danych do raportu o ilości sprzedanych towarów dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate}`
+    );
     res.json(data);
   } catch (err) {
-    logToFile(`[ERROR] Błąd połączenia z bazą danych: ${err}`);
+    logToFile(
+      `[ERROR] Błąd podczas pobierania danych do raportu o ilości sprzedanych towarów dla sklepu o ID: ${sklepId} z zakresu: ${startDate} - ${endDate} || ${err}`
+    );
     res.status(500).json({ error: "Błąd podczas pobierania danych" });
   } finally {
     if (connection) connection.release();
@@ -2044,7 +2159,7 @@ app.get("/api/raport-przydzielonych-kuwet/:uzytkownikId", async (req, res) => {
       }
       return obj;
     });
-
+    logToFile(`[INFO] Pobranie danych `);
     res.json(converted);
   } catch (err) {
     console.log(err);
@@ -2163,6 +2278,7 @@ app.post("/api/zapisz-wydanie", async (req, res) => {
     }
 
     res.status(200).json({ message: "Wydanie zapisane", numerDokumentu });
+    logToFile(`[INFO] Zapisano wydanie || ${numerDokumentu}`);
   } catch (err) {
     console.error("Błąd zapisu dokumentu:", err);
     logToFile(`[ERROR] Błąd zapisu wydania: ${err.message}`);
@@ -2619,7 +2735,7 @@ app.post("/api/kuwety-zbiorczo", async (req, res) => {
       }
 
       logToFile(
-        `[INFO] Zbiorczo dodano ${ilosc} kuwet - Smak: ${smak}, Rozmiar: ${rozmiar}`
+        `[INFO] Zbiorczo dodano kuwet: ${ilosc} :: Smak: ${smak}, Rozmiar: ${rozmiar}`
       );
     }
 
@@ -2642,7 +2758,7 @@ app.post("/api/przydziel-kuwety", async (req, res) => {
       const query = `
         SELECT KuwId, KuwSmkId, KuwSklId
         FROM Kuwety
-        WHERE KuwSmkId = ? AND KuwSklId IS NULL
+        WHERE KuwSmkId = ? AND KuwSklId IS NULL AND KuwStatus = 1
         LIMIT ?
       `;
 
@@ -2663,10 +2779,13 @@ app.post("/api/przydziel-kuwety", async (req, res) => {
         const updateQuery = `
           UPDATE Kuwety
           SET KuwSklId = ?, KuwDataZmiany = now()
-          WHERE KuwId = ?
+          WHERE KuwId = ? AND KuwStatus = 1
         `;
 
         await dbConfig.query(updateQuery, [sklepId, kuweta.KuwId]);
+        logToFile(
+          `[INFO] Przydzielono kuwetę: ${kuweta.KuwId} do sklepu: ${sklepId}`
+        );
       }
     }
 
@@ -2973,6 +3092,9 @@ app.get("/api/odczytaj-licznik/:sklepId/:typ", async (req, res) => {
       select * from Liczniki where LSklId = ? and LTyp = ?
     `;
     const data = await connection.query(sql, [sklepId, typ]);
+    logToFile(
+      `[INFO] Odczytano licznik lodów włoskich dla sklepu: ${sklepId} o typie: ${typ}`
+    );
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd pobierania licznika lodów włoskich`);
@@ -3003,6 +3125,9 @@ app.put("/api/resetuj-licznik/:sklepId/:typ", async (req, res) => {
 
     await connection.commit();
     res.status(201).json({ message: "Licznik zresetowany i wlew zapisany" });
+    logToFile(
+      `[INFO] Licznik zresetowany dla typu: ${typ} w sklepie: ${sklep}`
+    );
   } catch (err) {
     if (connection) await connection.rollback();
     logToFile(`[ERROR] Błąd resetowania licznika lodów włoskich: ${err}`);
@@ -3047,9 +3172,9 @@ app.get("/api/raport-puste-kuwety", async (req, res) => {
     });
 
     res.json(converted);
+    logToFile(`[INFO] Odczytano raport pustych kuwet`);
   } catch (err) {
-    logToFile(`[ERROR] Błąd odczytu pustych kuwety: ${err}`);
-    console.log(err);
+    logToFile(`[ERROR] Błąd odczytu pustych kuwet: ${err}`);
   } finally {
     if (connection) connection.release();
   }
@@ -3081,7 +3206,60 @@ app.put("/api/odbierz-puste-kuwety/:sklepId", async (req, res) => {
   }
 });
 
+app.put("/api/kuweta-wyprzedana", async (req, res) => {
+  const { sklepId, kuweta } = req.body;
+  let connection;
+  try {
+    connection = await dbConfig.getConnection();
+    let sql = `
+      update Ulozenie set 
+        UKuw1Id = case when UKuw1Id = ? then null else UKuw1Id end,
+        UKuw2Id = case when UKuw2Id = ? then null else UKuw2Id end,
+        UKuw3Id = case when UKuw3Id = ? then null else UKuw3Id end,
+        UKuw4Id = case when UKuw4Id = ? then null else UKuw4Id end,
+        UKuw5Id = case when UKuw5Id = ? then null else UKuw5Id end,
+        UKuw6Id = case when UKuw6Id = ? then null else UKuw6Id end,
+        UKuw7Id = case when UKuw7Id = ? then null else UKuw7Id end,
+        UKuw8Id = case when UKuw8Id = ? then null else UKuw8Id end,
+        UKuw9Id = case when UKuw9Id = ? then null else UKuw9Id end,
+        UKuw10Id = case when UKuw10Id = ? then null else UKuw10Id end
+      where  USklId = ?
+    `;
+
+    let sql1 = `
+      update Kuwety set KuwCzySprzedana = 1 where KuwId = ?
+    `;
+
+    await connection.query(sql, [
+      kuweta,
+      kuweta,
+      kuweta,
+      kuweta,
+      kuweta,
+      kuweta,
+      kuweta,
+      kuweta,
+      kuweta,
+      kuweta,
+      sklepId,
+    ]);
+
+    await connection.query(sql1, kuweta);
+    res.status(200).json({ message: "Status zmieniony" });
+    logToFile(
+      `[INFO] Kuweta o ID: ${kuweta} została oznaczona jako sprzedana i usunięta z ułożenia w sklepie o ID: ${sklepId}`
+    );
+  } catch (err) {
+    console.log(err);
+    logToFile(`[ERROR] Błąd podczas zmiany statusu kuwety: ${err}`);
+  }
+});
+
 app.listen(appPort, () => {
   console.log(`Uruchomiono serwer na porcie ${appPort}`);
+  console.log(`Wersja aplikacji: ${appVersion} :: Data: ${appVersionDate}`);
   logToFile(`[INFO] Uruchomiono serwer na porcie ${appPort}`);
+  logToFile(
+    `[INFO] Wersja aplikacji: ${appVersion} :: Data: ${appVersionDate}`
+  );
 });

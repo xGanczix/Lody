@@ -1,0 +1,132 @@
+[2025-05-26 00:13:58] [INFO] Poprawny test połączenia z bazą danych
+[2025-05-26 00:14:03] [ERROR] Błąd restartu przez PM2: Command failed: pm2 restart server
+[PM2][ERROR] Process or Namespace server not found
+
+[2025-05-26 00:14:04] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-26 00:14:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 00:14:05] [INFO] Połączono z MariaDB
+[2025-05-26 00:15:06] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:183, no: 1054, SQLState: 42S22) Unknown column 'k.KuwCzySprzedana' in 'WHERE'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      s.SmkKolor,
+      s.SmkTekstKolor,
+      ROUND(... - parameters:[]
+[2025-05-26 00:17:09] [ERROR] Błąd połączenia z Bazą Danych: SqlError: (conn:185, no: 1054, SQLState: 42S22) Unknown column 'k.KuwCzySprzedana' in 'WHERE'
+sql: 
+    select
+	    k.KuwId,
+	    k.KuwSmkId,
+	    s.SmkNazwa as KuwSmakNazwa,
+	    k.KuwRozId,
+	    r.RozPojemnosc as KuwRozmiarIlosc,
+	    k.KuwPorcje,
+	    k.KuwStatus,
+      sk.SklNazwa as KuwSklNazwa,
+      s.SmkKolor,
+      s.SmkTekstKolor,
+      ROUND(... - parameters:[]
+[2025-05-26 00:19:45] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 00:19:45] [INFO] Połączono z MariaDB
+[2025-05-26 00:20:34] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 00:20:34] [INFO] Połączono z MariaDB
+[2025-05-26 00:21:36] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 00:21:36] [INFO] Połączono z MariaDB
+[2025-05-26 00:43:23] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 00:43:23] [INFO] Połączono z MariaDB
+[2025-05-26 00:43:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 00:43:52] [INFO] Połączono z MariaDB
+[2025-05-26 00:45:06] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-05-26 00:45:21] [INFO] Zalogowano: admin
+[2025-05-26 00:45:34] [INFO] Kuweta dodana pomyślnie: Id smak: 18 | Id rozmiar: 3 | Porcje: 95
+[2025-05-26 00:45:39] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-05-26 00:45:42] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 873 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-26 00:47:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 00:47:13] [INFO] Połączono z MariaDB
+[2025-05-26 01:06:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:06:25] [INFO] Połączono z MariaDB
+[2025-05-26 01:07:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:07:03] [INFO] Połączono z MariaDB
+[2025-05-26 01:07:11] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:07:11] [INFO] Połączono z MariaDB
+[2025-05-26 01:07:38] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:07:38] [INFO] Połączono z MariaDB
+[2025-05-26 01:08:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:08:03] [INFO] Połączono z MariaDB
+[2025-05-26 01:08:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:08:44] [INFO] Połączono z MariaDB
+[2025-05-26 01:08:49] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:08:49] [INFO] Połączono z MariaDB
+[2025-05-26 01:09:13] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:09:13] [INFO] Połączono z MariaDB
+[2025-05-26 01:09:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:09:18] [INFO] Połączono z MariaDB
+[2025-05-26 01:12:27] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:12:27] [INFO] Połączono z MariaDB
+[2025-05-26 01:16:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:16:08] [INFO] Połączono z MariaDB
+[2025-05-26 01:16:18] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:16:18] [INFO] Połączono z MariaDB
+[2025-05-26 01:17:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:17:24] [INFO] Połączono z MariaDB
+[2025-05-26 01:17:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:17:53] [INFO] Połączono z MariaDB
+[2025-05-26 01:18:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:18:20] [INFO] Połączono z MariaDB
+[2025-05-26 01:18:26] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:18:26] [INFO] Połączono z MariaDB
+[2025-05-26 01:19:35] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:19:35] [INFO] Połączono z MariaDB
+[2025-05-26 01:19:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:19:52] [INFO] Połączono z MariaDB
+[2025-05-26 01:19:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:19:57] [INFO] Połączono z MariaDB
+[2025-05-26 01:38:53] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:38:53] [INFO] Połączono z MariaDB
+[2025-05-26 01:39:47] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:39:47] [INFO] Połączono z MariaDB
+[2025-05-26 01:40:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:40:10] [INFO] Połączono z MariaDB
+[2025-05-26 01:40:25] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:40:25] [INFO] Połączono z MariaDB
+[2025-05-26 01:42:03] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 873 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-26 01:43:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:43:32] [INFO] Połączono z MariaDB
+[2025-05-26 01:43:40] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-05-26 01:43:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:43:52] [INFO] Połączono z MariaDB
+[2025-05-26 01:44:21] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:44:21] [INFO] Połączono z MariaDB
+[2025-05-26 01:45:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:45:58] [INFO] Połączono z MariaDB
+[2025-05-26 01:47:05] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:47:05] [INFO] Połączono z MariaDB
+[2025-05-26 01:47:48] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 873 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-26 01:50:17] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:50:17] [INFO] Połączono z MariaDB
+[2025-05-26 01:51:00] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 873 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-26 01:53:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:53:12] [INFO] Połączono z MariaDB
+[2025-05-26 01:53:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:53:31] [INFO] Połączono z MariaDB
+[2025-05-26 01:53:43] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 873 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-26 01:56:03] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:56:03] [INFO] Połączono z MariaDB
+[2025-05-26 01:56:58] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:56:58] [INFO] Połączono z MariaDB
+[2025-05-26 01:57:09] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 873 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-26 01:57:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:57:24] [INFO] Połączono z MariaDB
+[2025-05-26 01:59:20] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 01:59:20] [INFO] Połączono z MariaDB
+[2025-05-26 01:59:36] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 873 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-05-26 03:03:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-26 03:03:08] [INFO] Połączono z MariaDB
+[2025-05-26 03:19:02] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)

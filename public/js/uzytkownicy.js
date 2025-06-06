@@ -69,8 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target.closest("#delete")) {
       const button = event.target.closest("#delete");
       selectedUzytkownikId = button.getAttribute("data-uzytkownik");
-
-      document.querySelector(".confirm-delete").style.display = "flex";
     } else if (event.target.id === "confirm-ok" && selectedUzytkownikId) {
       fetch(`/api/uzytkownicy-usuwanie/${selectedUzytkownikId}`, {
         method: "PUT",

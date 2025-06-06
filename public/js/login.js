@@ -108,3 +108,18 @@ document
       console.error("❗ Błąd logowania:", error);
     }
   });
+
+document
+  .getElementById("zmiana-logowania")
+  .addEventListener("click", function () {
+    const formPassword = document.getElementById("form-login-password");
+    const formPin = document.getElementById("form-login-pin");
+
+    if (formPassword.style.display === "none") {
+      formPassword.style.display = "block";
+      formPin.style.display = "none";
+    } else {
+      formPassword.style.display = "none";
+      formPin.style.display = "block";
+    }
+  });

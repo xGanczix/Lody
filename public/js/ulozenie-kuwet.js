@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             nameCell.style.color = przypisanySmak.TekstKolor;
 
             let colorCell = document.createElement("td");
-            colorCell.textContent = przypisanySmak.Porcje;
+            colorCell.textContent = przypisanySmak.RozmiarNazwa;
             colorCell.style.background = przypisanySmak.Kolor;
             colorCell.style.color = przypisanySmak.TekstKolor;
 

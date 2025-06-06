@@ -992,3 +992,55 @@ path.apexcharts-bar-area {
   border-radius: 5px;
   margin-left: 10px;
 }
+
+span#przydzielanie-nazwa-rozmiaru {
+  color: var(--button-light-color);
+}
+
+[id^="rozmiar-"] {
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+#rozmiar-1 {
+  background: #ffcdd2;
+  color: #b71c1c;
+}
+#rozmiar-2 {
+  background: #fff9c4;
+  color: #f57f17;
+}
+#rozmiar-3 {
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+#rozmiar-4 {
+  background: #bbdefb;
+  color: #0d47a1;
+}
+#rozmiar-5 {
+  background: #f8bbd0;
+  color: #ad1457;
+}
+#rozmiar-6 {
+  background: #ffe0b2;
+  color: #e65100;
+}
+#rozmiar-7 {
+  background: #e1bee7;
+  color: #6a1b9a;
+}
+#rozmiar-8 {
+  background: #b2ebf2;
+  color: #006064;
+}
+#rozmiar-9 {
+  background: #f48fb1;
+  color: #880e4f;
+}
+#rozmiar-10 {
+  background: #b3e5fc;
+  color: #01579b;
+}

@@ -38,10 +38,11 @@ async function zaladujKuwety() {
           if (przypisanySmak) {
             nowyPrzycisk.style.backgroundColor = przypisanySmak.Kolor;
             nowyPrzycisk.style.color = przypisanySmak.TekstKolor;
-            nowyPrzycisk.textContent = przypisanySmak.Nazwa;
-            nowyPrzycisk.innerHTML += `<br>${przypisanySmak.Porcje}`;
+
+            nowyPrzycisk.innerHTML = `${przypisanySmak.Nazwa}<br>${przypisanySmak.Porcje}`;
             nowyPrzycisk.setAttribute("data-porcje", przypisanySmak.Porcje);
             nowyPrzycisk.setAttribute("data-cena", przypisanySmak.CCena);
+            nowyPrzycisk.setAttribute("data-id", przypisanySmak.Id);
 
             const handleClick = () => {
               const pustaKuwetaContainer = document.querySelector(
@@ -51,21 +52,86 @@ async function zaladujKuwety() {
                 document.getElementById("pusta-kuweta-tak");
               const pustaKuwetaNie =
                 document.getElementById("pusta-kuweta-nie");
-              let porcje = parseInt(nowyPrzycisk.getAttribute("data-porcje"));
 
-              console.log(porcje);
+              let porcje = parseInt(nowyPrzycisk.getAttribute("data-porcje"));
+              let kuweta = nowyPrzycisk.getAttribute("data-id");
+
               if (porcje <= 0) {
                 pustaKuwetaContainer.style.display = "flex";
                 pustaKuwetaContainer.style.opacity = 1;
 
-                pustaKuwetaTak.addEventListener("click", () => {
+                const potwierdzTak = () => {
                   pustaKuwetaContainer.style.display = "none";
                   pustaKuwetaContainer.style.opacity = 0;
-                });
-                pustaKuwetaNie.addEventListener("click", () => {
+
+                  pustaKuwetaTak.removeEventListener("click", potwierdzTak);
+                  pustaKuwetaNie.removeEventListener("click", potwierdzNie);
+
+                  async function kuwetaSprzedana() {
+                    const token = localStorage.getItem("token");
+                    if (!token) {
+                      console.log("Brak tokena");
+                      return;
+                    }
+
+                    const decoded = parseJwt(token);
+                    if (!decoded?.sklepId) {
+                      console.log("Nieprawidłowy token");
+                      return;
+                    }
+
+                    const sklepId = decoded.sklepId;
+                    try {
+                      const response = await fetch(
+                        `${CONFIG.URL}/api/kuweta-wyprzedana`,
+                        {
+                          method: "PUT",
+                          headers: {
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                            sklepId,
+                            kuweta,
+                          }),
+                        }
+                      );
+
+                      if (response.ok) {
+                        const cena = parseFloat(
+                          nowyPrzycisk.getAttribute("data-cena")
+                        );
+                        dodajDoTabeli(przypisanySmak, cena);
+                        nowyPrzycisk.removeAttribute("data-id");
+                        nowyPrzycisk.removeAttribute("data-porcje");
+                        nowyPrzycisk.removeAttribute("data-cena");
+                        nowyPrzycisk.setAttribute("disabled", "disabled");
+                        nowyPrzycisk.textContent = "Kuweta wyprzedana!";
+                      } else {
+                        alert("Błąd podczas zmiany statusu kuwety");
+                      }
+                    } catch (err) {
+                      console.err(err);
+                    }
+                  }
+
+                  kuwetaSprzedana();
+                };
+
+                const potwierdzNie = () => {
                   pustaKuwetaContainer.style.display = "none";
                   pustaKuwetaContainer.style.opacity = 0;
-                });
+
+                  const cena = parseFloat(
+                    nowyPrzycisk.getAttribute("data-cena")
+                  );
+                  dodajDoTabeli(przypisanySmak, cena);
+
+                  pustaKuwetaTak.removeEventListener("click", potwierdzTak);
+                  pustaKuwetaNie.removeEventListener("click", potwierdzNie);
+                };
+
+                pustaKuwetaTak.addEventListener("click", potwierdzTak);
+                pustaKuwetaNie.addEventListener("click", potwierdzNie);
               } else {
                 const cena = parseFloat(nowyPrzycisk.getAttribute("data-cena"));
                 dodajDoTabeli(przypisanySmak, cena);
@@ -82,6 +148,8 @@ async function zaladujKuwety() {
       });
 
     document.querySelectorAll(".pozostale-towary").forEach((przycisk) => {
+      const nowyPrzycisk = przycisk.cloneNode(true);
+      przycisk.replaceWith(nowyPrzycisk);
       const handleClick = () => {
         const nazwa = przycisk.textContent.trim();
         const towId = przycisk.getAttribute("data-towar");
@@ -96,6 +164,8 @@ async function zaladujKuwety() {
     });
 
     document.querySelectorAll(".dodatek").forEach((przycisk) => {
+      const nowyPrzycisk = przycisk.cloneNode(true);
+      przycisk.replaceWith(nowyPrzycisk);
       const handleClick = () => {
         const nazwa = przycisk.textContent.replace(/\s+/g, " ").trim();
         const towId = przycisk.getAttribute("data-towar");
@@ -385,6 +455,7 @@ async function zapiszWydanie(formaPlatnosci) {
   let licznikKawa = await odczytajLicznik(sklepId, 2);
 
   try {
+    const start = performance.now();
     const response = await fetch(`${CONFIG.URL}/api/zapisz-wydanie`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -396,6 +467,9 @@ async function zapiszWydanie(formaPlatnosci) {
       }),
     });
 
+    const end = performance.now();
+    const czas = (end - start).toFixed(2);
+
     const data = await response.json();
 
     if (response.ok) {
@@ -406,10 +480,10 @@ async function zapiszWydanie(formaPlatnosci) {
       message.style.background = "rgba(0, 196, 10, 0.3)";
       message.style.border = "2px solid #28a745";
       message.innerHTML = "Paragon zapisany";
+      console.log(czas + " ms - " + new Date().toLocaleTimeString("pl-PL"));
 
       fetchLicznik();
       fetchLicznikKawa();
-      zaladujKuwety();
 
       setTimeout(() => {
         message.style.opacity = 0;
@@ -457,8 +531,9 @@ async function dodajDoTabeliLodyWloskie(nazwaTowaru, towarId) {
     return;
   }
 
+  // Poprawka: porównanie jako stringi
   let istniejącyWiersz = [...tbody.rows].find(
-    (row) => row.dataset.towarId === towarId
+    (row) => row.dataset.towarId === String(towarId)
   );
 
   if (istniejącyWiersz) {
@@ -470,13 +545,14 @@ async function dodajDoTabeliLodyWloskie(nazwaTowaru, towarId) {
     cenaCell.textContent = (nowaIlosc * cenaTowaru).toFixed(2) + " zł";
   } else {
     const nowyWiersz = document.createElement("tr");
-    nowyWiersz.dataset.towarId = towarId;
+    nowyWiersz.dataset.towarId = String(towarId); // Zapewniamy, że to jest string
+
     nowyWiersz.innerHTML = `
       <td class="licznik"></td>
       <td>${nazwaTowaru}</td>
       <td class="ilosc">1</td>
       <td class="cena">${cenaTowaru.toFixed(2)} zł</td>
-      <td><button class="usun-btn"><img src="../img/white/delete-white.png"></button></td>
+      <td><button class="usun-btn"><img src="../img/white/delete-white.png" alt="Usuń"></button></td>
     `;
 
     nowyWiersz.querySelector(".usun-btn").addEventListener("click", () => {

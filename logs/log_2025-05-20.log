@@ -1,0 +1,14 @@
+[2025-05-20 12:57:00] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-20 12:57:00] [INFO] Połączono z MariaDB
+[2025-05-20 12:57:11] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-05-20 22:16:59] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-20 22:16:59] [INFO] Połączono z MariaDB
+[2025-05-20 22:21:11] [INFO] Zalogowano: jk (Sklep: Sklep 1)
+[2025-05-20 22:23:41] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-20 22:23:41] [INFO] Połączono z MariaDB
+[2025-05-20 22:27:22] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-20 22:27:22] [INFO] Połączono z MariaDB
+[2025-05-20 22:29:37] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-20 22:29:37] [INFO] Połączono z MariaDB
+[2025-05-20 22:29:43] [INFO] Uruchomiono serwer na porcie 3000
+[2025-05-20 22:29:43] [INFO] Połączono z MariaDB

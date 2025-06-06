@@ -13,7 +13,7 @@ async function fetchRaportSprzedazFormyPlatnosci() {
 
     const formyPlatnosci = data.map((item) => item.DokFormaPlatnosci);
     const wartosciSprzedazy = data.map((item) =>
-      parseFloat(item.wartoscSprzedazy.replace(/,/g, "")).toFixed(2)
+      parseFloat((item.wartoscSprzedazy ?? "0").replace(/,/g, "")).toFixed(2)
     );
 
     var colors = [
@@ -73,16 +73,26 @@ async function fetchRaportSprzedazFormyPlatnosci() {
 async function fetchRaportSprzedazSmaki() {
   const startDate = document.getElementById("startDate").value;
   const endDate = document.getElementById("endDate").value;
+
   try {
     const response = await fetch(
       `${CONFIG.URL}/api/raport-sprzedazy-ilosci-smaki/${uzytkownikId}?startDate=${startDate}&endDate=${endDate}`
     );
     const data = await response.json();
 
-    const iloscSprzedana = data.map((item) => item.iloscSprzedana);
-    const SmkNazwa = data.map((item) => item.SmkNazwa);
-    const SmkKolor = data.map((item) => item.SmkKolor);
-    const SmkTekstKolor = data.map((item) => item.SmkTekstKolor);
+    const validData = data.filter(
+      (item) =>
+        item &&
+        item.iloscSprzedana != null &&
+        item.SmkNazwa != null &&
+        item.SmkKolor != null &&
+        item.SmkTekstKolor != null
+    );
+
+    const iloscSprzedana = validData.map((item) => item.iloscSprzedana);
+    const SmkNazwa = validData.map((item) => item.SmkNazwa);
+    const SmkKolor = validData.map((item) => item.SmkKolor);
+    const SmkTekstKolor = validData.map((item) => item.SmkTekstKolor);
 
     const options = {
       chart: {
