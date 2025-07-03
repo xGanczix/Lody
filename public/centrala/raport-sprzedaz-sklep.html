@@ -36,7 +36,10 @@
       </div>
       <nav class="centrala-menu"></nav>
       <main>
-        <div class="centrala-filtrowanie">
+        <button id="pokazFiltrowanie" style="display: none">
+          <img src="../img/white/calendar-white.png" />
+        </button>
+        <div class="centrala-filtrowanie centrala-filtrowanie-raporty">
           <select id="centrala-raport-sklep" required>
             <option value="" disabled selected>-- Wybierz Sklep --</option>
           </select>
@@ -51,6 +54,8 @@
               type="button"
             />
           </button>
+          <button id="raportujDatyNapis" style="display: none">Filtruj</button>
+          <button id="anulujRaportowanie" style="display: none">Anuluj</button>
         </div>
         <div class="raporty-sprzedazy-container">
           <div id="formy-platnosci" class="wykres-container"></div>

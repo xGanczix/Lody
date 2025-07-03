@@ -713,6 +713,9 @@ button#test-db-connection {
   width: 100%;
   height: 30px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #smak-podglad {
@@ -1043,4 +1046,15 @@ span#przydzielanie-nazwa-rozmiaru {
 #rozmiar-10 {
   background: #b3e5fc;
   color: #01579b;
+}
+
+.licznik-przypisania-kuwet {
+  position: absolute;
+  padding: 16px;
+  font-size: 16px;
+  background: var(--button-light-color);
+  border-radius: 10px 0 10px 0;
+  height: 50px;
+  width: 250px;
+  color: var(--text-white-color);
 }

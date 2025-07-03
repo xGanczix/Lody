@@ -972,3 +972,113 @@
 [2025-06-06 15:19:31] [INFO] Zapisano wydanie || WZ/119/2025/15
 [2025-06-06 15:19:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 15 o typie: 1
 [2025-06-06 15:19:31] [INFO] Odczytano licznik lodów włoskich dla sklepu: 15 o typie: 2
+[2025-06-06 15:24:55] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-06 15:24:55] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-06 15:24:56] [INFO] Połączono z MariaDB
+[2025-06-06 15:24:57] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-06 15:24:57] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-06 15:24:57] [INFO] Połączono z MariaDB
+[2025-06-06 15:24:59] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 15
+[2025-06-06 15:24:59] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 15
+[2025-06-06 15:25:08] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 15
+[2025-06-06 15:25:08] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 15
+[2025-06-06 15:25:11] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 15
+[2025-06-06 15:25:11] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 15
+[2025-06-06 15:25:14] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 15
+[2025-06-06 15:25:14] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 15
+[2025-06-06 15:25:23] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-06-06 15:25:24] [INFO] Pobranie danych  o sklepach do logowania
+[2025-06-06 15:26:12] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-06 15:26:12] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-06 15:26:12] [INFO] Połączono z MariaDB
+[2025-06-06 15:26:13] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-06 15:26:47] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:27:04] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:27:19] [INFO] Zalogowano Serwis
+[2025-06-06 15:27:22] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:28:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-06 15:28:08] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-06 15:28:08] [INFO] Połączono z MariaDB
+[2025-06-06 15:28:10] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-06 15:28:10] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-06 15:28:10] [INFO] Połączono z MariaDB
+[2025-06-06 15:31:09] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:31:30] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:31:37] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:31:43] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:32:04] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:32:13] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:32:20] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:32:24] [INFO] Pobranie danych o kuwetach
+[2025-06-06 15:32:38] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:33:33] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:34:34] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:34:59] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:35:33] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:35:47] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:36:13] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:36:25] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:36:29] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:36:48] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:36:56] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:37:00] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:37:42] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:37:45] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:37:57] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:38:36] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:39:12] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:39:17] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:39:21] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:40:29] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:40:45] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:40:47] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:40:48] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:40:49] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:41:09] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:41:56] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:42:01] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:42:12] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:44:37] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:44:46] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:44:47] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:45:44] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:45:51] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:45:59] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:46:15] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:46:20] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:46:21] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:46:39] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:47:14] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:47:44] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:47:55] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-06 15:47:56] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:48:14] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:48:44] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:48:47] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:49:06] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:49:18] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:49:46] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:50:00] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:50:14] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:50:19] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:50:56] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:51:10] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:51:12] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:51:45] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:52:33] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:52:50] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:53:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-06 15:53:32] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-06 15:53:32] [INFO] Połączono z MariaDB
+[2025-06-06 15:53:34] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:54:07] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-06 15:54:07] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-06 15:54:08] [INFO] Połączono z MariaDB
+[2025-06-06 15:54:08] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:54:17] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:54:20] [INFO] Usunięcie użytkownika o ID: 2
+[2025-06-06 15:54:20] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:54:22] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:54:24] [INFO] Przywrócenie użytkownika o ID: 2
+[2025-06-06 15:54:25] [INFO] Pobranie danych o użytkownikach
+[2025-06-06 15:54:30] [INFO] Pobranie danych o użytkownikach

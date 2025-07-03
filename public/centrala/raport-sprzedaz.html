@@ -36,14 +36,19 @@
       </div>
       <nav class="centrala-menu"></nav>
       <main>
-        <div class="centrala-filtrowanie">
+        <button id="pokazFiltrowanie" style="display: none">
+          <img src="../img/white/calendar-white.png" />
+        </button>
+        <div class="centrala-filtrowanie centrala-filtrowanie-raporty">
           <label for="startDate">Początek:</label>
           <input type="date" id="startDate" />
           <label for="endDate">Koniec:</label>
           <input type="date" id="endDate" />
           <button id="raportujDaty">
-            <img src="../img/white/search-interface-symbol-white.png" alt="" />
+            <img src="../img/white/search-interface-symbol-white.png" />
           </button>
+          <button id="raportujDatyNapis" style="display: none">Filtruj</button>
+          <button id="anulujRaportowanie" style="display: none">Anuluj</button>
         </div>
         <div class="raporty-sprzedazy-container">
           <div id="formy-platnosci" class="wykres-container"></div>

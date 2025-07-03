@@ -1,0 +1,273 @@
+[2025-06-10 08:15:24] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-10 08:15:24] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-10 08:15:24] [INFO] Połączono z MariaDB
+[2025-06-10 08:17:51] [INFO] Aplikacja zamknięta przez: SIGHUP (restart systemu lub pm2 stop)
+[2025-06-10 08:17:52] [INFO] Aplikacja zakończyła działanie.
+[2025-06-10 08:17:52] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-10 08:17:52] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-10 08:17:52] [INFO] Połączono z MariaDB
+[2025-06-10 08:25:01] [INFO] Połączono z MariaDB
+[2025-06-10 08:25:53] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-06-10 08:25:57] [INFO] Połączono z MariaDB
+[2025-06-10 08:26:04] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-06-10 08:26:18] [INFO] Połączono z MariaDB
+[2025-06-10 08:26:31] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-10 08:26:31] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-10 08:26:31] [INFO] Połączono z MariaDB
+[2025-06-10 08:26:31] [INFO] Aplikacja zamknięta przez: SIGINT (CTRL+C lub pm2 stop)
+[2025-06-10 08:26:32] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-10 08:26:32] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-10 08:26:32] [INFO] Połączono z MariaDB
+[2025-06-10 08:26:33] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:26:33] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:26:35] [INFO] Zalogowano Serwis
+[2025-06-10 08:26:38] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:26:40] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:26:42] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:26:42] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-06-10 08:26:44] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:26:45] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:26:45] [INFO] Pobranie danych o smakach
+[2025-06-10 08:26:45] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:26:48] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:26:50] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:26:50] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-06-10 08:26:53] [INFO] Pobranie danych o smakach
+[2025-06-10 08:26:53] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:26:56] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:26:58] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:27:00] [INFO] Pobranie danych o smakach
+[2025-06-10 08:27:23] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:27:32] [INFO] Zalogowano Serwis
+[2025-06-10 08:27:36] [INFO] Pobranie danych o smakach
+[2025-06-10 08:30:34] [INFO] Pobranie danych o smakach
+[2025-06-10 08:30:38] [INFO] Pobranie danych o smakach
+[2025-06-10 08:30:43] [INFO] Pobranie danych 
+[2025-06-10 08:30:43] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:43] [INFO] Pobranie danych do raportu o formach płatności dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:43] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:43] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:43] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:52] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:30:55] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:55] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:55] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:55] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:55] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:56] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:56] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:56] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:56] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:30:56] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 6 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:31:03] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 6 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:31:03] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 6 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:31:03] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 6 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:31:03] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 6 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:31:03] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 6 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:31:13] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:13] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:13] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:13] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:13] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:14] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:14] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:14] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:14] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:31:14] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 12 z zakresu: 2025-04-01 - 2025-06-10
+[2025-06-10 08:32:12] [INFO] Pobranie danych o sklepach dla użytkownika o ID: 123456789
+[2025-06-10 08:32:15] [INFO] Pobranie danych o sklepach dla użytkownika o ID: 123456789
+[2025-06-10 08:32:18] [INFO] Pobranie danych o użytkownikach
+[2025-06-10 08:32:22] [INFO] Pobranie danych o sklepach do przypisania dla użytkownika o ID: 9
+[2025-06-10 08:32:32] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:32:34] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 3
+[2025-06-10 08:32:38] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 12
+[2025-06-10 08:32:45] [INFO] Pobranie danych o smakach
+[2025-06-10 08:32:48] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:32:49] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 12
+[2025-06-10 08:33:24] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:33:55] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:34:14] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:34:17] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 12
+[2025-06-10 08:34:33] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:34:36] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 12
+[2025-06-10 08:34:51] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:34:54] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 12
+[2025-06-10 08:35:27] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:35:33] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:35:37] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 12
+[2025-06-10 08:35:50] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:35:58] [INFO] Pobranie danych o smakach
+[2025-06-10 08:35:58] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:36:19] [INFO] Zbiorczo dodano kuwet: 5 :: Smak: 18, Rozmiar: 3
+[2025-06-10 08:36:19] [INFO] Zbiorczo dodano kuwet: 4 :: Smak: 1, Rozmiar: 2
+[2025-06-10 08:36:19] [INFO] Zbiorczo dodano kuwet: 3 :: Smak: 30, Rozmiar: 2
+[2025-06-10 08:36:19] [INFO] Zbiorczo dodano kuwet: 2 :: Smak: 4, Rozmiar: 3
+[2025-06-10 08:36:19] [INFO] Zbiorczo dodano kuwet: 1 :: Smak: 30, Rozmiar: 3
+[2025-06-10 08:36:19] [INFO] Zbiorczo dodano kuwet: 7 :: Smak: 1, Rozmiar: 3
+[2025-06-10 08:36:20] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:36:26] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:36:32] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:36:32] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 5 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 6 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 7 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 8 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 9 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 10 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 11 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 12 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 13 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 20 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 21 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 22 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 23 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 24 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 25 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 4 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 14 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 15 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 16 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 19 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 17 do sklepu: 1
+[2025-06-10 08:36:45] [INFO] Przydzielono kuwetę: 18 do sklepu: 1
+[2025-06-10 08:36:47] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:36:47] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-06-10 08:36:49] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:36:51] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 1
+[2025-06-10 08:36:57] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 3
+[2025-06-10 08:36:59] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 1
+[2025-06-10 08:38:06] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:38:18] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:38:22] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:38:39] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:38:53] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:38:58] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:39:07] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:39:10] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:39:26] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:39:27] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:39:29] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 1
+[2025-06-10 08:39:49] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 1
+[2025-06-10 08:40:02] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:40:04] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 1
+[2025-06-10 08:40:13] [INFO] Pobrania danych o RCP
+[2025-06-10 08:40:28] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:41:05] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:41:09] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:41:25] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-06-10 08:41:25] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-06-10 08:41:26] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-06-10 08:41:26] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-06-10 08:41:28] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-06-10 08:41:29] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-06-10 08:41:29] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-06-10 08:41:32] [INFO] Ułożenie dodano pomyślnie: SKLEP: 1 = KUWETA1: undefined | KUWETA2: undefined | KUWETA3: undefined | KUWETA4: undefined | KUWETA5: 4 | KUWETA6: undefined | KUWETA7: undefined | KUWETA8: undefined | KUWETA9: undefined | KUWETA10: undefined
+[2025-06-10 08:41:32] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-06-10 08:41:32] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-06-10 08:41:41] [INFO] Zapisano wydanie || WZ/59/2025/1
+[2025-06-10 08:41:46] [INFO] Zapisano wydanie || WZ/60/2025/1
+[2025-06-10 08:41:48] [INFO] Pobranie ułożenia kuwet dla sklepu o ID: 1
+[2025-06-10 08:41:48] [INFO] Pobranie danych o kuwetach dla sklepu o ID: 1
+[2025-06-10 08:41:55] [INFO] Kuweta o ID: 4 została oznaczona jako sprzedana i usunięta z ułożenia w sklepie o ID: 1
+[2025-06-10 08:41:57] [INFO] Zapisano wydanie || WZ/61/2025/1
+[2025-06-10 08:42:00] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-06-10 08:42:03] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:42:10] [INFO] Zalogowano Serwis
+[2025-06-10 08:42:14] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:43:32] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:44:10] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:44:22] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:44:42] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:44:47] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:45:03] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:45:36] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:46:05] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:46:23] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:47:00] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:47:24] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:47:34] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:47:48] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:48:06] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:48:12] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:48:23] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:48:47] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:49:03] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:51:48] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:52:01] [INFO] Zalogowano Serwis
+[2025-06-10 08:52:04] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:52:15] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:52:19] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:52:26] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:52:26] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:52:26] [INFO] Pobranie danych o smakach
+[2025-06-10 08:52:27] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:52:29] [INFO] Pobranie danych o smakach
+[2025-06-10 08:52:29] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:52:29] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:52:30] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:52:33] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:52:33] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-06-10 08:52:39] [INFO] Pobranie danych o smakach
+[2025-06-10 08:52:39] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:52:47] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:52:50] [INFO] Pobranie danych o rozmiarach
+[2025-06-10 08:52:52] [INFO] Pobranie danych o smakach
+[2025-06-10 08:52:58] [INFO] Pobranie danych o smakach
+[2025-06-10 08:53:01] [INFO] Odczytano raport pustych kuwet
+[2025-06-10 08:53:04] [INFO] Pobrania danych o RCP
+[2025-06-10 08:53:06] [INFO] Pobranie danych 
+[2025-06-10 08:53:06] [INFO] Pobranie danych do raportu o formach płatności dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:06] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:06] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:06] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:06] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów dla użytkownika o ID: 123456789 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:18] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:53:25] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 12 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:25] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:25] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 12 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:25] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 12 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:25] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-06-03 - 2025-06-10
+[2025-06-10 08:53:30] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:53:30] [INFO] Pobranie danych do raportu o wartości sprzedaży towarów rozbite na dni dla sklepu o ID: 12 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:53:30] [INFO] Pobranie danych do raportu o ilości sprzedanych porcji smaków dla sklepu o ID: 12 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:53:30] [INFO] Pobranie danych do raportu o wartości towarów dla sklepu o ID: 12 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:53:30] [INFO] Pobranie danych do raportu o formach płatności dla sklepu o ID: 12 z zakresu: 2025-05-01 - 2025-06-10
+[2025-06-10 08:53:42] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:53:44] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 12
+[2025-06-10 08:53:49] [INFO] Pobranie danych o statusie kuwet dla sklepu o ID: 1
+[2025-06-10 08:54:01] [INFO] Pobranie danych o użytkownikach
+[2025-06-10 08:54:03] [INFO] Pobranie danych o sklepach do przypisania dla użytkownika o ID: 8
+[2025-06-10 08:54:09] [INFO] Pobranie danych o użytkownikach
+[2025-06-10 08:54:14] [INFO] Pobranie danych o sklepach dla użytkownika o ID: 123456789
+[2025-06-10 08:54:18] [INFO] Pobranie danych o sklepach dla użytkownika o ID: 123456789
+[2025-06-10 08:54:52] [INFO] Pobranie danych o użytkownikach
+[2025-06-10 08:55:02] [INFO] Pobranie listy sklepów dla użytkownika o ID: 123456789
+[2025-06-10 08:55:04] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:55:04] [INFO] Pobranie danych o dostępnych kuwetach
+[2025-06-10 08:55:11] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:55:21] [INFO] Pobranie danych o kuwetach
+[2025-06-10 08:55:41] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:55:47] [INFO] Zalogowano: admin (Sklep: Dom)
+[2025-06-10 08:55:47] [INFO] Sprawdzenie otwartej zmiany dla użytkownika o ID: 1
+[2025-06-10 08:55:50] [INFO] Pobranie danych o sklepach do logowania
+[2025-06-10 08:56:01] [INFO] Pobrania danych o RCP
+[2025-06-10 08:58:40] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-10 08:58:40] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-10 08:58:40] [INFO] Połączono z MariaDB
+[2025-06-10 08:58:48] [INFO] Pobrania danych o RCP
+[2025-06-10 08:59:08] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-10 08:59:08] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-10 08:59:08] [INFO] Połączono z MariaDB
+[2025-06-10 08:59:09] [INFO] Pobrania danych o RCP
+[2025-06-10 08:59:20] [INFO] Pobrania danych o RCP
+[2025-06-10 09:00:37] [INFO] Pobrania danych o RCP
+[2025-06-10 09:02:02] [INFO] Pobrania danych o RCP
+[2025-06-10 09:02:05] [INFO] Pobrania danych o RCP
+[2025-06-10 09:02:10] [INFO] Pobrania danych o RCP
+[2025-06-10 09:02:44] [INFO] Uruchomiono serwer na porcie 3000
+[2025-06-10 09:02:44] [INFO] Wersja aplikacji: v1.08 :: Data: 2025-05-28
+[2025-06-10 09:02:44] [INFO] Połączono z MariaDB
+[2025-06-10 09:02:45] [INFO] Pobrania danych o RCP
+[2025-06-10 09:03:30] [INFO] Pobrania danych o RCP
+[2025-06-10 09:03:39] [INFO] Pobrania danych o RCP
+[2025-06-10 09:03:42] [INFO] Pobrania danych o RCP

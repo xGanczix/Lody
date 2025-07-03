@@ -718,7 +718,7 @@ app.get("/api/sklepy-logowanie", async (req, res) => {
     let sql = "select * from Sklepy";
 
     const data = await connection.query(sql);
-    logToFile(`[INFO] Pobranie danych  o sklepach do logowania`);
+    logToFile(`[INFO] Pobranie danych o sklepach do logowania`);
     res.json(data);
   } catch (err) {
     logToFile(
@@ -3092,9 +3092,6 @@ app.get("/api/odczytaj-licznik/:sklepId/:typ", async (req, res) => {
       select * from Liczniki where LSklId = ? and LTyp = ?
     `;
     const data = await connection.query(sql, [sklepId, typ]);
-    logToFile(
-      `[INFO] Odczytano licznik lodów włoskich dla sklepu: ${sklepId} o typie: ${typ}`
-    );
     res.json(data);
   } catch (err) {
     logToFile(`[ERROR] Błąd pobierania licznika lodów włoskich`);

@@ -82,7 +82,7 @@
 
   nav {
     display: none;
-    z-index: 100;
+    z-index: 150;
     width: 100%;
     position: fixed;
     top: 0;
@@ -168,22 +168,32 @@
     width: 100%;
   }
 
-  table#centrala-ceny {
+  table#centrala-ceny,
+  table#centrala-uzytkownicy {
     height: 100%;
     max-height: 100%;
   }
 
-  table#centrala-ceny tbody {
-    height: calc(100% - 80px);
-    max-height: calc(100% - 80px);
+  table#centrala-ceny thead,
+  table#centrala-uzytkownicy thead {
+    height: 50px;
+  }
+
+  table#centrala-ceny tbody,
+  table#centrala-uzytkownicy tbody {
+    height: calc(100% - 55px);
+    max-height: calc(100% - 55px);
   }
 
   table#centrala-ceny thead th,
-  table#centrala-ceny tbody td {
+  table#centrala-ceny tbody td,
+  table#centrala-uzytkownicy thead th,
+  table#centrala-uzytkownicy tbody td {
     font-size: 14px;
   }
 
-  table#centrala-ceny thead th:nth-child(2) {
+  table#centrala-ceny thead th:nth-child(2),
+  table#centrala-uzytkownicy thead th:nth-child(2) {
     border-radius: 10px 0 0 0;
   }
 
@@ -194,6 +204,22 @@
   table#centrala-ceny thead th:nth-child(5),
   table#centrala-ceny tbody td:nth-child(5) {
     display: none;
+  }
+
+  table#centrala-uzytkownicy thead th:first-child,
+  table#centrala-uzytkownicy tbody td:first-child,
+  table#centrala-uzytkownicy thead th:nth-child(4),
+  table#centrala-uzytkownicy tbody td:nth-child(4),
+  table#centrala-uzytkownicy thead th:nth-child(5),
+  table#centrala-uzytkownicy tbody td:nth-child(5),
+  table#centrala-uzytkownicy thead th:nth-child(6),
+  table#centrala-uzytkownicy tbody td:nth-child(6) {
+    display: none;
+  }
+
+  table#centrala-uzytkownicy tbody td:last-child,
+  table#centrala-uzytkownicy thead th:last-child {
+    width: 120px;
   }
 
   table#centrala-ceny thead th:nth-child(3),
@@ -221,6 +247,463 @@
 
   table#centrala-ceny tbody td:last-child button img {
     width: 100%;
+    pointer-events: none;
+  }
+
+  button#add {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .confirm-delete,
+  .confirm-restore {
+    width: 80%;
+    padding: 10px;
+  }
+
+  button#manual-print {
+    display: none;
+  }
+
+  .manual-nav {
+    display: none;
+  }
+
+  .manual-container {
+    height: 100%;
+    max-height: 100%;
+    padding: 10px;
+  }
+
+  p.warning,
+  .warning {
+    width: 95%;
+  }
+
+  img.manual-img {
+    width: 95%;
+  }
+
+  table#centrala-kuwety thead th {
+    font-size: 14px;
+  }
+
+  table#centrala-kuwety tbody td {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  table#centrala-kuwety thead th:first-child,
+  table#centrala-kuwety tbody td:first-child,
+  table#centrala-kuwety thead th:nth-child(3),
+  table#centrala-kuwety tbody td:nth-child(3),
+  table#centrala-kuwety thead th:nth-child(4),
+  table#centrala-kuwety tbody td:nth-child(4),
+  table#centrala-kuwety thead th:nth-child(7),
+  table#centrala-kuwety tbody td:nth-child(7) {
+    display: none;
+  }
+
+  table#centrala-kuwety thead th:nth-child(2) {
+    border-radius: 10px 0 0 0;
+  }
+
+  table#centrala-kuwety thead th:last-child,
+  table#centrala-kuwety tbody td:last-child {
+    width: 120px;
+    font-size: 0;
+  }
+
+  select#sklep-select {
+    position: absolute;
+    top: 70px;
+    width: calc(100% - 20px);
+  }
+
+  .kuweta-container label {
+    font-size: 14px;
+  }
+
+  .kuweta-container label span {
+    font-size: 11px;
+  }
+
+  #kuwety-container select {
+    width: 70px;
+    padding: 5px;
+    height: 35px;
+  }
+
+  button#add-row {
+    position: absolute;
+    top: 75px;
+    width: 40%;
+  }
+
+  button#submit-bulk {
+    position: absolute;
+    top: 75px;
+    width: calc(55% - 10px);
+    left: 45%;
+  }
+
+  table#kuwety-table {
+    height: 100%;
+  }
+
+  table#kuwety-table thead th {
+    display: none;
+  }
+
+  table#kuwety-table tbody {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  table#kuwety-table tbody tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  table#kuwety-table tbody td {
+    padding: 2px;
+  }
+
+  table#kuwety-table tbody td select,
+  table#kuwety-table tbody td input,
+  table#kuwety-table tbody td button {
+    width: 90%;
+    padding: 5px;
+    margin: 5px;
+    height: 40px;
+  }
+
+  table#centrala-rozmiary thead th:first-child,
+  table#centrala-rozmiary tbody td:first-child {
+    display: none;
+  }
+
+  table#centrala-rozmiary thead th:nth-child(2),
+  table#centrala-rozmiary tbody td:nth-child(2) {
+    border-radius: 10px 0 0 0;
+  }
+
+  table#centrala-rozmiary thead th {
+    font-size: 14px;
+  }
+
+  table#centrala-rozmiary tbody td {
+    font-size: 12px;
+  }
+
+  table#centrala-rozmiary thead th:last-child,
+  table#centrala-rozmiary tbody td:last-child {
+    width: 120px;
+  }
+
+  table#centrala-smaki thead th {
+    font-size: 14px;
+  }
+
+  table#centrala-smaki tbody td {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  table#centrala-smaki thead th:last-child,
+  table#centrala-smaki tbody td:last-child {
+    width: 120px;
+  }
+
+  table#centrala-smaki thead th:nth-child(3),
+  table#centrala-smaki tbody td:nth-child(3) {
+    display: none;
+  }
+
+  table#centrala-smaki thead th:nth-child(2),
+  table#centrala-smaki tbody td:nth-child(2) {
+    width: 90px !important;
+  }
+
+  table#centrala-smaki {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  table#centrala-smaki tbody {
+    height: calc(100% - 45px);
+    max-height: calc(100% - 45px);
+  }
+
+  .centrala-filtrowanie-raporty {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+  }
+
+  .centrala-filtrowanie-raporty label,
+  .centrala-filtrowanie-raporty input {
+    font-size: 12px;
+    height: unset;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .centrala-filtrowanie-raporty input {
+    height: 40px;
+    text-align: center;
+  }
+
+  input#endDate {
+    margin-bottom: 30px;
+  }
+
+  button#raportujDaty {
+    display: none;
+  }
+
+  button#raportujDatyNapis,
+  button#anulujRaportowanie {
+    display: block !important;
+  }
+
+  button#pokazFiltrowanie {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    padding: 12px;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 50%;
+    display: block !important;
+    z-index: 100;
+  }
+
+  button#pokazFiltrowanie img {
+    width: 100%;
+  }
+
+  .centrala-filtrowanie-raporty button {
+    width: 60%;
+    height: unset;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .raporty-sprzedazy-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    max-height: calc(100% - 60px);
+    overflow-y: auto;
+    margin: 70px 0 0 0;
+  }
+
+  .wykres-container {
+    width: 100%;
+    box-shadow: none;
+    z-index: 50;
+  }
+
+  .apexcharts-title-text {
+    font-size: 10px;
+  }
+
+  .dodawanie-container {
+    height: 100%;
+  }
+
+  form#przypisywanie-uzytkownika {
+    width: 95%;
+  }
+
+  form#dodawanie-uzytkownika {
+    height: unset;
+    max-height: 100%;
+    padding: 20px;
+    width: 95%;
+  }
+
+  form#dodawanie-uzytkownika h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  form#dodawanie-uzytkownika label {
+    font-size: 14px;
+  }
+
+  form#dodawanie-uzytkownika input {
+    height: 30px;
+    font-size: 12px;
+  }
+
+  table#centrala-sklepy {
+    height: 100%;
+  }
+
+  table#centrala-sklepy tbody {
+    height: calc(100% - 50px);
+    max-height: calc(100% - 50px);
+    overflow-y: auto;
+  }
+
+  table#centrala-sklepy thead th {
+    font-size: 14px;
+  }
+
+  table#centrala-sklepy thead th:first-child,
+  table#centrala-sklepy tbody td:first-child,
+  table#centrala-sklepy thead th:nth-child(3),
+  table#centrala-sklepy tbody td:nth-child(3),
+  table#centrala-sklepy thead th:nth-child(4),
+  table#centrala-sklepy tbody td:nth-child(4),
+  table#centrala-sklepy thead th:nth-child(5),
+  table#centrala-sklepy tbody td:nth-child(5),
+  table#centrala-sklepy thead th:nth-child(6),
+  table#centrala-sklepy tbody td:nth-child(6),
+  table#centrala-sklepy thead th:nth-child(7),
+  table#centrala-sklepy tbody td:nth-child(7),
+  table#centrala-sklepy thead th:nth-child(8),
+  table#centrala-sklepy tbody td:nth-child(8) {
+    display: none;
+  }
+
+  table#centrala-sklepy thead th:nth-child(2),
+  table#centrala-sklepy tbody td:nth-child(2) {
+    border-radius: 10px 0 0 0;
+  }
+
+  table#centrala-sklepy thead th:last-child,
+  table#centrala-sklepy tbody td:last-child {
+    width: 120px;
+  }
+
+  form#dodawanie-sklepu {
+    width: 95%;
+  }
+
+  form#dodawanie-sklepu h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  p#dodawanie-komentarz {
+    font-size: 10px;
+  }
+
+  form#dodawanie-sklepu label {
+    font-size: 14px;
+  }
+
+  form#dodawanie-sklepu input {
+    height: 30px;
+    margin: 5px 0;
+    font-size: 12px;
+  }
+
+  form#dodawanie-kuwet {
+    width: 95%;
+  }
+
+  form#dodawanie-rozmiaru {
+    width: 95%;
+  }
+
+  form#dodawanie-smaku {
+    width: 95%;
+    height: unset;
+    padding: 20px;
+  }
+
+  form#dodawanie-smaku input {
+    height: 40px;
+  }
+
+  form#dodawanie-smaku #smak-podglad {
+    width: 80%;
+    height: 100px;
+  }
+
+  table#centrala-status-kuwety thead th {
+    height: 65px;
+  }
+
+  table#centrala-status-kuwety thead th {
+    font-size: 14px;
+  }
+
+  table#centrala-status-kuwety tbody td {
+    font-size: 12px;
+  }
+
+  table#centrala-status-kuwety thead th:first-child,
+  table#centrala-status-kuwety tbody td:first-child {
+    display: none;
+  }
+
+  table#centrala-status-kuwety thead th:nth-child(2) {
+    border-radius: 10px 0 0 0;
+  }
+
+  table#centrala-status-kuwety {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  table#centrala-status-kuwety tbody {
+    height: calc(100% - 70px);
+    max-height: calc(100% - 70px);
+  }
+
+  .centrala-main-container-bez-filtra {
+    margin-top: 70px;
+    height: calc(100% - 70px);
+    max-height: calc(100% - 70px);
+  }
+
+  table#centrala-puste-kuwety {
+    height: 100%;
+    max-height: 100%;
+  }
+
+  table#centrala-puste-kuwety thead th {
+    font-size: 14px;
+    height: 70px !important;
+  }
+
+  table#centrala-puste-kuwety tbody td {
+    font-size: 12px;
+  }
+
+  table#centrala-puste-kuwety tbody td button {
+    font-size: 12px;
+    padding: 5px;
+    height: 30px;
+  }
+
+  table#centrala-puste-kuwety thead th:nth-child(2),
+  table#centrala-puste-kuwety tbody td:nth-child(2) {
+    display: none;
+  }
+
+  table#centrala-puste-kuwety thead th:last-child,
+  table#centrala-puste-kuwety tbody td:last-child {
+    width: 100px;
+  }
+
+  button#obliczRcp {
+    display: none;
   }
 }
 

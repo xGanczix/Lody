@@ -43,6 +43,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
     kuwetyContainer.appendChild(hr);
     kuwetyContainer.appendChild(div);
+
+    function updateSumaSelectow() {
+      const selecty = kuwetyContainer.querySelectorAll("select");
+      let suma = 0;
+      selecty.forEach((sel) => {
+        suma += parseInt(sel.value) || 0;
+      });
+      document.querySelector(
+        "#licznik-przypisania-kuwet-wartosc"
+      ).textContent = `${suma}`;
+    }
+
+    kuwetyContainer.querySelectorAll("select").forEach((sel) => {
+      sel.addEventListener("change", updateSumaSelectow);
+    });
+
+    updateSumaSelectow();
   }
 
   document

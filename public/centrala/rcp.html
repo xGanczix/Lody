@@ -22,7 +22,9 @@
   <body>
     <div class="centrala-container">
       <div class="centrala-uzytkownik-container">
-        <button id="menu-display" style="display: none"></button>
+        <button id="menu-display" style="display: none">
+          <img src="../img/white/menu-white.png" />
+        </button>
         <span id="username"></span>
 
         <button id="theme-toggle">
@@ -35,7 +37,10 @@
 
       <nav class="centrala-menu"></nav>
       <main>
-        <div class="centrala-filtrowanie">
+        <button id="pokazFiltrowanie" style="display: none">
+          <img src="../img/white/calendar-white.png" />
+        </button>
+        <div class="centrala-filtrowanie centrala-filtrowanie-raporty">
           <label for="startDate">Początek:</label>
           <input type="date" name="" id="startDate" />
           <label for="endDate">Koniec:</label>
@@ -43,6 +48,8 @@
           <button id="obliczRcp">
             <img src="../img/white/search-interface-symbol-white.png" alt="" />
           </button>
+          <button id="raportujDatyNapis" style="display: none">Filtruj</button>
+          <button id="anulujRaportowanie" style="display: none">Anuluj</button>
         </div>
         <div class="centrala-main-container">
           <table id="centrala-rcp">

@@ -70,7 +70,6 @@ document.addEventListener("click", function (e) {
     const towarId = button.dataset.towar;
 
     const sklepId = sklepSelect.value;
-    console.log(sklepId);
 
     const row = button.closest("tr");
     const cena = row.querySelector(".cena-towaru").value;
@@ -84,7 +83,7 @@ document.addEventListener("click", function (e) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Sukces:", data);
+        alert("Cena zmieniona poprawnie");
         fetchCeny(sklepId);
       })
       .catch((error) => {

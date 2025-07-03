@@ -509,3 +509,39 @@ document.getElementById("raportujDaty").addEventListener("click", () => {
     fetchRaportPrzydzieloneKuwety();
   }
 });
+
+document.getElementById("raportujDatyNapis").addEventListener("click", () => {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+  if (startDate > endDate) {
+    alert("Data początkowa jest większa od  końcowej!");
+    return;
+  } else {
+    document.querySelector("#formy-platnosci").innerHTML = "";
+    document.querySelector("#sprzedawane-towary-wartosc").innerHTML = "";
+    document.querySelector("#sprzedaz-wartosci-dzien").innerHTML = "";
+    document.querySelector("#sprzedawane-smaki").innerHTML = "";
+    document.querySelector("#sprzedawane-towary-ilosc").innerHTML = "";
+    document.querySelector("#przydzielone-kuwety").innerHTML = "";
+
+    fetchRaportSprzedazFormyPlatnosci();
+    fetchRaportSprzedazWartosc();
+    fetchRaportSprzedazSmaki();
+    fetchRaportSprzedazTowaryIlosc();
+    fetchRaportSprzedazTowaryWartosc();
+    fetchRaportPrzydzieloneKuwety();
+
+    document.querySelector(".centrala-filtrowanie-raporty").style.display =
+      "none";
+  }
+});
+
+document.getElementById("anulujRaportowanie").addEventListener("click", () => {
+  document.querySelector(".centrala-filtrowanie-raporty").style.display =
+    "none";
+});
+
+document.getElementById("pokazFiltrowanie").addEventListener("click", () => {
+  document.querySelector(".centrala-filtrowanie-raporty").style.display =
+    "flex";
+});

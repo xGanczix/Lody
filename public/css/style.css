@@ -93,7 +93,6 @@ select {
   padding: 0 10px;
   font-size: 16px;
   outline: none;
-  font-size: 18px;
   text-align: center;
 }
 
@@ -233,7 +232,8 @@ html.dark-mode body table#zamowienie-pozostale-towary thead th,
 html.dark-mode body table#zamowienie-pozycje-zamowione thead th,
 html.dark-mode body table#centrala-zamowienia thead th,
 html.dark-mode body table#centrala-puste-kuwety thead th,
-html.dark-mode body button#menu-display:hover {
+html.dark-mode body button#menu-display:hover,
+html.dark-mode body .licznik-przypisania-kuwet {
   background: var(--button-dark-color);
 }
 

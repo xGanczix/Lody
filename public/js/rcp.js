@@ -70,6 +70,30 @@ document.getElementById("obliczRcp").addEventListener("click", async () => {
   initCalculation();
 });
 
+document
+  .getElementById("raportujDatyNapis")
+  .addEventListener("click", async () => {
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+
+    if (!startDate || !endDate) return;
+
+    document.querySelector(".centrala-filtrowanie-raporty").style.display =
+      "none";
+    await fetchRCP(startDate, endDate);
+    initCalculation();
+  });
+
+document.getElementById("anulujRaportowanie").addEventListener("click", () => {
+  document.querySelector(".centrala-filtrowanie-raporty").style.display =
+    "none";
+});
+
+document.getElementById("pokazFiltrowanie").addEventListener("click", () => {
+  document.querySelector(".centrala-filtrowanie-raporty").style.display =
+    "flex";
+});
+
 function calculateSalary(rcpId) {
   const stawkaInput = document.getElementById(`rcp-stawka-${rcpId}`);
   const godzinyInput = document.getElementById(`rcp-format-${rcpId}`);
